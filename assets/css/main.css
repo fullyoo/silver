@@ -1384,6 +1384,10 @@
         height: 45px;
     }
 
+    .intro-sec {
+        background-position: 60%;
+    }
+
     .intro-wrap {
         flex-direction: column;
     }
@@ -1432,7 +1436,7 @@
     }
 
     .donate-link a {
-        font-size: 14px;
+        font-size: 15px;
     }
 
     .letter-sec .form-list {
