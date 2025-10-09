@@ -1829,6 +1829,7 @@ input[type="checkbox"]:focus {
     }
 
     .header-logo {
+        /* left: 30px; */
         left: 0px;
     }
 
@@ -2048,7 +2049,7 @@ input[type="checkbox"]:focus {
     }
 
     .header-logo img {
-        /* height: 35px; */
+        height: 35px;
     }
 
 }
