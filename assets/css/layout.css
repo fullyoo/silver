@@ -1954,6 +1954,14 @@ input[type="checkbox"]:focus {
         font-size: 14px;
     }
 
+    .header-logo {
+        left: 20px;
+    }
+
+    .mo-btn {
+        right: 20px
+    }
+
     .login-popup {
         padding: 30px 20px;
     }
@@ -1972,6 +1980,7 @@ input[type="checkbox"]:focus {
 
     .more img {
         width: 12px;
+        margin-top: -1px;
     }
 
     .cont-sec a:hover .t-box .more {
@@ -2022,8 +2031,8 @@ input[type="checkbox"]:focus {
 
     #btnTop,
     #btnTop::before {
-        width: 60px;
-        height: 60px;
+        width: 50px;
+        height: 50px;
         font-size: 13px;
         right: 20px;
         bottom: 250px;
@@ -2047,7 +2056,7 @@ input[type="checkbox"]:focus {
     }
 
     .header-logo img {
-        height: 40px;
+        height: 35px;
     }
 
 }
