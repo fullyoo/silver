@@ -1094,7 +1094,6 @@ input[type="checkbox"]:focus {
 
 .header-logo {
     /* position: relative; */
-    position: absolute;
 }
 
 .logo {
@@ -1291,14 +1290,6 @@ input[type="checkbox"]:focus {
 
 #header.scrolled .menu-wrap .line {
     background-color: var(--primary-color);
-}
-
-.header-logo.scrolled .logo {
-    display: block;
-}
-
-.header-logo.scrolled .logo-w {
-    display: none;
 }
 
 #header.scrolled .consult-btn {
