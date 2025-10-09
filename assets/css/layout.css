@@ -1093,7 +1093,7 @@ input[type="checkbox"]:focus {
 }
 
 .header-logo {
-    /* position: relative; */
+    position: relative;
 }
 
 .logo {
@@ -1829,7 +1829,7 @@ input[type="checkbox"]:focus {
     }
 
     .header-logo {
-        /* left: 0px; */
+        left: 0px;
     }
 
     .logo-nav {
