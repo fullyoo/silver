@@ -258,7 +258,7 @@ video {
     pointer-events: none;
     /* 안 보일 때 클릭 방지 */
     position: fixed;
-    bottom: 70px;
+    bottom: 200px;
     right: 30px;
     width: 65px;
     height: 65px;
@@ -2026,6 +2026,7 @@ input[type="checkbox"]:focus {
         height: 60px;
         font-size: 13px;
         right: 20px;
+        bottom: 250px;
     }
 
 
