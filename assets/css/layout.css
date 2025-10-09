@@ -2048,7 +2048,7 @@ input[type="checkbox"]:focus {
     }
 
     .header-logo img {
-        width: 200px;
+        /* width: 200px; */
     }
 
 }
