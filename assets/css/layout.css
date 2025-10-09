@@ -1829,8 +1829,7 @@ input[type="checkbox"]:focus {
     }
 
     .header-logo {
-        /* left: 30px; */
-        left: 0px;
+        /* left: 0px; */
     }
 
     .logo-nav {
@@ -1949,6 +1948,7 @@ input[type="checkbox"]:focus {
 
     .header-logo {
         left: 0px;
+
     }
 
     .mo-btn {
@@ -2048,7 +2048,8 @@ input[type="checkbox"]:focus {
         gap: 5px;
     }
 
-    .header-logo img {
+    .header-logo .logo,
+    .header-logo .logo-w {
         height: 35px;
     }
 
