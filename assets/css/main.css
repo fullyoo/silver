@@ -1,0 +1,1496 @@
+@charset "utf-8";
+
+
+
+/* ============ 1. 메인 상단 비주얼 =============== */
+
+.kv-sec {
+    overflow: hidden;
+    position: relative;
+    letter-spacing: -.2px;
+    width: 100%;
+    height: 100vh;
+}
+
+.kv-sec .inner-sec {
+    position: relative;
+}
+
+.kv-sec .main_slide {
+    width: 100%;
+    height: 100%;
+    background: var(--text-color);
+}
+
+.kv-sec ul li {
+    width: 100%;
+    height: 100%;
+    background: center no-repeat;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+}
+
+.kv-sec ul li::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: 1;
+}
+
+.kv-sec ul li.bg01 {
+    background-image: url('../images/main/kv-img01.jpg');
+}
+
+.kv-sec ul li.bg02 {
+    background-image: url('../images/main/kv-img01.jpg');
+}
+
+.kv-sec ul li.bg03 {
+    background-image: url('../images/main/kv-img01.jpg');
+}
+
+
+.kv-sec ul li video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    min-width: 100%;
+    min-height: 100%;
+}
+
+
+.kv-sec .pager {
+    position: absolute;
+    left: 60px;
+    left: 50%;
+    bottom: 70px;
+    z-index: 101;
+    transform: translateX(-50%);
+    width: max-content;
+}
+
+.kv-sec .pager span {
+    opacity: .3;
+    position: relative;
+    width: 50px;
+    height: 50px;
+    margin: 0 5px;
+    background-color: transparent;
+    transition: all .3s;
+}
+
+.kv-sec .pager span.on {
+    opacity: 1;
+}
+
+.kv-sec .pager span:before {
+    opacity: 0;
+    display: block;
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 50px;
+    height: 50px;
+    border: 1px solid rgba(255, 255, 255, .3);
+    border-radius: 50%;
+    transition: all .3s;
+}
+
+.kv-sec .pager span.on:before {
+    opacity: 1;
+    width: 40px;
+    height: 40px;
+}
+
+.kv-sec .pager span:after {
+    display: block;
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: #fff;
+}
+
+/* 텍스트 스타일 */
+.kv-sec .main_txt {
+    font-size: 18px;
+    font-weight: 500;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s ease;
+    position: relative;
+    z-index: 9;
+}
+
+.kv-sec .swiper-slide-active .main_txt {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.kv-sec .main_txt span {
+    font-weight: 600;
+    opacity: 0;
+    transform: translateX(-30px);
+    transition: all 0.6s ease 0.4s;
+    color: var(--white-color);
+    font-size: 30px;
+}
+
+.kv-sec .swiper-slide-active .main_txt span {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.kv-sec .main_txt .txt {
+    padding: 30px 0 60px;
+    font-size: 52px;
+    font-weight: 700;
+    white-space: pre-line;
+    font-family: 'Poppins', sans-serif;
+    opacity: 0;
+    transform: translateX(30px);
+    transition: all 0.6s ease 0.6s;
+    color: var(--white-color);
+}
+
+.kv-sec .swiper-slide-active .main_txt .txt {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.kv-sec .main_txt .txt b {
+    color: var(--primary-color);
+    display: block;
+    /* animation: colorPulse 2s ease-in-out infinite; */
+}
+
+@keyframes colorPulse {
+
+    0%,
+    100% {
+        color: var(--primary-color);
+    }
+
+    50% {
+        color: #6BB6FF;
+    }
+}
+
+.kv-sec .main_txt .desc {
+    color: var(--white-color);
+    background-color: var(--primary-color);
+    padding: 20px 50px;
+    border-radius: 50px;
+    font-weight: 700;
+    border: 2px solid var(--white-color);
+    font-size: 22px;
+    display: inline-block;
+    transition: all .6s ease;
+}
+
+.kv-sec .main_txt .desc:hover {
+    color: var(--primary-color);
+    background-color: var(--white-color);
+    border: 2px solid var(--primary-color);
+}
+
+.kv-sec .main_txt .btn {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all .6s ease .8s;
+}
+
+.kv-sec .swiper-slide-active .main_txt .btn {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.kv-sec .main_txt .desc i {
+    font-family: xeicon;
+    vertical-align: middle;
+    padding-left: 5px;
+    margin-top: -3px;
+}
+
+
+/* 스크롤 인디케이터 (얇은 프레임 + 화살표) */
+.scroll-indicator {
+    position: absolute;
+    /* left: 50%; */
+    /* transform: translateX(-50%); */
+    right: 0;
+    bottom: 80px;
+    width: 35px;
+    height: 58px;
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.7);
+    display: inline-block;
+    text-indent: -9999px;
+    box-sizing: border-box;
+    z-index: 9;
+}
+
+/* 화살표 점 (animated) */
+.scroll-indicator::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: 14px;
+    width: 6px;
+    height: 6px;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 50%;
+    transform: translateX(-50%);
+    animation: dot-move 2s infinite;
+}
+
+/* 점이 아래로 이동하며 사라지는 애니메이션 */
+@keyframes dot-move {
+    0% {
+        opacity: 1;
+        transform: translate(-50%, 0);
+    }
+
+    40% {
+        opacity: 0.5;
+        transform: translate(-50%, 15px);
+    }
+
+    80% {
+        opacity: 0;
+        transform: translate(-50%, 30px);
+    }
+
+    100% {
+        opacity: 0;
+        transform: translate(-50%, 30px);
+    }
+}
+
+
+
+
+/* ============ 2. 메인 주요 서비스 =============== */
+
+.service-sec {
+    background-image: url(../images/main/icon_main-cont.svg);
+    background-position: 100%;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+.service-sec .cont-sec {
+    padding-bottom: 230px;
+}
+
+.service-sec .title-wrap {
+    text-align: center;
+    display: block;
+}
+
+.service-sec .cta-btn {
+    margin: 30px 0;
+    font-size: 20px;
+}
+
+.service-sec .t-box {
+    /* text-align: center; */
+}
+
+.service-wrap {
+    display: flex;
+    flex-flow: row wrap;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 60px;
+
+}
+
+.service-wrap li {
+    width: calc((100% - 120px) / 3);
+}
+
+.service-wrap li:nth-child(2),
+.service-wrap li:nth-child(5) {
+    top: 100px;
+}
+
+.service-wrap li a .t-box .t1 b {
+    font-weight: 700;
+    font-size: 35px;
+    margin-bottom: -10px;
+    display: block;
+}
+
+
+
+
+
+/* ============ 3. 메인 팀 케어 전문인력 =============== */
+.team-sec {
+    background-color: var(--bg-color);
+    overflow-x: hidden;
+}
+
+.team-sec .t-box .t1 {
+    font-size: 32px;
+}
+
+.team-sec .t-box .t2 {
+    font-size: 22px;
+    /* height: auto; */
+}
+
+.team-slide {
+    overflow: hidden;
+    position: relative;
+    margin-top: 100px;
+}
+
+.team-slide ul li .img_wrap {
+    width: 100%;
+    height: 500px;
+}
+
+.team-slide ul li .thum-img {
+    height: 100%;
+    border-radius: 0px;
+    background-image: url(../images/main/team-img01.jpg);
+    background-position: center;
+    border-radius: 10px;
+    background-size: cover;
+    transition: 0.5s
+}
+
+.team-slide ul li a:hover .thum-img {
+    transform: scale(1.1);
+}
+
+.team-slide ul li .team-img02 {
+    background-image: url(../images/main/team-img02.jpg);
+}
+
+.team-slide ul li .team-img03 {
+    background-image: url(../images/main/team-img03.jpg);
+}
+
+.team-slide ul li .team-img04 {
+    background-image: url(../images/main/team-img04.jpg);
+}
+
+.team-slide ul li .team-img05 {
+    background-image: url(../images/main/team-img05.jpg);
+    background-position: 0 20%;
+}
+
+.team-slide ul li .team-img06 {
+    background-image: url(../images/main/team-img06.jpg);
+}
+
+.team-slide .swiper-pagination {
+    position: relative;
+    /* width: 88%; */
+    height: 5px;
+    background-color: var(--lightGray-color);
+    border-radius: 100px;
+    overflow: hidden;
+}
+
+.team-slide .swiper-pagination .swiper-pagination-progressbar-fill {
+    background-color: var(--primary-color);
+}
+
+.team-slide .pager_wrap {
+    padding-top: 50px;
+    display: flex;
+    align-items: center;
+    max-width: 1620px;
+
+}
+
+/* .team-slide를 전체 너비로 확장 (오른쪽 끝까지) */
+.team-sec .team-slide {
+    width: calc(100vw - (100vw - 100%) / 2);
+    margin-right: calc((100vw - 100%) / -2);
+}
+
+
+
+
+/* ============ 4. 갤러리 활동 사진 =============== */
+
+.gallery-slide {
+    overflow: hidden;
+}
+
+.gallery-list {
+    background-color: var(--bg-color);
+    border-radius: 20px;
+}
+
+.gallery-list .img_wrap {
+    display: flex;
+    padding: 70px;
+    gap: 70px;
+    align-items: center;
+    background-color: var(--bg-color);
+}
+
+.gallery-list .t-box {
+    position: inherit;
+    padding: 0;
+    width: 50%;
+    max-height: 450px;
+}
+
+.gallery-list .t-box .t1 {
+    color: var(--text-color);
+    /* margin: 50px 0; */
+}
+
+.gallery-list .t-box .t2 {
+    color: var(--body-color);
+    opacity: 1;
+    height: auto;
+    font-size: 20px;
+    margin-bottom: 50px;
+
+}
+
+.gallery-list .t-box .t2 b {
+    font-size: 24px;
+}
+
+.gallery-sec .cont-sec li a::before {
+    display: none;
+}
+
+.gallery-sec .cont-sec a:hover .t-box .t2 {
+    height: auto;
+}
+
+.gallery-list .t-box .more {
+    color: var(--primary-color);
+    background-color: var(--white-color);
+    border: 1px solid var(--primary-color);
+    border-radius: 50px;
+    padding: 10px 50px 10px 30px;
+    display: inline-block;
+    position: relative;
+}
+
+
+.gallery-sec .cont-sec a:hover .more {
+    color: var(--primary-color);
+    background-color: var(--white-color);
+    border: 1px solid var(--primary-color);
+    border-radius: 50px;
+    padding: 10px 50px 10px 30px;
+    display: inline-block;
+    position: relative;
+}
+
+.cont-sec .gallery-list .t-box .more:hover {
+    color: var(--white-color);
+    background-color: var(--primary-color);
+}
+
+.cont-sec .gallery-list .t-box .more:hover>img {
+    transform: rotate(90deg);
+}
+
+.cont-sec .gallery-list .t-box .more:hover .plus-w {
+    opacity: 1;
+}
+
+.cont-sec .gallery-list .t-box .more:hover .plus-r {
+    opacity: 0;
+}
+
+.gallery-list .t-box .more>img {
+    position: absolute;
+    top: 35%;
+}
+
+
+.gallery-sec .cont-sec a:hover .more>img {
+    top: 35%;
+    /* transform: rotate(0deg); */
+}
+
+.gallery-list .thum-img {
+    width: 50%;
+    height: 450px;
+    overflow: hidden;
+    border-radius: 20px;
+}
+
+
+
+
+/* ============ 5. 복지센터 소식 =============== */
+.notice-slide {
+    overflow: hidden;
+}
+
+.notice-sec .cont-sec li a::before {
+    display: none;
+}
+
+.gallery-list.notice-list {
+    background-color: transparent;
+}
+
+.notice-sec .cont-sec a:hover .t-box .t2 {
+    height: auto;
+    margin-bottom: 10px;
+}
+
+.notice-list .t-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    height: 300px;
+    border: 1px solid #ddd;
+    padding: 30px;
+    border-radius: 20px;
+    position: relative;
+    transition: .3s;
+    margin: 10px 0;
+    transform: translateY(0px);
+}
+
+.notice-list .t-box .t1 {
+    font-size: 24px;
+    margin-bottom: 40px;
+    word-break: inherit;
+    min-height: 100px;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    -webkit-line-clamp: 3;
+}
+
+.notice-list .t-box .t2 {
+    margin-bottom: 10px;
+}
+
+.notice-list .t-box .t2 b {
+    font-size: 18px;
+}
+
+
+.notice-list .t-box .t3 {
+    color: var(--body-color2);
+}
+
+.notice-sec .cont-sec li a {}
+
+.notice-sec .cont-sec li a:hover {}
+
+.notice-sec .cont-sec li a.t-box:hover:after {
+    opacity: 1;
+    border-color: #db2a22;
+}
+
+.notice-sec .cont-sec li a:hover .t-box {
+    /* border: 2px solid var(--primary-color);
+    padding: 29px;
+    box-sizing: border-box;
+    transition: .3s; */
+    box-shadow: 0 5px 5px rgba(0, 0, 0, 0.1);
+    transform: translateY(-10px);
+}
+
+.notice-sec .cont-sec li .t-box:after {
+    content: "";
+    width: 100%;
+    height: 100%;
+    border: 2px solid #fff;
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-radius: 20px;
+    opacity: 0;
+    transition: .3s;
+}
+
+.notice-sec .cont-sec li a:hover .t-box:after {
+    opacity: 1;
+    border-color: var(--primary-color)
+}
+
+.notice-sec .cont-sec li a:hover .t1 {
+    color: var(--primary-color);
+}
+
+
+
+
+/* ============ 6. 복지센터 인트로 =============== */
+
+.intro-sec {
+    text-align: center;
+    background-image: url(../images/main/intro-bg.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.intro-sec .inner-sec {
+    width: 100%;
+    max-width: unset;
+}
+
+.intro-sec .cont-sec {
+    padding: unset;
+}
+
+.intro-sec .title-wrap {
+    display: block;
+    margin-bottom: 0;
+    padding: 270px 0;
+}
+
+
+.intro-sec .title {
+    color: var(--white-color);
+    font-size: 55px;
+    line-height: 1.5;
+}
+
+.intro-wrap {
+    display: flex;
+    justify-content: space-between;
+}
+
+.intro-wrap li {
+    border-radius: 0;
+    width: 100%;
+    height: 100%;
+    border-top: 1px solid rgba(255 255 255 / 40%);
+}
+
+.intro-wrap li:not(:last-child) {
+    border-right: 1px solid rgba(255 255 255 / 40%);
+}
+
+.intro-wrap .t-box {
+    position: inherit;
+    height: 340px;
+    padding: 100px 0;
+}
+
+.intro-wrap .t-box .t1 {
+    margin-top: 0px;
+    transition: .5s;
+}
+
+.intro-wrap .t-box .t2 {
+    height: auto;
+    opacity: 1;
+    margin: 10px 0 50px;
+}
+
+.intro-sec a:hover .t-box .t1 {
+    margin-top: -20px;
+}
+
+.intro-sec a:hover .t-box .t2 {
+    height: auto;
+    opacity: 1;
+}
+
+.intro-sec .t-box .more {
+    color: var(--white-color);
+    border: 1px solid var(--white-color);
+    border-radius: 50px;
+    padding: 10px 30px;
+    display: inline-block;
+}
+
+.intro-sec .cont-sec a:hover .t-box .more {
+    border-color: var(--primary-color);
+
+}
+
+
+
+/* ============ 7. 메인 자원봉사신청 배너=============== */
+
+.letter-sec {
+    background-color: var(--bg-color);
+    position: relative;
+}
+
+.letter-sec:after {
+    content: "";
+    width: 50%;
+    height: 100%;
+    background-color: #ffea00;
+    position: absolute;
+    right: 0;
+    top: 0px;
+}
+
+.letter-wrap {
+    display: flex;
+}
+
+.letter-wrap>div {
+    flex: 1;
+    width: 50%;
+    padding: 50px 0px;
+    min-height: 327px;
+}
+
+.letter-wrap>div img {
+    width: 50px;
+}
+
+.letter-wrap>div .btn {}
+
+.letter-wrap>div .btn a {
+    color: var(--white-color);
+    font-weight: 800;
+    font-size: 19px;
+    background-color: var(--primary-color);
+    padding: 18px 40px;
+    border-radius: 10px;
+    transition: .3s;
+    text-align: center;
+}
+
+.letter-wrap>div .btn a:hover {
+    transform: translateY(-5px);
+    color: var(--primary-color);
+}
+
+.letter-wrap>div .btn a b {
+    color: #FFEA00;
+}
+
+.letter-wrap .kakako-wrap .btn a {
+    background-color: #3C1E1E;
+}
+
+.letter-title {
+    color: var(--text-color);
+}
+
+.letter-title b {
+    font-weight: 700;
+}
+
+.letter-title .tit {
+    font-size: 32px;
+    font-weight: 800;
+}
+
+.letter-title .txt {
+    font-size: 22px;
+    margin: 15px 0;
+}
+
+.letter-wrap .kakako-wrap {
+    background-color: #FFEA00;
+    position: relative;
+    z-index: 9;
+    background-image: url(../images/common/letter-icon02-bg.svg);
+    background-repeat: no-repeat;
+    background-position: center 115%;
+    background-size: 470px auto;
+    padding-left: 60px;
+}
+
+.kakako-wrap .btn {
+    margin-top: 60px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+
+.letter-sec .form-list {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.letter-wrap .volunteer-wrap {
+    padding-right: 60px;
+}
+
+
+.form-list input[type="text"],
+.form-list input[type="submit"],
+.form-list button[type="submit"] {
+    padding: 15px 20px;
+    border: 2px solid var(--lightGray-color);
+    border-radius: 10px;
+    font-size: 18px;
+    font-family: 'pretendard', sans-serif;
+    flex-grow: 1;
+    width: 20%;
+    transition: .3s;
+}
+
+.form-list input[type="text"]:nth-child(2) {
+    width: 40%;
+}
+
+.form-list input[type="text"]:focus {
+    border-color: var(--primary-color);
+}
+
+.form-list input[type="submit"],
+.form-list button[type="submit"] {
+    width: calc(40% - 20px);
+    font-weight: 800;
+    background-color: var(--primary-color);
+    color: var(--white-color);
+    border-color: var(--primary-color);
+    cursor: pointer;
+}
+
+.form-list input[type="submit"]:hover,
+.form-list button[type="submit"]:hover {
+    color: var(--primary-color);
+    border: 2px solid var(--primary-color);
+    background-color: var(--white-color);
+    transform: translateY(-5px);
+}
+
+.check-list {
+    margin-top: 20px;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.check-list input[type="checkbox"]+label {
+    color: var(--body-color2);
+}
+
+.check-list .more {
+    color: var(--body-color);
+    font-weight: 500;
+}
+
+.check-list .more:hover {
+    color: var(--primary-color);
+}
+
+.check-list input[type="checkbox"] {
+    width: 24px;
+    height: 24px;
+}
+
+.check-list input[type="checkbox"]:after {
+    width: 8px;
+    height: 12px;
+}
+
+.check-list span {
+    font-size: 16px;
+    color: var(--body-color2);
+}
+
+
+
+/* ============ 8. 메인 후원하기 배너=============== */
+
+.donate-sec {
+    color: var(--white-color);
+    background-color: var(--primary-color);
+    padding: 50px 0;
+}
+
+.donate-wrap {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.donate-left {
+    display: flex;
+    gap: 30px;
+}
+
+.donate-left img {
+    width: 60px;
+}
+
+.donate-title {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.donate-title .tit {
+    font-size: 32px;
+    font-weight: 800;
+}
+
+.donate-title .txt {
+    font-size: 22px;
+    font-weight: 500;
+}
+
+.donate-link {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.donate-link a {
+    color: var(--white-color);
+    border: 1px solid var(--white-color);
+    border-radius: 50px;
+    padding: 15px 50px;
+    font-size: 18px;
+    font-weight: 800;
+    transition: .3s;
+}
+
+.donate-link a:hover {
+    color: var(--primary-color);
+    border: 1px solid var(--primary-color);
+    background-color: var(--white-color);
+    transform: translateY(-5px);
+}
+
+
+/* popup  */
+.popup-wrap {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: rgba(0 0 0 / 85%);
+    /* backdrop-filter: blur(3px); */
+    z-index: 9999;
+}
+
+.popup {
+    max-width: 500px;
+    width: calc(100% - 40px);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: var(--white-color);
+    border-radius: 16px;
+    padding: 40px;
+}
+
+.popup p {
+    margin: 20px 0;
+}
+
+.close-btn {
+    float: right;
+    padding: 5px;
+}
+
+.popup-close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+
+.popup-close:hover {
+    transform: rotate(90deg);
+}
+
+.popup-close::before,
+.popup-close::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background-color: var(--body-color);
+    top: 50%;
+    left: 0;
+    border-radius: 2px;
+    transition: background-color 0.3s;
+}
+
+.popup-close::before {
+    transform: translateY(-50%) rotate(45deg);
+}
+
+.popup-close::after {
+    transform: translateY(-50%) rotate(-45deg);
+}
+
+.popup-close:hover::before,
+.popup-close:hover::after {
+    background-color: var(--primary-color);
+}
+
+.popup h3 {
+    font-size: 24px;
+    /* font-weight: 700; */
+    color: var(--text-color);
+    margin: 20px 0 30px;
+    text-align: center;
+    border-bottom: 2px solid var(--lightGray-color);
+    padding-bottom: 20px;
+}
+
+.popup strong {
+    font-size: 17px;
+    margin-bottom: 5px;
+    display: block;
+}
+
+
+
+
+/* ========반응형 미디어쿼리======== */
+
+@media(max-width:1600px) {
+
+    .team-sec .t-box .t1 {
+        font-size: 28px;
+    }
+
+    .team-sec .t-box .t2 {
+        opacity: 1;
+        height: auto;
+        display: block;
+        font-size: 16px;
+        height: 80px;
+    }
+
+    .team-sec .t-box {
+        padding: 30px;
+    }
+}
+
+@media(max-width:1280px) {
+    .kv-sec {
+        height: 800px;
+        min-height: auto;
+    }
+
+    .kv-sec .swiper-slide-active .main_txt .txt {
+        font-size: 42px;
+    }
+
+    .kv-sec .main_txt span {
+        font-size: 26px;
+    }
+
+    .donate-link {
+        flex-direction: column;
+    }
+
+    .letter-wrap {
+        flex-direction: column;
+    }
+
+    .letter-sec:after {
+        display: none;
+    }
+
+    .letter-wrap>div {
+        width: 100%;
+        padding: 50px 30px;
+        min-height: auto;
+    }
+
+    .letter-sec .inner-sec {
+        width: 100%;
+    }
+
+    .letter-wrap .kakako-wrap {
+        padding-left: 30px;
+    }
+
+    .kakako-wrap .btn {
+        margin-top: 30px;
+    }
+
+    .letter-wrap .volunteer-wrap {
+        padding-right: 30px;
+    }
+
+    .form-list input[type="submit"],
+    .form-list button[type="submit"] {
+        width: calc(28% - 20px);
+    }
+
+
+}
+
+@media(max-width:1024px) {
+    .kv-sec {
+        /* height: 600px; */
+    }
+
+    .kv-sec .main_txt {
+        font-size: 16px;
+    }
+
+    .kv-sec .main_txt .txt {
+        font-size: 40px;
+    }
+
+    .kv-sec .pager {
+        /* bottom: 30px; */
+    }
+
+    .kv-sec .swiper-slide-active .main_txt span {
+        font-size: 22px;
+    }
+
+    .kv-sec .swiper-slide-active .main_txt .desc {
+        font-size: 17px;
+        padding: 15px 30px;
+    }
+
+    .service-sec {
+        background-size: 500px;
+        background-position: 100% 0;
+    }
+
+    .service-wrap {
+        gap: 40px;
+    }
+
+    .service-wrap li {
+        width: calc((100% - 40px) / 2);
+    }
+
+    .service-wrap li:nth-child(2),
+    .service-wrap li:nth-child(5) {
+        top: 0px;
+    }
+
+
+    .service-sec .cta-btn {
+        font-size: 17px;
+    }
+
+    .service-sec .cont-sec {
+        padding: 80px 0;
+    }
+
+    .gallery-list .img_wrap {
+        flex-direction: column;
+        padding: 50px;
+        gap: 40px;
+    }
+
+    .gallery-list .t-box {
+        width: 100%;
+    }
+
+    .gallery-list .thum-img {
+        width: 100%;
+        height: 360px;
+    }
+
+    .gallery-list .t-box .t2 {
+        display: block;
+        margin-bottom: 30px;
+    }
+
+    .gallery-list .t-box .t2 b {
+        font-size: 20px;
+    }
+
+    .intro-sec .title-wrap {
+        padding: 150px 0;
+    }
+
+    .intro-sec .title {
+        font-size: 40px;
+        padding: 20px;
+    }
+
+    .intro-wrap .t-box {
+        padding: 50px 0;
+        height: auto;
+    }
+
+    .intro-wrap .t-box .t1 {
+        font-size: 25px;
+        margin-bottom: 10px;
+    }
+
+    .intro-sec .t-box .more {
+        padding: 8px 16px;
+        font-size: 13px;
+    }
+
+    .intro-wrap .t-box .t2 {
+        display: block;
+        margin: 0 0 30px;
+    }
+
+    .intro-wrap .t-box .t1 {
+        font-size: 22px;
+    }
+
+    .donate-wrap {
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    .donate-link a {
+        width: 100%;
+        text-align: center;
+        font-size: 16px;
+    }
+
+    .donate-link {
+        flex-direction: row;
+    }
+
+    .donate-title .tit {
+        font-size: 28px;
+    }
+
+    .donate-title .txt {
+        font-size: 18px;
+    }
+
+    .donate-sec {
+        padding: 40px 0;
+    }
+
+
+}
+
+
+
+@media(max-width:767px) {
+    .kv-sec {}
+
+    .kv-sec .main_txt {
+        line-height: 1.6;
+        word-break: keep-all;
+    }
+
+    .kv-sec .main_txt .txt {
+        font-size: 34px;
+        word-break: keep-all;
+    }
+
+    .kv-sec .swiper-slide-active .main_txt span {
+        font-size: 18px;
+    }
+
+    .kv-sec .swiper-slide-active .main_txt .txt {
+        font-size: 32px;
+        line-height: 1.3;
+        padding: 20px 0 40px;
+    }
+
+    .service-wrap {
+        gap: 20px;
+    }
+
+    .service-wrap li {
+        width: calc((100% - 20px) / 2);
+    }
+
+    .service-wrap li a .t-box .t1 b {
+        font-size: 28px;
+    }
+
+    .team-sec .t-box .t1 {
+        font-size: 24px;
+    }
+
+    .team-sec .team-slide {
+        margin-top: 40px;
+    }
+
+    .gallery-list .img_wrap {
+        padding: 30px;
+    }
+
+    .gallery-list .t-box .t2 {
+        font-size: 17px;
+    }
+
+    .gallery-list .t-box .t2 b {
+        font-size: 18px;
+    }
+
+    .gallery-list .thum-img {
+        height: 240px;
+    }
+
+    .kv-sec .pager span:after {
+        width: 8px;
+        height: 8px;
+    }
+
+    .kv-sec .pager span.on:before {
+        width: 30px;
+        height: 30px;
+    }
+
+    .kv-sec .pager span {
+        width: 30px;
+        height: 30px;
+    }
+
+    .scroll-indicator {
+        width: 26px;
+        height: 45px;
+    }
+
+    .intro-wrap {
+        flex-direction: column;
+    }
+
+    .intro-sec .title {
+        font-size: 32px;
+    }
+
+    .intro-sec .title-wrap {
+        padding: 100px 0;
+    }
+
+    .intro-wrap .t-box {
+        padding: 40px 0;
+    }
+
+    .intro-wrap .t-box .t2 {
+        font-size: 15px;
+    }
+
+    .intro-sec .t-box .more {
+        font-size: 12px;
+    }
+
+    .notice-list .t-box .t1 {
+        font-size: 22px;
+        min-height: 80px;
+    }
+
+    .donate-left {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .donate-right {
+        width: 100%;
+    }
+
+    .donate-title .tit {
+        font-size: 24px;
+    }
+
+    .donate-title .txt {
+        font-size: 16px;
+    }
+
+    .donate-link a {
+        font-size: 14px;
+    }
+
+    .letter-sec .form-list {
+        flex-direction: column;
+    }
+
+    .form-list input[type="text"],
+    .form-list input[type="submit"],
+    .form-list button[type="submit"] {
+        width: calc(100% - 40px);
+    }
+
+    .form-list input[type="text"]:nth-child(2) {
+        width: calc(100% - 40px);
+    }
+
+    .form-list input[type="submit"],
+    .form-list button[type="submit"] {
+        width: 100%;
+    }
+
+    .check-list span {
+        display: block;
+        margin: 3px 0 0 28px;
+    }
+
+    .check-list .more {
+        font-size: 16px;
+    }
+
+    .kakako-wrap .btn {
+        justify-content: flex-start;
+    }
+
+    .letter-wrap .kakako-wrap .btn a {
+        width: 100%;
+        text-align: center;
+    }
+
+    .letter-title .tit {
+        font-size: 28px;
+    }
+
+    .letter-title .txt {
+        font-size: 18px;
+    }
+
+    .check-list {
+        font-size: 16px;
+    }
+
+    .popup {
+        padding: 30px 20px;
+    }
+
+    .popup-close {
+        width: 25px;
+        height: 25px;
+    }
+
+    .popup h3 {
+        font-size: 22px;
+        margin: 25px 0 30px;
+    }
+
+
+}
+
+
+
+@media(max-width:480px) {
+    .service-wrap li {
+        width: 100%;
+    }
+
+    .donate-link {
+        flex-direction: column;
+        text-align: center;
+    }
+}
