@@ -1801,7 +1801,7 @@ input[type="checkbox"]:focus {
 
     .header-container.inner-sec {
         padding: 0px;
-        width: 100%;
+        /* width: 100%; */
     }
 
     .logo.off {
@@ -1955,11 +1955,11 @@ input[type="checkbox"]:focus {
     }
 
     .header-logo {
-        left: 00px;
+        left: 0px;
     }
 
     .mo-btn {
-        right: 20px
+        right: 0px
     }
 
     .login-popup {
