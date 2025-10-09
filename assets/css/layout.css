@@ -1093,7 +1093,8 @@ input[type="checkbox"]:focus {
 }
 
 .header-logo {
-    position: relative;
+    /* position: relative; */
+    position: absolute;
 }
 
 .logo {
@@ -1801,7 +1802,7 @@ input[type="checkbox"]:focus {
 
     .header-container.inner-sec {
         padding: 0px;
-        width: 100%;
+        /* width: 100%; */
     }
 
     .logo.off {
