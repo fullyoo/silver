@@ -1295,7 +1295,7 @@
 
 @media(max-width:767px) {
     .kv-sec {
-        height: calc(100vh - 50px);
+        height: calc(100vh - 20px);
     }
 
     .kv-sec .main_txt {
