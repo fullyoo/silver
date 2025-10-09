@@ -1814,6 +1814,7 @@ input[type="checkbox"]:focus {
         z-index: 9999;
         width: 100%;
         height: 80px;
+        justify-content: space-between;
     }
 
     .header-logo.off {
@@ -2050,7 +2051,7 @@ input[type="checkbox"]:focus {
 
     .header-logo .logo,
     .header-logo .logo-w {
-        height: 35px;
+        width: 200px;
     }
 
 }
