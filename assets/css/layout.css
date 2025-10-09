@@ -1092,10 +1092,6 @@ input[type="checkbox"]:focus {
     gap: 10px;
 }
 
-.header-logo {
-    /* position: relative; */
-}
-
 .logo {
     display: block;
 }
@@ -1573,7 +1569,7 @@ input[type="checkbox"]:focus {
     .mo-btn {
         display: block;
         position: absolute;
-        right: 30px;
+        right: 0px;
         z-index: 9999;
     }
 
@@ -1828,10 +1824,6 @@ input[type="checkbox"]:focus {
         z-index: 9999;
     }
 
-    .header-logo {
-        /* left: 30px; */
-    }
-
     .logo-nav {
         display: block;
         padding: 20px 0 0 30px;
@@ -1944,14 +1936,6 @@ input[type="checkbox"]:focus {
     .header-buttons .header-btn {
         padding: 6px 10px;
         font-size: 14px;
-    }
-
-    .header-logo {
-        left: 0px;
-    }
-
-    .mo-btn {
-        right: 0px
     }
 
     .login-popup {
