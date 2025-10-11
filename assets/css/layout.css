@@ -1885,7 +1885,7 @@ input[type="checkbox"]:focus {
     }
 
     .t-box .t2 {
-        display: none;
+        /* display: none; */
     }
 
     .title-wrap {
