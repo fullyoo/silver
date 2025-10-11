@@ -1076,7 +1076,25 @@
 
 /* ========반응형 미디어쿼리======== */
 
-@media(max-width:1600px) {
+@media(max-width:1600px) {}
+
+@media(max-width:1280px) {
+    .kv-sec {
+        /* height: 800px; */
+        /* min-height: auto; */
+    }
+
+    .kv-sec .swiper-slide-active .main_txt .txt {
+        font-size: 42px;
+    }
+
+    .kv-sec .main_txt span {
+        font-size: 26px;
+    }
+
+    .service-wrap li {
+        height: 400px;
+    }
 
     .team-sec .t-box .t1 {
         font-size: 28px;
@@ -1091,21 +1109,6 @@
 
     .team-sec .t-box {
         padding: 30px;
-    }
-}
-
-@media(max-width:1280px) {
-    .kv-sec {
-        /* height: 800px; */
-        /* min-height: auto; */
-    }
-
-    .kv-sec .swiper-slide-active .main_txt .txt {
-        font-size: 42px;
-    }
-
-    .kv-sec .main_txt span {
-        font-size: 26px;
     }
 
     .donate-link {
