@@ -253,7 +253,7 @@ $(function () {
 
         breakpoints: {
             1280: {
-                slidesPerView: '4',
+                slidesPerView: '4.5',
                 spaceBetween: 60,
                 centeredSlides: false
             },
