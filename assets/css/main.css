@@ -322,12 +322,28 @@
 
 .service-wrap li {
     width: calc((100% - 120px) / 3);
+    border-radius: 0;
 }
+
+.service-wrap li:hover {}
 
 .service-wrap li:nth-child(2),
 .service-wrap li:nth-child(5) {
     top: 100px;
 }
+
+
+.service-wrap li a {
+    border-radius: 20px;
+    transition: .3s;
+    overflow: hidden;
+}
+
+.service-wrap li a:hover {
+    border-radius: 100px 100px 100px 0;
+}
+
+
 
 .service-wrap li a .t-box .t1 b {
     font-weight: 700;
@@ -364,6 +380,7 @@
 .team-slide ul li .img_wrap {
     width: 100%;
     height: 500px;
+    overflow: hidden;
 }
 
 .team-slide ul li .thum-img {
@@ -373,7 +390,7 @@
     background-position: center;
     border-radius: 10px;
     background-size: cover;
-    transition: 0.5s
+    transition: 0.5s;
 }
 
 .team-slide ul li a:hover .thum-img {
@@ -428,6 +445,25 @@
     margin-right: calc((100vw - 100%) / -2);
 }
 
+.team-sec .cont-sec li {
+    overflow: hidden;
+    border-radius: 100px 100px 100px 0;
+    border-radius: 20px;
+    transition: .3s;
+}
+
+.team-sec .cont-sec li:hover {
+    border-radius: 100px 100px 100px 0;
+}
+
+.team-sec .cont-sec li a {}
+
+.team-sec .cont-sec li a:hover {}
+
+.team-sec .cont-sec li a::before {}
+
+.team-sec .cont-sec li a:hover::before {}
+
 
 
 
@@ -440,6 +476,83 @@
 .gallery-list {
     background-color: var(--bg-color);
     border-radius: 20px;
+}
+
+.gallery-list li {
+    transition: .3s;
+}
+
+.gallery-list li:hover {}
+
+.gallery-list .thum-img {
+    width: 50%;
+    height: 450px;
+    overflow: hidden;
+    border-radius: 20px;
+    transition: .3s;
+    position: relative;
+    background: url(../images/main/plus_w.png) center no-repeat;
+}
+
+.gallery-list li a:hover .thum-img::before {
+    transform: scaleX(1);
+    opacity: 1;
+}
+
+.gallery-list li a:hover .thum-img::after {
+    opacity: 1;
+    background-color: var(--primary-color)
+}
+
+.gallery-list .thum-img::before {
+    content: "";
+    z-index: 1;
+    opacity: 0;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    transform: scaleX(0);
+    -webkit-transform-origin-y: bottom;
+    -ms-transform-origin-y: bottom;
+    -o-transform-origin-y: bottom;
+    transition: 0.5s;
+    /* background-color: rgba(219, 42, 34, 0.5); */
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+
+.gallery-list .thum-img::after {
+    content: "";
+    z-index: 1;
+    opacity: 1;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    transition: 0.5s;
+    /* background-image: url("data:image/svg+xml,%3Csvg width='50' height='50' viewBox='0 0 50 50' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cg opacity='0.8' clip-path='url(%23clip0_970_1013)'%3E%3Cpath d='M25 0C11.193 0 0 11.193 0 25C0 38.8078 11.193 50 25 50C38.8078 50 50 38.8078 50 25C50 11.193 38.8078 0 25 0ZM25 46.9242C12.9383 46.9242 3.125 37.0617 3.125 24.9999C3.125 12.9382 12.9383 3.1249 25 3.1249C37.0617 3.1249 46.875 12.9382 46.875 24.9999C46.875 37.0616 37.0617 46.9242 25 46.9242ZM35.9375 23.4375H26.5625V14.0625C26.5625 13.2 25.8625 12.5 25 12.5C24.1375 12.5 23.4375 13.2 23.4375 14.0625V23.4375H14.0625C13.2 23.4375 12.5 24.1375 12.5 25C12.5 25.8625 13.2 26.5625 14.0625 26.5625H23.4375V35.9375C23.4375 36.8 24.1375 37.5 25 37.5C25.8625 37.5 26.5625 36.8 26.5625 35.9375V26.5625H35.9375C36.8 26.5625 37.5 25.8625 37.5 25C37.5 24.1375 36.8 23.4375 35.9375 23.4375Z' fill='%23F6F6F6'/%3E%3C/g%3E%3Cdefs%3E%3CclipPath id='clip0_970_1013'%3E%3Crect width='50' height='50' fill='white'/%3E%3C/clipPath%3E%3C/defs%3E%3C/svg%3E%0A"); */
+    /* background-repeat: no-repeat; */
+    /* background-position: center; */
+
+    /* 마스크 방식으로 SVG 아이콘 삽입 */
+    -webkit-mask: url("data:image/svg+xml,%3Csvg width='50' height='50' viewBox='0 0 50 50' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M25 0C11.193 0 0 11.193 0 25C0 38.8078 11.193 50 25 50C38.8078 50 50 38.8078 50 25C50 11.193 38.8078 0 25 0ZM25 46.9242C12.9383 46.9242 3.125 37.0617 3.125 24.9999C3.125 12.9382 12.9383 3.1249 25 3.1249C37.0617 3.1249 46.875 12.9382 46.875 24.9999C46.875 37.0616 37.0617 46.9242 25 46.9242ZM35.9375 23.4375H26.5625V14.0625C26.5625 13.2 25.8625 12.5 25 12.5C24.1375 12.5 23.4375 13.2 23.4375 14.0625V23.4375H14.0625C13.2 23.4375 12.5 24.1375 12.5 25C12.5 25.8625 13.2 26.5625 14.0625 26.5625H23.4375V35.9375C23.4375 36.8 24.1375 37.5 25 37.5C25.8625 37.5 26.5625 36.8 26.5625 35.9375V26.5625H35.9375C36.8 26.5625 37.5 25.8625 37.5 25C37.5 24.1375 36.8 23.4375 35.9375 23.4375Z'/%3E%3C/svg%3E") no-repeat center;
+    -webkit-mask-size: 50px;
+
+    background-color: var(--white-color);
+    /* 이게 SVG 색상 역할을 함 */
+}
+
+
+.gallery-list a:hover {}
+
+.gallery-list a:hover .img_wrap {}
+
+.gallery-list a:hover>.img_wrap .thum-img {
+    border-radius:
+        100px 100px 100px 20px;
 }
 
 .gallery-list .img_wrap {
@@ -536,22 +649,18 @@
 
 .gallery-sec .cont-sec a:hover .more>img {
     top: 35%;
-    /* transform: rotate(0deg); */
+    transform: rotate(0deg);
 }
-
-.gallery-list .thum-img {
-    width: 50%;
-    height: 450px;
-    overflow: hidden;
-    border-radius: 20px;
-}
-
 
 
 
 /* ============ 5. 복지센터 소식 =============== */
 .notice-slide {
     overflow: hidden;
+}
+
+.notice-sec .cont-sec li {
+    border: none;
 }
 
 .notice-sec .cont-sec li a::before {
@@ -608,7 +717,9 @@
 
 .notice-sec .cont-sec li a {}
 
-.notice-sec .cont-sec li a:hover {}
+.notice-sec .cont-sec li a:hover {
+    border-color: var(--primary-color);
+}
 
 .notice-sec .cont-sec li a.t-box:hover:after {
     opacity: 1;
@@ -622,6 +733,9 @@
     transition: .3s; */
     box-shadow: 0 5px 5px rgba(0, 0, 0, 0.1);
     transform: translateY(-10px);
+    border-color: #fff;
+    border-radius: 70px 70px 70px 0px;
+
 }
 
 .notice-sec .cont-sec li .t-box:after {
@@ -636,6 +750,8 @@
     border-radius: 20px;
     opacity: 0;
     transition: .3s;
+    border-radius: 70px 70px 70px 0px;
+
 }
 
 .notice-sec .cont-sec li a:hover .t-box:after {
@@ -1092,10 +1208,6 @@
         font-size: 26px;
     }
 
-    .service-wrap li {
-        height: 400px;
-    }
-
     .team-sec .t-box .t1 {
         font-size: 28px;
     }
@@ -1190,6 +1302,8 @@
 
     .service-wrap li {
         width: calc((100% - 40px) / 2);
+        height: 400px;
+        border-radius: 50px;
     }
 
     .service-wrap li:nth-child(2),
@@ -1206,6 +1320,10 @@
         padding: 80px 0;
     }
 
+    .team-sec .cont-sec li {
+        border-radius: 50px;
+    }
+
     .gallery-list .img_wrap {
         flex-direction: column;
         padding: 50px;
@@ -1219,6 +1337,7 @@
     .gallery-list .thum-img {
         width: 100%;
         height: 360px;
+        border-radius: 50px;
     }
 
     .gallery-list .t-box .t2 {
@@ -1261,6 +1380,10 @@
 
     .intro-wrap .t-box .t1 {
         font-size: 22px;
+    }
+
+    .notice-list .t-box {
+        border-radius: 50px;
     }
 
     .donate-wrap {
@@ -1326,6 +1449,7 @@
 
     .service-wrap li {
         width: calc((100% - 20px) / 2);
+        border-radius: 30px;
     }
 
     .service-wrap li a .t-box .t1 b {
@@ -1364,6 +1488,7 @@
 
     .gallery-list .thum-img {
         height: 240px;
+        border-radius: 30px;
     }
 
     .kv-sec .pager span:after {
@@ -1384,6 +1509,14 @@
     .scroll-indicator {
         width: 26px;
         height: 45px;
+    }
+
+    .team-sec .cont-sec li {
+        border-radius: 30px;
+    }
+
+    .team-sec .cont-sec li:hover {
+        border-radius: 30px 30px 30px 0;
     }
 
     .intro-sec {
@@ -1418,6 +1551,14 @@
         font-size: 22px;
         min-height: 80px;
     }
+
+    .notice-list li {}
+
+    .notice-list .t-box {
+        border-radius: 30px;
+    }
+
+    .notice-sec .cont-sec li .t-box:after {}
 
     .donate-left {
         flex-direction: column;

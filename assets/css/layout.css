@@ -177,7 +177,7 @@ video {
     -o-transform-origin-y: bottom;
     transition: 0.5s;
     background-color: rgba(219, 42, 34, 0.5);
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: rgba(0, 0, 0, 0.7);
 }
 
 .cont-sec li a:hover::before {
