@@ -735,7 +735,6 @@
     transform: translateY(-10px);
     border-color: #fff;
     border-radius: 70px 70px 70px 0px;
-
 }
 
 .notice-sec .cont-sec li .t-box:after {
@@ -751,7 +750,7 @@
     opacity: 0;
     transition: .3s;
     border-radius: 70px 70px 70px 0px;
-
+    box-sizing: border-box;
 }
 
 .notice-sec .cont-sec li a:hover .t-box:after {

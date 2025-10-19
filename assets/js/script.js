@@ -475,21 +475,140 @@ $(function () {
 
     // =====08. 우측 TOP 탑 버튼 =====
 
-    let btnTop = document.querySelector("#btnTop"),
-        headerH = 70;
+    //  08-1. 자바스크립트 버전
+    // let btnTop = document.querySelector("#btnTop"),
+    //     headerH = 70;
 
-    window.addEventListener("scroll", () => {
-        if (window.scrollY > headerH) {
-            btnTop.classList.add("show");
+    // window.addEventListener("scroll", () => {
+    //     if (window.scrollY > headerH) {
+    //         btnTop.classList.add("show");
+    //     } else {
+    //         btnTop.classList.remove("show");
+    //     }
+    // });
+    // $("#btnTop").on("click", function () {
+    //     $("html, body").stop().animate({ scrollTop: 0 });
+    // });
+
+
+    //08-2. 제이쿼리 버전
+    const headerH = 70;
+
+    //$(window).on("scroll") → 스크롤 이벤트 감지
+    $(window).on("scroll", function () {
+
+        //$(this).scrollTop() → 현재 스크롤 위치 가져오기
+        if ($(this).scrollTop() > headerH) {
+
+            //addClass("show"), removeClass("show") → 버튼 표시/숨김
+            $("#btnTop").addClass("show");
         } else {
-            btnTop.classList.remove("show");
+            $("#btnTop").removeClass("show");
         }
     });
+
     $("#btnTop").on("click", function () {
-        $("html, body").stop().animate({ scrollTop: 0 });
+
+        //부드럽게 맨 위로 스크롤 (400ms 속도)
+        $("html, body").stop().animate({ scrollTop: 0 }, 400);
     });
 
 
+
+
+
+    // =====09. 서브 슬라이딩 탭 모션=====
+
+    // 09-1. 자바스크립트 버전
+    // const items = document.querySelectorAll('.snb-list ul li');
+    // const activeBg = document.querySelector('.active-bg');
+    // const ul = document.querySelector('.snb-list ul');
+
+    // // 초기 위치 설정
+    // function setActiveBg(li) {
+    //     const index = Array.from(items).indexOf(li);
+    //     const itemWidth = 100 / items.length;
+
+    //     activeBg.style.left = (index * itemWidth) + '%';
+    //     activeBg.style.width = itemWidth + '%';
+    // }
+
+    // // 페이지 로드 시 active 요소 위치 설정
+    // const activeItem = document.querySelector('.snb-list ul li.active');
+    // if (activeItem) {
+    //     setActiveBg(activeItem);
+    // }
+
+    // // 각 탭 클릭 이벤트
+    // items.forEach((item, index) => {
+    //     item.querySelector('a').addEventListener('click', (e) => {
+    //         e.preventDefault();
+
+    //         // 모든 active 클래스 제거
+    //         items.forEach(i => i.classList.remove('active'));
+
+    //         // 클릭된 항목에 active 클래스 추가
+    //         item.classList.add('active');
+
+    //         // 배경 이동
+    //         setActiveBg(item);
+    //     });
+    // });
+
+    // // 창 크기 변경 시 위치 재조정
+    // window.addEventListener('resize', () => {
+    //     const activeItem = document.querySelector('.snb-list ul li.active');
+    //     if (activeItem) {
+    //         setActiveBg(activeItem);
+    //     }
+    // });
+
+
+
+    // 09-2. 제이쿼리 버전
+    const $items = $('.snb-list ul li');
+    const $activeBg = $('.active-bg');
+
+    // 초기 위치 설정
+    function setActiveBg($li) {
+        const index = $li.index();
+        const itemWidth = 100 / $items.length;
+
+        $activeBg.css({
+            'left': (index * itemWidth) + '%',
+            'width': itemWidth + '%'
+        });
+    }
+
+    // 페이지 로드 시 active 요소 위치 설정
+    const $activeItem = $('.snb-list ul li.active');
+    if ($activeItem.length) {
+        setActiveBg($activeItem);
+    }
+
+    // 각 탭 클릭 이벤트
+    $items.find('a').on('click', function (e) {
+        e.preventDefault();
+
+        const $parent = $(this).parent();
+
+        // 모든 active 클래스 제거
+        $items.removeClass('active');
+
+        // 클릭된 항목에 active 클래스 추가
+        $parent.addClass('active');
+
+        // 배경 이동
+        setActiveBg($parent);
+    });
+
+    // 창 크기 변경 시 위치 재조정
+    $(window).on('resize', function () {
+        const $activeItem = $('.snb-list ul li.active');
+        if ($activeItem.length) {
+            setActiveBg($activeItem);
+        }
+    });
 
 
 

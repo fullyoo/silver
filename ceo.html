@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="./assets/images/common/favicon.ico" type="image/x-icon">
+    <title>인사말</title>
+
+    <!-- aos css -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@xpressengine/xeicon@2.3.3/xeicon.min.css">
+
+    <link rel="stylesheet" href="./assets/css/swiper-bundle.min.css">
+    <link rel="stylesheet" href="./assets/css/layout.css">
+    <link rel="stylesheet" href="./assets/css/sub.css">
+</head>
+
+<body style="background-color: #ddd; min-height: 2000px;">
+    <header id="header">
+        <div class="header-dim"></div>
+        <div class="inner-sec header-container">
+            <div class="header-top">
+                <h1 class="header-logo">
+                    <a href="index.html">
+                        <img src="./assets/images/common/logo-b.svg" alt="로고" class="logo">
+                        <img src="./assets/images/common/logo-w.svg" alt="로고" class="logo-w">
+                    </a>
+                </h1>
+                <div class="menu-wrap mo-btn">
+                    <span class="line"></span>
+                    <span class="line"></span>
+                    <span class="line"></span>
+                </div>
+            </div>
+            <nav class="header-nav header-nav-row navbar">
+                <a href="#" class="logo-nav-top">
+                    <img src="./assets/images/logo_white.svg" alt="로고" class="logo-w logo-nav">
+                </a>
+                <div class="mobile-buttons">
+                    <button class="header-btn login-btn">로그인</button>
+                    <a href="/consult.html" class="header-btn consult-btn">상담하기</a>
+                </div>
+                <ul class="header-menu">
+                    <li><a href="#menu01" class="links">센터소개<span class="sub-toggle"></span></a>
+                        <ul class="sub-menu">
+                            <li><a href="#menu01-1">인사말</a></li>
+                            <li><a href="#menu01-2">전문 돌봄 인력</a></li>
+                            <li><a href="#menu01-3">오시는 길</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#menu02" class="links">센터사업<span class="sub-toggle"></span></a>
+                        <ul class="sub-menu">
+                            <li><a href="#menu02-1">방문요양</a></li>
+                            <li><a href="#menu02-2">방문목욕</a></li>
+                            <li><a href="#menu02-2">방문간호</a></li>
+                            <li><a href="#menu02-3">간병돌봄</a></li>
+                            <li><a href="#menu02-4">정서지원</a></li>
+                            <li><a href="#menu02-4">기타 프로그램</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#menu03" class="links">방문서비스 안내<span class="sub-toggle"></span></a>
+                        <ul class="sub-menu">
+                            <li><a href="#menu03-1">서비스 절차</a></li>
+                            <li><a href="#menu03-2">자격요건</a></li>
+                            <li><a href="#menu03-3">비용안내</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#menu04" class="links">소식 / 공지<span class="sub-toggle"></span></a>
+                        <ul class="sub-menu">
+                            <li><a href="#menu04-1">센터 공지사항</a></li>
+                            <li><a href="#menu04-2">갤러리</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#menu05" class="links">참여 & 후원<span class="sub-toggle"></span></a>
+                        <ul class="sub-menu">
+                            <li><a href="#menu05-1">자원봉사 신청</a></li>
+                            <li><a href="#menu05-2">후원 안내</a></li>
+                            <li><a href="#menu05-2">문의하기</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+            <div class="header-right">
+                <div class="header-buttons">
+                    <button class="header-btn login-btn">로그인</button>
+                    <a href="/consult.html" class="header-btn consult-btn">상담하기</a>
+                </div>
+                <div class="allmenu-btn"><span></span><span></span><span></span></div>
+            </div>
+        </div>
+    </header>
+
+    <!-- 로그인 팝업 -->
+    <div class="login-popup-overlay">
+        <div class="login-popup">
+            <div class="login-popup-close"></div>
+            <h2 class="login-popup-title">로그인</h2>
+            <form class="login-form" novalidate>
+                <div class="login-input-group">
+                    <label for="username">아이디</label>
+                    <input type="text" id="username" placeholder="아이디를 입력하세요" required>
+                </div>
+                <div class="login-input-group">
+                    <label for="password">비밀번호</label>
+                    <input type="password" id="password" placeholder="비밀번호를 입력하세요" required>
+                </div>
+                <div class="login-options">
+                    <label class="remember-me">
+                        <input type="checkbox" id="remember">
+                        <span>로그인 상태 유지</span>
+                    </label>
+                    <div class="find-links">
+                        <a href="#find-id">아이디 찾기</a>
+                        <span>|</span>
+                        <a href="#find-pw">비밀번호 찾기</a>
+                    </div>
+                </div>
+                <button type="submit" class="login-submit-btn">로그인</button>
+            </form>
+            <div class="login-divider">
+                <span>또는</span>
+            </div>
+            <div class="social-login">
+                <a class="social-btn kakao">
+                    <span>카카오로 시작하기</span>
+                </a>
+                <a class="social-btn naver">
+                    <span>네이버로 시작하기</span>
+                </a>
+            </div>
+            <div class="signup-link">
+                아직 회원이 아니신가요? <a href="#signup">회원가입</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- 전체메뉴 -->
+    <div class="fullmenu-overlay">
+        <div class="fullmenu-bg">
+            <div class="fullmenu-container">
+                <div class="fullmenu-close"></div>
+                <div class="fullmenu-grid">
+                    <div class="fullmenu-item">
+                        <a href="#menu01">
+                            <h3 class="fullmenu-title">센터소개</h3>
+                        </a>
+                        <ul class="fullmenu-list">
+                            <li><a href="#menu01-1">인사말</a></li>
+                            <li><a href="#menu01-2">전문 돌봄 인력</a></li>
+                            <li><a href="#menu01-3">오시는 길</a></li>
+                        </ul>
+                    </div>
+                    <div class="fullmenu-item">
+                        <a href="#menu02">
+                            <h3 class="fullmenu-title">센터사업</h3>
+                        </a>
+                        <ul class="fullmenu-list">
+                            <li><a href="#menu02-1">방문요양</a></li>
+                            <li><a href="#menu02-2">방문목욕</a></li>
+                            <li><a href="#menu02-2">방문간호</a></li>
+                            <li><a href="#menu02-3">간병돌봄</a></li>
+                            <li><a href="#menu02-4">정서지원</a></li>
+                            <li><a href="#menu02-4">기타 프로그램</a></li>
+                        </ul>
+                    </div>
+                    <div class="fullmenu-item">
+                        <a href="#menu03">
+                            <h3 class="fullmenu-title">방문서비스</h3>
+                        </a>
+                        <ul class="fullmenu-list">
+                            <li><a href="#menu03-1">서비스 절차</a></li>
+                            <li><a href="#menu03-2">자격요건</a></li>
+                            <li><a href="#menu03-3">비용안내</a></li>
+                        </ul>
+                    </div>
+                    <div class="fullmenu-item">
+                        <a href="#menu04">
+                            <h3 class="fullmenu-title">소식 / 공지</h3>
+                        </a>
+                        <ul class="fullmenu-list">
+                            <li><a href="#menu04-1">센터 공지사항</a></li>
+                            <li><a href="#menu04-2">갤러리</a></li>
+                        </ul>
+                    </div>
+                    <div class="fullmenu-item">
+                        <a href="#menu05">
+                            <h3 class="fullmenu-title">참여 & 후원</h3>
+                        </a>
+                        <ul class="fullmenu-list">
+                            <li><a href="#menu05-1">자원봉사 신청</a></li>
+                            <li><a href="#menu05-2">후원 안내</a></li>
+                            <li><a href="#menu05-2">문의하기</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- //전체메뉴 -->
+
+
+    <div id="sub">
+        <section id="sub-visual">
+            <div class="visualbg bg01"></div>
+            <div class="visualtext">
+                <div class="inner">
+                    <h2 data-aos="fade-left" class="aos-init aos-animate">Company</h2>
+                    <ul class="location aos-init aos-animate" data-aos="fade-left" data-aos-delay="100">
+                        <li><a href="../index.html">Home</a></li>
+                        <li>Company</li>
+                        <li>About Us</li>
+                    </ul>
+                </div><!-- inner END -->
+            </div>
+            <div class="snbList">
+                <ul>
+                    <li class="active"><a href="">About Us</a></li>
+                    <li><a href="">CEO Message</a></li>
+                </ul>
+            </div>
+        </section><!-- subVisual END -->
+
+        <div class="subContent">
+            <div class="inner">
+                <h3 class="titleXl aos-init aos-animate" data-aos="fade-down">About Us</h3>
+                <!--<strong class="titleLg" data-aos="fade-down" data-aos-delay="100">
+                    FOR FIBERGLASS INSULATION METAL BUILDING APPLICATION
+                </strong>-->
+                <p style="text-align: center;"><img src="../assets/images/sub/soon.jpg"></p>
+
+
+            </div><!-- inner END -->
+
+        </div><!-- subContent END -->
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- 하단 공통 -->
+
+    <!-- 탑버튼 -->
+    <button type="button" id="btnTop" class="">
+        <i class="xi-angle-up-min"></i>TOP
+    </button>
+
+
+    <!-- aos js -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init();
+    </script>
+
+    <script src="./assets/js/jquery-3.7.1.min.js"></script>
+    <script src="./assets/js/swiper-bundle.min.js"></script>
+    <script src="./assets/js/feather.min.js"></script>
+    <script src="./assets/js/script.js"></script>
+
+    <script>
+        $(function () {
+
+
+        });//끝 닫힘
+    </script>
+    <!-- //하단 공통 -->
+
+</body>
+
+</html>
