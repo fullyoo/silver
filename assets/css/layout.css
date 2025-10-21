@@ -576,7 +576,7 @@ body.menu-open {
 }
 
 .login-input-group label {
-    font-size: 14px;
+    font-size: 15px;
     font-weight: 600;
     color: var(--body-color);
 }
@@ -1378,8 +1378,7 @@ input[type="checkbox"]:focus {
 }
 
 .footer-logo img {
-    width: auto;
-    height: 35px;
+    width: 200px;
 }
 
 .footer-logo span {
@@ -1468,7 +1467,7 @@ input[type="checkbox"]:focus {
     }
 
     #header .links {
-        /* font-size: 17px; */
+        font-size: 17px;
     }
 }
 
@@ -1550,6 +1549,10 @@ input[type="checkbox"]:focus {
     #header.menu-open .header-top {
         background-color: var(--white-color);
         border-bottom: 1px solid var(--lightGray-color);
+    }
+
+    .header-logo {
+        width: 200px;
     }
 
     .header-buttons {
@@ -1895,6 +1898,14 @@ input[type="checkbox"]:focus {
         margin-bottom: 40px;
     }
 
+    .footer {
+        padding-top: 20px;
+    }
+
+    .footer-nav {
+        padding-bottom: 20px;
+    }
+
     .footer-wrap {
         flex-direction: column;
         flex-direction: column-reverse;
@@ -1908,6 +1919,34 @@ input[type="checkbox"]:focus {
 
     .footer-tel p {
         margin: 5px 0 10px;
+        font-size: 28px;
+    }
+
+    .footer-tel span {
+        font-size: 16px;
+    }
+
+    .footer-nav ul li a {
+        font-size: 13px;
+    }
+
+    .footer-info ul li {
+        font-size: 13px;
+    }
+
+    .footer-sns img {
+        width: 30px;
+    }
+
+    .copyright {
+        font-size: 12px;
+    }
+
+    #btnTop,
+    #btnTop:before {
+        width: 55px;
+        height: 55px;
+        font-size: 13px;
     }
 
 
@@ -1978,8 +2017,13 @@ input[type="checkbox"]:focus {
         padding-bottom: 20px;
     }
 
+    .footer-logo {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
     .footer-nav ul {
-        gap: 15px;
+        gap: 10px;
         flex-wrap: wrap;
     }
 
@@ -1987,22 +2031,19 @@ input[type="checkbox"]:focus {
         width: calc(50% - 20px);
     }
 
-    .footer-nav ul li a {
-        font-size: 14px;
-    }
-
     .footer-info ul {
         flex-wrap: wrap;
-        gap: 5px;
+        gap: 10px;
+        gap: 0;
+        margin-bottom: 0;
     }
 
     .footer-info ul li {
-        font-size: 15px;
+        margin-bottom: 5px;
     }
 
-    .footer-logo {
-        flex-direction: column;
-        align-items: flex-start;
+    .footer-info ul li:not(:last-child) {
+        margin-right: 10px;
     }
 
     #btnTop,
@@ -2031,8 +2072,7 @@ input[type="checkbox"]:focus {
         gap: 5px;
     }
 
-    .header-logo img {
-        /* width: 200px; */
-    }
+
+
 
 }
