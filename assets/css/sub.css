@@ -458,7 +458,7 @@
     }
 
     .cont-box p {
-        font-size: 15px;
+        font-size: 16px;
     }
 
     .sign {
@@ -507,7 +507,7 @@
     .snb-list ul {}
 
     .snb-list ul li a {
-        font-size: 13px;
+        font-size: 14px;
         padding: 0 10px;
     }
 
@@ -516,7 +516,7 @@
     }
 
     .sub-content .location li {
-        font-size: 12px;
+        font-size: 13px;
     }
 
     .sub-list-wrap {
@@ -565,11 +565,6 @@
         top: -20px;
     }
 
-    .title-lg {
-        margin-bottom: 30px;
-        font-size: 20px;
-    }
-
     .title-md {}
 
     .title-sm {}
@@ -577,12 +572,7 @@
     .title-xs {}
 
     .cont-box p {
-        font-size: 14px;
-        margin-bottom: 10px;
-    }
-
-    .sign {
-        font-size: 17px;
+        margin-bottom: 20px;
     }
 
     .cont-bg img {
@@ -620,10 +610,6 @@
 
     .cont-bg-txt br:nth-of-type(2) {
         /* display: none; */
-    }
-
-    .title-lg {
-        font-size: 18px;
     }
 
     .cont-box {
