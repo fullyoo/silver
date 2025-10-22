@@ -569,7 +569,7 @@ $(function () {
     const $items = $('.snb-list ul li');
     const $activeBg = $('.active-bg');
 
-    // 초기 위치 설정
+    // 활성 배경 위치 설정
     function setActiveBg($li) {
         const index = $li.index();
         const itemWidth = 100 / $items.length;
@@ -580,26 +580,40 @@ $(function () {
         });
     }
 
-    // 페이지 로드 시 active 요소 위치 설정
+    // 초기 active 위치
     const $activeItem = $('.snb-list ul li.active');
     if ($activeItem.length) {
         setActiveBg($activeItem);
     }
 
-    // 각 탭 클릭 이벤트
+    // 탭 클릭 이벤트
     $items.find('a').on('click', function (e) {
+        const $this = $(this);
+        const $parent = $this.parent();
+        const href = $this.attr('href');
+        const target = $this.attr('target');
+
+        // 이미 활성화된 항목이면 기본 이동
+        if ($parent.hasClass('active')) return;
+
+        // 링크 즉시 이동 막기
         e.preventDefault();
 
-        const $parent = $(this).parent();
-
-        // 모든 active 클래스 제거
+        // active 변경
         $items.removeClass('active');
-
-        // 클릭된 항목에 active 클래스 추가
         $parent.addClass('active');
 
         // 배경 이동
         setActiveBg($parent);
+
+        // 애니메이션 후 이동
+        setTimeout(() => {
+            if (target === '_blank') {
+                window.open(href, '_blank'); // 새창으로 열기
+            } else {
+                window.location.href = href; // 현재 창 이동
+            }
+        }, 400); // transition 시간과 맞추기
     });
 
     // 창 크기 변경 시 위치 재조정
@@ -609,6 +623,7 @@ $(function () {
             setActiveBg($activeItem);
         }
     });
+
 
 
 

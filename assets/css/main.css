@@ -127,7 +127,7 @@
 /* 텍스트 스타일 */
 .kv-sec .main_txt {
     font-size: 18px;
-    font-weight: 500;
+    font-weight: var(--font-500);
     opacity: 0;
     transform: translateY(30px);
     transition: all 0.8s ease;
@@ -141,7 +141,7 @@
 }
 
 .kv-sec .main_txt span {
-    font-weight: 600;
+    font-weight: var(--font-600);
     opacity: 0;
     transform: translateX(-30px);
     transition: all 0.6s ease 0.4s;
@@ -157,7 +157,7 @@
 .kv-sec .main_txt .txt {
     padding: 30px 0 60px;
     font-size: 52px;
-    font-weight: 700;
+    font-weight: var(--font-700);
     white-space: pre-line;
     font-family: 'Poppins', sans-serif;
     opacity: 0;
@@ -194,7 +194,7 @@
     background-color: var(--primary-color);
     padding: 20px 50px;
     border-radius: 50px;
-    font-weight: 700;
+    font-weight: var(--font-700);
     border: 2px solid var(--white-color);
     font-size: 22px;
     display: inline-block;
@@ -347,7 +347,7 @@
 
 
 .service-wrap li a .t-box .t1 b {
-    font-weight: 700;
+    font-weight: var(--font-700);
     font-size: 35px;
     margin-bottom: -10px;
     display: block;
@@ -891,7 +891,7 @@
 
 .letter-wrap>div .btn a {
     color: var(--white-color);
-    font-weight: 800;
+    font-weight: var(--font-800);
     font-size: 19px;
     background-color: var(--primary-color);
     padding: 18px 40px;
@@ -918,12 +918,12 @@
 }
 
 .letter-title b {
-    font-weight: 700;
+    font-weight: var(--font-700);
 }
 
 .letter-title .tit {
     font-size: 32px;
-    font-weight: 800;
+    font-weight: var(--font-800);
 }
 
 .letter-title .txt {
@@ -984,7 +984,7 @@
 .form-list input[type="submit"],
 .form-list button[type="submit"] {
     width: calc(40% - 20px);
-    font-weight: 800;
+    font-weight: var(--font-800);
     background-color: var(--primary-color);
     color: var(--white-color);
     border-color: var(--primary-color);
@@ -1002,7 +1002,7 @@
 .check-list {
     margin-top: 20px;
     font-size: 18px;
-    font-weight: 600;
+    font-weight: var(--font-600);
 }
 
 .check-list input[type="checkbox"]+label {
@@ -1011,7 +1011,7 @@
 
 .check-list .more {
     color: var(--body-color);
-    font-weight: 500;
+    font-weight: var(--font-500);
 }
 
 .check-list .more:hover {
@@ -1066,12 +1066,12 @@
 
 .donate-title .tit {
     font-size: 32px;
-    font-weight: 800;
+    font-weight: var(--font-800);
 }
 
 .donate-title .txt {
     font-size: 22px;
-    font-weight: 500;
+    font-weight: var(--font-500);
 }
 
 .donate-link {
@@ -1086,7 +1086,7 @@
     border-radius: 50px;
     padding: 15px 50px;
     font-size: 18px;
-    font-weight: 800;
+    font-weight: var(--font-800);
     transition: .3s;
 }
 
@@ -1173,7 +1173,7 @@
 
 .popup h3 {
     font-size: 24px;
-    /* font-weight: 700; */
+    /* font-weight: var(--font-700); */
     color: var(--text-color);
     margin: 20px 0 30px;
     text-align: center;

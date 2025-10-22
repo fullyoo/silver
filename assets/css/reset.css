@@ -194,13 +194,13 @@ h3,
 h4,
 h5,
 h6 {
-	font-weight: 600;
+	font-weight: var(--font-600);
 	font-size: inherit;
 }
 
 strong,
 b {
-	font-weight: 800;
+	font-weight: var(--font-800);
 }
 
 caption,

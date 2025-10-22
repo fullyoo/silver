@@ -1,4 +1,4 @@
-@charset "uft-8";
+@charset "utf-8";
 
 /* 서브 공통 영역 */
 #sub {
@@ -62,6 +62,10 @@
     background-image: url(../images/sub/sub-visual01.jpg);
 }
 
+#sub-visual .visual-bg.bg02:before {
+    background-image: url(../images/sub/sub-visual02.jpg);
+}
+
 @keyframes scale {
     0% {
         transform: scale(1.2);
@@ -103,13 +107,13 @@
 #sub-visual .visual-text h2 {
     color: var(--white-color);
     font-size: 55px;
-    font-weight: 800;
+    font-weight: var(--font-800);
     /* line-height: 100%; */
 }
 
 #sub-visual .visual-text .desc {
     color: var(--primary-color);
-    font-weight: 600;
+    font-weight: var(--font-600);
 }
 
 #sub-visual .visual-text .location {
@@ -122,7 +126,7 @@
 #sub-visual .visual-text .location li {
     color: rgba(255, 255, 255, 0.80);
     font-size: 20px;
-    font-weight: 600;
+    font-weight: var(--font-600);
     line-height: 150%;
 
 }
@@ -140,6 +144,8 @@
     margin: 0 20px;
     vertical-align: 5px;
 }
+
+.sub {}
 
 .snb-list {
     position: absolute;
@@ -178,7 +184,7 @@
     height: 100%;
     color: var(--body-color);
     font-size: 20px;
-    font-weight: 600;
+    font-weight: var(--font-600);
     line-height: normal;
     align-items: center;
     justify-content: center;
@@ -190,7 +196,7 @@
 
 .snb-list ul li.active a {
     color: var(--primary-color);
-    font-weight: 700;
+    font-weight: var(--font-700);
 }
 
 .snb-list ul li:hover a {
@@ -227,6 +233,7 @@
     position: relative;
     background: var(--white-color);
     min-height: 350px;
+    padding-bottom: 50px;
 }
 
 .sub-content .inner {
@@ -249,7 +256,7 @@
 
 .sub-content .location li {
     font-size: 16px;
-    font-weight: 500;
+    font-weight: var(--font-500);
 }
 
 .sub-content .location li+li:before {
@@ -267,8 +274,8 @@
     position: relative;
     display: block;
     color: var(--text-color);
-    font-size: 40px;
-    font-weight: 800;
+    font-size: 42px;
+    font-weight: var(--font-800);
     padding: 70px 0;
     /* margin-bottom: 35px; */
     /* border-bottom: 1px dashed #ddd; */
@@ -296,13 +303,13 @@
 .title-lg {
     color: var(--text-color);
     font-size: 36px;
-    font-weight: 700;
+    font-weight: var(--font-700);
 }
 
 .title-md {
     color: var(--primary-color);
     font-size: 30px;
-    font-weight: 600;
+    font-weight: var(--font-600);
 }
 
 .title-sm {
@@ -322,7 +329,7 @@
 
 
 /*  인사말 영역 */
-.sub-greeting-wrap {}
+.greeting-wrap {}
 
 .cont-bg {
     position: relative;
@@ -361,8 +368,112 @@
 .sign {
     font-size: 24px;
     color: var(--text-color);
-    font-weight: 700;
+    font-weight: var(--font-700);
 }
+
+/*  인사말 영역 END */
+
+
+/*  서비스 영역 */
+.service-wrap {}
+
+.cont-img {
+    display: flex;
+    align-items: center;
+    gap: 80px;
+}
+
+.cont-img>img {
+    width: 50%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 20px;
+    position: relative;
+    z-index: 5;
+}
+
+.cont-img-txt {
+    width: 50%;
+    position: relative;
+}
+
+.cont-img-txt .dot {
+    background: var(--redBg-color);
+    width: 220px;
+    height: 220px;
+    border-radius: 100%;
+    display: block;
+    position: absolute;
+    top: -50px;
+    left: 50px;
+    z-index: -1;
+
+    animation-name: sub-dot;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+    animation-direction: reverse;
+    animation-timing-function: linear;
+    animation-fill-mode: none;
+    animation-delay: 1s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes sub-dot {
+    0% {
+        transform: scale(1) translateY(0px);
+    }
+
+    50% {
+        transform: scale(0.8) translateY(-10px);
+    }
+
+    100% {
+        transform: scale(1) translateY(0px);
+    }
+}
+
+.sub-tit-box {
+    padding-bottom: 20px;
+}
+
+.sub-tit {
+    font-size: 30px;
+    margin-bottom: 10px;
+    font-weight: var(--font-700);
+    color: var(--text-color);
+}
+
+.sub-tit-box p {
+    font-weight: var(--font-500);
+}
+
+.service-list-box {}
+
+.service-list-box+.service-list-box {}
+
+.service-list {
+    display: flex;
+    justify-content: space-evenly;
+    padding: 50px 0 0;
+}
+
+.service-list li {
+    text-align: center;
+}
+
+.service-list li img {
+    width: auto;
+}
+
+.service-list li p {
+    font-size: 18px;
+    padding: 30px 0;
+    color: var(--text-color);
+    font-weight: var(--font-500);
+}
+
+
+/*  서비스 영역 END */
 
 
 
@@ -384,7 +495,10 @@
     .cont-bg-txt {
         left: 50px;
     }
+
+
 }
+
 
 @media(max-width: 1024px) {
 
@@ -433,7 +547,7 @@
     .sub-list-wrap {
         white-space: nowrap;
         overflow-x: auto;
-        height: 40px;
+        height: 50px;
         margin-bottom: 40px;
     }
 
@@ -469,6 +583,45 @@
     .sign {
         font-size: 20px;
     }
+
+    /* 서비스 소개 */
+    .cont-img {
+        flex-direction: column;
+        gap: 40px;
+    }
+
+    .cont-img>img {
+        width: 100%;
+        height: 240px;
+    }
+
+    .cont-img-txt {
+        width: 100%;
+    }
+
+    .cont-img-txt .dot {}
+
+    .cont-img-txt span br {
+        display: none;
+    }
+
+    .sub-tit {
+        font-size: 22px;
+    }
+
+    .service-list {
+        padding: 20px 0;
+    }
+
+    .service-list li img {
+        width: 75%;
+    }
+
+    .service-list li p {
+        font-size: 16px;
+    }
+
+
 }
 
 @media(max-width: 767px) {
@@ -494,7 +647,7 @@
 
     #sub-visual .visual-text .location li {
         font-size: 15px;
-        font-weight: 500;
+        font-weight: var(--font-500);
     }
 
     #sub-visual .visual-text .location li+li:before {
@@ -517,7 +670,7 @@
 
     .snb-list ul li a {
         font-size: 14px;
-        padding: 0 10px;
+        /* padding: 0 15px; */
     }
 
     .subContent {
@@ -531,7 +684,7 @@
     .sub-list-wrap {
         white-space: nowrap;
         overflow-x: auto;
-        height: 40px;
+        height: 45px;
     }
 
     .sub-list-wrap ul {
@@ -552,7 +705,7 @@
         background: var(--white-color);
         color: var(--primary-color);
         border: 1px solid var(--primary-color);
-        font-weight: 700;
+        font-weight: var(--font-700);
     }
 
     /* //탭 모바일 버전 스타일 */
@@ -585,7 +738,7 @@
     }
 
     .cont-bg img {
-        height: 220px;
+        height: 240px;
     }
 
     .cont-bg-txt {
@@ -593,11 +746,9 @@
     }
 
     .cont-box {
-        margin: 20px 0;
+        margin: 40px 0;
         gap: 30px;
     }
-
-
 
 }
 
@@ -632,6 +783,18 @@
 
     .cont-box .cont {
         width: 100%;
+    }
+
+    .service-list {
+        flex-direction: column;
+    }
+
+    .service-list li img {
+        width: 50%;
+    }
+
+    .sub-content {
+        padding-bottom: 0;
     }
 
 }
