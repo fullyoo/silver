@@ -10,6 +10,7 @@
     letter-spacing: -.2px;
     width: 100%;
     height: 100vh;
+    border-bottom-right-radius: 150px;
 }
 
 .kv-sec .inner-sec {
@@ -1197,6 +1198,7 @@
     .kv-sec {
         /* height: 800px; */
         /* min-height: auto; */
+        border-bottom-right-radius: 120px;
     }
 
     .kv-sec .swiper-slide-active .main_txt .txt {
@@ -1412,14 +1414,13 @@
         padding: 40px 0;
     }
 
-
 }
-
 
 
 @media(max-width:767px) {
     .kv-sec {
         height: calc(100vh - 20px);
+        border-bottom-right-radius: 100px;
     }
 
     .kv-sec .main_txt {
@@ -1645,6 +1646,12 @@
     }
 
 
+}
+
+@media(max-width: 600px) {
+    .kv-sec {
+        border-bottom-right-radius: 80px;
+    }
 }
 
 
