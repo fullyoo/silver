@@ -1303,7 +1303,7 @@
 
     .service-wrap li {
         width: calc((100% - 40px) / 2);
-        height: 400px;
+        /* height: 400px; */
         border-radius: 50px;
     }
 
@@ -1324,6 +1324,11 @@
     .team-sec .cont-sec li {
         border-radius: 50px;
     }
+
+    .team-slide {
+        margin-top: 0;
+    }
+
 
     .gallery-list .img_wrap {
         flex-direction: column;
