@@ -1589,6 +1589,7 @@
 
     .letter-sec .form-list {
         flex-direction: column;
+        gap: 5px;
     }
 
     .form-list input[type="text"],
@@ -1607,6 +1608,7 @@
     .form-list input[type="submit"],
     .form-list button[type="submit"] {
         width: 100%;
+        margin-top: 5px;
     }
 
     .check-list span {
@@ -1625,6 +1627,8 @@
     .letter-wrap .kakako-wrap .btn a {
         width: 100%;
         text-align: center;
+        padding: 10px 15px;
+        font-size: 18px;
     }
 
     .letter-title .tit {
