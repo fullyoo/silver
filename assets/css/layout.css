@@ -1486,7 +1486,7 @@ input[type="checkbox"]:focus {
     }
 
     #header .links {
-        /* font-size: 17px; */
+        font-size: 17px;
     }
 }
 
@@ -1681,6 +1681,8 @@ input[type="checkbox"]:focus {
 
     #header .links {
         color: var(--text-color);
+        font-weight: var(--font-700);
+        font-size: 20px;
     }
 
     #header .links:hover,
