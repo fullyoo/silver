@@ -358,7 +358,7 @@
 }
 
 .cont-box p {
-    font-size: 20px;
+    font-size: 22px;
     margin-bottom: 30px;
 }
 
@@ -388,7 +388,8 @@
     width: 50%;
     height: 100%;
     object-fit: cover;
-    border-radius: 20px;
+    border-radius: 60px;
+    border-bottom-left-radius: 20px;
     position: relative;
     z-index: 5;
 }
@@ -438,7 +439,7 @@
 }
 
 .sub-tit {
-    font-size: 30px;
+    font-size: 32px;
     margin-bottom: 10px;
     font-weight: var(--font-700);
     color: var(--text-color);
@@ -456,6 +457,7 @@
     display: flex;
     justify-content: space-evenly;
     padding: 50px 0 0;
+    gap: 50px;
 }
 
 .service-list li {
@@ -467,7 +469,7 @@
 }
 
 .service-list li p {
-    font-size: 19px;
+    font-size: 22px;
     padding: 30px 0;
     color: var(--text-color);
     font-weight: var(--font-500);
@@ -564,7 +566,7 @@
     }
 
     .title-lg {
-        font-size: 24px;
+        font-size: 25px;
     }
 
     .title-md {}
@@ -578,7 +580,7 @@
     }
 
     .cont-box p {
-        font-size: 18px;
+        font-size: 20px;
     }
 
     .sign {
@@ -607,11 +609,12 @@
     }
 
     .sub-tit {
-        font-size: 22px;
+        font-size: 24px;
     }
 
     .service-list {
         padding: 20px 0;
+        gap: inherit;
     }
 
     .service-list li img {
@@ -619,7 +622,7 @@
     }
 
     .service-list li p {
-        font-size: 18px;
+        font-size: 20px;
     }
 
 
