@@ -1611,6 +1611,11 @@
         margin-top: 5px;
     }
 
+    .form-list input[type="submit"]:hover,
+    .form-list button[type="submit"]:hover {
+        transform: translateY(0px);
+    }
+
     .check-list span {
         display: block;
         margin: 3px 0 0 28px;
@@ -1627,7 +1632,7 @@
     .letter-wrap .kakako-wrap .btn a {
         width: 100%;
         text-align: center;
-        padding: 10px 15px;
+        padding: 12px 15px;
         font-size: 18px;
     }
 
