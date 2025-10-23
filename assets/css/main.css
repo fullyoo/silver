@@ -1595,10 +1595,13 @@
     .form-list input[type="submit"],
     .form-list button[type="submit"] {
         width: calc(100% - 40px);
+        width: 100%;
+        padding: 10px 15px;
     }
 
     .form-list input[type="text"]:nth-child(2) {
         width: calc(100% - 40px);
+        width: 100%;
     }
 
     .form-list input[type="submit"],
@@ -1648,6 +1651,10 @@
     .popup h3 {
         font-size: 22px;
         margin: 25px 0 30px;
+    }
+
+    .letter-wrap>div {
+        padding: 50px 20px;
     }
 
 
