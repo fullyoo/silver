@@ -595,7 +595,7 @@
 
     .cont-img>img {
         width: 100%;
-        height: 240px;
+        /* height: 340px; */
     }
 
     .cont-img-txt {
@@ -742,7 +742,7 @@
     }
 
     .cont-bg img {
-        height: 240px;
+        height: 340px;
     }
 
     .cont-bg-txt {

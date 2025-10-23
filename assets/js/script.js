@@ -1,210 +1,233 @@
 
 $(function () {
 
-
     // =====01. header 영역=====
 
-    $(function () {
-        const header = $('#header');
-        const headerLogo = $('.header-logo');
+    const header = $('#header');
+    const headerLogo = $('.header-logo');
 
-        // 스크롤 이벤트
-        $(window).on('scroll', function () {
-            if ($(window).scrollTop() > 50) {
-                header.addClass('scrolled');       // 헤더 배경
-                headerLogo.addClass('scrolled');   // 로고 색상 전환
-            } else {
-                header.removeClass('scrolled');
-                headerLogo.removeClass('scrolled');
-            }
-        });
+    // 스크롤 이벤트
+    $(window).on('scroll', function () {
+        if ($(window).scrollTop() > 50) {
+            header.addClass('scrolled');       // 헤더 배경
+            headerLogo.addClass('scrolled');   // 로고 색상 전환
+        } else {
+            header.removeClass('scrolled');
+            headerLogo.removeClass('scrolled');
+        }
+    });
 
-        // 나머지 기존 기능 유지 (로그인, 메뉴, 팝업 등)
-        $(".login-btn").click(function (e) {
-            e.preventDefault();
-            $(".login-popup-overlay").addClass("active");
-            $("body").css("overflow", "hidden");
-        });
+    // 나머지 기존 기능 유지 (로그인, 메뉴, 팝업 등)
+    $(".login-btn").click(function (e) {
+        e.preventDefault();
+        $(".login-popup-overlay").addClass("active");
+        $("body").css("overflow", "hidden");
+    });
 
-        $(".login-popup-close").click(function () {
-            $(".login-popup-overlay").removeClass("active");
-            $("body").css("overflow", "auto");
-        });
+    $(".login-popup-close").click(function () {
+        $(".login-popup-overlay").removeClass("active");
+        $("body").css("overflow", "auto");
+    });
 
-        // 딤 바탕화면 클릭시 창 닫히는 기능
-        $(".login-popup-overlay").click(function (e) {
-            // if ($(e.target).hasClass("login-popup-overlay")) {
-            //     $(this).removeClass("active");
-            //     $("body").css("overflow", "auto");
-            // }
-        });
+    // 딤 바탕화면 클릭시 창 닫히는 기능
+    $(".login-popup-overlay").click(function (e) {
+        // if ($(e.target).hasClass("login-popup-overlay")) {
+        //     $(this).removeClass("active");
+        //     $("body").css("overflow", "auto");
+        // }
+    });
 
-        //기존버전
+    //기존버전
 
-        // $(".login-form").submit(function (e) {
-        //     e.preventDefault();
-        //     alert("로그인 기능은 백엔드 연동이 필요합니다.");
-        // });
+    // $(".login-form").submit(function (e) {
+    //     e.preventDefault();
+    //     alert("로그인 기능은 백엔드 연동이 필요합니다.");
+    // });
 
-        //수정버전
+    //수정버전
 
-        $(".login-form").on("submit", function (e) {
-            e.preventDefault(); // 기본 전송 막기
+    $(".login-form").on("submit", function (e) {
+        e.preventDefault(); // 기본 전송 막기
 
-            let username = $.trim($("#username").val());
-            let password = $.trim($("#password").val());
+        let username = $.trim($("#username").val());
+        let password = $.trim($("#password").val());
 
-            // 1️⃣ 아이디 확인
-            if (username === "") {
-                alert("아이디를 입력해주세요.");
-                $("#username").focus();
-                return false;
-            }
+        // 1️⃣ 아이디 확인
+        if (username === "") {
+            alert("아이디를 입력해주세요.");
+            $("#username").focus();
+            return false;
+        }
 
-            // 2️⃣ 비밀번호 확인
-            if (password === "") {
-                alert("비밀번호를 입력해주세요.");
-                $("#password").focus();
-                return false;
-            }
+        // 2️⃣ 비밀번호 확인
+        if (password === "") {
+            alert("비밀번호를 입력해주세요.");
+            $("#password").focus();
+            return false;
+        }
 
-            // 3️⃣ 가짜 로그인 검증
-            // if (username !== "admin" || password !== "1234") {
-            //     alert("아이디 또는 비밀번호가 올바르지 않습니다.");
-            //     return false;
-            // }
+        // 3️⃣ 가짜 로그인 검증
+        // if (username !== "admin" || password !== "1234") {
+        //     alert("아이디 또는 비밀번호가 올바르지 않습니다.");
+        //     return false;
+        // }
 
-            // ✅ 모든 입력이 완료된 경우
-            alert("로그인이 완료되었습니다!-테스트버전 입니다");
+        // ✅ 모든 입력이 완료된 경우
+        alert("로그인이 완료되었습니다!-테스트버전 입니다");
 
-            // 🔹 입력값 초기화 (폼 리셋)
-            $(this).trigger("reset");
-        });
-
+        // 🔹 입력값 초기화 (폼 리셋)
+        $(this).trigger("reset");
+    });
 
 
-        $(".allmenu-btn").click(function () {
-            $(".fullmenu-overlay").addClass("active");
-            $("body").css("overflow", "hidden");
-            $(this).addClass("active");
-        });
 
-        $(".fullmenu-close, .fullmenu-list a").click(function () {
-            $(".fullmenu-overlay").removeClass("active");
+    $(".allmenu-btn").click(function () {
+        $(".fullmenu-overlay").addClass("active");
+        $("body").css("overflow", "hidden");
+        $(this).addClass("active");
+    });
+
+    $(".fullmenu-close, .fullmenu-list a").click(function () {
+        $(".fullmenu-overlay").removeClass("active");
+        $("body").css("overflow", "auto");
+        $(".allmenu-btn").removeClass("active");
+    });
+
+    $(".fullmenu-overlay").click(function (e) {
+        if ($(e.target).hasClass("fullmenu-overlay")) {
+            $(this).removeClass("active");
             $("body").css("overflow", "auto");
             $(".allmenu-btn").removeClass("active");
-        });
-
-        $(".fullmenu-overlay").click(function (e) {
-            if ($(e.target).hasClass("fullmenu-overlay")) {
-                $(this).removeClass("active");
-                $("body").css("overflow", "auto");
-                $(".allmenu-btn").removeClass("active");
-            }
-        });
-
-        function checkHeaderTop() {
-            if ($(window).scrollTop() === 0) {
-                $("#header").addClass("top");
-            } else {
-                $("#header").removeClass("top");
-            }
         }
-
-        // (추가 tops)01-1 모바일 최상단 투명배경s
-        function checkHeaderTop() {
-            if ($(window).scrollTop() === 0) {
-                $("#header").addClass("tops");
-            } else {
-                $("#header").removeClass("tops");
-            }
-        }
-
-        // 01-1 모바일 메뉴 토글-01
-        $(".mo-btn").click(function () {
-            $(".header-nav").toggleClass("on");
-            $(".header-dim").toggleClass("on");
-            $(".menu-wrap").toggleClass("open");
-            $("#header").toggleClass("menu-open");
-            $("body").toggleClass("menu-open");
-            checkHeaderTop(); // 메뉴 열림 후 최상단 확인
-        });
-
-        // 01-1 페이지 로드 및 스크롤 이벤트-02
-        $(document).ready(checkHeaderTop);
-        $(window).on("scroll", checkHeaderTop);
-
-
-        // 헤더 로고
-        $(".header-logo").on("click", function () {
-            $(".header-nav").removeClass("on");
-            $("#header").removeClass("menu-open");
-            $("body").removeClass("menu-open");
-            $(".menu-wrap").removeClass("open");
-            $(".header-dim").removeClass("on");
-        });
-
-        $(".sub-menu a").on("click", function () {
-            $(".header-nav").removeClass("on");
-            $(".menu-wrap").removeClass("open");
-            $("#header").removeClass("menu-open");
-            $("body").removeClass("menu-open");
-            $(".header-dim").removeClass("on");
-        });
-
-        $(".header-menu > li > a").on("click", function (e) {
-            if (window.innerWidth <= 1024 && $(this).siblings('.sub-menu').length > 0) {
-                e.preventDefault();
-
-                const $parent = $(this).closest('li');
-                const $submenu = $parent.find('.sub-menu');
-                const $toggle = $parent.find('.sub-toggle');
-
-                // 다른 메뉴들의 active/on 클래스 제거 및 패딩 복원
-                $parent.siblings().removeClass('on');
-                // $parent.siblings().css('padding', '0 20px');  // ✅ 패딩 복원
-                $parent.siblings().find('.sub-menu').removeClass('active');
-                $parent.siblings().find('.sub-toggle').removeClass('active');
-                $parent.siblings().find('a.links').removeClass('on');
-
-                // 현재 메뉴 토글
-                $submenu.toggleClass('active');
-                $toggle.toggleClass('active');
-                $(this).toggleClass('on');
-                $parent.toggleClass('on');
-
-                // on 클래스 여부에 따라 패딩 조절
-                // if ($parent.hasClass('on')) {
-                //     $parent.css('padding', '0');  // ✅ on 클래스 있으면 패딩 0
-                // } else {
-                //     $parent.css('padding', '0 20px');  // ✅ on 클래스 없으면 패딩 복원
-                // }
-            }
-
-
-        });
-
-        $(".consult-btn").click(function () {
-            window.location.href = "/consult.html";
-        });
-
-        $(document).keydown(function (e) {
-            if (e.keyCode === 27) {
-                $(".fullmenu-overlay").removeClass("active");
-                $(".login-popup-overlay").removeClass("active");
-                $("body").css("overflow", "auto");
-                $(".allmenu-btn").removeClass("active");
-
-                if ($("#header").hasClass("menu-open")) {
-                    $(".header-nav").removeClass("on");
-                    $("#header").removeClass("menu-open");
-                    $("body").removeClass("menu-open");
-                    $(".menu-wrap").removeClass("open");
-                    $(".header-dim").removeClass("on");
-                }
-            }
-        });
     });
+
+    function checkHeaderTop() {
+        if ($(window).scrollTop() === 0) {
+            $("#header").addClass("top");
+        } else {
+            $("#header").removeClass("top");
+        }
+    }
+
+    // (추가 tops)01-1 모바일 최상단 투명배경s
+    function checkHeaderTop() {
+        if ($(window).scrollTop() === 0) {
+            $("#header").addClass("tops");
+        } else {
+            $("#header").removeClass("tops");
+        }
+    }
+
+    // 01-1 모바일 메뉴 토글-01
+    $(".mo-btn").click(function () {
+        $(".header-nav").toggleClass("on");
+        $(".header-dim").toggleClass("on");
+        $(".menu-wrap").toggleClass("open");
+        $("#header").toggleClass("menu-open");
+        $("body").toggleClass("menu-open");
+        checkHeaderTop(); // 메뉴 열림 후 최상단 확인
+    });
+
+    // 01-1 페이지 로드 및 스크롤 이벤트-02
+    $(document).ready(checkHeaderTop);
+    $(window).on("scroll", checkHeaderTop);
+
+
+    // 헤더 로고
+    $(".header-logo").on("click", function () {
+        $(".header-nav").removeClass("on");
+        $("#header").removeClass("menu-open");
+        $("body").removeClass("menu-open");
+        $(".menu-wrap").removeClass("open");
+        $(".header-dim").removeClass("on");
+    });
+
+    $(".sub-menu a").on("click", function () {
+        $(".header-nav").removeClass("on");
+        $(".menu-wrap").removeClass("open");
+        $("#header").removeClass("menu-open");
+        $("body").removeClass("menu-open");
+        $(".header-dim").removeClass("on");
+    });
+
+    $(".header-menu > li > a").on("click", function (e) {
+        if (window.innerWidth <= 1024 && $(this).siblings('.sub-menu').length > 0) {
+            e.preventDefault();
+
+            const $parent = $(this).closest('li');
+            const $submenu = $parent.find('.sub-menu');
+            const $toggle = $parent.find('.sub-toggle');
+
+            // 다른 메뉴들의 active/on 클래스 제거 및 패딩 복원
+            $parent.siblings().removeClass('on');
+            // $parent.siblings().css('padding', '0 20px');  // ✅ 패딩 복원
+            $parent.siblings().find('.sub-menu').removeClass('active');
+            $parent.siblings().find('.sub-toggle').removeClass('active');
+            $parent.siblings().find('a.links').removeClass('on');
+
+            // 현재 메뉴 토글
+            $submenu.toggleClass('active');
+            $toggle.toggleClass('active');
+            $(this).toggleClass('on');
+            $parent.toggleClass('on');
+
+            // on 클래스 여부에 따라 패딩 조절
+            // if ($parent.hasClass('on')) {
+            //     $parent.css('padding', '0');  // ✅ on 클래스 있으면 패딩 0
+            // } else {
+            //     $parent.css('padding', '0 20px');  // ✅ on 클래스 없으면 패딩 복원
+            // }
+        }
+
+
+    });
+
+    $(".consult-btn").click(function () {
+        window.location.href = "/consult.html";
+    });
+
+    $(document).keydown(function (e) {
+        if (e.keyCode === 27) {
+            $(".fullmenu-overlay").removeClass("active");
+            $(".login-popup-overlay").removeClass("active");
+            $("body").css("overflow", "auto");
+            $(".allmenu-btn").removeClass("active");
+
+            if ($("#header").hasClass("menu-open")) {
+                $(".header-nav").removeClass("on");
+                $("#header").removeClass("menu-open");
+                $("body").removeClass("menu-open");
+                $(".menu-wrap").removeClass("open");
+                $(".header-dim").removeClass("on");
+            }
+        }
+    });
+
+
+    // 01-2 헤더 메뉴 링크 변환
+    // #header 내부의 a태그 중, href가 #menu로 시작하는 경우만 선택
+
+    // header 내부의 링크 변환
+    $('#header a[href^="#menu"]').each(function () {
+        let href = $(this).attr('href');
+        // '#' 제거하고 .html 붙이기
+        let newHref = href.replace('#', '') + '.html';
+        $(this).attr('href', newHref);
+    });
+
+    // fullmenu-overlay 내부의 링크 변환
+    $('.fullmenu-overlay a[href^="#menu"]').each(function () {
+        let href = $(this).attr('href');
+        // '#' 제거하고 .html 붙이기
+        let newHref = href.replace('#', '') + '.html';
+        $(this).attr('href', newHref);
+    });
+
+    console.log("✅ header 및 fullmenu 내부의 #menu 링크가 .html로 자동 변환되었습니다.");
+
+
+
+
 
 
 
