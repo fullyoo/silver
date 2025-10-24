@@ -234,7 +234,6 @@
     position: relative;
     background: var(--white-color);
     min-height: 350px;
-    padding-bottom: 50px;
 }
 
 .sub-content .inner {
@@ -340,8 +339,8 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
-    border-radius: 60px;
-    border-bottom-left-radius: 20px;
+    border-radius: 100px;
+    border-bottom-left-radius: 0px;
 }
 
 .cont-bg-txt {
@@ -584,8 +583,14 @@
         font-size: 20px;
     }
 
+    .cont-bg img {
+        border-radius: 80px;
+        border-bottom-left-radius: 0px;
+        height: 300px;
+    }
+
     .sign {
-        font-size: 20px;
+        font-size: 22px;
     }
 
     /* 서비스 소개 */
@@ -596,7 +601,7 @@
 
     .cont-img>img {
         width: 100%;
-        border-radius: 60px;
+        border-radius: 80px;
         border-bottom-left-radius: 0px;
     }
 
@@ -695,6 +700,7 @@
 
     .sub-list-wrap ul {
         /* flex-wrap: wrap; */
+        overflow-x: auto;
     }
 
     .sub-list-wrap ul li {
@@ -748,7 +754,7 @@
     }
 
     .cont-bg-txt {
-        left: 20px;
+        left: 30px;
     }
 
     .cont-box {
@@ -761,7 +767,7 @@
 
 @media(max-width: 600px) {
     .cont-bg img {
-        height: 200px;
+        height: 220px;
     }
 
     #sub-visual .visual-bg {
