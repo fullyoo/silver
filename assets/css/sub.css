@@ -381,6 +381,7 @@
 /*  돌봄 인력 */
 .profile-section {
     width: 100%;
+    overflow-x: clip;
 }
 
 .profile-container {
