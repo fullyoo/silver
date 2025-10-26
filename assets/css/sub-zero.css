@@ -4,9 +4,7 @@
 #sub {
     position: relative;
     width: 100%;
-    overflow: visible;
-    /* sticky 작동을 위해 visible */
-    /* overflow: hidden; */
+    overflow: hidden;
 }
 
 #sub-visual {
@@ -236,7 +234,6 @@
     position: relative;
     background: var(--white-color);
     min-height: 350px;
-
 }
 
 .sub-content .inner {
@@ -378,112 +375,6 @@
 /*  인사말 영역 END */
 
 
-/*  돌봄 인력 */
-.profile-section {
-    width: 100%;
-}
-
-.profile-container {
-    display: flex;
-    align-items: flex-start;
-    justify-content: space-between;
-    gap: 60px;
-    margin: 0 auto;
-    padding-bottom: 150px;
-    min-height: 800px;
-    padding: 50px;
-    border-radius: 50px;
-    /* overflow: hidden; */
-}
-
-.profile-container:first-child {
-    padding-top: 0;
-}
-
-.profile-container:nth-child(2n) {
-    background-color: var(--lightGrayBg-color);
-}
-
-/* 좌측 고정 영역 */
-.profile-sticky {
-    position: sticky;
-    top: 120px;
-    flex: 0 0 300px;
-    /* 고정 너비 */
-    text-align: center;
-    align-self: flex-start;
-}
-
-.profile-sticky img {
-    width: 250px;
-    height: 250px;
-    object-fit: cover;
-    border-radius: 20px;
-    border-radius: 50%;
-    margin-bottom: 20px;
-}
-
-.profile-sticky .name {
-    font-size: 28px;
-    font-weight: var(--font-700);
-    color: var(--text-color);
-    margin-bottom: 5px;
-}
-
-.profile-sticky .role {
-    font-size: 16px;
-}
-
-/* 우측 내용 영역 */
-.profile-content {
-    flex: 1;
-    min-width: 0;
-}
-
-.profile-content h4 {
-    color: var(--primary-color);
-    font-size: 28px;
-    margin-bottom: 40px;
-    font-weight: var(--font-700);
-}
-
-.profile-content h5 {
-    font-size: 22px;
-    font-weight: var(--font-600);
-    color: var(--text-color);
-}
-
-.profile-content img {
-    width: 250px;
-    height: 250px;
-    object-fit: cover;
-    border-radius: 20px;
-    margin-bottom: 20px;
-}
-
-.profile-content p,
-.profile-content ul {
-    font-size: 18px;
-    margin-top: 10px;
-    margin-bottom: 40px;
-}
-
-.profile-content .greet {
-    width: 600px;
-}
-
-.profile-content ul {
-    padding-left: 20px;
-}
-
-.profile-content li {
-    list-style: disc;
-}
-
-/*  돌봄 인력 END */
-
-
-
 /*  서비스 영역 */
 .service-wrap-cont {}
 
@@ -491,7 +382,6 @@
     display: flex;
     align-items: center;
     gap: 80px;
-    overflow: hidden;
 }
 
 .cont-img>img {
@@ -609,9 +499,6 @@
         left: 50px;
     }
 
-    .profile-content .greet {
-        width: 100%;
-    }
 
 }
 
@@ -665,7 +552,6 @@
         overflow-x: auto;
         height: 50px;
         margin-bottom: 40px;
-        overflow: hidden;
     }
 
     .title-xl {
@@ -746,6 +632,8 @@
         font-size: 20px;
         padding-bottom: 0;
     }
+
+
 }
 
 @media(max-width: 767px) {
@@ -874,39 +762,6 @@
         margin: 40px 0;
         gap: 30px;
     }
-
-    .profile-container {
-        flex-direction: column;
-        gap: 30px;
-        padding-bottom: 80px;
-    }
-
-    .profile-sticky {
-        position: relative;
-        /* 스티키 해제 */
-        top: 0;
-        flex: none;
-        width: 100%;
-    }
-
-    .profile-sticky img {
-        width: 180px;
-        /* height: 180px; */
-    }
-
-    .profile-sticky .name {
-        font-size: 1.4rem;
-    }
-
-    .profile-content h5 {
-        font-size: 1.1rem;
-    }
-
-    .profile-content p,
-    .profile-content ul {
-        font-size: 0.95rem;
-    }
-
 
 }
 

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>스티키1(Flex 버전)</title>
+    <style>
+        .profile-section {
+            width: 100%;
+            padding: 100px 0;
+            background: #fafafa;
+        }
+
+        .profile-container {
+            display: flex;
+            gap: 60px;
+            max-width: 1200px;
+            margin: 0 auto;
+            align-items: flex-start;
+            padding-bottom: 150px;
+        }
+
+        .profile-sticky {
+            position: sticky;
+            top: 120px;
+            flex: 0 0 300px;
+            text-align: center;
+            align-self: flex-start;
+        }
+
+        .profile-sticky img {
+            width: 250px;
+            height: 250px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 20px;
+        }
+
+        .profile-content {
+            flex: 1;
+        }
+
+        .profile-content h4 {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        .profile-content p {
+            line-height: 1.7;
+            color: #555;
+        }
+    </style>
+</head>
+
+<body>
+    <section class="profile-section">
+        <div class="profile-container">
+            <aside class="profile-sticky">
+                <img src="./assets/images/staff01.jpg" alt="홍길동 센터장">
+                <h3 class="name">홍길동 센터장</h3>
+                <p class="role">센터장 / 사회복지사</p>
+            </aside>
+
+            <div class="profile-content">
+                <h4>돌봄의 진심을 담아</h4>
+                <p>은빛노인복지센터는 어르신 한 분 한 분의 삶을 존중하며, 따뜻한 마음으로 돌봄 서비스를 제공합니다. 저희의 사명은 단순한 케어를 넘어, 마음까지 돌보는 진정한 ‘삶의 동행자’가 되는
+                    것입니다.</p>
+                <p style="height: 2000px;">(내용이 길어서 스크롤이 생기면 좌측 프로필은 고정됩니다...)</p>
+            </div>
+        </div>
+    </section>
+</body>
+
+</html>

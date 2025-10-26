@@ -4,8 +4,6 @@
 #sub {
     position: relative;
     width: 100%;
-    overflow: visible;
-    /* sticky 작동을 위해 visible */
     /* overflow: hidden; */
 }
 
@@ -236,12 +234,11 @@
     position: relative;
     background: var(--white-color);
     min-height: 350px;
-
 }
 
 .sub-content .inner {
-    max-width: 1620px;
     width: 100%;
+    max-width: 1620px;
     margin: 0 auto;
     padding: 70px 20px;
     box-sizing: border-box;
@@ -378,6 +375,8 @@
 /*  인사말 영역 END */
 
 
+
+
 /*  돌봄 인력 */
 .profile-section {
     width: 100%;
@@ -393,7 +392,6 @@
     min-height: 800px;
     padding: 50px;
     border-radius: 50px;
-    /* overflow: hidden; */
 }
 
 .profile-container:first-child {
@@ -484,6 +482,7 @@
 
 
 
+
 /*  서비스 영역 */
 .service-wrap-cont {}
 
@@ -491,7 +490,6 @@
     display: flex;
     align-items: center;
     gap: 80px;
-    overflow: hidden;
 }
 
 .cont-img>img {
@@ -609,9 +607,6 @@
         left: 50px;
     }
 
-    .profile-content .greet {
-        width: 100%;
-    }
 
 }
 
@@ -665,7 +660,6 @@
         overflow-x: auto;
         height: 50px;
         margin-bottom: 40px;
-        overflow: hidden;
     }
 
     .title-xl {
@@ -746,6 +740,8 @@
         font-size: 20px;
         padding-bottom: 0;
     }
+
+
 }
 
 @media(max-width: 767px) {
@@ -907,7 +903,6 @@
         font-size: 0.95rem;
     }
 
-
 }
 
 
@@ -918,6 +913,10 @@
 
     #sub-visual .visual-bg {
         border-bottom-right-radius: 80px;
+    }
+
+    #sub-visual .visual-bg.bg01:before {
+        background-position: 30% center;
     }
 
     .cont-bg-txt {

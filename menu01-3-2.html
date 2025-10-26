@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>스티키2(Flex 버전) + 반응형 + 페이드인</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Pretendard', sans-serif;
+        }
+
+        .profile-section {
+            width: 100%;
+            padding: 80px 20px;
+            background-color: #fafafa;
+        }
+
+        .profile-container {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            gap: 60px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding-bottom: 150px;
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 0.8s ease;
+        }
+
+        /* 등장 애니메이션 */
+        .profile-container.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* 좌측 고정 영역 */
+        .profile-sticky {
+            position: sticky;
+            top: 120px;
+            flex: 0 0 300px;
+            text-align: center;
+            align-self: flex-start;
+        }
+
+        .profile-sticky img {
+            width: 250px;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .profile-sticky .name {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+
+        .profile-sticky .name span {
+            font-size: 1rem;
+            font-weight: 400;
+            color: #888;
+            margin-left: 6px;
+        }
+
+        /* 우측 내용 영역 */
+        .profile-content {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .profile-content h4 {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-top: 40px;
+            color: #333;
+        }
+
+        .profile-content p,
+        .profile-content ul {
+            font-size: 1rem;
+            line-height: 1.6;
+            color: #555;
+        }
+
+        .profile-content ul {
+            padding-left: 20px;
+            list-style: disc;
+        }
+
+        /* ✅ 반응형 스타일 */
+        @media (max-width: 768px) {
+            .profile-container {
+                flex-direction: column;
+                gap: 30px;
+                padding-bottom: 80px;
+            }
+
+            .profile-sticky {
+                position: relative;
+                top: 0;
+                flex: none;
+                width: 100%;
+            }
+
+            .profile-sticky img {
+                width: 180px;
+                height: 180px;
+            }
+
+            .profile-sticky .name {
+                font-size: 1.4rem;
+            }
+
+            .profile-content h4 {
+                font-size: 1.1rem;
+            }
+
+            .profile-content p,
+            .profile-content ul {
+                font-size: 0.95rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <section class="profile-section">
+        <div class="profile-container fade-in">
+            <aside class="profile-sticky">
+                <img src="./assets/images/main/team-img01.jpg" alt="센터장 김은정">
+                <h3 class="name">김은정 <span>센터장</span></h3>
+            </aside>
+
+            <div class="profile-content">
+                <h4>돌봄의 진심을 담아</h4>
+                <p>안녕하세요. 은빛노인복지센터 센터장 김은정입니다. 저희 센터는 어르신 한 분 한 분의 하루가 따뜻한 미소로 채워지길 바라는 마음으로 돌봄 서비스를 운영하고 있습니다. 전문성과 진심이
+                    함께하는 돌봄으로, 가족처럼 믿을 수 있는 동반자가 되겠습니다.</p>
+
+                <h4>주요 경력</h4>
+                <ul>
+                    <li>사회복지사 15년 경력</li>
+                    <li>요양보호사 교육강사 5년</li>
+                    <li>노인복지센터 운영관리 전문가</li>
+                </ul>
+
+                <h4>자격사항</h4>
+                <ul>
+                    <li>사회복지사 1급</li>
+                    <li>요양보호사 자격</li>
+                    <li>심리상담사 2급</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="profile-container fade-in">
+            <aside class="profile-sticky">
+                <img src="./assets/images/main/team-img02.jpg" alt="요양보호사 김미정">
+                <h3 class="name">김미정 <span>요양보호사</span></h3>
+            </aside>
+
+            <div class="profile-content">
+                <h4>따뜻한 손길로 어르신 곁을 지킵니다</h4>
+                <p>항상 어르신의 눈높이에서, 마음을 나누는 돌봄을 실천하고 있습니다. 작은 일에도 웃음으로 보답하는 따뜻한 돌봄을 이어가겠습니다.</p>
+
+                <h4>주요 경력</h4>
+                <ul>
+                    <li>요양보호사 10년 경력</li>
+                    <li>재가요양 서비스 전문인력</li>
+                </ul>
+
+                <h4>자격사항</h4>
+                <ul>
+                    <li>요양보호사 자격</li>
+                    <li>노인심리상담사 2급</li>
+                </ul>
+                <p style="height: 2000px;">(내용이 길어서 스크롤이 생기면 좌측 프로필은 고정됩니다...)</p>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // ✅ Intersection Observer로 페이드인
+        const fadeEls = document.querySelectorAll('.fade-in');
+
+        const observer = new IntersectionObserver((entries, obs) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('show');
+                    obs.unobserve(entry.target);
+                }
+            });
+        }, {
+            threshold: 0.2
+        });
+
+        fadeEls.forEach(el => observer.observe(el));
+    </script>
+</body>
+
+</html>

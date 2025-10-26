@@ -15,74 +15,6 @@
     <link rel="stylesheet" href="./assets/css/layout.css">
     <link rel="stylesheet" href="./assets/css/main.css">
     <link rel="stylesheet" href="./assets/css/sub.css">
-
-    <style>
-        .profile-section {
-            width: 100%;
-            padding: 80px 0;
-            background-color: #fafafa;
-        }
-
-        .profile-container {
-            display: flex;
-            gap: 60px;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        /* 좌측 프로필 (스티키) */
-        .profile-sticky {
-            position: sticky;
-            top: 120px;
-            /* 헤더 높이에 맞게 조정 */
-            flex: 0 0 300px;
-            text-align: center;
-        }
-
-        .profile-sticky img {
-            width: 250px;
-            height: 250px;
-            object-fit: cover;
-            border-radius: 50%;
-            margin-bottom: 20px;
-        }
-
-        .profile-sticky .name {
-            font-size: 1.8rem;
-            font-weight: 700;
-            margin-bottom: 5px;
-        }
-
-        .profile-sticky .role {
-            color: #888;
-            font-size: 1rem;
-        }
-
-        /* 우측 내용 */
-        .profile-content {
-            flex: 1;
-        }
-
-        .profile-content h4 {
-            font-size: 1.3rem;
-            font-weight: 700;
-            margin: 40px 0 15px;
-            color: #333;
-        }
-
-        .profile-content p,
-        .profile-content li {
-            line-height: 1.8;
-            color: #555;
-            font-size: 1rem;
-        }
-
-        .profile-content ul {
-            padding-left: 20px;
-            list-style: disc;
-        }
-    </style>
 </head>
 
 <body>
@@ -114,8 +46,9 @@
                     <li><a href="#menu01-1" class="links">센터소개<span class="sub-toggle"></span></a>
                         <ul class="sub-menu">
                             <li><a href="#menu01-1">협회장 인사말</a></li>
-                            <li><a href="#menu01-2">전문 돌봄 인력</a></li>
-                            <li><a href="#menu01-3">오시는 길</a></li>
+                            <li><a href="#menu01-2">연혁</a></li>
+                            <li><a href="#menu01-3">전문 돌봄 인력</a></li>
+                            <li><a href="#menu01-4">오시는 길</a></li>
                         </ul>
                     </li>
                     <li><a href="#menu02" class="links">센터사업<span class="sub-toggle"></span></a>
@@ -216,8 +149,8 @@
                         </a>
                         <ul class="fullmenu-list">
                             <li><a href="#menu01-1">협회장 인사말</a></li>
-                            <li><a href="#menu01-2">전문 돌봄 인력</a></li>
-                            <li><a href="#menu01-3">오시는 길</a></li>
+                            <li><a href="#menu01-2">연혁</a></li>
+                            <li><a href="#menu01-3">전문 돌봄 인력</a></li>
                         </ul>
                     </div>
                     <div class="fullmenu-item">
@@ -295,185 +228,232 @@
 
         <div class="sub-content">
             <div class="inner" data-aos="fade-down" data-aos-delay="600" data-aos-duration="500">
+                <!-- 서브공통영역 -->
                 <div class="location-wrap">
                     <ul class="location">
                         <li><a href="index.html"> <i class="xi-home-o"></i></a></li>
                         <li>센터소개</li>
-                        <li>센터장 인사말</li>
+                        <li>전문 돌봄 인력</li>
                     </ul>
                 </div>
-                <h3 class="title-xl ta_c">센터장 인사말</h3>
+                <h3 class="title-xl ta_c">전문 돌봄 인력</h3>
 
                 <div class="sub-list-wrap snb-list">
                     <div class="active-bg"></div>
                     <ul>
-                        <li class="active"><a href="./menu01-1.html">센터장 인사말</a></li>
+                        <li><a href="./menu01-1.html">센터장 인사말</a></li>
                         <li><a href="">연혁</a></li>
-                        <li><a href="">전문 돌봄 인력</a></li>
+                        <li class="active"><a href="./menu01-3.html">전문 돌봄 인력</a></li>
                         <li><a href="">오시는 길</a></li>
                     </ul>
-                </div>
+                </div><!-- 서브공통영역 end -->
 
                 <!-- 서브내용 시작 -->
+                <section class="sub service-wrap-cont" data-aos="fade-down" data-aos-duration="400">
+                    <div class="cont-img">
+                        <img src="./assets/images/sub/sub-img01-3.jpg" alt="">
+                        <h3 class="cont-img-txt title-lg" data-aos="fade-left" data-aos-duration="400"
+                            data-aos-delay="200">은빛노인 복지센터에서는<br>
+                            <span class="color">전문성과 진심을 가진 따뜻한 인력</span>들이<br>
+                            어르신의 편안한 하루를 위해<br>
+                            오늘도 정성과 마음으로 함께합니다.
+                            <span class="dot"></span>
+                        </h3>
+                    </div>
+                    <div class="cont-box border-dot" data-aos="fade-down" data-aos-duration="400" data-aos-delay="400">
+                        <div class="sub-tit-box">
+                            <h4 class="sub-tit">전문 돌봄 인력 소개</h4>
+                            <p>은빛노인복지센터의 모든 돌봄 인력은 체계적인 교육과 풍부한 경험을 바탕으로 <br>어르신의 안전하고 행복한 일상을 지켜드립니다.</p>
+                        </div>
+                    </div>
+                </section>
                 <section class="profile-section">
                     <div class="profile-container">
                         <!-- 좌측 고정 영역 -->
-                        <aside class="profile-sticky">
-                            <img src="./assets/images/main/team-img02.jpg" alt="홍길동 센터장">
-                            <h3 class="name">홍길동 센터장</h3>
+                        <aside class="profile-sticky" data-aos="flip-left" data-aos-duration="600">
+                            <img src="./assets/images/main/team-img01.jpg" alt="김은정 센터장">
+                            <h4 class="name">김은정 센터장</h4>
                             <p class="role">센터장 / 사회복지사</p>
                         </aside>
-
                         <!-- 우측 내용 영역 -->
-                        <div class="profile-content">
-                            <h4>돌봄의 진심을 담아</h4>
-                            <p>
-                                안녕하세요. 은빛노인복지센터 센터장 홍길동입니다.
-                                저희 센터는 어르신 한 분 한 분의 하루가 따뜻한 미소로 채워지길 바라는 마음으로 돌봄 서비스를 운영하고 있습니다.
-                                전문성과 진심이 함께하는 돌봄으로, 가족처럼 믿을 수 있는 동반자가 되겠습니다.
-                            </p>
+                        <div class="profile-content" data-aos="fade-left" data-aos-duration="600" data-aos-delay="400">
+                            <!-- <img src="./assets/images/main/team-img01.jpg" alt="김은정 센터장"> -->
+                            <h4>“어르신의 미소가 곧 우리의 보람입니다.”</h4>
 
-                            <h4>주요 경력</h4>
+                            <h5>주요 경력</h5>
                             <ul>
                                 <li>사회복지사 15년 경력</li>
                                 <li>요양보호사 교육강사 5년</li>
                                 <li>노인복지센터 운영관리 전문가</li>
+                                <li>전문 인력 양성 경험</li>
+                                <li>복지 정책 수립 및 프로그램 기획 경험 다수</li>
+                                <li>센터 예산 관리 및 인사관리 경험</li>
                             </ul>
 
-                            <h4>자격사항</h4>
+                            <h5>자격사항</h5>
                             <ul>
                                 <li>사회복지사 1급</li>
                                 <li>요양보호사 자격</li>
                                 <li>심리상담사 2급</li>
+                                <li>노인복지 전문 교육 수료</li>
+                                <li>응급처치 및 안전관리 자격증</li>
                             </ul>
 
-                            <h4>인사말</h4>
-                            <p>
-                                “돌봄은 단순한 도움이 아니라 마음을 나누는 일이라고 믿습니다.”
-                                앞으로도 어르신들의 삶이 보다 편안하고 행복해질 수 있도록 함께하겠습니다.
+                            <h5>인사말</h5>
+                            <p class="greet">
+                                20년 동안 사회복지 분야에서 쌓은 경험을 바탕으로, 은빛노인복지센터의 운영과 돌봄 품질을 책임지고 있습니다. 어르신 한 분 한 분의 마음과 건강을 세심하게
+                                살피며, 가족과 함께 신뢰할 수 있는 환경을 만드는 것을 최우선으로 합니다.
+                            </p>
+
+                            <!-- <p style="height: 1000px;">(내용이 길어서 스크롤이 생기면 좌측 프로필은 고정됩니다...)</p> -->
+                        </div>
+                    </div>
+                    <div class="profile-container">
+                        <!-- 좌측 고정 영역 -->
+                        <aside class="profile-sticky" data-aos="flip-left" data-aos-duration="600">
+                            <img src="./assets/images/main/team-img02.jpg" alt="김은정 센터장">
+                            <h4 class="name">김은정 센터장</h4>
+                            <p class="role">센터장 / 사회복지사</p>
+                        </aside>
+                        <!-- 우측 내용 영역 -->
+                        <div class="profile-content" data-aos="fade-left" data-aos-duration="600" data-aos-delay="400">
+                            <!-- <img src="./assets/images/main/team-img02.jpg" alt="김은정 센터장"> -->
+                            <h4>“어르신의 미소가 곧 우리의 보람입니다.”</h4>
+
+                            <h5>주요 경력</h5>
+                            <ul>
+                                <li>사회복지사 15년 경력</li>
+                                <li>요양보호사 교육강사 5년</li>
+                                <li>노인복지센터 운영관리 전문가</li>
+                                <li>전문 인력 양성 경험</li>
+                                <li>복지 정책 수립 및 프로그램 기획 경험 다수</li>
+                                <li>센터 예산 관리 및 인사관리 경험</li>
+                            </ul>
+
+                            <h5>자격사항</h5>
+                            <ul>
+                                <li>사회복지사 1급</li>
+                                <li>요양보호사 자격</li>
+                                <li>심리상담사 2급</li>
+                                <li>노인복지 전문 교육 수료</li>
+                                <li>응급처치 및 안전관리 자격증</li>
+                            </ul>
+
+                            <h5>인사말</h5>
+                            <p class="greet">
+                                센터 구성원들과 함께 어르신이 존중받고 행복한 일상을 누릴 수 있도록, 지속적인 프로그램 개선과 전문성 강화를 위해 노력하고 있습니다.
                             </p>
                         </div>
                     </div>
                 </section>
+            </div>
+        </div><!-- sub-content END -->
+    </div><!-- #sub END-->
 
-                <!-- sub-content END -->
-            </div><!-- sub END-->
 
 
-
-            <section class="donate-sec">
-                <div class="inner-sec">
-                    <div class="donate-wrap">
-                        <div class="donate-left">
-                            <img src="./assets/images/common/donate-img01.svg" alt="">
-                            <div class="donate-title">
-                                <h4 class="tit">당신의 따뜻한 손길이 어르신의 하루를 밝힙니다</h4>
-                                <p class="txt">여러분의 후원은 돌봄이 필요한 어르신께 안전과 웃음을 전해드립니다. <br>지금 후원으로 어르신의 건강과 삶의 질을 지켜주세요.
-                                </p>
-                            </div>
-                        </div>
-                        <div class="donate-right">
-                            <div class="donate-link">
-                                <a href="">정기후원하기 <i class="xi-long-arrow-right"></i></a>
-                                <a href="">일시후원하기 <i class="xi-long-arrow-right"></i></a>
-                            </div>
-                        </div>
+    <section class="donate-sec">
+        <div class="inner-sec">
+            <div class="donate-wrap">
+                <div class="donate-left">
+                    <img src="./assets/images/common/donate-img01.svg" alt="">
+                    <div class="donate-title">
+                        <h5 class="tit">당신의 따뜻한 손길이 어르신의 하루를 밝힙니다</h5>
+                        <p class="txt">여러분의 후원은 돌봄이 필요한 어르신께 안전과 웃음을 전해드립니다. <br>지금 후원으로 어르신의 건강과 삶의 질을 지켜주세요.
+                        </p>
                     </div>
                 </div>
-            </section>
-
-            <footer class="footer">
-                <div class="inner-sec">
-                    <div class="footer-nav">
-                        <ul>
-                            <li><a href="">이용약관</a></li>
-                            <li><a href="">개인정보처리지침</a></li>
-                            <li><a href="">이메일무단수집거부</a></li>
-                            <li><a href="">찾아오시는 길</a></li>
-                        </ul>
+                <div class="donate-right">
+                    <div class="donate-link">
+                        <a href="">정기후원하기 <i class="xi-long-arrow-right"></i></a>
+                        <a href="">일시후원하기 <i class="xi-long-arrow-right"></i></a>
                     </div>
-                    <div class="footer-wrap">
-                        <div class="footer-left">
-                            <div class="footer-logo">
-                                <img src="./assets/images/common/logo.svg" alt="">
-                                <span>따뜻한 돌봄, 행복한 노후</span>
-                            </div>
-                            <div class="footer-info">
-                                <div class="footer-address">
-                                    <ul>
-                                        <li><b>센터장: </b>김은정</li>
-                                        <li><b>사업자등록번호: </b>131-91-60988</li>
-                                        <li><b>주소: </b>서울특별시 ○○구 ○○로 123, ○○빌딩 2층</li>
-                                    </ul>
-                                    <ul>
-                                        <li><b>대표전화: </b>02-1234-5678</li>
-                                        <li><b>팩스번호: </b>02-9876-5432</li>
-                                        <li><b>이메일: </b>
-                                            <a href="mailto:silvercare@abcare.co.kr"
-                                                target="_blank">silvercare@abcare.co.kr</a>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <p class="copyright">Copyright ⓒ 2025 은빛노인 복지센터. All Rights Reserved.</p>
-                            </div>
-                        </div>
-                        <div class="footer-right">
-                            <div class="footer-tel">
-                                <span>후원 및 상담전화</span>
-                                <p><img src="./assets/images/common/footer-tel.svg" alt=""> 1577-1234</p>
-                            </div>
-                            <ul class="footer-sns">
-                                <li><a href="" target="_blank"><img src="./assets/images/common/sns-kakao-talk.svg"
-                                            alt=""></a>
-                                </li>
-                                <li><a href="" target="_blank"><img src="./assets/images/common/sns-insta-gram.svg"
-                                            alt=""></a>
-                                </li>
-                                <li><a href="" target="_blank"><img src="./assets/images/common/sns-you-tube.svg"
-                                            alt=""></a>
-                                </li>
-                                <li><a href="" target="_blank"><img src="./assets/images/common/sns-naver-blog.svg"
-                                            alt=""></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="inner-sec">
+            <div class="footer-nav">
+                <ul>
+                    <li><a href="">이용약관</a></li>
+                    <li><a href="">개인정보처리지침</a></li>
+                    <li><a href="">이메일무단수집거부</a></li>
+                    <li><a href="">찾아오시는 길</a></li>
+                </ul>
+            </div>
+            <div class="footer-wrap">
+                <div class="footer-left">
+                    <div class="footer-logo">
+                        <img src="./assets/images/common/logo.svg" alt="">
+                        <span>따뜻한 돌봄, 행복한 노후</span>
+                    </div>
+                    <div class="footer-info">
+                        <div class="footer-address">
+                            <ul>
+                                <li><b>센터장: </b>김은정</li>
+                                <li><b>사업자등록번호: </b>131-91-60988</li>
+                                <li><b>주소: </b>서울특별시 ○○구 ○○로 123, ○○빌딩 2층</li>
+                            </ul>
+                            <ul>
+                                <li><b>대표전화: </b>02-1234-5678</li>
+                                <li><b>팩스번호: </b>02-9876-5432</li>
+                                <li><b>이메일: </b>
+                                    <a href="mailto:silvercare@abcare.co.kr" target="_blank">silvercare@abcare.co.kr</a>
                                 </li>
                             </ul>
                         </div>
+                        <p class="copyright">Copyright ⓒ 2025 은빛노인 복지센터. All Rights Reserved.</p>
                     </div>
                 </div>
-            </footer>
+                <div class="footer-right">
+                    <div class="footer-tel">
+                        <span>후원 및 상담전화</span>
+                        <p><img src="./assets/images/common/footer-tel.svg" alt=""> 1577-1234</p>
+                    </div>
+                    <ul class="footer-sns">
+                        <li><a href="" target="_blank"><img src="./assets/images/common/sns-kakao-talk.svg" alt=""></a>
+                        </li>
+                        <li><a href="" target="_blank"><img src="./assets/images/common/sns-insta-gram.svg" alt=""></a>
+                        </li>
+                        <li><a href="" target="_blank"><img src="./assets/images/common/sns-you-tube.svg" alt=""></a>
+                        </li>
+                        <li><a href="" target="_blank"><img src="./assets/images/common/sns-naver-blog.svg" alt=""></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
 
 
 
 
 
 
+    <!-- 하단 공통 -->
+    <!-- 탑버튼 -->
+    <button type="button" id="btnTop" class="">
+        <i class="xi-angle-up-min"></i>TOP
+    </button>
 
 
+    <!-- aos js -->
+    <script src="./assets/js/aos.js"></script>
+    <script>
+        AOS.init();
+    </script>
 
+    <script src="./assets/js/jquery-3.7.1.min.js"></script>
+    <script src="./assets/js/swiper-bundle.min.js"></script>
+    <script src="./assets/js/feather.min.js"></script>
+    <script src="./assets/js/script.js"></script>
 
+    <script>
 
-
-            <!-- 하단 공통 -->
-            <!-- 탑버튼 -->
-            <button type="button" id="btnTop" class="">
-                <i class="xi-angle-up-min"></i>TOP
-            </button>
-
-
-            <!-- aos js -->
-            <script src="./assets/js/aos.js"></script>
-            <script>
-                AOS.init();
-            </script>
-
-            <script src="./assets/js/jquery-3.7.1.min.js"></script>
-            <script src="./assets/js/swiper-bundle.min.js"></script>
-            <script src="./assets/js/feather.min.js"></script>
-            <script src="./assets/js/script.js"></script>
-
-            <script>
-
-            </script>
-            <!-- //하단 공통 END-->
+    </script>
+    <!-- //하단 공통 END-->
 
 </body>
 

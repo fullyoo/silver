@@ -227,6 +227,17 @@ $(function () {
 
 
 
+    // 01-3 snb-list 내부의 a태그 중 href가 #menu로 시작하는 경우
+    $('.sub-list-wrap.snb-list a[href^="#menu"]').each(function () {
+        let href = $(this).attr('href');
+        let newHref = href.replace('#', '') + '.html';
+        $(this).attr('href', newHref);
+    });
+
+    console.log("✅ snb-list 내부의 #menu 링크가 .html로 자동 변환되었습니다.");
+
+
+
 
 
 
