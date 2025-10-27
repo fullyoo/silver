@@ -7,6 +7,7 @@
     overflow: visible;
     /* sticky 작동을 위해 visible */
     /* overflow: hidden; */
+    overflow: clip;
 }
 
 #sub-visual {
@@ -62,6 +63,7 @@
 
 #sub-visual .visual-bg.bg01:before {
     background-image: url(../images/sub/sub-visual01.jpg);
+    background-position-x: 30%;
 }
 
 #sub-visual .visual-bg.bg02:before {
@@ -210,7 +212,7 @@
     position: relative;
     background-color: var(--lightGrayBg-color);
     border-radius: 50px;
-    margin-bottom: 50px;
+    margin-bottom: 60px;
 }
 
 .sub-list-wrap ul {
@@ -387,14 +389,13 @@
 .profile-container {
     display: flex;
     align-items: flex-start;
-    justify-content: space-between;
+    justify-content: space-evenly;
     gap: 60px;
     margin: 0 auto;
     padding-bottom: 150px;
     min-height: 800px;
-    padding: 50px;
+    padding: 70px 50px;
     border-radius: 50px;
-    /* overflow: hidden; */
 }
 
 .profile-container:first-child {
@@ -409,35 +410,35 @@
 .profile-sticky {
     position: sticky;
     top: 120px;
-    flex: 0 0 300px;
+    flex: 0 0 400px;
     /* 고정 너비 */
     text-align: center;
     align-self: flex-start;
 }
 
 .profile-sticky img {
-    width: 250px;
-    height: 250px;
+    width: 400px;
+    /* height: 400px; */
     object-fit: cover;
-    border-radius: 20px;
     border-radius: 50%;
+    border-radius: 20px;
     margin-bottom: 20px;
 }
 
 .profile-sticky .name {
     font-size: 28px;
-    font-weight: var(--font-700);
+    font-weight: var(--font-800);
     color: var(--text-color);
     margin-bottom: 5px;
 }
 
 .profile-sticky .role {
-    font-size: 16px;
+    font-size: 20px;
 }
 
 /* 우측 내용 영역 */
 .profile-content {
-    flex: 1;
+    /* flex: 1; */
     min-width: 0;
 }
 
@@ -450,7 +451,6 @@
 
 .profile-content h5 {
     font-size: 22px;
-    font-weight: var(--font-600);
     color: var(--text-color);
 }
 
@@ -614,6 +614,10 @@
         width: 100%;
     }
 
+    .profile-sticky img {
+        width: 300px;
+    }
+
 }
 
 
@@ -747,6 +751,10 @@
         font-size: 20px;
         padding-bottom: 0;
     }
+
+    .profile-sticky {
+        flex-basis: 250px;
+    }
 }
 
 @media(max-width: 767px) {
@@ -879,7 +887,8 @@
     .profile-container {
         flex-direction: column;
         gap: 30px;
-        padding-bottom: 80px;
+        padding: 40px;
+        border-radius: 30px;
     }
 
     .profile-sticky {
@@ -891,21 +900,27 @@
     }
 
     .profile-sticky img {
-        width: 180px;
-        /* height: 180px; */
+        width: 250px;
+        /* height: 250px; */
     }
 
     .profile-sticky .name {
-        font-size: 1.4rem;
+        font-size: 22px;
     }
 
-    .profile-content h5 {
-        font-size: 1.1rem;
+    .profile-sticky .role {
+        font-size: 16px;
+    }
+
+    .profile-content h4 {
+        font-size: 24px;
+        text-align: center;
     }
 
     .profile-content p,
     .profile-content ul {
-        font-size: 0.95rem;
+        font-size: 18px;
+        margin-bottom: 30px;
     }
 
 
