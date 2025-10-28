@@ -660,6 +660,41 @@ $(function () {
 
 
 
+    // =====10. 연혁=====
+
+    // 히스토리
+    var scrollBar = {
+        init: function () {
+            $(window).on("scroll resize", function () {
+                scrollBar.bar();
+            });
+            scrollBar.bar();
+        },
+        bar: function () {
+            const winScroll = $(window).scrollTop();
+            const winHeight = $(window).height();
+
+            const $wrap = $(".history-box");
+            const wrapTop = $wrap.offset().top;
+            const wrapHeight = $wrap.outerHeight();
+
+            const startScroll = wrapTop - winHeight;
+            const endScroll = wrapTop + wrapHeight - winHeight;
+            const totalScroll = endScroll - startScroll;
+
+            let currentScroll = winScroll - startScroll;
+            currentScroll = Math.max(0, Math.min(currentScroll, totalScroll));
+
+            const percent = (currentScroll / totalScroll) * 100;
+            const adjustedPercent = Math.max(0, percent - 9);
+
+            $(".scroll-bar > .bar").css({ height: adjustedPercent + "%" });
+        }
+    };
+    scrollBar.init();
+
+
+
 
 
 

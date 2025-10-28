@@ -586,10 +586,185 @@
     font-weight: var(--font-500);
 }
 
-
 /*  서비스 영역 END */
 
 
+
+/*  연혁 영역 */
+.history-box {
+    position: relative;
+    padding: 70px 0 200px;
+    margin: 100px 0;
+    box-sizing: border-box;
+}
+
+.history-box .scroll-bar {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 4px;
+    height: 100%;
+    background-color: var(--lightGray-color);
+}
+
+.history-box .scroll-bar .bar {
+    position: relative;
+    width: 100%;
+    height: 0;
+    background-color: #eb7e78;
+}
+
+.history-box .scroll-bar .bar:before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%, 50%);
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background-color: var(--white-color);
+    ;
+    box-sizing: border-box;
+    animation: scroll-barAni 1.8s infinite;
+    -webkit-animation: scroll-barAni 1.8s infinite;
+}
+
+.history-box .scroll-bar .bar:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%, 50%);
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background-color: var(--white-color);
+    ;
+    border: 8px solid var(--primary-color);
+    ;
+    box-sizing: border-box;
+}
+
+.history-item {
+    position: relative;
+    width: 100%;
+    min-height: 350px;
+    box-sizing: border-box;
+}
+
+.history-item+.history-item {
+    margin-top: 100px;
+}
+
+.history-item>.head {
+    margin-left: 60px;
+    position: absolute;
+    left: 50%;
+    text-align: center;
+}
+
+.history-item>.head>.year {
+    font-size: 40px;
+    font-weight: 700;
+    color: #000;
+    line-height: 100%;
+    letter-spacing: 1px;
+}
+
+.history-item>.head img {
+    width: auto;
+    margin: 30px 0;
+}
+
+.history-item>.list {
+    padding-top: 5px;
+    padding-right: 60px;
+}
+
+.history-item>.list>li {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+.history-item>.list>li:before {
+    content: "";
+    position: absolute;
+    left: -63px;
+    top: 13px;
+    width: 6px;
+    height: 6px;
+    background: var(--primary-color);
+    ;
+    border-radius: 100%;
+}
+
+.history-item>.list>li+li {
+    margin-top: 50px;
+}
+
+.history-item>.list>li>.date {
+    width: 120px;
+    flex: none;
+    font-size: 24px;
+    font-weight: 500;
+    color: #000;
+}
+
+.history-item>.list>li>.text {
+    width: calc(100% - 124px);
+    margin-top: 5px;
+    font-size: 18px;
+    font-weight: 400;
+    color: #000;
+    line-height: 160%;
+    letter-spacing: -0.1px;
+    word-break: keep-all;
+}
+
+.history-item:nth-child(odd) {
+    padding-left: 50%;
+}
+
+.history-item:nth-child(even) {
+    padding-right: 50%;
+}
+
+.history-item:nth-child(odd)>.head {
+    right: 50%;
+    left: auto;
+    margin-left: 0;
+    margin-right: 60px;
+}
+
+.history-item:nth-child(odd)>.list {
+    padding-right: 0;
+    padding-left: 60px;
+}
+
+.history-item:nth-child(even)>.list>li {
+    flex-direction: row-reverse;
+}
+
+.history-item:nth-child(even)>.list>li:before {
+    left: auto;
+    right: -63px;
+}
+
+.history-item:nth-child(even)>.list>li>.date {
+    text-align: right;
+}
+
+.history-item:nth-child(even)>.list>li>.text {
+    text-align: right;
+}
+
+/*  연혁 영역 END */
 
 
 
@@ -657,7 +832,7 @@
         padding: 40px;
     }
 
-    .subContent {
+    .sub-content {
         padding: 70px 0;
     }
 
@@ -695,7 +870,7 @@
     .title-xs {}
 
     .cont-box {
-        margin: 40px 0;
+        margin: 40px 0 0;
     }
 
     .cont-box p {
@@ -755,6 +930,76 @@
     .profile-sticky {
         flex-basis: 250px;
     }
+
+
+    .history-box {
+        margin-top: 0;
+        padding: 0;
+        width: 90%;
+        margin: 0 auto;
+    }
+
+    .history-box .scroll-bar {
+        display: none;
+    }
+
+    .history-item {
+        padding-left: 0 !important;
+        min-height: auto;
+        border-bottom: 1px dashed var(--body-color2);
+        padding-bottom: 50px;
+    }
+
+    .history-item+.history-item {
+        margin-top: 50px;
+        padding-right: 0;
+    }
+
+    .history-item>.head {
+        position: inherit;
+        left: auto !important;
+        right: auto !important;
+        padding: 0 !important;
+        margin: 0 !important;
+    }
+
+    .history-item>.head>.year {
+        font-size: 30px;
+    }
+
+    .history-item>.list {
+        padding: 0 !important;
+    }
+
+    .history-item>.list>li+li {
+        margin-top: 15px;
+    }
+
+    .history-item>.list>li>.date {
+        width: 100px;
+        font-size: 18px;
+    }
+
+    .history-item>.list>li>.text {
+        width: calc(100% - 100px);
+        margin-top: 0;
+    }
+
+    .history-item:nth-child(even)>.list>li {
+        flex-direction: row;
+    }
+
+    .history-item:nth-child(even)>.list>li>.date,
+    .history-item:nth-child(even)>.list>li>.text {
+        text-align: left;
+    }
+
+    .history-item>.list>li:before {
+        display: none;
+    }
+
+
+
 }
 
 @media(max-width: 767px) {
@@ -806,8 +1051,8 @@
         padding: 0 18px;
     }
 
-    .subContent {
-        padding: 50px 0 100px;
+    .sub-content {
+        padding: 30px 0;
     }
 
     .sub-content .location li {
@@ -923,6 +1168,29 @@
         margin-bottom: 30px;
     }
 
+    .history-wrap {
+        margin-bottom: 50px;
+    }
+
+    .history-item+.history-item {
+        margin-top: 30px;
+        padding-right: 0;
+    }
+
+    .history-item>.head>.year {
+        font-size: 26px;
+    }
+
+    .history-item>.list>li>.date {
+        width: 80px;
+        font-size: 16px;
+    }
+
+    .history-item>.list>li>.text {
+        width: calc(100% - 80px);
+        font-size: 16px;
+    }
+
 
 }
 
@@ -972,7 +1240,7 @@
     }
 
     .sub-content {
-        padding-bottom: 0;
+        padding: 20px 0;
     }
 
 }
