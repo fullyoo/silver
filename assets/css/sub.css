@@ -1119,7 +1119,6 @@
         margin-bottom: 30px;
     }
 
-
 }
 
 
@@ -1165,6 +1164,14 @@
 
     .service-list li p {
         padding-bottom: 30px;
+    }
+
+    .history-item .head .year {
+        font-size: 40px;
+    }
+
+    .history-item .head img {
+        width: 80%;
     }
 
 }
