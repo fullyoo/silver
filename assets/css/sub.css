@@ -947,7 +947,7 @@
     }
 
     .history-item .list li .date {
-        font-size: 28px;
+        font-size: 26px;
     }
 
 
@@ -960,14 +960,6 @@
 
     #sub-visual .visual-bg {
         border-bottom-right-radius: 100px;
-    }
-
-    #sub-visual .visual-text h2 {
-        font-size: 34px;
-    }
-
-    #sub-visual .visual-text .desc {
-        font-size: 16px;
     }
 
     #sub-visual .visual-text .location {
@@ -998,7 +990,6 @@
     .snb-list ul {}
 
     .snb-list ul li a {
-        font-size: 14px;
         padding: 0 18px;
     }
 
