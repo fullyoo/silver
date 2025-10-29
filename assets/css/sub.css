@@ -710,6 +710,117 @@
 
 /*  연혁 영역 END */
 
+/* 오시는 길 */
+
+.mapItem .mapInfo {
+    position: relative;
+    margin-top: 50px;
+    padding-right: 380px;
+    box-sizing: border-box;
+}
+
+.mapItem .mapInfo .link {
+    position: absolute;
+    top: 0;
+    right: 0;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 20px;
+}
+
+.mapItem .mapInfo .link a {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: center;
+    padding: 13px 30px;
+    border-radius: 5px;
+    border: 1px solid #DDD;
+    background: #FFF;
+    box-sizing: border-box;
+    color: #000;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: normal;
+    letter-spacing: -0.4px;
+    transition: .3s;
+    -webkit-transition: .3s;
+}
+
+.mapItem .mapInfo .link a:before {
+    content: "";
+    display: inline-block;
+    width: 15px;
+    height: 16px;
+    margin-right: 10px;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.mapItem .mapInfo .link a.btnNaver:before {
+    background-image: url(../images/sub/icon_naver.svg);
+}
+
+.mapItem .mapInfo .link a.btnGoogle:before {
+    background-image: url(../images/sub/icon_google.svg);
+}
+
+.mapItem .mapInfo .link a.btnNaver:hover {
+    background: #04A936;
+    border-color: #04A936;
+    color: #FFF;
+}
+
+.mapItem .mapInfo .link a.btnGoogle:hover {
+    background: #E94235;
+    border-color: #E94235;
+    color: #FFF;
+}
+
+.mapItem .mapInfo .link a.btnNaver:hover:before {
+    background-image: url(../images/sub/icon_naver_on.svg);
+}
+
+.mapItem .mapInfo .link a.btnGoogle:hover:before {
+    background-image: url(../images/sub/icon_google_on.svg);
+}
+
+.mapItem .mapInfo .name {
+    color: #000;
+    font-size: 30px;
+    font-weight: 700;
+    line-height: normal;
+    letter-spacing: -0.4px;
+}
+
+.mapItem .mapInfo .address {
+    margin-top: 25px;
+    color: #000;
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 150%;
+    word-break: keep-all;
+}
+
+.mapItem .mapInfo ul {
+    margin-top: 15px;
+}
+
+.mapItem .mapInfo ul li {
+    color: #555;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 150%;
+}
+
+.mapItem .mapInfo ul li b {
+    color: #333;
+    font-weight: 500;
+}
+
+/* //오시는 길 */
 
 
 
@@ -1104,6 +1215,44 @@
     .profile-content ul {
         font-size: 18px;
         margin-bottom: 30px;
+    }
+
+    .mapItem .mapArea iframe {
+        height: 350px;
+    }
+
+    .mapItem .mapInfo {
+        margin-top: 20px;
+    }
+
+    .mapItem .mapInfo .name {
+        font-size: 20px;
+    }
+
+    .mapItem .mapInfo .address {
+        margin-top: 10px;
+        font-size: 17px;
+    }
+
+    .mapItem .mapInfo ul {
+        margin-top: 10px;
+    }
+
+    .mapItem .mapInfo ul li {
+        font-size: 16px;
+    }
+
+    .mapItem .mapInfo .link {
+        margin-top: 15px;
+    }
+
+    .mapItem .mapInfo .link a {
+        padding: 10px 20px;
+        font-size: 14px;
+    }
+
+    .mapItem .mapInfo .link a:before {
+        margin-right: 6px;
     }
 
 }
