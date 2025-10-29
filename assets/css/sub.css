@@ -652,6 +652,7 @@
     width: 100%;
     min-height: 350px;
     box-sizing: border-box;
+    padding-bottom: 100px;
 }
 
 .history-item+.history-item {
@@ -666,9 +667,9 @@
 }
 
 .history-item>.head>.year {
-    font-size: 40px;
+    font-size: 80px;
     font-weight: 700;
-    color: #000;
+    color: var(--primary-color);
     line-height: 100%;
     letter-spacing: 1px;
 }
@@ -685,7 +686,7 @@
 
 .history-item>.list>li {
     position: relative;
-    display: flex;
+    /* display: flex; */
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: flex-start;
@@ -709,11 +710,11 @@
 }
 
 .history-item>.list>li>.date {
-    width: 120px;
+    /* width: 120px; */
     flex: none;
-    font-size: 24px;
-    font-weight: 500;
-    color: #000;
+    font-size: 36px;
+    font-weight: 700;
+    color: var(--text-color);
 }
 
 .history-item>.list>li>.text {
@@ -721,7 +722,7 @@
     margin-top: 5px;
     font-size: 18px;
     font-weight: 400;
-    color: #000;
+    color: var(--text-color);
     line-height: 160%;
     letter-spacing: -0.1px;
     word-break: keep-all;
@@ -739,7 +740,7 @@
     right: 50%;
     left: auto;
     margin-left: 0;
-    margin-right: 60px;
+    margin-right: 200px;
 }
 
 .history-item:nth-child(odd)>.list {

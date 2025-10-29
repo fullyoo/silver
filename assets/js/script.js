@@ -663,6 +663,7 @@ $(function () {
     // =====10. 연혁=====
 
     // 히스토리
+    // 히스토리
     var scrollBar = {
         init: function () {
             $(window).on("scroll resize", function () {
@@ -671,10 +672,12 @@ $(function () {
             scrollBar.bar();
         },
         bar: function () {
+            const $wrap = $(".history-box");
+            if ($wrap.length === 0) return; // ✅ 요소 없으면 함수 중단
+
             const winScroll = $(window).scrollTop();
             const winHeight = $(window).height();
 
-            const $wrap = $(".history-box");
             const wrapTop = $wrap.offset().top;
             const wrapHeight = $wrap.outerHeight();
 
@@ -691,7 +694,10 @@ $(function () {
             $(".scroll-bar > .bar").css({ height: adjustedPercent + "%" });
         }
     };
-    scrollBar.init();
+    $(function () {
+        scrollBar.init(); // ✅ DOM 로드 후 실행
+    });
+
 
 
 
