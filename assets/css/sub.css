@@ -102,7 +102,7 @@
 #sub-visual .visual-text h2 {
     color: var(--white-color);
     font-size: 55px;
-    font-weight: var(--font-900);
+    font-weight: var(--font-800);
     /* line-height: 100%; */
 }
 
@@ -270,7 +270,7 @@
     display: block;
     color: var(--text-color);
     font-size: 42px;
-    font-weight: var(--font-900);
+    font-weight: var(--font-800);
     padding: 70px 0;
     /* margin-bottom: 35px; */
     /* border-bottom: 1px dashed #ddd; */
@@ -417,7 +417,7 @@
 
 .profile-sticky .name {
     font-size: 28px;
-    font-weight: var(--font-900);
+    font-weight: var(--font-800);
     color: var(--text-color);
     margin-bottom: 5px;
 }
