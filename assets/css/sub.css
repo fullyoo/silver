@@ -234,7 +234,7 @@
     max-width: 1620px;
     width: 100%;
     margin: 0 auto;
-    padding: 70px 20px;
+    padding: 70px 20px 150px;
     box-sizing: border-box;
 }
 
@@ -713,27 +713,32 @@
 /* 오시는 길 */
 .lotate-wrap {}
 
-.mapItem {}
+.map-item {}
 
-.mapArea {
+.map-area {
+    padding-top: 50px;
+}
+
+.map-area iframe {
     border-radius: 30px;
     overflow: hidden;
 }
 
-.mapArea iframe {
-    margin-bottom: -8px;
-}
-
-.mapItem .mapInfo {
+.map-item .map-info {
     position: relative;
     box-sizing: border-box;
     display: flex;
-    /* gap: 100px; */
     justify-content: space-around;
     align-items: center;
 }
 
-.mapItem .link {
+.map-item .map-info-list {
+    display: flex;
+    justify-content: space-between;
+    gap: 100px;
+}
+
+.map-item .link {
     /* position: absolute; */
     top: 120px;
     right: 40px;
@@ -743,7 +748,7 @@
     gap: 10px;
 }
 
-.mapItem .link a {
+.map-item .link a {
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
@@ -751,7 +756,7 @@
     justify-content: center;
     padding: 13px 40px;
     border-radius: 5px;
-    border: 1px solid var(--lightGray-color);
+    border: 1px solid var(--body-color2);
     background: var(--white-color);
     box-sizing: border-box;
     color: var(--text-color);
@@ -763,7 +768,7 @@
     -webkit-transition: .3s;
 }
 
-.mapItem .link a:before {
+.map-item .link a:before {
     content: "";
     display: inline-block;
     width: 15px;
@@ -773,35 +778,35 @@
     background-repeat: no-repeat;
 }
 
-.mapItem .link a.btnNaver:before {
+.map-item .link a.btnNaver:before {
     background-image: url(../images/sub/icon_naver.svg);
 }
 
-.mapItem .link a.btnGoogle:before {
+.map-item .link a.btnGoogle:before {
     background-image: url(../images/sub/icon_google.svg);
 }
 
-.mapItem .link a.btnNaver:hover {
+.map-item .link a.btnNaver:hover {
     background: #04A936;
     border-color: #04A936;
     color: var(--white-color);
 }
 
-.mapItem .link a.btnGoogle:hover {
+.map-item .link a.btnGoogle:hover {
     background: #E94235;
     border-color: #E94235;
     color: var(--white-color);
 }
 
-.mapItem .link a.btnNaver:hover:before {
+.map-item .link a.btnNaver:hover:before {
     background-image: url(../images/sub/icon_naver_on.svg);
 }
 
-.mapItem .link a.btnGoogle:hover:before {
+.map-item .link a.btnGoogle:hover:before {
     background-image: url(../images/sub/icon_google_on.svg);
 }
 
-.mapItem .mapInfo .name {
+.map-item .map-info .name {
     color: var(--text-color);
     font-size: 30px;
     font-weight: var(--font-700);
@@ -810,11 +815,10 @@
     padding: 60px 100px;
     display: inline-block;
     border-radius: 30px 30px 30px 0px;
-    transform: translate(0px, 150px);
-    margin-top: -120px;
+    margin-bottom: -120px;
 }
 
-.mapItem .mapInfo .name span {
+.map-item .map-info .name span {
     display: block;
     font-size: 18px;
     text-transform: uppercase;
@@ -828,16 +832,16 @@
     align-items: center;
 }
 
-.mapItem .mapInfo .address {
+.map-item .map-info .address {
     color: var(--text-color);
     font-size: 20px;
     font-weight: var(--font-500);
     margin-bottom: 20px;
 }
 
-.mapItem .mapInfo ul {}
+.map-item .map-info ul {}
 
-.mapItem .mapInfo ul li {
+.map-item .map-info ul li {
     color: var(--body-color);
     font-size: 20px;
     padding-bottom: 10px;
@@ -845,7 +849,7 @@
 
 }
 
-.mapItem .mapInfo ul li b {
+.map-item .map-info ul li b {
     color: #333;
     font-weight: var(--font-500);
 }
@@ -897,7 +901,7 @@
 @media(max-width: 1280px) {
 
     .sub-content .inner {
-        padding: 70px 40px;
+        padding: 70px 40px 120px;
     }
 
     .title-lg {
@@ -914,6 +918,34 @@
 
     .profile-sticky img {
         width: 300px;
+    }
+
+    .map-item .map-info {
+        align-items: center;
+        padding: 0 10px;
+        justify-content: space-between;
+    }
+
+    .map-item .map-info-list {
+        flex-direction: column-reverse;
+        gap: 40px;
+    }
+
+    .map-item .map-info .name {
+        padding: 30px 50px;
+        font-size: 25px;
+    }
+
+    .map-item .map-info .name span {
+        padding-bottom: 5px;
+    }
+
+    .map-all {
+        align-items: flex-start;
+    }
+
+    .map-item .link a {
+        padding: 10px 20px;
     }
 
 
@@ -950,14 +982,6 @@
     .snb-list ul li a {
         font-size: 15px;
         /* padding: 0 20px; */
-    }
-
-    .sub-content .inner {
-        padding: 40px;
-    }
-
-    .sub-content {
-        padding: 0px 0 70px;
     }
 
     .sub-content .location li {
@@ -1120,7 +1144,7 @@
     }
 
     .sub-content .inner {
-        padding: 30px 20px;
+        padding: 30px 20px 100px;
     }
 
     .snb-list {
@@ -1132,10 +1156,6 @@
 
     .snb-list ul li a {
         padding: 0 18px;
-    }
-
-    .sub-content {
-        padding: 0px 0 30px;
     }
 
     .sub-list-wrap {
@@ -1247,58 +1267,60 @@
         margin-bottom: 30px;
     }
 
-    .mapItem .mapArea iframe {
-        height: 350px;
-    }
-
-    .mapItem .mapInfo {
-        margin-top: 20px;
-    }
-
-    .mapItem .mapInfo .name {
+    .map-item .map-info .name {
         font-size: 20px;
+        margin-bottom: 0;
     }
 
-    .mapItem .mapInfo .address {
-        margin-top: 10px;
+    .map-item .map-info .name span {
+        font-size: 15px;
+        padding: 0;
+    }
+
+    .map-item .map-info .address {
+        margin-bottom: 0px;
         font-size: 17px;
     }
 
-    .mapItem .mapInfo ul {
+    .map-item .map-info ul {
         margin-top: 10px;
     }
 
-    .mapItem .mapInfo ul li {
+    .map-item .map-info ul li {
         font-size: 16px;
     }
 
-    .mapItem .link {
+    .map-item .link {
         margin-top: 15px;
     }
 
-    .mapItem .link a {
+    .map-item .link a {
         padding: 10px 20px;
         font-size: 14px;
     }
 
-    .mapItem .link a:before {
+    .map-item .link a:before {
         margin-right: 6px;
     }
 
-    .mapItem .mapArea iframe {
-        height: 450px;
+    .map-item .map-info {
+        flex-direction: column-reverse;
+        align-items: flex-start;
+        gap: 30px;
     }
 
-    .mapItem .mapInfo {
-        margin-top: 30px;
-        padding-right: 0;
+    .map-item .map-info-list {
+        gap: 20px;
     }
 
-    .mapItem .link {
-        position: inherit;
-        gap: 10px;
-        margin-top: 20px;
+    .map-area {
+        padding-top: 30px;
     }
+
+    .map-area iframe {
+        height: 400px;
+    }
+
 
 }
 
