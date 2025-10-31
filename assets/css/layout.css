@@ -911,11 +911,10 @@ input[type="checkbox"]:focus {
 
 .fullmenu-grid {
     display: grid;
-    /* grid-template-columns: repeat(auto-fit, minmax(8%, 1fr)); */
-    grid-template-columns: repeat(3, 1fr);
-    /* 3개씩 한 줄 */
-    padding: 150px 50px;
+    grid-template-columns: repeat(2, 1fr);
     gap: 100px;
+    width: 80%;
+    padding: 150px 0px;
 }
 
 .fullmenu-item {
@@ -1167,8 +1166,7 @@ input[type="checkbox"]:focus {
 
 .header-menu {
     display: flex;
-    gap: 50px;
-    list-style-type: none;
+    gap: 80px;
 }
 
 .header-menu>li {
@@ -1505,7 +1503,7 @@ input[type="checkbox"]:focus {
     }
 
     .header-menu {
-        /* gap: 25px; */
+        gap: 25px;
     }
 
     #header .links {
@@ -1522,6 +1520,23 @@ input[type="checkbox"]:focus {
         font-size: 30px;
     }
 
+    .fullmenu-title {
+        font-size: 24px;
+    }
+
+    .fullmenu-list a {
+        font-size: 16px;
+    }
+
+    .fullmenu-grid {
+        width: 90%;
+        padding: 150px 50px;
+    }
+
+
+}
+
+@media(max-width: 1024px) {
     #header {}
 
     /* 메뉴 닫힘 + 최상단 투명 + 흰색 로고/버튼/햄버거 */
@@ -1799,9 +1814,6 @@ input[type="checkbox"]:focus {
         font-size: 16px;
     }
 
-}
-
-@media(max-width: 1024px) {
     .sub-menu {
         position: static;
         transform: none;
