@@ -164,6 +164,11 @@
     box-sizing: border-box;
     position: relative;
     list-style: none;
+
+    scroll-behavior: smooth;
+    /* → 스크롤 이동이 부드럽게 보임. */
+    -webkit-overflow-scrolling: touch;
+    /* iOS(사파리, 크롬 등)에서 부드러운 터치 스크롤을 활성화 */
 }
 
 .snb-list ul li {
@@ -171,7 +176,11 @@
     height: 100%;
     position: relative;
     z-index: 2;
+    /* flex: 0 0 auto; */
 }
+
+
+/* //서브 투뎁쓰 메뉴 추가버전 */
 
 .snb-list ul li a {
     display: flex;
@@ -839,7 +848,9 @@
     margin-bottom: 20px;
 }
 
-.map-item .map-info ul {}
+.map-item .map-info .address br {
+    display: none;
+}
 
 .map-item .map-info ul li {
     color: var(--body-color);
@@ -1319,6 +1330,10 @@
 
     .map-area iframe {
         height: 400px;
+    }
+
+    .map-item .map-info .address br {
+        display: block;
     }
 
 

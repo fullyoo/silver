@@ -553,53 +553,6 @@ $(function () {
 
     // =====09. 서브 슬라이딩 탭 모션=====
 
-    // 09-1. 자바스크립트 버전
-    // const items = document.querySelectorAll('.snb-list ul li');
-    // const activeBg = document.querySelector('.active-bg');
-    // const ul = document.querySelector('.snb-list ul');
-
-    // // 초기 위치 설정
-    // function setActiveBg(li) {
-    //     const index = Array.from(items).indexOf(li);
-    //     const itemWidth = 100 / items.length;
-
-    //     activeBg.style.left = (index * itemWidth) + '%';
-    //     activeBg.style.width = itemWidth + '%';
-    // }
-
-    // // 페이지 로드 시 active 요소 위치 설정
-    // const activeItem = document.querySelector('.snb-list ul li.active');
-    // if (activeItem) {
-    //     setActiveBg(activeItem);
-    // }
-
-    // // 각 탭 클릭 이벤트
-    // items.forEach((item, index) => {
-    //     item.querySelector('a').addEventListener('click', (e) => {
-    //         e.preventDefault();
-
-    //         // 모든 active 클래스 제거
-    //         items.forEach(i => i.classList.remove('active'));
-
-    //         // 클릭된 항목에 active 클래스 추가
-    //         item.classList.add('active');
-
-    //         // 배경 이동
-    //         setActiveBg(item);
-    //     });
-    // });
-
-    // // 창 크기 변경 시 위치 재조정
-    // window.addEventListener('resize', () => {
-    //     const activeItem = document.querySelector('.snb-list ul li.active');
-    //     if (activeItem) {
-    //         setActiveBg(activeItem);
-    //     }
-    // });
-
-
-
-    // 09-2. 제이쿼리 버전
     const $items = $('.snb-list ul li');
     const $activeBg = $('.active-bg');
 
@@ -643,11 +596,11 @@ $(function () {
         // 애니메이션 후 이동
         setTimeout(() => {
             if (target === '_blank') {
-                window.open(href, '_blank'); // 새창으로 열기
+                window.open(href, '_blank');
             } else {
-                window.location.href = href; // 현재 창 이동
+                window.location.href = href;
             }
-        }, 400); // transition 시간과 맞추기
+        }, 400);
     });
 
     // 창 크기 변경 시 위치 재조정
@@ -657,6 +610,22 @@ $(function () {
             setActiveBg($activeItem);
         }
     });
+
+    // ✅ 추가: 활성 메뉴 자동 스크롤 (모바일 대응)
+    $(window).on('load', function () {
+        const $wrap = $('.snb-list ul');
+        const $active = $('.snb-list ul li.active');
+
+        if ($wrap.length && $active.length) {
+            const wrapWidth = $wrap.outerWidth();
+            const activePos = $active.position().left;
+            const activeWidth = $active.outerWidth();
+            const scrollPos = activePos - (wrapWidth / 2) + (activeWidth / 2);
+
+            $wrap.scrollLeft(scrollPos); // 중앙으로 오도록 스크롤 이동
+        }
+    });
+
 
 
 
