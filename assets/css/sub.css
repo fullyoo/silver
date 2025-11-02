@@ -262,6 +262,10 @@
     font-weight: var(--font-500);
 }
 
+.sub-content .location li:last-child {
+    font-weight: var(--font-700);
+}
+
 .sub-content .location li+li:before {
     content: "";
     display: inline-block;
@@ -710,7 +714,6 @@
     flex: 1;
     font-size: 18px;
     color: var(--text-color);
-    line-height: 160%;
     letter-spacing: -0.1px;
     word-break: keep-all;
 }
