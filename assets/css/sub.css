@@ -106,7 +106,7 @@
 }
 
 #sub-visual .visual-text .desc {
-    color: var(--primary-color);
+    color: var(--red-color);
     font-weight: var(--font-600);
 }
 
@@ -277,6 +277,28 @@
     border-radius: 50px;
 }
 
+.dot {
+    background-color: var(--redBg-color);
+    width: 220px;
+    height: 220px;
+    border-radius: 100%;
+    display: block;
+    position: absolute;
+    top: -50px;
+    left: 50px;
+    z-index: -1;
+    animation: sub-dot 2s linear 1s infinite reverse forwards;
+
+    /* animation-name: sub-dot;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+    animation-direction: reverse;
+    animation-timing-function:linear;
+    animation-fill-mode: none;
+    animation-delay: 1s;
+    animation-fill-mode: forwards; */
+}
+
 .title-xl {
     position: relative;
     display: block;
@@ -309,7 +331,7 @@
 
 .title-lg {
     color: var(--text-color);
-    font-size: 36px;
+    font-size: 35px;
     font-weight: var(--font-700);
 }
 
@@ -514,7 +536,7 @@
 }
 
 .cont-img-txt .dot {
-    background: var(--redBg-color);
+    /* background: var(--redBg-color);
     width: 220px;
     height: 220px;
     border-radius: 100%;
@@ -531,7 +553,7 @@
     animation-timing-function: linear;
     animation-fill-mode: none;
     animation-delay: 1s;
-    animation-fill-mode: forwards;
+    animation-fill-mode: forwards; */
 }
 
 .sub-tit-box {
@@ -667,6 +689,13 @@
     line-height: 1;
 }
 
+.history-item .head .year .dot {
+    width: 120px;
+    height: 120px;
+    left: 15%;
+    background-color: var(--lightGrayBg-color);
+}
+
 /* 연혁 이미지 */
 .history-item .head img {
     display: inline-block;
@@ -717,6 +746,26 @@
     color: var(--text-color);
     letter-spacing: -0.1px;
     word-break: keep-all;
+}
+
+.history-wrap {}
+
+.history-wrap .dot {
+    left: auto;
+    right: 0;
+}
+
+.history-wrap .cont-img {
+    text-align: center;
+    flex-direction: column;
+    border-bottom: 1px solid var(--text-color);
+    padding-bottom: 70px;
+}
+
+
+.history-wrap .cont-img>img {
+    width: 100%;
+    border-radius: 0 0 100px 100px;
 }
 
 /*  연혁 영역 END */
@@ -1131,6 +1180,24 @@
         font-size: 25px;
     }
 
+    .history-wrap .cont-img>img {
+        border-radius: 0 0 50px 50px;
+        height: 300px;
+    }
+
+    .history-wrap .dot {
+        width: 150px;
+        height: 150px;
+        top: 0;
+        right: calc(50% - 150px);
+    }
+
+    .history-item .head .year .dot {
+        width: 80px;
+        height: 80px;
+        left: calc(50% - 150px);
+    }
+
     .map-item .map-info .name {
         padding: 30px 20px;
     }
@@ -1394,6 +1461,10 @@
 
     .history-item .head img {
         width: 80%;
+    }
+
+    .history-wrap .cont-img-txt br {
+        display: none;
     }
 
     .map-item .map-info .address br {
