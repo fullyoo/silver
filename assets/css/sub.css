@@ -605,7 +605,7 @@
 /*  연혁 영역 */
 .history-box {
     position: relative;
-    padding: 130px 0;
+    padding: 130px 0 290px;
     margin: 100px 0 0px;
     box-sizing: border-box;
 }
@@ -666,7 +666,7 @@
     gap: 100px;
     width: 100%;
     box-sizing: border-box;
-    margin-bottom: 300px;
+    margin-bottom: 100px;
 }
 
 .history-item:last-child {
@@ -1253,7 +1253,7 @@
     .snb-list ul {}
 
     .snb-list ul li a {
-        padding: 0 18px;
+        padding: 0 13px;
     }
 
     .sub-list-wrap {

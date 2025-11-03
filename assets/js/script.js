@@ -631,6 +631,7 @@ $(function () {
 
     // =====10. 연혁=====
 
+
     // 히스토리
     // 히스토리
     var scrollBar = {
@@ -666,7 +667,6 @@ $(function () {
     $(function () {
         scrollBar.init(); // ✅ DOM 로드 후 실행
     });
-
 
 
 
