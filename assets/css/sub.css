@@ -428,6 +428,7 @@
 
 .profile-container:nth-child(2n) {
     background-color: var(--bg-color);
+    flex-direction: row-reverse;
 }
 
 /* 좌측 고정 영역 */
@@ -604,20 +605,20 @@
 /*  연혁 영역 */
 .history-box {
     position: relative;
-    padding: 130px 0;
-    margin: 100px 0 50px;
+    padding: 130px 0 0;
+    margin: 100px 0 0px;
     box-sizing: border-box;
 }
 
 .history-box .scroll-bar {
     position: absolute;
-    top: 0;
+    top: -50px;
     left: 50%;
     transform: translateX(-50%);
-    width: 4px;
-    height: calc(100% - 25px);
-    height: 100%;
     background-color: var(--lightGray-color);
+    width: 4px;
+    height: 100%;
+    height: calc(100% - 100px);
 }
 
 .history-box .scroll-bar .bar {
@@ -666,6 +667,10 @@
     width: 100%;
     box-sizing: border-box;
     margin-bottom: 300px;
+}
+
+.history-item:last-child {
+    margin-bottom: 0px;
 }
 
 /* 좌측 연도+이미지 영역 */
@@ -979,6 +984,7 @@
 
     .profile-content .greet {
         width: 100%;
+        margin-bottom: 0px;
     }
 
     .profile-sticky img {
@@ -1320,6 +1326,10 @@
         gap: 30px;
         padding: 40px;
         border-radius: 30px;
+    }
+
+    .profile-container:nth-child(2n) {
+        flex-direction: column;
     }
 
     .profile-sticky {
