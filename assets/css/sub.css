@@ -604,7 +604,7 @@
 /*  연혁 영역 */
 .history-box {
     position: relative;
-    padding: 70px 0;
+    padding: 130px 0;
     margin: 100px 0 50px;
     box-sizing: border-box;
 }
@@ -665,7 +665,7 @@
     gap: 100px;
     width: 100%;
     box-sizing: border-box;
-    margin-bottom: 200px;
+    margin-bottom: 300px;
 }
 
 /* 좌측 연도+이미지 영역 */
@@ -693,7 +693,7 @@
     width: 120px;
     height: 120px;
     left: 15%;
-    background-color: var(--lightGrayBg-color);
+    background-color: var(--bg-color);
 }
 
 /* 연혁 이미지 */
@@ -716,7 +716,7 @@
     /* display: flex; */
     align-items: flex-start;
     flex-wrap: wrap;
-    margin-bottom: 50px;
+    margin-bottom: 100px;
 }
 
 .history-item .list li::before {
