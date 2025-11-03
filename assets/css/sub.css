@@ -408,6 +408,7 @@
 .profile-section {
     width: 100%;
     overflow-x: clip;
+    padding: 70px 0 0;
 }
 
 .profile-container {
@@ -420,6 +421,7 @@
     min-height: 800px;
     padding: 70px 50px;
     border-radius: 50px;
+    scroll-margin-top: 100px;
 }
 
 .profile-container:first-child {
@@ -429,6 +431,7 @@
 .profile-container:nth-child(2n) {
     background-color: var(--bg-color);
     flex-direction: row-reverse;
+    scroll-margin-top: 30px;
 }
 
 /* 좌측 고정 영역 */
@@ -505,6 +508,13 @@
 
 .profile-content li {
     list-style: disc;
+}
+
+.team-wrap {}
+
+.team-wrap.history-wrap .dot {
+    top: 0;
+    left: 0;
 }
 
 /*  돌봄 인력 END */
