@@ -605,20 +605,20 @@
 /*  연혁 영역 */
 .history-box {
     position: relative;
-    padding: 130px 0 0;
+    padding: 130px 0;
     margin: 100px 0 0px;
     box-sizing: border-box;
 }
 
 .history-box .scroll-bar {
     position: absolute;
-    top: -50px;
+    top: 0px;
     left: 50%;
     transform: translateX(-50%);
     background-color: var(--lightGray-color);
     width: 4px;
-    height: 100%;
     height: calc(100% - 100px);
+    height: 100%;
 }
 
 .history-box .scroll-bar .bar {
@@ -670,7 +670,7 @@
 }
 
 .history-item:last-child {
-    margin-bottom: 0px;
+    /* margin-bottom: 0px; */
 }
 
 /* 좌측 연도+이미지 영역 */
@@ -1192,9 +1192,8 @@
     }
 
     .history-wrap .dot {
-        width: 150px;
-        height: 150px;
-        top: 0;
+        width: 180px;
+        height: 180px;
         right: calc(50% - 150px);
     }
 
@@ -1202,7 +1201,13 @@
         width: 80px;
         height: 80px;
         left: calc(50% - 150px);
+        top: 0;
     }
+
+    .history-item .list li {
+        margin-bottom: 30px;
+    }
+
 
     .map-item .map-info .name {
         padding: 30px 20px;
@@ -1416,6 +1421,10 @@
 
     .map-area iframe {
         height: 400px;
+    }
+
+    .history-wrap .cont-img>img {
+        height: 220px;
     }
 
 }

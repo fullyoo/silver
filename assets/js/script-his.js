@@ -632,7 +632,6 @@ $(function () {
     // =====10. 연혁=====
 
     // 히스토리
-    // 히스토리
     var scrollBar = {
         init: function () {
             $(window).on("scroll resize", function () {
@@ -641,32 +640,57 @@ $(function () {
             scrollBar.bar();
         },
         bar: function () {
-            const $wrap = $(".history-box");
-            if ($wrap.length === 0) return; // ✅ 요소 없으면 함수 중단
-
             const winScroll = $(window).scrollTop();
             const winHeight = $(window).height();
 
+            const $wrap = $(".history-box");
             const wrapTop = $wrap.offset().top;
             const wrapHeight = $wrap.outerHeight();
 
+            // 마지막 요소 margin-bottom 보정
+            const lastMargin = parseFloat($wrap.find(".history-item:last-child").css("margin-bottom")) || 0;
+            const adjustedWrapHeight = wrapHeight + lastMargin;
+
             const startScroll = wrapTop - winHeight;
-            const endScroll = wrapTop + wrapHeight - winHeight;
+            const endScroll = wrapTop + adjustedWrapHeight - winHeight;
             const totalScroll = endScroll - startScroll;
 
             let currentScroll = winScroll - startScroll;
-            currentScroll = Math.max(0, Math.min(currentScroll, totalScroll));
-
             const percent = (currentScroll / totalScroll) * 100;
-            const adjustedPercent = Math.max(0, percent - 9);
 
-            $(".scroll-bar > .bar").css({ height: adjustedPercent + "%" });
+            // 스크롤바 높이 업데이트
+            $(".scroll-bar > .bar").css({
+                height: Math.min(Math.max(percent, 0), 100) + "%"
+            });
+
+            // bar:after 위치를 li.date 세로 중앙에 맞춤
+            const $dates = $(".history-item .list li .date");
+            let closestLi = null;
+            let minDiff = Infinity;
+
+            $dates.each(function () {
+                const $date = $(this);
+                const dateOffset = $date.offset().top + $date.outerHeight() / 2; // 화면 기준 중앙
+                const diff = Math.abs(dateOffset - (winScroll + winHeight / 2)); // 화면 중앙과 비교
+
+                if (diff < minDiff) {
+                    minDiff = diff;
+                    closestLi = $date;
+                }
+            });
+
+            if (closestLi) {
+                const liCenter = closestLi.offset().top - $wrap.offset().top + closestLi.outerHeight() / 2;
+                const topPercent = (liCenter / wrapHeight) * 100;
+
+                $(".scroll-bar > .bar:after").css({
+                    top: topPercent + "%"
+                });
+            }
         }
     };
-    $(function () {
-        scrollBar.init(); // ✅ DOM 로드 후 실행
-    });
 
+    scrollBar.init();
 
 
 
