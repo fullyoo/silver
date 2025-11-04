@@ -517,11 +517,67 @@
     left: 0;
 }
 
+.team-list {
+    display: flex;
+    gap: 50px;
+    align-items: center;
+    justify-content: center;
+}
+
+.team-list li {}
+
+.team-list li a {
+    display: block;
+    position: relative;
+    color: var(--white-color);
+    border-radius: 100%;
+}
+
+.team-list li a:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 1px solid var(--white-color);
+    border-radius: 100%;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 0 rgba(0, 0, 0, 0);
+    /* 초기엔 그림자 없음 */
+}
+
+.team-list li a:hover:before {
+    border: 1px solid var(--primary-color);
+    transform: scale(1.02);
+    /* 살짝 커지기 */
+    box-shadow: 0 0 5px var(--primary-color);
+    /* glow 효과 */
+}
+
+.team-list li a img {}
+
+.team-list li a .name {
+    font-size: 16px;
+    font-weight: var(--font-600);
+    position: absolute;
+    left: 50%;
+    bottom: 15px;
+    transform: translate(-50%, 0);
+    line-height: 1.3;
+}
+
+.team-list li a .name span {
+    display: block;
+    font-size: 13px;
+}
+
 /*  돌봄 인력 END */
 
 
 
-/*  서비스 영역 */
+
+/*  우리가 하는 일 */
 .service-wrap-cont {}
 
 .cont-img {
@@ -608,7 +664,7 @@
     font-weight: var(--font-500);
 }
 
-/*  서비스 영역 END */
+/*  우리가 하는 일 END */
 
 
 
@@ -788,7 +844,7 @@
 
 
 /* 오시는 길 */
-.lotate-wrap {}
+.directions-wrap {}
 
 .map-item {}
 
@@ -894,6 +950,8 @@
     border-radius: 30px 30px 30px 0px;
     margin-bottom: -120px;
     text-align: center;
+    z-index: 9;
+    position: relative;
 }
 
 .map-item .map-info .name span {
@@ -934,9 +992,67 @@
     font-weight: var(--font-500);
 }
 
+.directions-wrap #map {
+    border-radius: 30px;
+    overflow: hidden;
+    width: 100%;
+    height: 600px;
+}
+
+.customoverlay {
+    position: relative;
+    bottom: 85px;
+    border-radius: 6px;
+    border: 1px solid var(--border-color);
+    border-bottom: 2px solid var(--lightGray-color);
+    float: left;
+}
+
+.customoverlay:nth-of-type(n) {
+    border: 0;
+    box-shadow: 0px 1px 2px var(--body-color2);
+}
+
+.customoverlay a {
+    display: block;
+    text-decoration: none;
+    color: var(--text-color);
+    text-align: center;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: var(--font-700);
+    overflow: hidden;
+    background: var(--primary-color);
+    background: var(--primary-color) url(https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/arrow_white.png) no-repeat right 14px center;
+}
+
+.customoverlay .title {
+    display: block;
+    text-align: center;
+    background: var(--white-color);
+    margin-right: 35px;
+    padding: 10px 15px;
+    font-size: 14px;
+    font-weight: var(--font-700);
+}
+
+.customoverlay:after {
+    content: '';
+    position: absolute;
+    margin-left: -12px;
+    left: 50%;
+    bottom: -12px;
+    width: 22px;
+    height: 12px;
+    background: url('https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/vertex_white.png')
+}
+
 /* //오시는 길 */
 
 
+
+
+/* 애니메이션 */
 
 @keyframes scale {
     0% {
@@ -1156,10 +1272,6 @@
         padding-bottom: 0;
     }
 
-    .profile-sticky {
-        flex-basis: 250px;
-    }
-
     .history-box {
         padding: 0;
         margin: 50px 0 0;
@@ -1218,9 +1330,32 @@
         margin-bottom: 30px;
     }
 
+    .profile-sticky {
+        flex-basis: 250px;
+    }
+
+    .team-list {
+        gap: 30px;
+    }
+
+    .team-list li a img {
+        width: 100px;
+    }
+
+    .team-list li a .name {
+        font-size: 13px;
+    }
 
     .map-item .map-info .name {
         padding: 30px 20px;
+    }
+
+    .map-area iframe {
+        height: 400px;
+    }
+
+    .directions-wrap #map {
+        height: 400px;
     }
 
 
@@ -1379,6 +1514,13 @@
         margin-bottom: 30px;
     }
 
+    .team-list {
+        flex-wrap: wrap;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+    }
+
     .map-item .map-info .name {
         font-size: 20px;
         margin-bottom: 0;
@@ -1427,10 +1569,6 @@
 
     .map-area {
         padding-top: 30px;
-    }
-
-    .map-area iframe {
-        height: 400px;
     }
 
     .history-wrap .cont-img>img {
