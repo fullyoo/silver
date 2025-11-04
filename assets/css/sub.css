@@ -534,6 +534,12 @@
     overflow: hidden;
 }
 
+.team-list li a img {}
+
+.team-list li a:hover img {
+    /* transform: scale(1.05); */
+}
+
 .team-list li a:before {
     content: '';
     position: absolute;
@@ -556,16 +562,10 @@
 
 .team-list li a:hover:before {
     border: 1px solid var(--primary-color);
-    transform: scale(1.02);
+    transform: scale(1.05);
     transform: scaleY(1);
     box-shadow: 0 0 5px var(--primary-color);
     /* glow 효과 */
-}
-
-.team-list li a img {}
-
-.team-list li a:hover img {
-    /* transform: scale(1.05); */
 }
 
 .team-list li a p {
@@ -603,7 +603,88 @@
     font-size: 13px;
 }
 
+.team-wrap.history-wrap .cont-img {
+    gap: 0;
+}
 
+.team-list-box {}
+
+.overview {
+    font-size: 10px;
+    width: 100%;
+    display: flex;
+    overflow: hidden;
+    align-items: center;
+    margin-bottom: -100px;
+    /* transform: translateY(100px); */
+}
+
+.overview-sec {
+    /* max-width: 1840px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 20px; */
+}
+
+.overview .text-slide {
+    display: flex;
+    overflow: hidden;
+    text-transform: uppercase;
+}
+
+.overview .text-slide h3 {
+    font-size: 120px;
+    font-weight: var(--font-900);
+    color: #fff;
+    letter-spacing: 1.5px;
+    white-space: nowrap;
+    text-shadow: -1px 0px var(--lightGray-color),
+        0px 1px var(--lightGray-color),
+        1px 0px var(--lightGray-color),
+        0px -1px var(--lightGray-color);
+}
+
+.overview .text-slide h3 span {
+    font-size: 120px;
+    font-weight: var(--font-900);
+}
+
+.overview .text-slide h3.origin {
+    animation: 40s linear 0s infinite normal forwards running origin_left;
+}
+
+.overview .text-slide h3.clone {
+    animation: 40s linear 0s infinite normal none running clone_left;
+}
+
+
+@keyframes origin_left {
+    0% {
+        transform: translateX(0);
+    }
+
+    50% {
+        transform: translateX(-100%);
+    }
+
+    50.01% {
+        transform: translateX(100%)
+    }
+
+    100% {
+        transform: translateX(0);
+    }
+}
+
+@keyframes clone_left {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-200%)
+    }
+}
 
 /*  돌봄 인력 END */
 
@@ -1365,6 +1446,10 @@
         margin-bottom: 30px;
     }
 
+    .history-wrap .cont-img {
+        padding-bottom: 40px;
+    }
+
     .profile-sticky {
         flex-basis: 250px;
     }
@@ -1382,8 +1467,12 @@
         font-size: 13px;
     }
 
-    .history-wrap .cont-img {
-        padding-bottom: 40px;
+    .overview .text-slide h3 {
+        font-size: 100px;
+    }
+
+    .overview .text-slide h3 span {
+        font-size: 100px;
     }
 
     .map-item .map-info .name {
@@ -1554,6 +1643,10 @@
         margin-bottom: 30px;
     }
 
+    .profile-section {
+        padding-top: 50px;
+    }
+
     .team-list {
         flex-wrap: wrap;
         display: grid;
@@ -1561,8 +1654,17 @@
         gap: 20px;
     }
 
-    .profile-section {
-        padding-top: 50px;
+    .overview {
+        margin-bottom: -50px;
+        transform: translateY(100px);
+    }
+
+    .overview .text-slide h3 {
+        font-size: 60px;
+    }
+
+    .overview .text-slide h3 span {
+        font-size: 60px;
     }
 
     .map-item .map-info .name {
