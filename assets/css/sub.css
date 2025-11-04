@@ -408,7 +408,7 @@
 .profile-section {
     width: 100%;
     overflow-x: clip;
-    padding: 70px 0 0;
+    padding-top: 70px;
 }
 
 .profile-container {
@@ -531,6 +531,7 @@
     position: relative;
     color: var(--white-color);
     border-radius: 100%;
+    overflow: hidden;
 }
 
 .team-list li a:before {
@@ -542,35 +543,67 @@
     height: 100%;
     border: 1px solid var(--white-color);
     border-radius: 100%;
-    transition: all 0.3s ease;
+    transition: all 0.5s ease;
     box-shadow: 0 0 0 rgba(0, 0, 0, 0);
-    /* 초기엔 그림자 없음 */
+
+    transform: scaleY(0);
+    -webkit-transform-origin-y: bottom;
+    -ms-transform-origin-y: bottom;
+    -o-transform-origin-y: bottom;
+    background-color: rgba(219, 42, 34, 0.5);
+
 }
 
 .team-list li a:hover:before {
     border: 1px solid var(--primary-color);
     transform: scale(1.02);
-    /* 살짝 커지기 */
+    transform: scaleY(1);
     box-shadow: 0 0 5px var(--primary-color);
     /* glow 효과 */
 }
 
 .team-list li a img {}
 
-.team-list li a .name {
+.team-list li a:hover img {
+    /* transform: scale(1.05); */
+}
+
+.team-list li a p {
     font-size: 16px;
     font-weight: var(--font-600);
     position: absolute;
     left: 50%;
-    bottom: 15px;
+    bottom: 0px;
     transform: translate(-50%, 0);
     line-height: 1.3;
+}
+
+.team-list li a .view {
+    opacity: 0;
+    transition: all 0.5s ease;
+}
+
+.team-list li a:hover .view {
+    opacity: 1;
+    bottom: calc(50% - 13px);
+}
+
+.team-list li a .name {
+    opacity: 1;
+    bottom: 15px;
+    transition: all 0.5s ease;
+}
+
+.team-list li a:hover .name {
+    opacity: 0;
 }
 
 .team-list li a .name span {
     display: block;
     font-size: 13px;
 }
+
+
 
 /*  돌봄 인력 END */
 
@@ -1029,11 +1062,13 @@
 .customoverlay .title {
     display: block;
     text-align: center;
-    background: var(--white-color);
     margin-right: 35px;
     padding: 10px 15px;
     font-size: 14px;
     font-weight: var(--font-700);
+    background: var(--white-color);
+    border-right: 1px solid var(--white-color);
+    /* color: var(--white-color); */
 }
 
 .customoverlay:after {
@@ -1342,8 +1377,13 @@
         width: 100px;
     }
 
-    .team-list li a .name {
+    .team-list li a .name,
+    .team-list li a .view {
         font-size: 13px;
+    }
+
+    .history-wrap .cont-img {
+        padding-bottom: 40px;
     }
 
     .map-item .map-info .name {
@@ -1521,6 +1561,10 @@
         gap: 20px;
     }
 
+    .profile-section {
+        padding-top: 50px;
+    }
+
     .map-item .map-info .name {
         font-size: 20px;
         margin-bottom: 0;
@@ -1632,6 +1676,10 @@
 
     .history-wrap .cont-img-txt br {
         display: none;
+    }
+
+    .team-list li a .namem .team-list li a .view {
+        font-size: 12px;
     }
 
     .map-item .map-info .address br {
