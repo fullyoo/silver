@@ -3,6 +3,12 @@
       xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
       xmlns:xhtml="http://www.w3.org/1999/xhtml">
 
+<!-- 
+https://silver-re.netlify.app/sitemap.xml
+https://silver-re.netlify.app/robots.txt 
+https://silver-re.netlify.app/rss.xml
+-->
+
   <!-- 기본 홈 -->
   <url>
     <loc>https://silver-re.netlify.app/</loc>
