@@ -290,7 +290,7 @@
 }
 
 .dot {
-    background-color: var(--var(--primary-color)Bg-color);
+    background-color: var(--redBg-color);
     width: 280px;
     height: 280px;
     border-radius: 100%;
@@ -1068,7 +1068,7 @@
     overflow: hidden;
 }
 
-.cont-img img {
+.cont-img>img {
     width: 50%;
     height: 100%;
     object-fit: cover;
@@ -1084,7 +1084,7 @@
 }
 
 .cont-img-txt .dot {
-    /* background: var(--var(--primary-color)Bg-color);
+    /* background: var(--redBg-color);
     width: 220px;
     height: 220px;
     border-radius: 100%;
@@ -1325,11 +1325,57 @@
 }
 
 .tb_wrap {
-    width: 60%;
+    width: 74%;
     background-color: #fff;
+    border-top: solid 1px var(--text-color);
 }
 
+.tb_wrap table tr {
+    border-bottom: solid 1px var(--lightGray-color);
+}
+
+.tb_wrap table tr.bg_tr th,
+.tb_wrap table tr.bg_tr td {
+    background-color: var(--redBg-color);
+}
+
+.tb_wrap table tr th,
+.tb_wrap table tr td {
+    padding: 20px 10px;
+    border-right: solid 1px var(--lightGray-color);
+    text-align: center;
+}
+
+.tb_wrap table thead tr th {
+    font-size: 22px;
+    color: var(--text-color);
+}
+
+.tb_wrap table tbody tr th {
+    font-size: 18px;
+}
+
+.tb_wrap table tbody tr td {
+    font-size: 18px;
+    text-align: left;
+    padding-left: 60px;
+}
+
+.tb_wrap table tr td,
+.tb_wrap table tr th:last-child {
+    border-right: 0;
+}
+
+.tb_wrap table tr.bg_tr th.short {
+    width: 30%;
+}
+
+
 /* 후원안내 영역 END*/
+
+
+
+
 
 
 
@@ -1510,6 +1556,20 @@
 
     .sponsor-list li .more {
         opacity: 1;
+    }
+
+    .table-wrap-box {
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    .tb_wrap {
+        width: 100%;
+    }
+
+    .tb_wrap table tbody tr td {
+        text-align: center;
+        padding: 20px 10px;
     }
 
 }
@@ -2049,6 +2109,11 @@
     .sponsor-list {
         gap: 30px;
     }
+
+    .tb_wrap table thead tr th {
+        font-size: 20px;
+    }
+
 
 }
 

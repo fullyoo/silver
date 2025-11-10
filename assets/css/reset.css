@@ -89,7 +89,7 @@ video {
 	padding: 0;
 	border: 0;
 	font-size: 100%;
-	vertical-align: baseline;
+	/* vertical-align: baseline; */
 	box-sizing: border-box;
 }
 
@@ -161,6 +161,7 @@ table {
 	border-collapse: collapse;
 	border-spacing: 0;
 	font-size: inherit;
+	table-layout: fixed;
 }
 
 th,
