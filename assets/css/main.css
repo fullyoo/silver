@@ -745,10 +745,10 @@
     padding: 29px;
     box-sizing: border-box;
     transition: .3s; */
-    box-shadow: 0 5px 5px rgba(0, 0, 0, 0.1);
     transform: translateY(-10px);
     border-color: #fff;
     border-radius: 70px 70px 70px 0px;
+    /* box-shadow: 0 5px 5px rgba(0, 0, 0, 0.1); */
 }
 
 .notice-sec .cont-sec li .t-box:after {

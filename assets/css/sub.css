@@ -1567,6 +1567,7 @@
 
     .tb_wrap {
         width: 100%;
+        margin-bottom: 50px;
     }
 
     .tb_wrap table tbody tr td {
