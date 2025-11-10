@@ -787,8 +787,8 @@
 .step-wrap {}
 
 .step-wrap .cont-img {
-    flex-direction: column;
     flex-direction: column-reverse;
+    flex-direction: column;
     text-align: center;
     overflow: visible;
 }
