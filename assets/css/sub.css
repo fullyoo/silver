@@ -236,6 +236,7 @@
     position: relative;
     background: var(--white-color);
     min-height: 350px;
+    padding-bottom: 50px;
 
 }
 
@@ -243,7 +244,7 @@
     max-width: 1620px;
     width: 100%;
     margin: 0 auto;
-    padding: 70px 20px 150px;
+    padding: 70px 20px 100px;
     box-sizing: border-box;
 }
 
@@ -383,7 +384,7 @@
     display: flex;
     justify-content: space-between;
     gap: 70px;
-    margin: 70px 0;
+    margin: 100px 0;
 }
 
 .cont-box p {
@@ -691,7 +692,9 @@
 
 
 
-/*  우리가 하는 일 */
+/*  우리가 하는 일  */
+
+/* 방문돌봄 서비스 */
 .service-wrap-cont {}
 
 .cont-img {
@@ -701,7 +704,7 @@
     overflow: hidden;
 }
 
-.cont-img>img {
+.cont-img img {
     width: 50%;
     height: 100%;
     object-fit: cover;
@@ -776,6 +779,97 @@
     padding: 30px 0;
     color: var(--text-color);
     font-weight: var(--font-500);
+}
+
+
+/* 이용절차 안내 */
+.step-wrap {}
+
+.step-wrap .cont-img {
+    flex-direction: column;
+    text-align: center;
+    overflow: visible;
+}
+
+.step-wrap .cont-img .all-imgs {
+    display: flex;
+    align-items: center;
+    gap: 60px;
+    overflow: hidden;
+}
+
+.step-wrap .cont-img .all-imgs img {
+    border-radius: 50px;
+    width: calc(50% - 40px);
+}
+
+.step-wrap .cont-img-txt {
+    width: auto;
+}
+
+.step-wrap .cont-box {
+    display: block;
+    text-align: center;
+    border-top: 1px solid var(--text-color);
+    padding: 80px 0 60px;
+    margin: 100px 0 0px;
+}
+
+.step-wrap .cont-box p {
+    margin-bottom: 0;
+}
+
+.step-wrap .sub-tit-box {}
+
+.step-wrap .dot {
+    left: auto;
+    right: 0;
+}
+
+.step-wrap .sub-tit {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    justify-content: center;
+}
+
+.step-wrap .sub-tit b {
+    font-size: 60px;
+}
+
+.step-list-box {}
+
+.step-list {}
+
+.step-list li {
+    display: flex;
+    align-items: center;
+    gap: 80px;
+}
+
+.step-list li img {
+    width: auto;
+    border-radius: 300px;
+}
+
+.step-do-list {
+    width: 100%;
+}
+
+.step-do-list .sub-tit {
+    justify-content: flex-start;
+    border-bottom: 1px dashed var(--border-color);
+}
+
+.step-do-list ul {
+    padding-left: 20px;
+    margin: 30px 0;
+}
+
+.step-do-list li {
+    list-style: disc;
+    display: list-item;
+    font-size: 22px;
 }
 
 /*  우리가 하는 일 END */
@@ -1210,10 +1304,16 @@
 
 /* 반응형 모바일 */
 
+@media(max-width: 1400px) {
+    .step-list li img {
+        width: 60%;
+    }
+}
+
 @media(max-width: 1280px) {
 
     .sub-content .inner {
-        padding: 70px 40px 120px;
+        padding: 70px 40px;
     }
 
     .title-lg {
@@ -1224,6 +1324,11 @@
         left: 50px;
     }
 
+    .history-wrap .dot {
+        right: calc(50% - 150px);
+    }
+
+
     .profile-content .greet {
         width: 100%;
         margin-bottom: 0px;
@@ -1231,6 +1336,10 @@
 
     .profile-sticky img {
         width: 300px;
+    }
+
+    .team-wrap.history-wrap .dot {
+        left: calc(50% - 150px);
     }
 
     .map-item .map-info {
@@ -1260,6 +1369,34 @@
     .map-item .link a {
         padding: 10px 20px;
     }
+
+    .step-wrap .cont-img .all-imgs {
+        flex-wrap: wrap;
+        justify-content: space-between;
+        gap: 10px;
+    }
+
+    .step-wrap .cont-img .all-imgs img {
+        width: calc(50% - 10px);
+    }
+
+    .step-list li {
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    .step-do-list {
+        display: flex;
+        justify-content: space-evenly;
+        justify-content: center;
+        gap: 50px;
+    }
+
+    .step-do-list .sub-tit {
+        border: none;
+        gap: 10px;
+    }
+
 
 
 }
@@ -1331,7 +1468,7 @@
     .title-xs {}
 
     .cont-box {
-        margin: 40px 0 0;
+        margin: 40px 0;
     }
 
     .cont-box p {
@@ -1348,7 +1485,6 @@
         font-size: 22px;
     }
 
-    /* 서비스 소개 */
     .cont-img {
         flex-direction: column;
         gap: 40px;
@@ -1362,9 +1498,13 @@
 
     .cont-img-txt {
         width: 100%;
+        padding-bottom: 30px;
     }
 
-    .cont-img-txt .dot {}
+    .cont-img-txt .dot {
+        width: 200px;
+        height: 200px;
+    }
 
     .cont-img-txt span br {
         display: none;
@@ -1429,12 +1569,6 @@
         height: 300px;
     }
 
-    .history-wrap .dot {
-        width: 180px;
-        height: 180px;
-        right: calc(50% - 150px);
-    }
-
     .history-item .head .year .dot {
         width: 80px;
         height: 80px;
@@ -1487,6 +1621,22 @@
         height: 400px;
     }
 
+    .step-wrap .cont-box {
+        margin: 40px 0 0;
+        padding: 40px 0;
+    }
+
+    .step-do-list li {
+        font-size: 18px;
+    }
+
+    .step-wrap .sub-tit b {
+        font-size: 45px;
+    }
+
+    .step-list li img {
+        width: 70%;
+    }
 
 }
 
@@ -1516,7 +1666,7 @@
     }
 
     .sub-content .inner {
-        padding: 30px 20px 100px;
+        padding: 30px 20px;
     }
 
     .snb-list {
@@ -1786,6 +1936,29 @@
 
     .map-item .map-info .address br {
         display: block;
+    }
+
+    .step-wrap .cont-img .all-imgs {
+        gap: 5px;
+    }
+
+    .step-wrap .cont-img .all-imgs img {
+        border-radius: 20px;
+        width: calc(50% - 5px);
+    }
+
+    .step-list li img {
+        width: 100%;
+    }
+
+    .step-do-list {
+        flex-direction: column;
+        align-items: center;
+        gap: 0;
+    }
+
+    .step-do-list ul {
+        margin: 0;
     }
 
 }
