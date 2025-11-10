@@ -116,7 +116,7 @@
 }
 
 #sub-visual .visual-text .desc {
-    color: var(--var(--primary-color)-color);
+    color: var(--red-color);
     font-weight: var(--font-600);
 }
 
