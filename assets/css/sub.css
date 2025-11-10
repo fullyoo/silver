@@ -812,7 +812,7 @@
     text-align: center;
     border-top: 1px solid var(--text-color);
     padding: 80px 0 60px;
-    margin: 100px 0 0px;
+    margin: 80px 0 0px;
 }
 
 .step-wrap .cont-box p {
@@ -1626,6 +1626,10 @@
         padding: 40px 0;
     }
 
+    .step-wrap .cont-img-txt {
+        padding-bottom: 0;
+    }
+
     .step-do-list li {
         font-size: 18px;
     }
@@ -1939,12 +1943,11 @@
     }
 
     .step-wrap .cont-img .all-imgs {
-        gap: 5px;
+        gap: 20px;
     }
 
     .step-wrap .cont-img .all-imgs img {
-        border-radius: 20px;
-        width: calc(50% - 5px);
+        width: 100%;
     }
 
     .step-list li img {
@@ -1959,6 +1962,10 @@
 
     .step-do-list ul {
         margin: 0;
+    }
+
+    .step-wrap .sub-tit b {
+        font-size: 36px;
     }
 
 }
