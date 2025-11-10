@@ -296,8 +296,8 @@
     border-radius: 100%;
     display: block;
     position: absolute;
-    top: -50px;
-    left: 50px;
+    top: -60px;
+    left: 60px;
     z-index: -1;
     animation: sub-dot 2s linear 1s infinite reverse forwards;
 
@@ -1164,6 +1164,8 @@
     align-items: center;
     gap: 60px;
     overflow: hidden;
+    position: relative;
+    z-index: 5;
 }
 
 .step-wrap .cont-img .all-imgs img {
