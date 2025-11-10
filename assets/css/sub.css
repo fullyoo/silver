@@ -148,6 +148,7 @@
     height: 60px;
     background: rgba(0, 0, 0, 0.50);
     border-radius: 50px;
+    z-index: 999;
 }
 
 .snb-list ul {
@@ -1400,13 +1401,13 @@
         justify-content: space-evenly;
         justify-content: center;
         gap: 50px;
+        padding-bottom: 40px;
     }
 
     .step-do-list .sub-tit {
         border: none;
         gap: 10px;
     }
-
 
 
 }
@@ -1885,79 +1886,16 @@
         height: 220px;
     }
 
-}
-
-
-@media(max-width: 600px) {
-    .cont-bg img {
-        height: 220px;
-    }
-
-    #sub-visual .visual-bg {
-        border-bottom-right-radius: 80px;
-    }
-
-    .cont-bg-txt {
-        position: initial;
-        transform: translateY(0%);
-        margin: 20px 0;
-    }
-
-    .cont-bg-txt br:not(:nth-of-type(1)) {
-        display: none;
-    }
-
-    .cont-bg-txt br:nth-of-type(2) {
-        /* display: none; */
-    }
-
-    .cont-box {
-        flex-direction: column;
-        gap: 0;
-    }
-
-    .cont-box .cont {
-        width: 100%;
-    }
-
-    .service-list {
-        flex-direction: column;
-    }
-
-    .service-list li img {
-        width: 80%;
-    }
-
-    .service-list li p {
-        padding-bottom: 30px;
-    }
-
-    .history-item .head .year {
-        font-size: 40px;
-    }
-
-    .history-item .head img {
-        width: 80%;
-    }
-
-    .history-wrap .cont-img-txt br {
-        display: none;
-    }
-
-    .team-list li a .namem .team-list li a .view {
-        font-size: 12px;
-    }
-
-    .map-item .map-info .address br {
-        display: block;
-    }
-
     .step-wrap .cont-img .all-imgs {
         gap: 20px;
     }
 
     .step-wrap .cont-img .all-imgs img {
         width: 100%;
+    }
+
+    .step-wrap .sub-tit b {
+        font-size: 36px;
     }
 
     .step-item img {
@@ -1971,11 +1909,77 @@
     }
 
     .step-do-list ul {
-        margin: 0 0 30px;
+        margin: 0px;
     }
 
-    .step-wrap .sub-tit b {
-        font-size: 36px;
+    .step-item:not(:last-child) {
+        margin-bottom: 50px;
     }
 
-}
+
+    @media(max-width: 600px) {
+        .cont-bg img {
+            height: 220px;
+        }
+
+        #sub-visual .visual-bg {
+            border-bottom-right-radius: 80px;
+        }
+
+        .cont-bg-txt {
+            position: initial;
+            transform: translateY(0%);
+            margin: 20px 0;
+        }
+
+        .cont-bg-txt br:not(:nth-of-type(1)) {
+            display: none;
+        }
+
+        .cont-bg-txt br:nth-of-type(2) {
+            /* display: none; */
+        }
+
+        .cont-box {
+            flex-direction: column;
+            gap: 0;
+        }
+
+        .cont-box .cont {
+            width: 100%;
+        }
+
+        .service-list {
+            flex-direction: column;
+        }
+
+        .service-list li img {
+            width: 80%;
+        }
+
+        .service-list li p {
+            padding-bottom: 30px;
+        }
+
+        .history-item .head .year {
+            font-size: 40px;
+        }
+
+        .history-item .head img {
+            width: 80%;
+        }
+
+        .history-wrap .cont-img-txt br {
+            display: none;
+        }
+
+        .team-list li a .namem .team-list li a .view {
+            font-size: 12px;
+        }
+
+        .map-item .map-info .address br {
+            display: block;
+        }
+
+
+    }
