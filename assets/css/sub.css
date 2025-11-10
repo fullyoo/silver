@@ -71,6 +71,16 @@
     background-position: 25% 50%;
 }
 
+#sub-visual .visual-bg.bg03:before {
+    background-image: url(../images/sub/sub-visual03.jpg);
+    background-position: 25% 50%;
+}
+
+#sub-visual .visual-bg.bg04:before {
+    background-image: url(../images/sub/sub-visual04.jpg);
+    background-position: 50% 50%;
+}
+
 
 #sub-visual .visual-text {
     position: absolute;
@@ -106,7 +116,7 @@
 }
 
 #sub-visual .visual-text .desc {
-    color: var(--red-color);
+    color: var(--var(--primary-color)-color);
     font-weight: var(--font-600);
 }
 
@@ -280,7 +290,7 @@
 }
 
 .dot {
-    background-color: var(--redBg-color);
+    background-color: var(--var(--primary-color)Bg-color);
     width: 280px;
     height: 280px;
     border-radius: 100%;
@@ -406,7 +416,182 @@
 /*  인사말 영역 END */
 
 
-/*  돌봄 인력 */
+
+/*  연혁 영역 */
+.history-box {
+    position: relative;
+    padding: 130px 0 290px;
+    margin: 100px 0 0px;
+    box-sizing: border-box;
+}
+
+.history-box .scroll-bar {
+    position: absolute;
+    top: 0px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: var(--lightGray-color);
+    width: 4px;
+    height: calc(100% - 100px);
+    height: 100%;
+}
+
+.history-box .scroll-bar .bar {
+    position: relative;
+    width: 100%;
+    height: 0;
+    background-color: #eb7e78;
+}
+
+.history-box .scroll-bar .bar:before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%, 50%);
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background-color: var(--white-color);
+    ;
+    box-sizing: border-box;
+    animation: scroll-barAni 1.8s infinite;
+    -webkit-animation: scroll-barAni 1.8s infinite;
+}
+
+.history-box .scroll-bar .bar:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%, 50%);
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background-color: transparent;
+    border: 8px solid var(--primary-color);
+    box-sizing: border-box;
+}
+
+/* 개별 연혁 아이템 */
+.history-item {
+    position: relative;
+    display: flex;
+    align-items: flex-start;
+    gap: 100px;
+    width: 100%;
+    box-sizing: border-box;
+    margin-bottom: 100px;
+}
+
+.history-item:last-child {
+    /* margin-bottom: 0px; */
+}
+
+/* 좌측 연도+이미지 */
+.history-item .head {
+    text-align: center;
+    position: sticky;
+    top: 150px;
+    /* 스크롤 시 고정되는 위치 */
+    flex: 0 0 50%;
+    /* 전체의 50% 차지 */
+    padding-right: 40px;
+    box-sizing: border-box;
+    z-index: 2;
+}
+
+/* 연도 스타일 */
+.history-item .head .year {
+    font-size: 80px;
+    font-weight: var(--font-700);
+    color: var(--primary-color);
+    line-height: 1;
+}
+
+.history-item .head .year .dot {
+    width: 120px;
+    height: 120px;
+    left: 15%;
+    background-color: var(--bg-color);
+}
+
+/* 연혁 이미지 */
+.history-item .head img {
+    display: inline-block;
+    width: auto;
+    margin-top: 30px;
+}
+
+/* 우측 연혁 리스트 */
+.history-item .list {
+    flex: 1;
+    padding-top: 10px;
+    padding-right: 60px;
+    position: relative;
+}
+
+.history-item .list li {
+    position: relative;
+    /* display: flex; */
+    align-items: flex-start;
+    flex-wrap: wrap;
+    margin-bottom: 100px;
+}
+
+.history-item .list li::before {
+    content: "";
+    position: absolute;
+    left: -104px;
+    top: 20px;
+    width: 8px;
+    height: 8px;
+    background: var(--primary-color);
+    border-radius: 100%;
+}
+
+/* 날짜 */
+.history-item .list li .date {
+    flex: none;
+    /* width: 120px; */
+    font-size: 32px;
+    font-weight: var(--font-600);
+    color: var(--text-color);
+}
+
+/* 내용 */
+.history-item .list li .text {
+    flex: 1;
+    font-size: 18px;
+    color: var(--text-color);
+    letter-spacing: -0.1px;
+    word-break: keep-all;
+}
+
+.history-wrap {}
+
+.history-wrap .dot {
+    left: auto;
+    right: 0;
+}
+
+.history-wrap .cont-img {
+    text-align: center;
+    flex-direction: column;
+    border-bottom: 1px solid var(--text-color);
+    padding-bottom: 70px;
+}
+
+
+.history-wrap .cont-img>img {
+    width: 100%;
+    border-radius: 0 0 100px 100px;
+}
+
+/*  연혁 영역 END */
+
+
+/*  돌봄 인력 영역 */
 .profile-section {
     width: 100%;
     overflow-x: clip;
@@ -436,7 +621,7 @@
     scroll-margin-top: 30px;
 }
 
-/* 좌측 고정 영역 */
+/* 좌측 고정 */
 .profile-sticky {
     position: sticky;
     top: 120px;
@@ -467,7 +652,7 @@
     color: var(--text-color);
 }
 
-/* 우측 내용 영역 */
+/* 우측 내용 */
 .profile-content {
     /* flex: 1; */
     min-width: 0;
@@ -637,7 +822,7 @@
 .overview .text-slide h3 {
     font-size: 120px;
     font-weight: var(--font-900);
-    color: #fff;
+    color: var(--white-color);
     letter-spacing: 1.5px;
     white-space: nowrap;
     text-shadow: -1px 0px var(--lightGray-color),
@@ -659,409 +844,11 @@
     animation: 40s linear 0s infinite normal none running clone_left;
 }
 
+/*  돌봄 인력 영역 END */
 
-@keyframes origin_left {
-    0% {
-        transform: translateX(0);
-    }
 
-    50% {
-        transform: translateX(-100%);
-    }
 
-    50.01% {
-        transform: translateX(100%)
-    }
-
-    100% {
-        transform: translateX(0);
-    }
-}
-
-@keyframes clone_left {
-    0% {
-        transform: translateX(0);
-    }
-
-    100% {
-        transform: translateX(-200%)
-    }
-}
-
-/*  돌봄 인력 END */
-
-
-
-
-/*  우리가 하는 일  */
-
-/* 방문돌봄 서비스 */
-.service-wrap-cont {}
-
-.cont-img {
-    display: flex;
-    align-items: center;
-    gap: 80px;
-    overflow: hidden;
-}
-
-.cont-img img {
-    width: 50%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 100px;
-    border-bottom-left-radius: 0px;
-    position: relative;
-    z-index: 5;
-}
-
-.cont-img-txt {
-    width: 50%;
-    position: relative;
-}
-
-.cont-img-txt .dot {
-    /* background: var(--redBg-color);
-    width: 220px;
-    height: 220px;
-    border-radius: 100%;
-    display: block;
-    position: absolute;
-    top: -50px;
-    left: 50px;
-    z-index: -1;
-
-    animation-name: sub-dot;
-    animation-duration: 2s;
-    animation-iteration-count: infinite;
-    animation-direction: reverse;
-    animation-timing-function: linear;
-    animation-fill-mode: none;
-    animation-delay: 1s;
-    animation-fill-mode: forwards; */
-}
-
-.sub-tit-box {
-    padding-bottom: 20px;
-}
-
-.sub-tit {
-    font-size: 32px;
-    margin-bottom: 10px;
-    font-weight: var(--font-700);
-    color: var(--text-color);
-}
-
-.sub-tit-box p {
-    font-weight: var(--font-500);
-}
-
-.service-list-box {}
-
-.service-list-box+.service-list-box {}
-
-.service-list {
-    display: flex;
-    justify-content: space-evenly;
-    padding: 50px 0 0;
-    gap: 50px;
-}
-
-.service-list li {
-    text-align: center;
-}
-
-.service-list li img {
-    width: auto;
-}
-
-.service-list li p {
-    font-size: 22px;
-    padding: 30px 0;
-    color: var(--text-color);
-    font-weight: var(--font-500);
-}
-
-
-/* 이용절차 안내 */
-.step-wrap {}
-
-.step-wrap .cont-img {
-    flex-direction: column-reverse;
-    flex-direction: column;
-    text-align: center;
-    overflow: visible;
-}
-
-.step-wrap .cont-img .all-imgs {
-    display: flex;
-    align-items: center;
-    gap: 60px;
-    overflow: hidden;
-}
-
-.step-wrap .cont-img .all-imgs img {
-    border-radius: 50px;
-    width: calc(50% - 40px);
-}
-
-.step-wrap .cont-img-txt {
-    width: auto;
-}
-
-.step-wrap .cont-box {
-    display: block;
-    text-align: center;
-    border-top: 1px solid var(--text-color);
-    padding: 80px 0 60px;
-    margin: 80px 0 0px;
-}
-
-.step-wrap .cont-box p {
-    margin-bottom: 0;
-}
-
-.step-wrap .sub-tit-box {}
-
-.step-wrap .dot {
-    left: auto;
-    right: 0;
-}
-
-.step-wrap .sub-tit {
-    display: flex;
-    align-items: center;
-    gap: 20px;
-    justify-content: center;
-}
-
-.step-wrap .sub-tit b {
-    font-size: 60px;
-}
-
-.step-list-box {}
-
-.step-list {}
-
-.step-item {
-    display: flex;
-    align-items: center;
-    gap: 80px;
-}
-
-.step-item:not(:last-child) {
-    margin-bottom: 80px;
-}
-
-.step-item:nth-child(2n) {
-    flex-direction: row-reverse;
-}
-
-.step-item img {
-    width: auto;
-    border-radius: 300px;
-}
-
-.step-do-list {
-    width: 100%;
-}
-
-.step-do-list .sub-tit {
-    justify-content: flex-start;
-    border-bottom: 1px dashed var(--border-color);
-}
-
-.step-do-list ul {
-    padding-left: 20px;
-    margin: 30px 0;
-}
-
-.step-do-list li {
-    list-style: disc;
-    display: list-item;
-    font-size: 22px;
-}
-
-/*  우리가 하는 일 END */
-
-
-
-/*  연혁 영역 */
-.history-box {
-    position: relative;
-    padding: 130px 0 290px;
-    margin: 100px 0 0px;
-    box-sizing: border-box;
-}
-
-.history-box .scroll-bar {
-    position: absolute;
-    top: 0px;
-    left: 50%;
-    transform: translateX(-50%);
-    background-color: var(--lightGray-color);
-    width: 4px;
-    height: calc(100% - 100px);
-    height: 100%;
-}
-
-.history-box .scroll-bar .bar {
-    position: relative;
-    width: 100%;
-    height: 0;
-    background-color: #eb7e78;
-}
-
-.history-box .scroll-bar .bar:before {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translate(-50%, 50%);
-    width: 32px;
-    height: 32px;
-    border-radius: 50%;
-    background-color: var(--white-color);
-    ;
-    box-sizing: border-box;
-    animation: scroll-barAni 1.8s infinite;
-    -webkit-animation: scroll-barAni 1.8s infinite;
-}
-
-.history-box .scroll-bar .bar:after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translate(-50%, 50%);
-    width: 32px;
-    height: 32px;
-    border-radius: 50%;
-    background-color: transparent;
-    border: 8px solid var(--primary-color);
-    box-sizing: border-box;
-}
-
-/* 개별 연혁 아이템 */
-.history-item {
-    position: relative;
-    display: flex;
-    align-items: flex-start;
-    gap: 100px;
-    width: 100%;
-    box-sizing: border-box;
-    margin-bottom: 100px;
-}
-
-.history-item:last-child {
-    /* margin-bottom: 0px; */
-}
-
-/* 좌측 연도+이미지 영역 */
-.history-item .head {
-    text-align: center;
-    position: sticky;
-    top: 150px;
-    /* 스크롤 시 고정되는 위치 */
-    flex: 0 0 50%;
-    /* 전체의 50% 차지 */
-    padding-right: 40px;
-    box-sizing: border-box;
-    z-index: 2;
-}
-
-/* 연도 스타일 */
-.history-item .head .year {
-    font-size: 80px;
-    font-weight: var(--font-700);
-    color: var(--primary-color);
-    line-height: 1;
-}
-
-.history-item .head .year .dot {
-    width: 120px;
-    height: 120px;
-    left: 15%;
-    background-color: var(--bg-color);
-}
-
-/* 연혁 이미지 */
-.history-item .head img {
-    display: inline-block;
-    width: auto;
-    margin-top: 30px;
-}
-
-/* 우측 연혁 리스트 영역 */
-.history-item .list {
-    flex: 1;
-    padding-top: 10px;
-    padding-right: 60px;
-    position: relative;
-}
-
-.history-item .list li {
-    position: relative;
-    /* display: flex; */
-    align-items: flex-start;
-    flex-wrap: wrap;
-    margin-bottom: 100px;
-}
-
-.history-item .list li::before {
-    content: "";
-    position: absolute;
-    left: -104px;
-    top: 20px;
-    width: 8px;
-    height: 8px;
-    background: var(--primary-color);
-    border-radius: 100%;
-}
-
-/* 날짜 */
-.history-item .list li .date {
-    flex: none;
-    /* width: 120px; */
-    font-size: 32px;
-    font-weight: var(--font-600);
-    color: var(--text-color);
-}
-
-/* 내용 */
-.history-item .list li .text {
-    flex: 1;
-    font-size: 18px;
-    color: var(--text-color);
-    letter-spacing: -0.1px;
-    word-break: keep-all;
-}
-
-.history-wrap {}
-
-.history-wrap .dot {
-    left: auto;
-    right: 0;
-}
-
-.history-wrap .cont-img {
-    text-align: center;
-    flex-direction: column;
-    border-bottom: 1px solid var(--text-color);
-    padding-bottom: 70px;
-}
-
-
-.history-wrap .cont-img>img {
-    width: 100%;
-    border-radius: 0 0 100px 100px;
-}
-
-/*  연혁 영역 END */
-
-
-
-/* 오시는 길 */
+/* 오시는 길 영역*/
 .directions-wrap {}
 
 .map-item {}
@@ -1267,12 +1054,305 @@
     background: url('https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/vertex_white.png')
 }
 
-/* //오시는 길 */
+/* //오시는 길 영역 END*/
+
+
+
+/* 방문돌봄 서비스 영역 */
+.service-wrap-cont {}
+
+.cont-img {
+    display: flex;
+    align-items: center;
+    gap: 80px;
+    overflow: hidden;
+}
+
+.cont-img img {
+    width: 50%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 100px;
+    border-bottom-left-radius: 0px;
+    position: relative;
+    z-index: 5;
+}
+
+.cont-img-txt {
+    width: 50%;
+    position: relative;
+}
+
+.cont-img-txt .dot {
+    /* background: var(--var(--primary-color)Bg-color);
+    width: 220px;
+    height: 220px;
+    border-radius: 100%;
+    display: block;
+    position: absolute;
+    top: -50px;
+    left: 50px;
+    z-index: -1;
+
+    animation-name: sub-dot;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+    animation-direction: reverse;
+    animation-timing-function: linear;
+    animation-fill-mode: none;
+    animation-delay: 1s;
+    animation-fill-mode: forwards; */
+}
+
+.sub-tit-box {
+    padding-bottom: 20px;
+}
+
+.sub-tit {
+    font-size: 32px;
+    margin-bottom: 10px;
+    font-weight: var(--font-700);
+    color: var(--text-color);
+}
+
+.sub-tit-box p {
+    font-weight: var(--font-500);
+}
+
+.service-list-box {}
+
+.service-list-box+.service-list-box {}
+
+.service-list {
+    display: flex;
+    justify-content: space-evenly;
+    padding: 50px 0 0;
+    gap: 60px;
+}
+
+.service-list li {
+    text-align: center;
+}
+
+.service-list li img {
+    width: auto !important;
+}
+
+.service-list li p {
+    font-size: 22px;
+    padding: 30px 0;
+    color: var(--text-color);
+    font-weight: var(--font-500);
+}
+
+/* 방문돌봄 서비스 영역 END*/
+
+
+
+/* 이용절차 안내 영역*/
+.step-wrap {}
+
+.step-wrap .cont-img {
+    flex-direction: column-reverse;
+    flex-direction: column;
+    text-align: center;
+    overflow: visible;
+}
+
+.step-wrap .cont-img .all-imgs {
+    display: flex;
+    align-items: center;
+    gap: 60px;
+    overflow: hidden;
+}
+
+.step-wrap .cont-img .all-imgs img {
+    border-radius: 50px;
+    width: calc(50% - 40px);
+}
+
+.step-wrap .cont-img-txt {
+    width: auto;
+}
+
+.step-wrap .cont-box {
+    display: block;
+    text-align: center;
+    border-top: 1px solid var(--text-color);
+    padding: 80px 0 60px;
+    margin: 80px 0 0px;
+}
+
+.step-wrap .cont-box p {
+    margin-bottom: 0;
+}
+
+.step-wrap .sub-tit-box {}
+
+.step-wrap .dot {
+    left: auto;
+    right: 0;
+}
+
+.step-wrap .sub-tit {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    justify-content: center;
+}
+
+.step-wrap .sub-tit b {
+    font-size: 60px;
+}
+
+.step-list-box {}
+
+.step-list {}
+
+.step-item {
+    display: flex;
+    align-items: center;
+    gap: 80px;
+}
+
+.step-item:not(:last-child) {
+    margin-bottom: 80px;
+}
+
+.step-item:nth-child(2n) {
+    flex-direction: row-reverse;
+}
+
+.step-item img {
+    width: auto;
+    border-radius: 300px;
+}
+
+.step-do-list {
+    width: 100%;
+}
+
+.step-do-list .sub-tit {
+    justify-content: flex-start;
+    border-bottom: 1px dashed var(--border-color);
+}
+
+.step-do-list ul {
+    padding-left: 20px;
+    margin: 30px 0;
+}
+
+.step-do-list li {
+    list-style: disc;
+    display: list-item;
+    font-size: 22px;
+}
+
+/* 이용절차 안내 영역 END*/
+
+
+
+
+/* 후원안내 영역 */
+.sponsor-list-box {}
+
+.sponsor-list {}
+
+.sponsor-list li {
+    width: 100%;
+}
+
+.sponsor-list li a {
+    display: block;
+    border: 1px solid #ddd;
+    border-radius: 60px 60px 60px 0;
+    padding: 50px;
+    text-align: left;
+    transition: all 0.5s;
+}
+
+.sponsor-list li .title-box {}
+
+.sponsor-list li .title-box .tit {
+    padding: 0px;
+    color: var(--body-color);
+}
+
+.sponsor-list li .title-box .tit b {
+    font-size: 28px;
+    font-weight: var(--font-700);
+    display: block;
+    padding-bottom: 30px;
+    color: var(--text-color);
+}
+
+.sponsor-list li img {}
+
+.sponsor-ico {
+    text-align: right;
+}
+
+.sponsor-list li .more {
+    transition: all 0.5s;
+    font-size: 15px;
+    opacity: 0;
+    color: var(--white-color);
+    background-color: var(--primary-color);
+    border-radius: 50px;
+    padding: 5px 10px;
+    margin: 20px 0 60px;
+}
+
+.sponsor-list li p {}
+
+.sponsor-list li a:hover {
+    border-color: var(--primary-color);
+}
+
+.sponsor-list li a:hover .tit b {
+    color: var(--primary-color);
+}
+
+.sponsor-list li a:hover .more {
+    opacity: 1;
+}
+
+
+
+/* 후원안내 영역 END*/
 
 
 
 
 /* 애니메이션 */
+
+@keyframes origin_left {
+    0% {
+        transform: translateX(0);
+    }
+
+    50% {
+        transform: translateX(-100%);
+    }
+
+    50.01% {
+        transform: translateX(100%)
+    }
+
+    100% {
+        transform: translateX(0);
+    }
+}
+
+@keyframes clone_left {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-200%)
+    }
+}
 
 @keyframes scale {
     0% {
@@ -1410,6 +1490,17 @@
         gap: 10px;
     }
 
+    .sponsor-list {
+        flex-wrap: wrap;
+    }
+
+    .sponsor-list li {
+        width: calc(50% - 30px);
+    }
+
+    .sponsor-list li .more {
+        opacity: 1;
+    }
 
 }
 
@@ -1654,7 +1745,35 @@
         width: 70%;
     }
 
+    .sponsor-list {
+        gap: 40px;
+    }
+
+    .sponsor-list li a {
+        padding: 30px;
+        border-radius: 30px 30px 30px 0;
+    }
+
+    .sponsor-list li .more {
+        font-size: 13px;
+    }
+
+    .sponsor-list li .title-box .tit b {
+        font-size: 22px;
+    }
+
+    .sponsor-list li .title-box .tit {
+        font-size: 18px;
+    }
+
+
+
 }
+
+
+
+
+
 
 @media(max-width: 767px) {
     #sub-visual {
@@ -1917,70 +2036,83 @@
         margin-bottom: 50px;
     }
 
-
-    @media(max-width: 600px) {
-        .cont-bg img {
-            height: 220px;
-        }
-
-        #sub-visual .visual-bg {
-            border-bottom-right-radius: 80px;
-        }
-
-        .cont-bg-txt {
-            position: initial;
-            transform: translateY(0%);
-            margin: 20px 0;
-        }
-
-        .cont-bg-txt br:not(:nth-of-type(1)) {
-            display: none;
-        }
-
-        .cont-bg-txt br:nth-of-type(2) {
-            /* display: none; */
-        }
-
-        .cont-box {
-            flex-direction: column;
-            gap: 0;
-        }
-
-        .cont-box .cont {
-            width: 100%;
-        }
-
-        .service-list {
-            flex-direction: column;
-        }
-
-        .service-list li img {
-            width: 80%;
-        }
-
-        .service-list li p {
-            padding-bottom: 30px;
-        }
-
-        .history-item .head .year {
-            font-size: 40px;
-        }
-
-        .history-item .head img {
-            width: 80%;
-        }
-
-        .history-wrap .cont-img-txt br {
-            display: none;
-        }
-
-        .team-list li a .namem .team-list li a .view {
-            font-size: 12px;
-        }
-
-        .map-item .map-info .address br {
-            display: block;
-        }
-
-
+    .sponsor-list {
+        gap: 30px;
     }
+
+}
+
+
+
+
+
+@media(max-width: 600px) {
+    .cont-bg img {
+        height: 220px;
+    }
+
+    #sub-visual .visual-bg {
+        border-bottom-right-radius: 80px;
+    }
+
+    .cont-bg-txt {
+        position: initial;
+        transform: translateY(0%);
+        margin: 20px 0;
+    }
+
+    .cont-bg-txt br:not(:nth-of-type(1)) {
+        display: none;
+    }
+
+    .cont-bg-txt br:nth-of-type(2) {
+        /* display: none; */
+    }
+
+    .cont-box {
+        flex-direction: column;
+        gap: 0;
+    }
+
+    .cont-box .cont {
+        width: 100%;
+    }
+
+    .service-list {
+        flex-direction: column;
+    }
+
+    .service-list li img {
+        width: 80%;
+    }
+
+    .service-list li p {
+        padding-bottom: 30px;
+    }
+
+    .history-item .head .year {
+        font-size: 40px;
+    }
+
+    .history-item .head img {
+        width: 80%;
+    }
+
+    .history-wrap .cont-img-txt br {
+        display: none;
+    }
+
+    .team-list li a .namem .team-list li a .view {
+        font-size: 12px;
+    }
+
+    .map-item .map-info .address br {
+        display: block;
+    }
+
+    .sponsor-list li {
+        width: 100%;
+    }
+
+
+}
