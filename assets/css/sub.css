@@ -1264,8 +1264,9 @@
 
 .sponsor-list li a {
     display: block;
-    border: 1px solid #ddd;
+    border: 1px solid var(--lightGray-color);
     border-radius: 60px 60px 60px 0;
+    background-color: var(--white-color);
     padding: 50px;
     text-align: left;
     transition: all 0.5s;
@@ -1318,6 +1319,15 @@
 }
 
 
+.table-wrap-box {
+    display: flex;
+    justify-content: space-between;
+}
+
+.tb_wrap {
+    width: 60%;
+    background-color: #fff;
+}
 
 /* 후원안내 영역 END*/
 
