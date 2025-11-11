@@ -259,6 +259,19 @@
     box-sizing: border-box;
 }
 
+.sub-content .pd-add {
+    margin-bottom: -50px;
+    padding-bottom: 150px;
+}
+
+.sub-content .mg-add {
+    margin-bottom: -50px;
+}
+
+.sub-content .inner .pd-add {
+    padding-bottom: 0;
+}
+
 .sub-content .location-wrap {
     float: right;
     position: relative;
@@ -584,8 +597,7 @@
 
 
 .history-wrap .cont-img>img {
-    width: 100%;
-    border-radius: 0 0 100px 100px;
+    /* border-radius: 0 0 100px 100px; */
 }
 
 /*  연혁 영역 END */
@@ -1078,6 +1090,11 @@
     z-index: 5;
 }
 
+.full-img>img {
+    width: 100%;
+    border-radius: 50px;
+}
+
 .cont-img-txt {
     width: 50%;
     position: relative;
@@ -1126,7 +1143,7 @@
 .service-list {
     display: flex;
     justify-content: space-evenly;
-    padding: 50px 0 0;
+    padding-top: 50px;
     gap: 60px;
 }
 
@@ -1250,7 +1267,72 @@
     font-size: 22px;
 }
 
-/* 이용절차 안내 영역 END*/
+
+
+
+/* 자격요건 및 비용 영역 */
+
+.cost-wrap {}
+
+.cost-wrap .sub-tit-box {
+    display: flex;
+    text-align: left;
+    justify-content: space-around;
+    /* gap: 300px; */
+}
+
+.cost-wrap .sub-tit {}
+
+.cost-wrap .cont-box {}
+
+.cost-wrap .cont-box p {
+    width: 50%;
+}
+
+.table-wrap-box.table-full {
+    display: flex;
+    flex-direction: column;
+}
+
+.table-full {}
+
+.table-full .tb_wrap {
+    width: 100%;
+    margin-top: 50px;
+}
+
+.cost-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    gap: 20px;
+}
+
+.cost-list.sponsor-list li {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    width: calc(33.33% - 20px);
+    border-radius: 30px;
+    padding: 50px 30px;
+}
+
+.cost-list.sponsor-list li .title-box .tit b {
+    padding-bottom: 10px;
+}
+
+.cost-box.status-box ul {
+    display: flex;
+    flex-direction: column;
+}
+
+.cost-box.status-box li {
+    width: 100%;
+}
+
+
+
+/* 자격요건 및 비용 영역 END*/
 
 
 
@@ -1349,7 +1431,7 @@
 }
 
 .tb_wrap table thead tr th {
-    font-size: 22px;
+    font-size: 20px;
     color: var(--text-color);
 }
 
@@ -1359,11 +1441,11 @@
 
 .tb_wrap table tbody tr td {
     font-size: 18px;
-    text-align: left;
-    padding-left: 60px;
+    /* text-align: left; */
+    /* padding-left: 60px; */
 }
 
-.tb_wrap table tr td,
+.tb_wrap table tr td:last-child,
 .tb_wrap table tr th:last-child {
     border-right: 0;
 }
@@ -1413,6 +1495,7 @@
     gap: 60px;
     justify-content: space-between;
     align-items: center;
+    padding-top: 40px;
 }
 
 .status-box ul {
@@ -1462,13 +1545,7 @@
     text-decoration: underline;
 }
 
-
-
-
 /* 자원봉사 안내 영역 END*/
-
-
-
 
 
 
@@ -1550,7 +1627,7 @@
     }
 
     .sponsor-list li .title-box br {
-        display: none;
+        /* display: none; */
     }
 }
 
@@ -1558,6 +1635,10 @@
 
     .sub-content .inner {
         padding: 70px 40px;
+    }
+
+    .sub-content .pd-add {
+        padding-bottom: 100px;
     }
 
     .title-lg {
@@ -1644,9 +1725,19 @@
         gap: 10px;
     }
 
+    .cost-list.sponsor-list {
+        padding-top: 30px;
+    }
+
+    .cost-list.sponsor-list li {
+        width: calc(50% - 10px);
+        padding: 30px;
+    }
+
     .sponsor-list {
         display: flex;
         flex-wrap: wrap;
+        justify-content: flex-start;
     }
 
     .sponsor-list li {
@@ -1668,7 +1759,7 @@
 
     .tb_wrap {
         width: 100%;
-        margin-bottom: 50px;
+        /* margin-bottom: 50px; */
     }
 
     .tb_wrap table tbody tr td {
@@ -1676,8 +1767,13 @@
         padding: 20px 10px;
     }
 
+    .table-full .tb_wrap {
+        margin: 0;
+    }
+
     .status-box {
         flex-direction: column;
+        padding-top: 30px;
     }
 
     .etc-box-list {
@@ -1691,7 +1787,9 @@
         align-items: flex-start;
     }
 
-    .volunteer-list li {}
+    .volunteer-list li {
+        padding: 30px;
+    }
 
 
 
@@ -1863,8 +1961,8 @@
         font-size: 25px;
     }
 
-    .history-wrap .cont-img>img {
-        border-radius: 0 0 50px 50px;
+    .full-img>img {
+        border-radius: 30px;
         height: 300px;
     }
 
@@ -1941,8 +2039,22 @@
         width: 70%;
     }
 
+    .cost-wrap .sub-tit-box {
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .cost-wrap .cont-box p {
+        width: 100%;
+    }
+
+    .cost-list.sponsor-list li {
+        width: calc(50% - 20px);
+    }
+
     .sponsor-list {
-        gap: 40px;
+        gap: 30px;
     }
 
     .sponsor-list li a {
@@ -1969,6 +2081,7 @@
     .list-num {
         font-size: 40px;
     }
+
 
 
 
@@ -2005,7 +2118,15 @@
     }
 
     .sub-content .inner {
-        padding: 30px 20px;
+        padding: 50px 20px;
+    }
+
+    .sub-content .pd-add {
+        padding-bottom: 80px;
+    }
+
+    .sub-content .mg-add {
+        margin-bottom: 0px;
     }
 
     .snb-list {
@@ -2206,7 +2327,7 @@
         padding-top: 30px;
     }
 
-    .history-wrap .cont-img>img {
+    .full-img>img {
         height: 220px;
     }
 
@@ -2240,13 +2361,35 @@
         margin-bottom: 50px;
     }
 
+    .cost-list.sponsor-list li {
+        width: 100%;
+    }
+
     .sponsor-list {
-        gap: 30px;
+        gap: 20px;
+    }
+
+    .sponsor-list li {
+        width: 100%;
+        border-radius: 30px 30px 30px 0;
     }
 
     .tb_wrap table thead tr th {
-        font-size: 20px;
+        font-size: 18px;
     }
+
+    .tb_wrap>div {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        /* iOS 부드러운 스크롤 */
+    }
+
+    .tb_wrap>div table {
+        min-width: 800px;
+        /* 테이블이 너무 좁아지지 않게 */
+        border-collapse: collapse;
+    }
+
 
 
 }
@@ -2317,10 +2460,6 @@
 
     .map-item .map-info .address br {
         display: block;
-    }
-
-    .sponsor-list li {
-        width: 100%;
     }
 
     .etc-box {
