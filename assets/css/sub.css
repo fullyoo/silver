@@ -1442,6 +1442,27 @@
     border-radius: 300px;
 }
 
+.etc-box-list {
+    display: flex;
+    justify-content: space-between;
+}
+
+.etc-box {
+    display: flex;
+    justify-content: space-between;
+    /* gap: 80px; */
+    width: 100%;
+}
+
+.etc-box .step-do-list {
+    width: 70%;
+}
+
+.mail-under:hover {
+    text-decoration: underline;
+}
+
+
 
 
 /* 자원봉사 안내 영역 END*/
@@ -1624,16 +1645,20 @@
     }
 
     .sponsor-list {
+        display: flex;
         flex-wrap: wrap;
     }
 
     .sponsor-list li {
         width: calc(50% - 30px);
-        padding: 30px;
     }
 
     .sponsor-list li .more {
         opacity: 1;
+    }
+
+    .sponsor-list li a {
+        padding: 40px;
     }
 
     .table-wrap-box {
@@ -1655,8 +1680,22 @@
         flex-direction: column;
     }
 
-}
+    .etc-box-list {
+        flex-direction: column;
+    }
 
+    .etc-box .step-do-list {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+        align-items: flex-start;
+    }
+
+    .volunteer-list li {}
+
+
+
+}
 
 
 
@@ -2282,6 +2321,15 @@
 
     .sponsor-list li {
         width: 100%;
+    }
+
+    .etc-box {
+        flex-direction: column;
+    }
+
+    .etc-box .step-do-list {
+        width: 100%;
+        padding-left: 20px;
     }
 
 
