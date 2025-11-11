@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset
+      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+      xmlns:xhtml="http://www.w3.org/1999/xhtml">
+
+<!-- 
+https://silver-re.netlify.app/sitemap.xml
+https://silver-re.netlify.app/robots.txt 
+https://silver-re.netlify.app/rss.xml
+-->
+
+  <!-- 기본 홈 -->
+  <url>
+    <loc>https://silver-re.netlify.app/</loc>
+    <lastmod>2025-11-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+
+  <!-- 메뉴 01: 기관 센터소개 -->
+  <url>
+    <loc>https://silver-re.netlify.app/menu01-1.html</loc>
+    <lastmod>2025-11-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://silver-re.netlify.app/menu01-2.html</loc>
+    <lastmod>2025-11-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://silver-re.netlify.app/menu01-3.html</loc>
+    <lastmod>2025-11-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+    <url>
+    <loc>https://silver-re.netlify.app/menu01-4.html</loc>
+    <lastmod>2025-11-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- 메뉴 02: 우리가 하는 일 -->
+  <url>
+    <loc>https://silver-re.netlify.app/menu02-1.html</loc>
+    <lastmod>2025-11-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://silver-re.netlify.app/menu02-2.html</loc>
+    <lastmod>2025-11-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://silver-re.netlify.app/menu02-3.html</loc>
+    <lastmod>2025-11-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- 메뉴 03: 소식 및 공지 -->
+  <url>
+    <loc>https://silver-re.netlify.app/menu03-1.html</loc>
+    <lastmod>2025-11-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://silver-re.netlify.app/menu03-2.html</loc>
+    <lastmod>2025-11-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- 메뉴 04: 후원·자원봉사 -->
+  <url>
+    <loc>https://silver-re.netlify.app/menu04-1.html</loc>
+    <lastmod>2025-11-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://silver-re.netlify.app/menu04-2.html</loc>
+    <lastmod>2025-11-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+    <url>
+    <loc>https://silver-re.netlify.app/menu04-3.html</loc>
+    <lastmod>2025-11-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://silver-re.netlify.app/menu04-4.html</loc>
+    <lastmod>2025-11-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+</urlset>
