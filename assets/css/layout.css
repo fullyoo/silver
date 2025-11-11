@@ -1515,7 +1515,7 @@ input[type="checkbox"]:focus {
 
 @media(max-width: 1280px) {
     .t-box {
-        padding: 30px 20px;
+        padding: 40px;
     }
 
     .t-box .t1 {
@@ -1539,6 +1539,10 @@ input[type="checkbox"]:focus {
 }
 
 @media(max-width: 1024px) {
+    .t-box {
+        padding: 20px;
+    }
+
     #header {}
 
     /* 메뉴 닫힘 + 최상단 투명 + 흰색 로고/버튼/햄버거 */

@@ -265,7 +265,7 @@
 }
 
 .sub-content .mg-add {
-    margin-bottom: -50px;
+    margin-bottom: -100px;
 }
 
 .sub-content .inner .pd-add {
@@ -1301,6 +1301,10 @@
     margin-top: 50px;
 }
 
+.tb_wrap .scroll-desc {
+    display: none;
+}
+
 .cost-list {
     display: flex;
     flex-wrap: wrap;
@@ -1313,7 +1317,7 @@
     align-items: center;
     gap: 30px;
     width: calc(33.33% - 20px);
-    border-radius: 30px;
+    border-radius: 60px 60px 60px 0;
     padding: 50px 30px;
 }
 
@@ -1322,8 +1326,10 @@
 }
 
 .cost-box.status-box ul {
+    width: 100%;
     display: flex;
     flex-direction: column;
+    align-items: center;
 }
 
 .cost-box.status-box li {
@@ -1495,6 +1501,7 @@
     gap: 60px;
     justify-content: space-between;
     align-items: center;
+    justify-content: space-around;
     padding-top: 40px;
 }
 
@@ -1717,7 +1724,6 @@
         justify-content: space-evenly;
         justify-content: center;
         gap: 50px;
-        padding-bottom: 40px;
     }
 
     .step-do-list .sub-tit {
@@ -1732,6 +1738,10 @@
     .cost-list.sponsor-list li {
         width: calc(50% - 10px);
         padding: 30px;
+    }
+
+    .cost-box.status-box li {
+        width: calc(50% - 10px);
     }
 
     .sponsor-list {
@@ -1789,6 +1799,10 @@
 
     .volunteer-list li {
         padding: 30px;
+    }
+
+    .etc-box:not(:last-child) {
+        margin-bottom: 40px;
     }
 
 
@@ -2043,6 +2057,7 @@
         display: flex;
         flex-direction: column;
         text-align: center;
+        padding-bottom: 0;
     }
 
     .cost-wrap .cont-box p {
@@ -2051,6 +2066,10 @@
 
     .cost-list.sponsor-list li {
         width: calc(50% - 20px);
+    }
+
+    .cost-box.status-box li {
+        width: 100%;
     }
 
     .sponsor-list {
@@ -2126,7 +2145,7 @@
     }
 
     .sub-content .mg-add {
-        margin-bottom: 0px;
+        margin-bottom: -50px;
     }
 
     .snb-list {
@@ -2363,6 +2382,7 @@
 
     .cost-list.sponsor-list li {
         width: 100%;
+        border-radius: 30px 30px 30px 0;
     }
 
     .sponsor-list {
@@ -2378,18 +2398,22 @@
         font-size: 18px;
     }
 
-    .tb_wrap>div {
+    .tb_wrap .scroll-touch {
         overflow-x: auto;
         -webkit-overflow-scrolling: touch;
         /* iOS 부드러운 스크롤 */
     }
 
-    .tb_wrap>div table {
+    .tb_wrap .scroll-touch table {
         min-width: 800px;
         /* 테이블이 너무 좁아지지 않게 */
         border-collapse: collapse;
     }
 
+    .tb_wrap .scroll-desc {
+        display: block;
+        padding-top: 20px;
+    }
 
 
 }

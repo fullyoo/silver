@@ -1206,7 +1206,7 @@
 
 /* ========반응형 미디어쿼리======== */
 
-@media(max-width:1600px) {}
+@media(max-width:1400px) {}
 
 @media(max-width:1280px) {
     .kv-sec {
@@ -1221,6 +1221,15 @@
 
     .kv-sec .main_txt span {
         font-size: 26px;
+    }
+
+
+    .service-wrap li a:hover {
+        border-radius: 20px;
+    }
+
+    .service-wrap li .t-box .t2 {
+        display: none;
     }
 
     .team-sec .t-box .t1 {
