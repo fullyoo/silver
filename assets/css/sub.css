@@ -73,7 +73,7 @@
 
 #sub-visual .visual-bg.bg03:before {
     background-image: url(../images/sub/sub-visual03.jpg);
-    background-position: 25% 50%;
+    background-position: 50% 50%;
 }
 
 #sub-visual .visual-bg.bg04:before {
@@ -1379,6 +1379,8 @@
     gap: 10px;
     max-width: 600px;
     margin: 10px auto 30px;
+    position: relative;
+    z-index: 5;
 }
 
 .search-input-wrapper {
@@ -1511,8 +1513,6 @@
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     overflow: hidden;
     margin-bottom: 30px;
-    position: relative;
-    z-index: -1;
 }
 
 .faq-item {
@@ -2850,6 +2850,17 @@
     .pagination button {
         font-size: 13px;
     }
+
+    .faq-wrap {
+        padding: 20px 0 0;
+    }
+
+    .search-box {}
+
+    .result-info {
+        margin-bottom: 30px;
+    }
+
 }
 
 
