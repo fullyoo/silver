@@ -1487,7 +1487,7 @@
     padding: 12px 28px;
     background-color: var(--primary-color);
     color: var(--white-color);
-    border: none;
+    border: 1px solid var(--primary-color);
     border-radius: 25px;
     font-size: 15px;
     cursor: pointer;
@@ -1496,7 +1496,8 @@
 }
 
 .search-box button:hover {
-    background-color: var(--text-color);
+    background-color: var(--white-color);
+    color: var(--primary-color);
 }
 
 .result-info {
