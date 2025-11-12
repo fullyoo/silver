@@ -280,7 +280,7 @@
 
         <div class="sub-content">
             <!-- 서브공통영역 -->
-            <div class="inner" data-aos="fade-down" data-aos-delay="400" data-aos-duration="500">
+            <div class="inner" data-aos="fade-down" data-aos-delay="600" data-aos-duration="500">
                 <div class="location-wrap">
                     <ul class="location">
                         <li><a href="index.html"> <i class="xi-home-o"></i></a></li>
@@ -313,7 +313,7 @@
                 </section>
 
                 <section class="faq-wrap">
-                    <div class="search-box" data-aos="fade-down" data-aos-duration="400" data-aos-delay="600">
+                    <div class="search-box">
                         <div class="search-input-wrapper">
                             <div class="search-select-wrapper">
                                 <div class="search-select-button" onclick="toggleSearchOptions()">
@@ -334,7 +334,7 @@
 
                     <div class="result-info" id="resultInfo"></div>
 
-                    <div class="faq-list" id="faqList" data-aos="fade-up" data-aos-duration="400" data-aos-delay="800">
+                    <div class="faq-list" id="faqList">
                         <div class="faq-item" data-keywords="기부 동참 후원 정기후원 일시후원">
                             <div class="faq-question" onclick="toggleAnswer(this)">
                                 <div class="question-text">기부에 동참하고 싶은데 어떻게 해야 하나요?</div>
@@ -613,6 +613,9 @@
                                 </div>
                             </div>
                         </div>
+
+
+
                     </div>
                     <div class="pagination" id="pagination">
                         <button disabled="">이전</button>
@@ -848,9 +851,9 @@
 
                     document.getElementById('resultInfo').innerHTML =
                         `<div class="no-results">
-                    <h3>검색 결과가 없습니다</h3>
-                    <p>${searchTypeText}에서 "${searchInput.value}"에 대한 검색 결과가 없습니다.</p>
-                </div>`;
+                            <h3>검색 결과가 없습니다</h3>
+                            <p>${searchTypeText}에서 "${searchInput.value}"에 대한 검색 결과가 없습니다.</p>
+                        </div>`;
                 } else {
                     const searchTypeText = document.getElementById('selectedSearchType').textContent;
 
@@ -884,24 +887,13 @@
         function showPage(page, shouldScroll = true) {
             currentPage = page;
 
-            // 먼저 모든 아이템 숨기기
-            allItems.forEach(item => {
-                item.classList.add('hidden');
-                item.classList.remove('show');
-            });
+            allItems.forEach(item => item.classList.add('hidden'));
 
             const start = (page - 1) * itemsPerPage;
             const end = start + itemsPerPage;
             const itemsToShow = filteredItems.slice(start, end);
 
-            // 아이템 표시 및 애니메이션
-            itemsToShow.forEach((item, index) => {
-                item.classList.remove('hidden');
-                // 각 아이템에 순차적인 딜레이를 주어 부드럽게 나타나게 함
-                setTimeout(() => {
-                    item.classList.add('show');
-                }, index * 80);
-            });
+            itemsToShow.forEach(item => item.classList.remove('hidden'));
 
             document.querySelectorAll('.faq-answer.active').forEach(item => {
                 item.classList.remove('active');
@@ -926,7 +918,7 @@
             prevBtn.disabled = currentPage === 1;
             prevBtn.onclick = () => {
                 if (currentPage > 1) {
-                    showPage(currentPage - 1, false);
+                    showPage(currentPage - 1);
                     updatePagination();
                 }
             };
@@ -939,7 +931,7 @@
                 const firstBtn = document.createElement('button');
                 firstBtn.textContent = '1';
                 firstBtn.onclick = () => {
-                    showPage(1, false);
+                    showPage(1);
                     updatePagination();
                 };
                 pagination.appendChild(firstBtn);
@@ -957,7 +949,7 @@
                 pageBtn.textContent = i;
                 pageBtn.className = i === currentPage ? 'active' : '';
                 pageBtn.onclick = () => {
-                    showPage(i, false);
+                    showPage(i);
                     updatePagination();
                 };
                 pagination.appendChild(pageBtn);
@@ -974,7 +966,7 @@
                 const lastBtn = document.createElement('button');
                 lastBtn.textContent = totalPages;
                 lastBtn.onclick = () => {
-                    showPage(totalPages, false);
+                    showPage(totalPages);
                     updatePagination();
                 };
                 pagination.appendChild(lastBtn);
@@ -985,7 +977,7 @@
             nextBtn.disabled = currentPage === totalPages;
             nextBtn.onclick = () => {
                 if (currentPage < totalPages) {
-                    showPage(currentPage + 1, false);
+                    showPage(currentPage + 1);
                     updatePagination();
                 }
             };
@@ -993,7 +985,6 @@
         }
 
         window.onload = initializeFAQ;
-
     </script>
 
     <!-- //하단 공통 END-->
