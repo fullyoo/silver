@@ -2302,7 +2302,7 @@
     }
 
     .sub-tit {
-        font-size: 24px;
+        font-size: 25px;
     }
 
     .service-list {
@@ -2827,7 +2827,7 @@
     }
 
     .faq-question {
-        padding: 15px 20px;
+        padding: 30px 20px;
     }
 
     .question-text {
@@ -2849,6 +2849,11 @@
 
     .pagination button {
         font-size: 13px;
+    }
+
+    .board-wrap .cont-box {
+        padding-bottom: 10px;
+        margin-top: -10px;
     }
 
     .faq-wrap {
