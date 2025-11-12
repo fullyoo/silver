@@ -633,7 +633,6 @@ $(function () {
 
 
     // 히스토리
-    // 히스토리
     var scrollBar = {
         init: function () {
             $(window).on("scroll resize", function () {

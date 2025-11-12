@@ -144,6 +144,13 @@
             min-width: 0;
         }
 
+
+        #searchInput,
+        #searchInput.active-bg {
+            background: none !important;
+            /* ✅ 완전히 투명 */
+        }
+
         .search-box button {
             padding: 12px 20px;
             background-color: #3498db;
@@ -684,7 +691,7 @@
             allItems = Array.from(document.querySelectorAll('.faq-item'));
             filteredItems = [...allItems];
             updatePagination();
-            showPage(1);
+            showPage(1, false);
 
             // 외부 클릭 시 셀렉트 박스 닫기
             document.addEventListener('click', function (event) {
@@ -795,7 +802,7 @@
 
             currentPage = 1;
             updatePagination();
-            showPage(1);
+            showPage(1, false); // 스크롤 비활성화
         }
 
         function highlightSearchTerm(term) {
@@ -815,7 +822,7 @@
             }
         }
 
-        function showPage(page) {
+        function showPage(page, shouldScroll = true) {
             currentPage = page;
 
             allItems.forEach(item => item.classList.add('hidden'));
@@ -832,7 +839,9 @@
                 item.parentElement.querySelector('.faq-question').classList.remove('active');
             });
 
-            window.scrollTo({ top: 0, behavior: 'smooth' });
+            if (shouldScroll) {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
         }
 
         function updatePagination() {
