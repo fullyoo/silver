@@ -313,27 +313,29 @@
                 </section>
 
                 <section class="notice-wrap">
-                    <div class="search-box" data-aos="fade-down" data-aos-duration="400" data-aos-delay="600">
-                        <div class="search-input-wrapper">
-                            <div class="search-select-wrapper">
-                                <div class="search-select-button" onclick="toggleSearchOptions()">
-                                    <span id="selectedSearchType">제목</span>
-                                    <span class="arrow">▼</span>
+                    <div class="search-all">
+                        <div class="search-box" data-aos="fade-down" data-aos-duration="400" data-aos-delay="600">
+                            <div class="search-input-wrapper">
+                                <div class="search-select-wrapper">
+                                    <div class="search-select-button" onclick="toggleSearchOptions()">
+                                        <span id="selectedSearchType">제목</span>
+                                        <span class="arrow">▼</span>
+                                    </div>
+                                    <div class="search-options" id="searchOptions">
+                                        <div class="search-option selected" onclick="selectSearchType('all', '전체')">전체
+                                        </div>
+                                        <div class="search-option" onclick="selectSearchType('title', '제목')">제목</div>
+                                        <div class="search-option" onclick="selectSearchType('content', '내용')">내용</div>
+                                    </div>
                                 </div>
-                                <div class="search-options" id="searchOptions">
-                                    <div class="search-option selected" onclick="selectSearchType('all', '전체')">전체</div>
-                                    <div class="search-option" onclick="selectSearchType('title', '제목')">제목</div>
-                                    <div class="search-option" onclick="selectSearchType('content', '내용')">내용</div>
-                                </div>
+                                <input type="text" id="searchInput" class="active-bgs" placeholder="검색어를 입력하세요"
+                                    onkeyup="handleSearch(event)">
                             </div>
-                            <input type="text" id="searchInput" class="active-bgs" placeholder="검색어를 입력하세요"
-                                onkeyup="handleSearch(event)">
+                            <button onclick="performSearch()">검색</button>
                         </div>
-                        <button onclick="performSearch()">검색</button>
+                        <!-- 검색결과 -->
+                        <div class="result-info" id="resultInfo"></div>
                     </div>
-                    <!-- 검색결과 -->
-                    <div class="result-info" id="resultInfo"></div>
-
                     <!-- 리스트 -->
                     <div class="notice-list" id="noticeList" data-aos="fade-up" data-aos-duration="400"
                         data-aos-delay="800">

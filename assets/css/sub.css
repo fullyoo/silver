@@ -2947,7 +2947,7 @@
     .notice-item {
         flex-direction: column;
         align-items: flex-start;
-        padding: 20px;
+        padding: 20px 10px;
     }
 
     .notice-num {
@@ -2974,6 +2974,7 @@
 
     .search-box {
         gap: 5px;
+        max-width: 100%;
     }
 
     .search-input-wrapper {
@@ -3039,9 +3040,18 @@
         padding: 20px 0 0;
     }
 
-    .notice-wrap .search-box {
+    .notice-wrap .search-all {
         border-bottom: 2px solid var(--border-color);
-        padding-bottom: 30px;
+        padding-bottom: 20px;
+        margin-bottom: 0;
+    }
+
+    .notice-wrap .search-box {
+        margin-bottom: 0;
+    }
+
+    .notice-wrap .result-info {
+        margin: 10px 0 0;
     }
 
 }
