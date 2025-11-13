@@ -1398,7 +1398,7 @@
     align-items: center;
     padding: 30px;
     border-bottom: 1px solid var(--border-color);
-    cursor: pointer;
+    /* cursor: pointer; */
     transition: background-color 0.2s;
 }
 
@@ -1474,8 +1474,11 @@
     transition: color 0.2s;
 }
 
-.notice-item:hover .notice-title {
-    /* color: var(--primary-color); */
+.notice-item:hover .notice-title {}
+
+.notice-item .notice-title a:hover {
+    color: var(--primary-color);
+    text-decoration: underline;
     font-weight: var(--font-600);
 }
 
