@@ -1,0 +1,820 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>공지사항 3-2</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Malgun Gothic', sans-serif;
+            background-color: #f5f5f5;
+            padding: 40px 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+
+        .header {
+            padding: 20px 30px;
+            border-bottom: 3px solid #1e40af;
+        }
+
+        .header h1 {
+            font-size: 28px;
+            color: #1f2937;
+            font-weight: 700;
+        }
+
+        .search-bar {
+            padding: 20px 30px;
+            background-color: #f9fafb;
+            border-bottom: 1px solid #e5e7eb;
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        .search-wrapper {
+            display: flex;
+            gap: 8px;
+            max-width: 500px;
+            width: 100%;
+        }
+
+        .search-input-wrapper {
+            flex: 1;
+            position: relative;
+            display: flex;
+            align-items: center;
+            border: 1px solid #d1d5db;
+            border-radius: 4px;
+            background-color: white;
+        }
+
+        .search-input-wrapper:focus-within {
+            border-color: #2563eb;
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+        }
+
+        .custom-select {
+            position: relative;
+            padding: 10px 15px;
+            border-right: 1px solid #e5e7eb;
+            cursor: pointer;
+            user-select: none;
+            min-width: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 8px;
+        }
+
+        .custom-select-label {
+            font-size: 14px;
+            color: #dc2626;
+            font-weight: 600;
+        }
+
+        .custom-select-arrow {
+            font-size: 12px;
+            color: #6b7280;
+            transition: transform 0.2s;
+        }
+
+        .custom-select.active .custom-select-arrow {
+            transform: rotate(180deg);
+        }
+
+        .select-dropdown {
+            position: absolute;
+            top: calc(100% + 4px);
+            left: 0;
+            background: white;
+            border: 1px solid #d1d5db;
+            border-radius: 4px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            z-index: 100;
+            min-width: 100px;
+            display: none;
+        }
+
+        .select-dropdown.active {
+            display: block;
+        }
+
+        .select-option {
+            padding: 10px 15px;
+            cursor: pointer;
+            font-size: 14px;
+            color: #374151;
+            transition: background-color 0.2s;
+        }
+
+        .select-option:hover {
+            background-color: #f3f4f6;
+        }
+
+        .select-option.selected {
+            background-color: #fee2e2;
+            color: #dc2626;
+            font-weight: 600;
+        }
+
+        .search-input {
+            flex: 1;
+            padding: 10px 15px;
+            font-size: 14px;
+            border: none;
+            outline: none;
+            min-width: 0;
+        }
+
+        .search-input:focus {
+            outline: none;
+        }
+
+        .search-btn {
+            padding: 10px 20px;
+            background-color: #2563eb;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: background-color 0.2s;
+        }
+
+        .search-btn:hover {
+            background-color: #1d4ed8;
+        }
+
+        .search-results {
+            padding: 15px 30px;
+            background-color: #f0f9ff;
+            border-bottom: 1px solid #bfdbfe;
+            display: none;
+        }
+
+        .search-results.active {
+            display: block;
+        }
+
+        .search-results-text {
+            color: #1e40af;
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .search-results-text .keyword {
+            color: #dc2626;
+        }
+
+        .search-results-text .count {
+            color: #059669;
+        }
+
+        .clear-search {
+            margin-left: 10px;
+            padding: 4px 12px;
+            background-color: #dc2626;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 13px;
+            transition: background-color 0.2s;
+        }
+
+        .clear-search:hover {
+            background-color: #b91c1c;
+        }
+
+        .notice-list {
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        .notice-header {
+            display: flex;
+            align-items: center;
+            padding: 15px 30px;
+            background-color: #f9fafb;
+            border-bottom: 2px solid #e5e7eb;
+            font-weight: 600;
+            color: #374151;
+            font-size: 14px;
+        }
+
+        .notice-item {
+            display: flex;
+            align-items: center;
+            padding: 18px 30px;
+            border-bottom: 1px solid #e5e7eb;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+
+        .notice-item:hover {
+            background-color: #f9fafb;
+        }
+
+        .notice-item:last-child {
+            border-bottom: none;
+        }
+
+        .notice-item.hidden {
+            display: none;
+        }
+
+        .notice-num {
+            width: 80px;
+            color: #6b7280;
+            font-weight: 500;
+            text-align: center;
+        }
+
+        .notice-category {
+            padding: 4px 12px;
+            border-radius: 4px;
+            font-size: 13px;
+            font-weight: 600;
+            margin-right: 15px;
+            min-width: 60px;
+            text-align: center;
+        }
+
+        .category-recruit {
+            background-color: #d1fae5;
+            color: #065f46;
+        }
+
+        .category-notice {
+            background-color: #dbeafe;
+            color: #1e40af;
+        }
+
+        .category-info {
+            background-color: #fee2e2;
+            color: #991b1b;
+        }
+
+        .notice-title {
+            flex: 1;
+            color: #1f2937;
+            font-size: 15px;
+            transition: color 0.2s;
+        }
+
+        .notice-item:hover .notice-title {
+            color: #2563eb;
+        }
+
+        .notice-date {
+            color: #6b7280;
+            font-size: 14px;
+            white-space: nowrap;
+            margin-left: 20px;
+            width: 100px;
+            text-align: center;
+        }
+
+        .pagination {
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .pagination-buttons {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+        }
+
+        .page-btn {
+            width: 40px;
+            height: 40px;
+            border: 1px solid #d1d5db;
+            background: white;
+            color: #374151;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: all 0.2s;
+        }
+
+        .page-btn:hover:not(:disabled) {
+            background-color: #f3f4f6;
+        }
+
+        .page-btn.active {
+            background-color: #2563eb;
+            color: white;
+            border-color: #2563eb;
+            font-weight: 700;
+        }
+
+        .page-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        .page-info {
+            color: #6b7280;
+            font-size: 14px;
+        }
+
+        .no-results {
+            padding: 60px 30px;
+            text-align: center;
+            color: #6b7280;
+            font-size: 15px;
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 20px 10px;
+            }
+
+            .header {
+                padding: 15px 20px;
+            }
+
+            .header h1 {
+                font-size: 22px;
+            }
+
+            .search-bar {
+                padding: 15px 20px;
+            }
+
+            .search-wrapper {
+                max-width: 100%;
+            }
+
+            .notice-header {
+                display: none;
+            }
+
+            .notice-item {
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 15px 20px;
+            }
+
+            .notice-num {
+                width: 40px;
+                font-size: 14px;
+                display: none;
+            }
+
+            .notice-category {
+                font-size: 12px;
+                padding: 3px 10px;
+            }
+
+            .notice-title {
+                width: 100%;
+                margin-top: 8px;
+                /* order: 3; */
+                font-size: 14px;
+            }
+
+            .notice-date {
+                margin-left: 0;
+                font-size: 13px;
+                width: auto;
+            }
+
+            .pagination {
+                padding: 20px;
+            }
+
+            .page-btn {
+                width: 36px;
+                height: 36px;
+                font-size: 13px;
+            }
+
+            .page-info {
+                font-size: 13px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .search-wrapper {
+                flex-direction: column;
+            }
+
+            .search-btn {
+                width: 100%;
+            }
+
+            .pagination-buttons {
+                gap: 4px;
+            }
+
+            .page-btn {
+                width: 32px;
+                height: 32px;
+                font-size: 12px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>공지사항</h1>
+        </div>
+
+        <div class="search-bar">
+            <div class="search-wrapper">
+                <div class="search-input-wrapper">
+                    <div class="custom-select" id="customSelect">
+                        <span class="custom-select-label" id="selectLabel">전체</span>
+                        <span class="custom-select-arrow">▼</span>
+                        <div class="select-dropdown" id="selectDropdown">
+                            <div class="select-option selected" data-value="all">전체</div>
+                            <div class="select-option" data-value="title">제목</div>
+                            <div class="select-option" data-value="content">내용</div>
+                        </div>
+                    </div>
+                    <input type="text" id="searchInput" class="search-input" placeholder="검색어를 입력하세요">
+                </div>
+                <button class="search-btn" onclick="searchNotices()">검색</button>
+            </div>
+        </div>
+
+        <div class="search-results" id="searchResults">
+            <span class="search-results-text">
+                '<span class="keyword" id="searchKeyword"></span>' 검색 결과
+                <span class="count" id="searchCount"></span>건
+            </span>
+            <button class="clear-search" onclick="clearSearch()">검색 초기화</button>
+        </div>
+
+        <div class="notice-list" id="noticeList">
+            <div class="notice-header">
+                <span class="notice-num">번호</span>
+                <span class="notice-category">구분</span>
+                <span class="notice-title">제목</span>
+                <span class="notice-date">작성일</span>
+            </div>
+
+            <!-- 공지사항 데이터 -->
+            <div class="notice-item" data-category="채용" data-type="recruit"
+                data-title="[2025년 제5차 직원 채용 공고(정보관리·모금사업 분야)]" data-content="정보관리 및 모금사업 분야의 신규 직원을 채용합니다."
+                data-date="2025.11.07">
+                <span class="notice-num">1</span>
+                <span class="notice-category category-recruit">채용</span>
+                <span class="notice-title">[2025년 제5차 직원 채용 공고(정보관리·모금사업 분야)]</span>
+                <span class="notice-date">2025.11.07</span>
+            </div>
+
+            <div class="notice-item" data-category="알림" data-type="notice"
+                data-title="[희망브리지 전국재해구호협회] 찾아가는 재난안전 체험교육 선정기관 안내" data-content="2025년 재난안전 체험교육 선정기관을 안내드립니다."
+                data-date="2025.10.20">
+                <span class="notice-num">2</span>
+                <span class="notice-category category-notice">알림</span>
+                <span class="notice-title">[희망브리지 전국재해구호협회] 찾아가는 재난안전 체험교육 선정기관 안내</span>
+                <span class="notice-date">2025.10.20</span>
+            </div>
+
+            <div class="notice-item" data-category="알림" data-type="notice"
+                data-title="[안내] 2025년 7월 16일~20일 호우 피해 국민성금 지원" data-content="호우 피해 지역에 국민성금을 지원합니다."
+                data-date="2025.10.02">
+                <span class="notice-num">3</span>
+                <span class="notice-category category-notice">알림</span>
+                <span class="notice-title">[안내] 2025년 7월 16일~20일 호우 피해 국민성금 지원</span>
+                <span class="notice-date">2025.10.02</span>
+            </div>
+
+            <div class="notice-item" data-category="알림" data-type="notice" data-title="위기가정 식사지원 공모사업 [희망도시락] 최종 결과 발표"
+                data-content="희망도시락 공모사업의 최종 선정 결과를 발표합니다." data-date="2025.09.25">
+                <span class="notice-num">4</span>
+                <span class="notice-category category-notice">알림</span>
+                <span class="notice-title">위기가정 식사지원 공모사업 [희망도시락] 최종 결과 발표</span>
+                <span class="notice-date">2025.09.25</span>
+            </div>
+
+            <div class="notice-item" data-category="알림" data-type="notice" data-title="위기가정 식사지원 공모사업 [희망도시락] 서류결과 발표"
+                data-content="희망도시락 공모사업의 서류심사 결과를 발표합니다." data-date="2025.09.10">
+                <span class="notice-num">5</span>
+                <span class="notice-category category-notice">알림</span>
+                <span class="notice-title">위기가정 식사지원 공모사업 [희망도시락] 서류결과 발표</span>
+                <span class="notice-date">2025.09.10</span>
+            </div>
+
+            <div class="notice-item" data-category="알림" data-type="notice" data-title="(8.13.~ )수해 대처현황 상황보고(1보)"
+                data-content="8월 13일 발생한 수해에 대한 대처 현황을 보고드립니다." data-date="2025.08.19">
+                <span class="notice-num">6</span>
+                <span class="notice-category category-notice">알림</span>
+                <span class="notice-title">(8.13.~ )수해 대처현황 상황보고(1보)</span>
+                <span class="notice-date">2025.08.19</span>
+            </div>
+
+            <div class="notice-item" data-category="알림" data-type="notice" data-title="(7.16.~20.)수해 대처현황 상황보고(14보)"
+                data-content="7월 수해 대처 현황 14차 보고입니다." data-date="2025.08.19">
+                <span class="notice-num">7</span>
+                <span class="notice-category category-notice">알림</span>
+                <span class="notice-title">(7.16.~20.)수해 대처현황 상황보고(14보)</span>
+                <span class="notice-date">2025.08.19</span>
+            </div>
+
+            <div class="notice-item" data-category="알림" data-type="notice" data-title="[모집] 위기가정 식사지원 공모사업 [희망도시락] 공고"
+                data-content="위기가정을 위한 식사지원 공모사업 참여기관을 모집합니다." data-date="2025.08.08">
+                <span class="notice-num">8</span>
+                <span class="notice-category category-notice">알림</span>
+                <span class="notice-title">[모집] 위기가정 식사지원 공모사업 [희망도시락] 공고</span>
+                <span class="notice-date">2025.08.08</span>
+            </div>
+
+            <div class="notice-item" data-category="알림" data-type="notice" data-title="수해 대처현황 상황보고(13보)"
+                data-content="수해 대처 현황 13차 보고입니다." data-date="2025.08.04">
+                <span class="notice-num">9</span>
+                <span class="notice-category category-notice">알림</span>
+                <span class="notice-title">수해 대처현황 상황보고(13보)</span>
+                <span class="notice-date">2025.08.04</span>
+            </div>
+
+            <div class="notice-item" data-category="알림" data-type="notice" data-title="수해 대처현황 상황보고(12보)"
+                data-content="수해 대처 현황 12차 보고입니다." data-date="2025.08.04">
+                <span class="notice-num">10</span>
+                <span class="notice-category category-notice">알림</span>
+                <span class="notice-title">수해 대처현황 상황보고(12보)</span>
+                <span class="notice-date">2025.08.04</span>
+            </div>
+
+            <div class="notice-item" data-category="알림" data-type="notice" data-title="수해 대처현황 상황보고(11보)"
+                data-content="수해 대처 현황 11차 보고입니다." data-date="2025.08.03">
+                <span class="notice-num">11</span>
+                <span class="notice-category category-notice">알림</span>
+                <span class="notice-title">수해 대처현황 상황보고(11보)</span>
+                <span class="notice-date">2025.08.03</span>
+            </div>
+
+            <div class="notice-item" data-category="채용" data-type="recruit" data-title="[2025년 제4차 직원 채용 공고]"
+                data-content="2025년 제4차 신규 직원을 채용합니다." data-date="2025.08.02">
+                <span class="notice-num">12</span>
+                <span class="notice-category category-recruit">채용</span>
+                <span class="notice-title">[2025년 제4차 직원 채용 공고]</span>
+                <span class="notice-date">2025.08.02</span>
+            </div>
+
+            <div class="notice-item" data-category="알림" data-type="notice" data-title="긴급구호 물품 지원 안내"
+                data-content="재난 피해 지역에 긴급구호 물품을 지원합니다." data-date="2025.07.28">
+                <span class="notice-num">13</span>
+                <span class="notice-category category-notice">알림</span>
+                <span class="notice-title">긴급구호 물품 지원 안내</span>
+                <span class="notice-date">2025.07.28</span>
+            </div>
+
+            <div class="notice-item" data-category="알림" data-type="notice" data-title="재난안전교육 프로그램 참가자 모집"
+                data-content="재난안전교육 프로그램 참가자를 모집합니다." data-date="2025.07.25">
+                <span class="notice-num">14</span>
+                <span class="notice-category category-notice">알림</span>
+                <span class="notice-title">재난안전교육 프로그램 참가자 모집</span>
+                <span class="notice-date">2025.07.25</span>
+            </div>
+
+            <div class="notice-item" data-category="공지" data-type="info" data-title="2025년 하반기 사업 계획 안내"
+                data-content="2025년 하반기 주요 사업 계획을 안내드립니다." data-date="2025.07.20">
+                <span class="notice-num">15</span>
+                <span class="notice-category category-info">공지</span>
+                <span class="notice-title">2025년 하반기 사업 계획 안내</span>
+                <span class="notice-date">2025.07.20</span>
+            </div>
+        </div>
+
+        <div class="pagination">
+            <div class="pagination-buttons" id="pagination"></div>
+            <div class="page-info" id="pageInfo"></div>
+        </div>
+    </div>
+
+    <script>
+        let currentPage = 1;
+        let searchType = 'all';
+        let filteredNotices = [];
+        let allNotices = [];
+        let isSearching = false;
+        const itemsPerPage = 10;
+
+        // 페이지 로드 시 데이터 수집
+        function initNotices() {
+            const noticeItems = document.querySelectorAll('.notice-item');
+            allNotices = [];
+
+            noticeItems.forEach(item => {
+                allNotices.push({
+                    // id: item.getAttribute('data-id'),
+                    category: item.getAttribute('data-category'),
+                    type: item.getAttribute('data-type'),
+                    title: item.getAttribute('data-title'),
+                    content: item.getAttribute('data-content'),
+                    date: item.getAttribute('data-date')
+                });
+            });
+
+            filteredNotices = allNotices.slice();
+        }
+
+        // 커스텀 셀렉트 박스 기능
+        const customSelect = document.getElementById('customSelect');
+        const selectLabel = document.getElementById('selectLabel');
+        const selectDropdown = document.getElementById('selectDropdown');
+        const selectOptions = document.querySelectorAll('.select-option');
+
+        customSelect.addEventListener('click', function (e) {
+            e.stopPropagation();
+            customSelect.classList.toggle('active');
+            selectDropdown.classList.toggle('active');
+        });
+
+        selectOptions.forEach(option => {
+            option.addEventListener('click', function (e) {
+                e.stopPropagation();
+
+                selectOptions.forEach(opt => opt.classList.remove('selected'));
+
+                this.classList.add('selected');
+                selectLabel.textContent = this.textContent;
+                searchType = this.getAttribute('data-value');
+
+                customSelect.classList.remove('active');
+                selectDropdown.classList.remove('active');
+            });
+        });
+
+        document.addEventListener('click', function () {
+            customSelect.classList.remove('active');
+            selectDropdown.classList.remove('active');
+        });
+
+        function renderNotices() {
+            const noticeList = document.getElementById('noticeList');
+            const startIndex = (currentPage - 1) * itemsPerPage;
+            const endIndex = startIndex + itemsPerPage;
+            const currentNotices = filteredNotices.slice(startIndex, endIndex);
+
+            let html = '<div class="notice-header">';
+            html += '<span class="notice-num">번호</span>';
+            html += '<span class="notice-category">구분</span>';
+            html += '<span class="notice-title">제목</span>';
+            html += '<span class="notice-date">작성일</span>';
+            html += '</div>';
+
+            if (currentNotices.length === 0) {
+                noticeList.innerHTML = html + '<div class="no-results">검색 결과가 없습니다.</div>';
+                document.getElementById('pagination').innerHTML = '';
+                document.getElementById('pageInfo').textContent = '';
+                return;
+            }
+
+            for (let i = 0; i < currentNotices.length; i++) {
+                const notice = currentNotices[i];
+                html += '<div class="notice-item" onclick="viewNotice(' + notice.id + ')">';
+                html += '<span class="notice-num">' + (startIndex + i + 1) + '</span>';
+                html += '<span class="notice-category category-' + notice.type + '">' + notice.category + '</span>';
+                html += '<span class="notice-title">' + notice.title + '</span>';
+                html += '<span class="notice-date">' + notice.date + '</span>';
+                html += '</div>';
+            }
+            noticeList.innerHTML = html;
+
+            renderPagination();
+        }
+
+        function renderPagination() {
+            const totalPages = Math.ceil(filteredNotices.length / itemsPerPage);
+            const pagination = document.getElementById('pagination');
+            const pageInfo = document.getElementById('pageInfo');
+
+            let buttons = '';
+
+            if (currentPage === 1) {
+                buttons += '<button class="page-btn" disabled>◀</button>';
+            } else {
+                buttons += '<button class="page-btn" onclick="changePage(' + (currentPage - 1) + ')">◀ 이전</button>';
+            }
+
+            const maxVisible = 5;
+            let startPage = Math.max(1, currentPage - Math.floor(maxVisible / 2));
+            let endPage = Math.min(totalPages, startPage + maxVisible - 1);
+
+            if (endPage - startPage < maxVisible - 1) {
+                startPage = Math.max(1, endPage - maxVisible + 1);
+            }
+
+            for (let i = startPage; i <= endPage; i++) {
+                if (i === currentPage) {
+                    buttons += '<button class="page-btn active" onclick="changePage(' + i + ')">' + i + '</button>';
+                } else {
+                    buttons += '<button class="page-btn" onclick="changePage(' + i + ')">' + i + '</button>';
+                }
+            }
+
+            if (currentPage === totalPages) {
+                buttons += '<button class="page-btn" disabled>▶</button>';
+            } else {
+                buttons += '<button class="page-btn" onclick="changePage(' + (currentPage + 1) + ')">다음 ▶</button>';
+            }
+
+            pagination.innerHTML = buttons;
+            pageInfo.textContent = currentPage + ' / ' + totalPages + ' 페이지';
+        }
+
+        function changePage(page) {
+            const totalPages = Math.ceil(filteredNotices.length / itemsPerPage);
+            if (page >= 1 && page <= totalPages) {
+                currentPage = page;
+                renderNotices();
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+        }
+
+        function searchNotices() {
+            const searchTerm = document.getElementById('searchInput').value.toLowerCase().trim();
+
+            if (searchTerm === '') {
+                clearSearch();
+                return;
+            }
+
+            filteredNotices = [];
+
+            for (let i = 0; i < allNotices.length; i++) {
+                const notice = allNotices[i];
+                let isMatch = false;
+
+                if (searchType === 'all') {
+                    isMatch = notice.title.toLowerCase().indexOf(searchTerm) !== -1 ||
+                        notice.content.toLowerCase().indexOf(searchTerm) !== -1 ||
+                        notice.category.toLowerCase().indexOf(searchTerm) !== -1;
+                } else if (searchType === 'title') {
+                    isMatch = notice.title.toLowerCase().indexOf(searchTerm) !== -1;
+                } else if (searchType === 'content') {
+                    isMatch = notice.content.toLowerCase().indexOf(searchTerm) !== -1;
+                }
+
+                if (isMatch) {
+                    filteredNotices.push(notice);
+                }
+            }
+
+            isSearching = true;
+            currentPage = 1;
+
+            // 검색 결과 표시
+            document.getElementById('searchKeyword').textContent = searchTerm;
+            document.getElementById('searchCount').textContent = filteredNotices.length;
+            document.getElementById('searchResults').classList.add('active');
+
+            renderNotices();
+        }
+
+        function clearSearch() {
+            document.getElementById('searchInput').value = '';
+            document.getElementById('searchResults').classList.remove('active');
+            filteredNotices = allNotices.slice();
+            isSearching = false;
+            currentPage = 1;
+            renderNotices();
+        }
+
+        function viewNotice(id) {
+            alert('공지사항 ' + id + '번을 조회합니다.');
+        }
+
+        document.getElementById('searchInput').addEventListener('keypress', function (e) {
+            if (e.key === 'Enter') {
+                searchNotices();
+            }
+        });
+
+        // 초기화
+        initNotices();
+
+        // 원본 HTML 제거
+        const originalItems = document.querySelectorAll('.notice-item');
+        originalItems.forEach(item => item.remove());
+
+        renderNotices();
+    </script>
+</body>
+
+</html>
