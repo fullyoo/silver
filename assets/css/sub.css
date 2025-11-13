@@ -1576,6 +1576,7 @@
     width: 80%;
     margin: 0 auto;
     line-height: 1.8;
+    font-size: 18px;
 }
 
 .view-box dl {
@@ -2842,6 +2843,10 @@
         margin: 0 20px;
     }
 
+    .view-box .view-content {
+        font-size: 16px;
+    }
+
 
 }
 
@@ -3401,6 +3406,10 @@
 
     .view-box dl {
         height: 60px;
+    }
+
+    .view-box .view-content {
+        font-size: 15px;
     }
 
 }
