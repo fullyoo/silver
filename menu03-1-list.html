@@ -46,7 +46,7 @@
     <!-- ✅ 구조화 데이터 (JSON-LD) -->
     <script type="application/ld+json">
   {
-    "@context": "https://silver-re.netlify.app",
+    "@context": "https://schema.org",
     "@type": "LocalBusiness",
     "name": "은빛노인 복지센터",
     "url": "https://silver-re.netlify.app/",
@@ -744,6 +744,14 @@
 
             paginationButtons.innerHTML = '';
             pageInfo.textContent = '';
+
+            // 검색 결과가 없으면 페이징 숨김(추가됨)
+            if (filteredItems.length === 0) {
+                document.querySelector('.pagination').style.display = 'none';
+                return;
+            } else {
+                document.querySelector('.pagination').style.display = 'flex';
+            }
 
             // 이전 버튼
             const prevBtn = document.createElement('button');
