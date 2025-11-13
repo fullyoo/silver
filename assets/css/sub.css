@@ -3189,6 +3189,7 @@
     .search-box {
         gap: 5px;
         max-width: 100%;
+        margin: 15px 0 20px;
     }
 
     .search-input-wrapper {
@@ -3256,13 +3257,11 @@
 
     .notice-wrap .search-all {
         border-bottom: 2px solid var(--border-color);
-        padding-bottom: 30px;
+        padding-bottom: 20px;
         margin-bottom: 0;
     }
 
-    .notice-wrap .search-box {
-        margin-bottom: 0;
-    }
+    .notice-wrap .search-box {}
 
     .notice-wrap .result-info {
         margin: 10px 0 0;
@@ -3284,6 +3283,7 @@
 
     .view-box dl dd {
         width: 78%;
+        padding: 0 20px;
     }
 
     .view-box .title {
@@ -3407,7 +3407,7 @@
 
 @media(max-width: 480px) {
     .search-box {
-        /* flex-direction: column; */
+        flex-direction: column;
     }
 
     .search-box button {
