@@ -1947,7 +1947,7 @@
     background-color: var(--white-color);
     border-radius: 10px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    /* border-top: 2px solid var(--border-color); */
+    border-top: 2px solid var(--border-color);
     overflow: hidden;
     margin-bottom: 30px;
 }
@@ -2110,6 +2110,7 @@
     transition: all 0.3s;
     font-size: 14px;
     min-width: 40px;
+    min-height: 40px;
 }
 
 .pagination button:hover:not(:disabled) {
