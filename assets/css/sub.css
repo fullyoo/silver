@@ -1473,7 +1473,7 @@
 .notice-title {
     flex: 1;
     font-size: 18px;
-    transition: color 0.2s;
+    /* transition: color 0.2s; */
 }
 
 .notice-item:hover .notice-title {
