@@ -1065,7 +1065,7 @@
     font-weight: var(--font-700);
     overflow: hidden;
     background-color: var(--primary-color);
-    background-color: var(--primary-color) url(https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/arrow_white.png) no-repeat right 14px center;
+    background: var(--primary-color) url(../images/sub/arrow_white.png) no-repeat right 14px center;
 }
 
 .customoverlay .title {
