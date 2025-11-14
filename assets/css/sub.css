@@ -1423,9 +1423,9 @@
 }
 
 .notice-item .notice-title {
-    font-size: 18px;
+    font-size: 20px;
     color: var(--text-color);
-    font-weight: var(--font-500);
+    font-weight: var(--font-600);
 }
 
 .notice-item .notice-date {
@@ -1559,8 +1559,8 @@
 }
 
 .gallery-title {
-    font-size: 18px;
-    font-weight: var(--font-500);
+    font-size: 20px;
+    font-weight: var(--font-600);
     color: var(--text-color);
     margin-bottom: 10px;
     overflow: hidden;
@@ -1985,8 +1985,8 @@
 
 .question-text {
     flex: 1;
-    font-size: 18px;
-    font-weight: var(--font-500);
+    font-size: 20px;
+    font-weight: var(--font-600);
     color: var(--text-color);
     padding-right: 20px;
 }
@@ -3330,7 +3330,7 @@
     }
 
     .question-text {
-        font-size: 16px;
+        font-size: 18px;
     }
 
     .answer-content {
