@@ -1473,12 +1473,15 @@
     transition: color 0.2s;
 }
 
-.notice-item:hover .notice-title {}
+.notice-item:hover .notice-title {
+    color: var(--primary-color);
+}
 
 .notice-item .notice-title a:hover {
-    color: var(--primary-color);
     text-decoration: underline;
-    font-weight: var(--font-600);
+    text-underline-offset: 4px;
+    color: var(--primary-color);
+    /* font-weight: var(--font-600); */
 }
 
 .notice-date {
@@ -1489,7 +1492,15 @@
 /* 센터 공지사항 영역 END*/
 
 
+
 /* 활동갤러리 영역 */
+.gallery-wrap {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 40px 20px 0;
+    border-top: 1px solid var(--text-color);
+}
+
 /* 갤러리 그리드 */
 .gallery-grid {
     display: grid;
@@ -1501,8 +1512,8 @@
 .gallery-item {
     display: none;
     flex-direction: column;
-    background: white;
-    border: 1px solid #e0e0e0;
+    background-color: var(--white-color);
+    border: 1px solid var(--border-color);
     border-radius: 10px;
     overflow: hidden;
     transition: transform 0.3s, box-shadow 0.3s;
@@ -1512,13 +1523,24 @@
 .gallery-item:hover {
     transform: translateY(-5px);
     box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    background-color: var(--redbg-color);
+}
+
+.gallery-item:hover .gallery-title {
+    color: var(--primary-color);
+}
+
+.gallery-title:hover {
+    font-weight: var(--font-600);
+    text-decoration: underline;
+    text-underline-offset: 4px;
 }
 
 .gallery-image {
     width: 100%;
     height: 250px;
     overflow: hidden;
-    background: #f0f0f0;
+    background: var(--bg-color);
 }
 
 .gallery-image img {
@@ -1537,18 +1559,27 @@
 }
 
 .gallery-title {
-    font-size: 16px;
-    font-weight: 500;
-    color: #333;
+    font-size: 18px;
+    font-weight: var(--font-500);
+    color: var(--text-color);
     margin-bottom: 10px;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
+    width: 99%;
+
+    /* 2줄 */
+    /* display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    text-overflow: ellipsis;
+    white-space: normal;
+    overflow: hidden; */
 }
 
 .gallery-date {
-    font-size: 13px;
-    color: #999;
+    font-size: 16px;
+    color: var(--body-color2);
 }
 
 
@@ -1907,6 +1938,7 @@
     background-color: var(--white-color);
     border-radius: 10px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    /* border-top: 2px solid var(--border-color); */
     overflow: hidden;
     margin-bottom: 30px;
 }
@@ -2912,10 +2944,16 @@
         font-size: 16px;
     }
 
+    .gallery-wrap {
+        max-width: 100%;
+        padding: 40px 0 0;
+    }
+
     .gallery-grid {
         grid-template-columns: repeat(2, 1fr);
         gap: 20px;
     }
+
 
 
 }
