@@ -9,7 +9,7 @@
     <meta name="format-detection" content="telephone=no">
 
     <!-- ✅ 기본 메타 정보 -->
-    <title>-all-02-문의하기 | 은빛노인 복지센터</title>
+    <title>1:1 문의하기 | 은빛노인 복지센터</title>
     <meta name="description"
         content="은빛노인 복지센터는 가족 같은 마음으로 어르신의 일상을 지키는 방문요양·방문목욕·방문간호·간병돌봄 전문기관입니다. 정서지원, 재활케어, 맞춤 돌봄으로 어르신의 행복한 노후를 함께합니다.">
     <meta name="keywords" content="은빛노인복지센터, 방문요양, 방문목욕, 방문간호, 간병돌봄, 정서지원, 노인복지, 재활케어, 요양서비스, 서울 복지센터">
@@ -93,451 +93,6 @@
     <link rel="stylesheet" href="./assets/css/sub.css">
 
     <style>
-        .container {
-            max-width: 1000px;
-            margin: 0 auto;
-        }
-
-        .form-wrapper {
-            background: white;
-            border-radius: 1rem;
-            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1);
-            overflow: hidden;
-        }
-
-        .form-header {
-            background: linear-gradient(135deg, #2563eb 0%, #4f46e5 100%);
-            color: white;
-            padding: 2rem;
-        }
-
-        .form-header h1 {
-            font-size: 2rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .form-header p {
-            color: #bfdbfe;
-            line-height: 1.6;
-        }
-
-        .form-body {
-            padding: 2rem;
-        }
-
-        .form-group {
-            display: flex;
-            align-items: start;
-            margin-bottom: 1.5rem;
-            gap: 1rem;
-        }
-
-        .form-group label {
-            min-width: 120px;
-            padding-top: 0.75rem;
-            font-weight: 600;
-            color: #374151;
-            font-size: 0.875rem;
-        }
-
-        .form-group .input-wrapper {
-            flex: 1;
-        }
-
-        .required {
-            color: #ef4444;
-        }
-
-        input[type="text"],
-        input[type="email"],
-        input[type="tel"],
-        textarea {
-            width: 100%;
-            padding: 0.75rem 1rem;
-            border: 1px solid #d1d5db;
-            border-radius: 0.5rem;
-            font-size: 1rem;
-            transition: all 0.2s;
-            font-family: inherit;
-        }
-
-        input:focus,
-        textarea:focus {
-            outline: none;
-            border-color: #2563eb;
-            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
-        }
-
-        textarea {
-            resize: vertical;
-            min-height: 150px;
-        }
-
-        .phone-inputs {
-            display: flex;
-            gap: 0.5rem;
-            align-items: center;
-        }
-
-        .phone-inputs .custom-select-wrapper {
-            width: 100px;
-        }
-
-        .phone-inputs input {
-            flex: 1;
-        }
-
-        .phone-separator {
-            color: #9ca3af;
-            font-weight: bold;
-        }
-
-        .email-inputs {
-            display: flex;
-            gap: 0.5rem;
-            align-items: center;
-        }
-
-        .email-inputs input {
-            flex: 1;
-        }
-
-        .email-inputs .custom-select-wrapper {
-            flex: 1;
-        }
-
-        .email-at {
-            color: #9ca3af;
-            font-weight: bold;
-        }
-
-        /* 커스텀 셀렉트 박스 스타일 */
-        .custom-select-wrapper {
-            position: relative;
-            width: 100%;
-        }
-
-        .custom-select-input {
-            width: 100%;
-            padding: 0.75rem 2.5rem 0.75rem 1rem;
-            border: 1px solid #d1d5db;
-            border-radius: 0.5rem;
-            background-color: white;
-            cursor: pointer;
-            font-size: 1rem;
-            color: #374151;
-            user-select: none;
-            transition: all 0.2s;
-        }
-
-        .custom-select-input.placeholder {
-            color: #9ca3af;
-        }
-
-        .custom-select-input:hover {
-            border-color: #9ca3af;
-        }
-
-        .custom-select-wrapper.active .custom-select-input {
-            border-color: #2563eb;
-            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
-        }
-
-        .custom-select-wrapper.error .custom-select-input {
-            border-color: #ef4444;
-        }
-
-        .custom-select-arrow {
-            position: absolute;
-            right: 1rem;
-            top: 50%;
-            transform: translateY(-50%);
-            font-size: 12px;
-            color: #6b7280;
-            pointer-events: none;
-            transition: transform 0.2s;
-        }
-
-        .custom-select-wrapper.active .custom-select-arrow {
-            transform: translateY(-50%) rotate(180deg);
-        }
-
-        .custom-select-dropdown {
-            position: absolute;
-            top: calc(100% + 4px);
-            left: 0;
-            right: 0;
-            background: white;
-            border: 1px solid #d1d5db;
-            border-radius: 0.5rem;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            z-index: 100;
-            max-height: 250px;
-            overflow-y: auto;
-            display: none;
-        }
-
-        .custom-select-wrapper.active .custom-select-dropdown {
-            display: block;
-        }
-
-        .custom-select-option {
-            padding: 0.75rem 1rem;
-            cursor: pointer;
-            font-size: 1rem;
-            color: #374151;
-            transition: background-color 0.2s;
-        }
-
-        .custom-select-option:hover {
-            background-color: #f3f4f6;
-        }
-
-        .custom-select-option.selected {
-            background-color: #fee2e2;
-            color: #dc2626;
-            font-weight: 600;
-        }
-
-        .custom-select-option.placeholder {
-            color: #9ca3af;
-        }
-
-        .error-message {
-            color: #ef4444;
-            font-size: 0.875rem;
-            margin-top: 0.25rem;
-            display: none;
-        }
-
-        .error-message.show {
-            display: block;
-        }
-
-        .privacy-box {
-            background: #f9fafb;
-            padding: 1rem;
-            border-radius: 0.5rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .checkbox-group {
-            display: flex;
-            align-items: start;
-            cursor: pointer;
-        }
-
-        input[type="checkbox"] {
-            width: 1.25rem;
-            height: 1.25rem;
-            margin-top: 0.25rem;
-            margin-right: 0.75rem;
-            cursor: pointer;
-        }
-
-        .checkbox-label {
-            font-size: 0.875rem;
-            color: #374151;
-            line-height: 1.5;
-        }
-
-        .checkbox-label strong {
-            font-weight: 600;
-        }
-
-        .checkbox-label .sub-text {
-            color: #6b7280;
-            display: block;
-            margin-top: 0.25rem;
-        }
-
-        .submit-btn {
-            width: 100%;
-            padding: 1rem;
-            background: linear-gradient(135deg, #2563eb 0%, #4f46e5 100%);
-            color: white;
-            border: none;
-            border-radius: 0.5rem;
-            font-size: 1rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.2s;
-            box-shadow: 0 4px 6px rgba(37, 99, 235, 0.3);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 0.5rem;
-        }
-
-        .submit-btn:hover {
-            background: linear-gradient(135deg, #1d4ed8 0%, #4338ca 100%);
-            box-shadow: 0 6px 12px rgba(37, 99, 235, 0.4);
-            transform: translateY(-1px);
-        }
-
-        .footer-note {
-            text-align: center;
-            color: #6b7280;
-            font-size: 0.875rem;
-            margin-top: 1.5rem;
-        }
-
-        .success-modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.5);
-            justify-content: center;
-            align-items: center;
-            z-index: 1000;
-        }
-
-        .success-modal.show {
-            display: flex;
-        }
-
-        .success-content {
-            background: white;
-            padding: 2rem;
-            border-radius: 1rem;
-            text-align: center;
-            max-width: 400px;
-            margin: 1rem;
-        }
-
-        .success-icon {
-            width: 4rem;
-            height: 4rem;
-            background: #dcfce7;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 1rem;
-        }
-
-        .success-icon svg {
-            width: 2rem;
-            height: 2rem;
-            color: #16a34a;
-        }
-
-        .success-content h2 {
-            color: #1f2937;
-            margin-bottom: 0.5rem;
-        }
-
-        .success-content p {
-            color: #6b7280;
-            line-height: 1.6;
-        }
-
-        .privacy-popup {
-            display: none;
-            position: fixed;
-            opacity: 0;
-            pointer-events: none;
-            /* 클릭 불가 */
-            transition: opacity 0.3s ease;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.85);
-            justify-content: center;
-            align-items: center;
-            z-index: 1000;
-            display: flex;
-        }
-
-
-        .privacy-popup-content {
-            background: white;
-            padding: 2rem;
-            border-radius: 1rem;
-            max-width: 600px;
-            max-height: 80vh;
-            margin: 1rem;
-            overflow-y: auto;
-            position: relative;
-        }
-
-        .privacy-popup.show {
-            opacity: 1;
-            pointer-events: auto;
-        }
-
-        .privacy-popup-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 1.5rem;
-            padding-bottom: 1rem;
-            border-bottom: 2px solid #e5e7eb;
-        }
-
-        .privacy-popup-header h2 {
-            color: #1f2937;
-            font-size: 1.5rem;
-        }
-
-        .close-btn {
-            background: none;
-            border: none;
-            font-size: 1.5rem;
-            cursor: pointer;
-            color: #6b7280;
-            padding: 0;
-            width: 2rem;
-            height: 2rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .close-btn:hover {
-            color: #1f2937;
-        }
-
-        .privacy-popup-body {
-            color: #374151;
-            line-height: 1.8;
-        }
-
-        .privacy-popup-body h3 {
-            margin-top: 1.5rem;
-            margin-bottom: 0.5rem;
-            color: #1f2937;
-        }
-
-        .privacy-popup-body p {
-            margin-bottom: 1rem;
-        }
-
-        .privacy-popup-body ul {
-            margin-left: 1.5rem;
-            margin-bottom: 1rem;
-        }
-
-        .privacy-popup-body li {
-            margin-bottom: 0.5rem;
-        }
-
-        .privacy-link {
-            color: #2563eb;
-            text-decoration: underline;
-            cursor: pointer;
-            margin-left: 0.5rem;
-        }
-
-        .privacy-link:hover {
-            color: #1d4ed8;
-        }
-
         @media (max-width: 768px) {
             .form-group {
                 flex-direction: column;
@@ -569,13 +124,6 @@
         }
 
         @media (max-width: 640px) {
-            body {
-                padding: 1rem;
-            }
-
-            .form-header h1 {
-                font-size: 1.5rem;
-            }
 
             .form-body {
                 padding: 1.5rem;
@@ -803,12 +351,8 @@
                     </div>
                 </section>
 
-                <section class="container">
+                <section class="qna-wrap">
                     <div class="form-wrapper">
-                        <div class="form-header">
-                            <h1>1:1 문의</h1>
-                            <p>필수 입력 정보는 빠짐없이 입력해 주세요.<br>기재해주신 메일로 답변 드리겠습니다.</p>
-                        </div>
 
                         <div class="form-body">
                             <form id="inquiryForm">
@@ -921,27 +465,34 @@
                                     </div>
                                 </div>
 
-                                <div class="privacy-box">
-                                    <label class="checkbox-group">
-                                        <input type="checkbox" id="agreePrivacy" name="agreePrivacy">
-                                        <span class="checkbox-label">
-                                            <strong>개인정보수집 동의(필수)</strong> <span class="required">*</span>
-                                            <span class="sub-text">개인정보처리방침 동의(필수)
-                                                <span class="privacy-link" id="privacyLink">내용보기</span>
-                                            </span>
-                                        </span>
-                                    </label>
-                                    <div class="error-message" id="privacyError">개인정보 수집 및 이용에 동의해주세요.</div>
-                                </div>
 
-                                <button type="submit" class="submit-btn">
+
+                                <div class="form_btn">
+
+                                    <div class="privacy-box">
+                                        <label class="checkbox-group">
+                                            <input type="checkbox" id="agreePrivacy" name="agreePrivacy">
+                                            <span class="sub-text">개인정보처리방침 동의(필수)
+                                                <span class="privacy-link" id="privacyLink">자세히보기</span>
+                                            </span>
+                                        </label>
+                                        <div class="error-message" id="privacyError">개인정보 수집 및 이용에 동의해주세요.</div>
+                                    </div>
+
+                                    <button type="submit" class="form-button">등록</button>
+
+                                    <!-- <button type="submit" class="submit-btn">
                                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                                         stroke-width="2">
                                         <line x1="22" y1="2" x2="11" y2="13"></line>
                                         <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
                                     </svg>
                                     등록
-                                </button>
+                                </button> -->
+                                </div>
+
+
+
                             </form>
                         </div>
                     </div>
