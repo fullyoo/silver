@@ -2508,6 +2508,18 @@ input[type="checkbox"] {
     display: flex;
 }
 
+/* 배경 스크롤 막기 위해 body에 클래스 적용 */
+.body-no-scroll {
+    overflow: hidden;
+}
+
+/* 팝업 내용 스크롤 가능 */
+.privacy-popup-content {
+    max-height: 80vh;
+    /* 필요에 따라 조정 */
+    overflow-y: auto;
+}
+
 
 .privacy-popup-content {
     background: white;

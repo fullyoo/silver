@@ -686,242 +686,220 @@
     <script src="./assets/js/script.js"></script>
 
     <script>
-        $(function () {
+        const form = document.getElementById('inquiryForm');
+        const successModal = document.getElementById('successModal');
+        const privacyPopup = document.getElementById('privacyPopup');
+        const privacyLink = document.getElementById('privacyLink');
 
-            const selectData = {
-                category: '',
-                phone: '010',
-                email: ''
-            };
+        // 커스텀 셀렉트 박스 데이터 저장
+        const selectData = {
+            category: '',
+            phone: '010',
+            email: ''
+        };
 
-            /* ==========================
-                커스텀 셀렉트 초기화 함수
-            ========================== */
-            function initCustomSelect(selectId, dataKey) {
-                const $wrapper = $("#" + selectId);
-                const $input = $wrapper.find(".custom-select-input");
-                const $dropdown = $wrapper.find(".custom-select-dropdown");
-                const $options = $wrapper.find(".custom-select-option");
+        // 커스텀 셀렉트 박스 초기화 함수
+        function initCustomSelect(selectId, dataKey) {
+            const wrapper = document.getElementById(selectId);
+            const input = wrapper.querySelector('.custom-select-input');
+            const dropdown = wrapper.querySelector('.custom-select-dropdown');
+            const options = wrapper.querySelectorAll('.custom-select-option');
 
-                // 셀렉트 열기 / 닫기
-                $input.on("click", function (e) {
-                    e.stopPropagation();
-
-                    $(".custom-select-wrapper").not($wrapper).removeClass("active");
-                    $wrapper.toggleClass("active");
+            input.addEventListener('click', function (e) {
+                e.stopPropagation();
+                document.querySelectorAll('.custom-select-wrapper').forEach(w => {
+                    if (w !== wrapper) w.classList.remove('active');
                 });
+                wrapper.classList.toggle('active');
+            });
 
-                // 옵션 선택
-                $options.on("click", function (e) {
+            options.forEach(option => {
+                option.addEventListener('click', function (e) {
                     e.stopPropagation();
 
-                    $options.removeClass("selected");
-                    $(this).addClass("selected");
+                    options.forEach(opt => opt.classList.remove('selected'));
+                    this.classList.add('selected');
 
-                    selectData[dataKey] = $(this).data("value");
-                    $input.text($(this).text());
+                    selectData[dataKey] = this.getAttribute('data-value');
+                    input.textContent = this.textContent;
 
-                    if (!selectData[dataKey]) $input.addClass("placeholder");
-                    else $input.removeClass("placeholder");
+                    if (selectData[dataKey] === '') input.classList.add('placeholder');
+                    else input.classList.remove('placeholder');
 
-                    $wrapper.removeClass("active");
+                    wrapper.classList.remove('active');
 
-                    // 카테고리 오류 숨김
                     if (dataKey === 'category') hideError('category');
 
-                    // 이메일 선택 시 도메인 설정
                     if (dataKey === 'email') {
-                        const domain = $("#emailDomain");
+                        const emailDomain = document.getElementById('emailDomain');
                         if (selectData.email) {
-                            domain.val(selectData.email).prop("readonly", true);
+                            emailDomain.value = selectData.email;
+                            emailDomain.readOnly = true;
                         } else {
-                            domain.val("").prop("readonly", false);
+                            emailDomain.value = '';
+                            emailDomain.readOnly = false;
                         }
                     }
                 });
-            }
-
-            initCustomSelect("categorySelect", "category");
-            initCustomSelect("phoneSelect", "phone");
-            initCustomSelect("emailSelect", "email");
-
-            // 클릭 시 셀렉트 닫기
-            $(document).on("click", function () {
-                $(".custom-select-wrapper").removeClass("active");
             });
+        }
 
+        initCustomSelect('categorySelect', 'category');
+        initCustomSelect('phoneSelect', 'phone');
+        initCustomSelect('emailSelect', 'email');
 
-            /* =======================
-                개인정보 처리방침 팝업
-            ======================= */
-            $("#privacyLink").on("click", function (e) {
-                e.preventDefault();
-                e.stopPropagation();
-                $("#privacyPopup").addClass("show");
-                $("body").addClass("body-no-scroll");  // ⭐ 배경 스크롤 금지
-            });
-
-            // 닫기 버튼
-            $("#privacyPopup .popup-close").on("click", function () {
-                $("#privacyPopup").removeClass("show");
-                $("body").removeClass("body-no-scroll");
-            });
-
-            // 딤 클릭 시 닫기
-            $("#privacyPopup").on("click", function (e) {
-                if (e.target === this) {
-                    $("#privacyPopup").removeClass("show");
-                    $("body").removeClass("body-no-scroll");
-                }
-            });
-
-
-            /* ======================
-                에러 메시지 제어 함수
-            ====================== */
-            function hideError(fieldId) {
-                $("#" + fieldId + "Error").removeClass("show");
-                if (fieldId === "category") $("#categorySelect").removeClass("error");
-            }
-
-            function showError(fieldId, message) {
-                const $error = $("#" + fieldId + "Error");
-
-                if (message) $error.text(message);
-                $error.addClass("show");
-
-                if (fieldId === "category") $("#categorySelect").addClass("error");
-            }
-
-            // 입력 중이면 에러 숨김
-            $("#name, #subject, #message, #emailId, #emailDomain, #phone2, #phone3").on("input", function () {
-                const id = this.id;
-
-                if (id === "phone2" || id === "phone3") hideError("phone");
-                else if (id === "emailId" || id === "emailDomain") hideError("email");
-                else hideError(id);
-            });
-
-            $("#agreePrivacy").on("change", () => hideError("privacy"));
-
-
-            /* ======================
-                폼 유효성 검사
-            ====================== */
-            function validateForm() {
-                let isValid = true;
-
-                if (!selectData.category) {
-                    showError("category", "카테고리를 선택해주세요.");
-                    isValid = false;
-                }
-
-                if (!$("#name").val().trim()) {
-                    showError("name", "이름을 입력해주세요.");
-                    isValid = false;
-                }
-
-                const p2 = $("#phone2").val().trim();
-                const p3 = $("#phone3").val().trim();
-
-                if (!p2 || !p3) {
-                    showError("phone", "연락처를 입력해주세요.");
-                    isValid = false;
-                } else if (p2.length < 3 || p3.length < 4) {
-                    showError("phone", "올바른 연락처를 입력해주세요.");
-                    isValid = false;
-                }
-
-                const emailId = $("#emailId").val().trim();
-                const emailDomain = $("#emailDomain").val().trim();
-
-                if (!emailId || !emailDomain) {
-                    showError("email", "이메일을 입력해주세요.");
-                    isValid = false;
-                }
-
-                if (!$("#subject").val().trim()) {
-                    showError("subject", "제목을 입력해주세요.");
-                    isValid = false;
-                }
-
-                if (!$("#message").val().trim()) {
-                    showError("message", "내용을 입력해주세요.");
-                    isValid = false;
-                }
-
-                if (!$("#agreePrivacy").is(":checked")) {
-                    showError("privacy", "필수 항목입니다.");
-                    isValid = false;
-                }
-
-                return isValid;
-            }
-
-
-            /* ================
-                폼 초기화
-            ================ */
-            function resetForm() {
-                $("#inquiryForm")[0].reset();
-
-                $("#emailDomain").prop("readonly", false);
-
-                selectData.category = "";
-                selectData.phone = "010";
-                selectData.email = "";
-
-                // 카테고리 초기화
-                $("#categorySelect .custom-select-input").text("선택").addClass("placeholder");
-                $("#categorySelect .custom-select-option").removeClass("selected").eq(0).addClass("selected");
-
-                // 연락처 앞자리 초기화
-                $("#phoneSelect .custom-select-input").text("010");
-                $("#phoneSelect .custom-select-option").removeClass("selected").eq(0).addClass("selected");
-
-                // 이메일 초기화
-                $("#emailSelect .custom-select-input").text("직접 입력").addClass("placeholder");
-                $("#emailSelect .custom-select-option").removeClass("selected").eq(0).addClass("selected");
-            }
-
-
-            /* ======================
-                폼 제출 이벤트
-            ====================== */
-            $("#inquiryForm").on("submit", function (e) {
-                e.preventDefault();
-
-                if (validateForm()) {
-                    const formData = {
-                        category: selectData.category,
-                        name: $("#name").val(),
-                        phone: selectData.phone + "-" + $("#phone2").val() + "-" + $("#phone3").val(),
-                        email: $("#emailId").val() + "@" + $("#emailDomain").val(),
-                        subject: $("#subject").val(),
-                        message: $("#message").val()
-                    };
-
-                    console.log("제출된 데이터:", formData);
-
-                    $("#successModal").addClass("show");
-
-                    setTimeout(() => {
-                        $("#successModal").removeClass("show");
-                        resetForm();
-                    }, 3000);
-                }
-            });
-
-            // 배경 클릭 시 성공팝업 닫기
-            $("#successModal").on("click", function (e) {
-                if (e.target === this) {
-                    $(this).removeClass("show");
-                    resetForm();
-                }
+        document.addEventListener('click', function () {
+            document.querySelectorAll('.custom-select-wrapper').forEach(wrapper => {
+                wrapper.classList.remove('active');
             });
         });
-    </script>
 
+        /* =======================
+           개인정보 처리방침 팝업
+           ======================= */
+        privacyLink.addEventListener('click', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+            privacyPopup.classList.add('show');
+            document.body.classList.add('body-no-scroll'); // 딤화면 스크롤 금지
+        });
+
+        privacyPopup.querySelectorAll('.popup-close').forEach(btn => {
+            btn.addEventListener('click', function () {
+                privacyPopup.classList.remove('show');
+                document.body.classList.remove('body-no-scroll');
+            });
+        });
+
+        privacyPopup.addEventListener('click', function (e) {
+            if (e.target === privacyPopup) {
+                privacyPopup.classList.remove('show');
+                document.body.classList.remove('body-no-scroll');
+            }
+        });
+
+        /* =======================
+           에러 메시지 처리
+           ======================= */
+        function hideError(fieldId) {
+            const errorElement = document.getElementById(fieldId + 'Error');
+            if (errorElement) errorElement.classList.remove('show');
+            if (fieldId === 'category') document.getElementById('categorySelect').classList.remove('error');
+        }
+
+        function showError(fieldId, message) {
+            const errorElement = document.getElementById(fieldId + 'Error');
+            if (errorElement) {
+                if (message) errorElement.textContent = message;
+                errorElement.classList.add('show');
+            }
+            if (fieldId === 'category') document.getElementById('categorySelect').classList.add('error');
+        }
+
+        ['name', 'subject', 'message', 'emailId', 'emailDomain', 'phone2', 'phone3'].forEach(field => {
+            const element = document.getElementById(field);
+            if (element) {
+                element.addEventListener('input', () => {
+                    hideError(field === 'phone2' || field === 'phone3' ? 'phone' :
+                        field === 'emailId' || field === 'emailDomain' ? 'email' : field);
+                });
+            }
+        });
+
+        document.getElementById('agreePrivacy').addEventListener('change', () => hideError('privacy'));
+
+        function validateForm() {
+            let isValid = true;
+
+            if (!selectData.category) { showError('category'); isValid = false; }
+
+            const name = document.getElementById('name').value.trim();
+            if (!name) { showError('name'); isValid = false; }
+
+            const phone2 = document.getElementById('phone2').value.trim();
+            const phone3 = document.getElementById('phone3').value.trim();
+            if (!phone2 || !phone3) { showError('phone', '연락처를 입력해주세요.'); isValid = false; }
+            else if (phone2.length < 3 || phone3.length < 4) { showError('phone', '올바른 연락처를 입력해주세요.'); isValid = false; }
+
+            const emailId = document.getElementById('emailId').value.trim();
+            const emailDomain = document.getElementById('emailDomain').value.trim();
+            if (!emailId || !emailDomain) { showError('email', '이메일을 입력해주세요.'); isValid = false; }
+
+            const subject = document.getElementById('subject').value.trim();
+            if (!subject) { showError('subject'); isValid = false; }
+
+            const message = document.getElementById('message').value.trim();
+            if (!message) { showError('message'); isValid = false; }
+
+            const agreePrivacy = document.getElementById('agreePrivacy').checked;
+            if (!agreePrivacy) { showError('privacy'); isValid = false; }
+
+            return isValid;
+        }
+
+        function resetForm() {
+            form.reset();
+            document.getElementById('emailDomain').readOnly = false;
+
+            selectData.category = '';
+            selectData.phone = '010';
+            selectData.email = '';
+
+            const categorySelect = document.getElementById('categorySelect');
+            const categoryInput = categorySelect.querySelector('.custom-select-input');
+            const categoryOptions = categorySelect.querySelectorAll('.custom-select-option');
+            categoryInput.textContent = '선택';
+            categoryInput.classList.add('placeholder');
+            categoryOptions.forEach(opt => opt.classList.remove('selected'));
+            categoryOptions[0].classList.add('selected');
+
+            const phoneSelect = document.getElementById('phoneSelect');
+            const phoneInput = phoneSelect.querySelector('.custom-select-input');
+            const phoneOptions = phoneSelect.querySelectorAll('.custom-select-option');
+            phoneInput.textContent = '010';
+            phoneInput.classList.remove('placeholder');
+            phoneOptions.forEach(opt => opt.classList.remove('selected'));
+            phoneOptions[0].classList.add('selected');
+
+            const emailSelect = document.getElementById('emailSelect');
+            const emailInput = emailSelect.querySelector('.custom-select-input');
+            const emailOptions = emailSelect.querySelectorAll('.custom-select-option');
+            emailInput.textContent = '직접 입력';
+            emailInput.classList.add('placeholder');
+            emailOptions.forEach(opt => opt.classList.remove('selected'));
+            emailOptions[0].classList.add('selected');
+        }
+
+        form.addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            if (validateForm()) {
+                const formData = {
+                    category: selectData.category,
+                    name: document.getElementById('name').value,
+                    phone: selectData.phone + '-' + document.getElementById('phone2').value + '-' + document.getElementById('phone3').value,
+                    email: document.getElementById('emailId').value + '@' + document.getElementById('emailDomain').value,
+                    subject: document.getElementById('subject').value,
+                    message: document.getElementById('message').value
+                };
+
+                console.log('제출된 데이터:', formData);
+                successModal.classList.add('show');
+
+                setTimeout(() => {
+                    successModal.classList.remove('show');
+                    resetForm();
+                }, 3000);
+            }
+        });
+
+        successModal.addEventListener('click', function (e) {
+            if (e.target === successModal) {
+                successModal.classList.remove('show');
+                resetForm();
+            }
+        });
+    </script>
 
 
 </body>
