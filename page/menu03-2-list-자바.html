@@ -617,206 +617,251 @@
     <script src="./assets/js/feather.min.js"></script>
     <script src="./assets/js/script.js"></script>
 
-    <!-- <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> -->
     <script>
-        $(function () {
-            let currentPage = 1;
-            let allItems = [];
-            let filteredItems = [];
-            let currentSearchType = 'all';
+        let currentPage = 1;
+        let allItems = [];
+        let filteredItems = [];
+        let currentSearchType = 'all';
 
-            // 화면 크기에 따라 페이지당 아이템 개수 반환
-            function getItemsPerPage() {
-                const width = $(window).width();
-                if (width <= 640) return 6; // 모바일
-                if (width <= 1024) return 8; // 태블릿
-                return 9; // 데스크톱
-            }
+        // 화면 크기에 따라 페이지당 아이템 개수 반환
+        function getItemsPerPage() {
+            const width = window.innerWidth;
+            if (width <= 640) return 6; // 모바일: 1열 x 6개
+            if (width <= 1024) return 8; // 태블릿: 2열 x 4개
+            return 9; // 데스크톱: 3열 x 3개
+        }
 
-            function initializeGallery() {
-                allItems = $('.gallery-item').toArray();
+        function initializeGallery() {
+            allItems = Array.from(document.querySelectorAll('.gallery-item'));
+            filteredItems = [...allItems];
+            updatePagination();
+            showPage(1, false);
+
+            // 화면 크기 변경 시 페이징 업데이트
+            window.addEventListener('resize', function () {
+                updatePagination();
+                showPage(currentPage, false);
+            });
+
+            // 외부 클릭 시 셀렉트 박스 닫기
+            document.addEventListener('click', function (event) {
+                const selectWrapper = document.querySelector('.search-select-wrapper');
+                const searchOptions = document.getElementById('searchOptions');
+                const selectButton = document.querySelector('.search-select-button');
+
+                if (selectWrapper && !selectWrapper.contains(event.target)) {
+                    searchOptions.classList.remove('active');
+                    selectButton.classList.remove('active');
+                }
+            });
+        }
+
+        function toggleSearchOptions() {
+            event.stopPropagation();
+            const searchOptions = document.getElementById('searchOptions');
+            const button = document.querySelector('.search-select-button');
+            searchOptions.classList.toggle('active');
+            button.classList.toggle('active');
+        }
+
+        function selectSearchType(type, text) {
+            event.stopPropagation();
+            currentSearchType = type;
+            document.getElementById('selectedSearchType').textContent = text;
+
+            // 모든 옵션의 selected 클래스 제거
+            document.querySelectorAll('.search-option').forEach(option => {
+                option.classList.remove('selected');
+            });
+
+            // 클릭한 옵션에 selected 클래스 추가
+            event.target.classList.add('selected');
+
+            // 셀렉트 박스 닫기
+            document.getElementById('searchOptions').classList.remove('active');
+            document.querySelector('.search-select-button').classList.remove('active');
+        }
+
+        function performSearch() {
+            const searchInput = document.getElementById('searchInput');
+            const searchTerm = searchInput.value.toLowerCase().trim();
+            const galleryGrid = document.getElementById('galleryGrid');
+
+            if (searchTerm === '') {
                 filteredItems = [...allItems];
-                updatePagination();
-                showPage(1, false);
-
-                // 화면 크기 변경 시 페이징 업데이트
-                $(window).on('resize', function () {
-                    updatePagination();
-                    showPage(currentPage, false);
+                document.getElementById('resultInfo').textContent = '';
+                galleryGrid.style.display = 'grid';
+                // 하이라이트 제거
+                allItems.forEach(item => {
+                    const titleElement = item.querySelector('.gallery-title');
+                    titleElement.innerHTML = titleElement.textContent;
                 });
+            } else {
+                filteredItems = allItems.filter(item => {
+                    const title = item.querySelector('.gallery-title').textContent.toLowerCase();
+                    const date = item.querySelector('.gallery-date').textContent.toLowerCase();
 
-                // 외부 클릭 시 셀렉트 박스 닫기
-                $(document).on('click', function (event) {
-                    const $selectWrapper = $('.search-select-wrapper');
-                    const $searchOptions = $('#searchOptions');
-                    const $button = $('.search-select-button');
-
-                    if (!$selectWrapper.is(event.target) && $selectWrapper.has(event.target).length === 0) {
-                        $searchOptions.removeClass('active');
-                        $button.removeClass('active');
+                    switch (currentSearchType) {
+                        case 'title':
+                            return title.includes(searchTerm);
+                        case 'all':
+                        default:
+                            return title.includes(searchTerm) || date.includes(searchTerm);
                     }
                 });
-            }
 
-            window.toggleSearchOptions = function (e) {
-                e.stopPropagation();
-                $('#searchOptions').toggleClass('active');
-                $('.search-select-button').toggleClass('active');
-            }
+                highlightSearchTerm(searchTerm);
 
-            window.selectSearchType = function (type, text, e) {
-                e.stopPropagation();
-                currentSearchType = type;
-                $('#selectedSearchType').text(text);
-
-                $('.search-option').removeClass('selected');
-                $(e.target).addClass('selected');
-
-                $('#searchOptions').removeClass('active');
-                $('.search-select-button').removeClass('active');
-            }
-
-            window.performSearch = function () {
-                const searchTerm = $('#searchInput').val().toLowerCase().trim();
-                const $galleryGrid = $('#galleryGrid');
-
-                if (searchTerm === '') {
-                    filteredItems = [...allItems];
-                    $('#resultInfo').text('');
-                    $galleryGrid.show();
-
-                    // 하이라이트 제거
-                    allItems.forEach(item => {
-                        const $title = $(item).find('.gallery-title');
-                        $title.html($title.text());
-                    });
-                } else {
-                    filteredItems = allItems.filter(item => {
-                        const title = $(item).find('.gallery-title').text().toLowerCase();
-                        const date = $(item).find('.gallery-date').text().toLowerCase();
-
-                        if (currentSearchType === 'title') return title.includes(searchTerm);
-                        return title.includes(searchTerm) || date.includes(searchTerm);
-                    });
-
-                    highlightSearchTerm(searchTerm);
-
-                    const searchTypeText = $('#selectedSearchType').text();
-                    if (filteredItems.length === 0) {
-                        $galleryGrid.hide();
-                        $('#resultInfo').html(`
-                    <div class="no-results">
-                        <h3>검색 결과가 없습니다</h3>
-                        <p>${searchTypeText}에서 "${$('#searchInput').val()}"에 대한 검색 결과가 없습니다.</p>
-                    </div>
-                `);
-                    } else {
-                        $galleryGrid.show();
-                        $('#resultInfo').text(`${searchTypeText}에서 "${$('#searchInput').val()}" 검색 결과: ${filteredItems.length}개`);
-                    }
-                }
-
-                currentPage = 1;
-                updatePagination();
-                showPage(1, false);
-            }
-
-            function highlightSearchTerm(term) {
-                if (!term) return;
-
-                filteredItems.forEach(item => {
-                    const $title = $(item).find('.gallery-title');
-                    const originalText = $title.text();
-                    const regex = new RegExp(`(${term})`, 'gi');
-                    $title.html(originalText.replace(regex, '<span class="highlight">$1</span>'));
-                });
-            }
-
-            window.handleSearch = function (event) {
-                if (event.key === 'Enter') performSearch();
-            }
-
-            function showPage(page, shouldScroll = true) {
-                currentPage = page;
-
-                $(allItems).hide();
-
-                const itemsPerPage = getItemsPerPage();
-                const start = (page - 1) * itemsPerPage;
-                const end = start + itemsPerPage;
-                const itemsToShow = filteredItems.slice(start, end);
-
-                $(itemsToShow).each(function (index, item) {
-                    $(item).css('display', 'flex').css('animation', `fadeIn 0.3s ease ${index * 0.05}s both`);
-                });
-
-                if (shouldScroll) $('html, body').animate({ scrollTop: 0 }, 300);
-
-                updatePagination();
-            }
-
-            function updatePagination() {
-                const itemsPerPage = getItemsPerPage();
-                const totalPages = Math.ceil(filteredItems.length / itemsPerPage);
-                const $paginationButtons = $('#pagination');
-                const $pageInfo = $('#pageInfo');
-
-                $paginationButtons.empty();
-                $pageInfo.text('');
-
+                const searchTypeText = document.getElementById('selectedSearchType').textContent;
                 if (filteredItems.length === 0) {
-                    $('.pagination').hide();
-                    return;
+                    galleryGrid.style.display = 'none';
+                    document.getElementById('resultInfo').innerHTML = `
+                        <div class="no-results">
+                            <h3>검색 결과가 없습니다</h3>
+                            <p>${searchTypeText}에서 "${searchInput.value}"에 대한 검색 결과가 없습니다.</p>
+                        </div>`;
                 } else {
-                    $('.pagination').show();
+                    galleryGrid.style.display = 'grid';
+                    document.getElementById('resultInfo').textContent =
+                        `${searchTypeText}에서 "${searchInput.value}" 검색 결과: ${filteredItems.length}개`;
                 }
-
-                // 이전 버튼
-                const $prevBtn = $('<button>이전</button>').prop('disabled', currentPage === 1).on('click', function () {
-                    if (currentPage > 1) showPage(currentPage - 1, true);
-                });
-                $paginationButtons.append($prevBtn);
-
-                // 페이지 번호
-                const startPage = Math.max(1, currentPage - 2);
-                const endPage = Math.min(totalPages, startPage + 4);
-
-                if (startPage > 1) {
-                    const $firstBtn = $('<button>1</button>').on('click', () => showPage(1, true));
-                    $paginationButtons.append($firstBtn);
-                    if (startPage > 2) $paginationButtons.append('<span class="page-dots">...</span>');
-                }
-
-                for (let i = startPage; i <= endPage; i++) {
-                    const $pageBtn = $('<button></button>').text(i).on('click', () => showPage(i, true));
-                    if (i === currentPage) $pageBtn.addClass('active');
-                    $paginationButtons.append($pageBtn);
-                }
-
-                if (endPage < totalPages) {
-                    if (endPage < totalPages - 1) $paginationButtons.append('<span class="page-dots">...</span>');
-                    const $lastBtn = $('<button></button>').text(totalPages).on('click', () => showPage(totalPages, true));
-                    $paginationButtons.append($lastBtn);
-                }
-
-                // 다음 버튼
-                const $nextBtn = $('<button>다음</button>').prop('disabled', currentPage === totalPages).on('click', function () {
-                    if (currentPage < totalPages) showPage(currentPage + 1, true);
-                });
-                $paginationButtons.append($nextBtn);
-
-                $pageInfo.text(`페이지 ${currentPage} / ${totalPages}`);
             }
 
-            // 초기화
-            initializeGallery();
-        });
+            currentPage = 1;
+            updatePagination();
+            showPage(1, false);
+        }
+
+        function highlightSearchTerm(term) {
+            if (!term) return;
+
+            filteredItems.forEach(item => {
+                const titleElement = item.querySelector('.gallery-title');
+                const originalText = titleElement.textContent;
+                const regex = new RegExp(`(${term})`, 'gi');
+                titleElement.innerHTML = originalText.replace(regex, '<span class="highlight">$1</span>');
+            });
+        }
+
+        function handleSearch(event) {
+            if (event.key === 'Enter') {
+                performSearch();
+            }
+        }
+
+        function showPage(page, shouldScroll = true) {
+            currentPage = page;
+
+            // 모든 아이템 숨기기
+            allItems.forEach(item => {
+                item.style.display = 'none';
+            });
+
+            const itemsPerPage = getItemsPerPage();
+            const start = (page - 1) * itemsPerPage;
+            const end = start + itemsPerPage;
+            const itemsToShow = filteredItems.slice(start, end);
+
+            // 선택된 아이템만 표시
+            itemsToShow.forEach((item, index) => {
+                item.style.display = 'flex';
+                item.style.animation = `fadeIn 0.3s ease ${index * 0.05}s both`;
+            });
+
+            if (shouldScroll) {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+
+            updatePagination();
+        }
+
+        function updatePagination() {
+            const itemsPerPage = getItemsPerPage();
+            const totalPages = Math.ceil(filteredItems.length / itemsPerPage);
+            const paginationButtons = document.getElementById('pagination');
+            const pageInfo = document.getElementById('pageInfo');
+
+            paginationButtons.innerHTML = '';
+            pageInfo.textContent = '';
+
+            // 검색 결과가 없으면 페이징 숨김(추가됨)
+            if (filteredItems.length === 0) {
+                document.querySelector('.pagination').style.display = 'none';
+                return;
+            } else {
+                document.querySelector('.pagination').style.display = 'flex';
+            }
+
+            // 이전 버튼
+            const prevBtn = document.createElement('button');
+            prevBtn.textContent = '이전';
+            prevBtn.disabled = currentPage === 1;
+            prevBtn.onclick = () => {
+                if (currentPage > 1) {
+                    showPage(currentPage - 1, true);
+                }
+            };
+            paginationButtons.appendChild(prevBtn);
+
+            // 페이지 번호 버튼
+            const startPage = Math.max(1, currentPage - 2);
+            const endPage = Math.min(totalPages, startPage + 4);
+
+            if (startPage > 1) {
+                const firstBtn = document.createElement('button');
+                firstBtn.textContent = '1';
+                firstBtn.onclick = () => showPage(1, true);
+                paginationButtons.appendChild(firstBtn);
+
+                if (startPage > 2) {
+                    const dots = document.createElement('span');
+                    dots.textContent = '...';
+                    dots.className = 'page-dots';
+                    paginationButtons.appendChild(dots);
+                }
+            }
+
+            for (let i = startPage; i <= endPage; i++) {
+                const pageBtn = document.createElement('button');
+                pageBtn.textContent = i;
+                if (i === currentPage) pageBtn.classList.add('active');
+                pageBtn.onclick = () => showPage(i, true);
+                paginationButtons.appendChild(pageBtn);
+            }
+
+            if (endPage < totalPages) {
+                if (endPage < totalPages - 1) {
+                    const dots = document.createElement('span');
+                    dots.textContent = '...';
+                    dots.className = 'page-dots';
+                    paginationButtons.appendChild(dots);
+                }
+
+                const lastBtn = document.createElement('button');
+                lastBtn.textContent = totalPages;
+                lastBtn.onclick = () => showPage(totalPages, true);
+                paginationButtons.appendChild(lastBtn);
+            }
+
+            // 다음 버튼
+            const nextBtn = document.createElement('button');
+            nextBtn.textContent = '다음';
+            nextBtn.disabled = currentPage === totalPages;
+            nextBtn.onclick = () => {
+                if (currentPage < totalPages) {
+                    showPage(currentPage + 1, true);
+                }
+            };
+            paginationButtons.appendChild(nextBtn);
+
+            // 페이지 정보 표시
+            pageInfo.textContent = `페이지 ${currentPage} / ${totalPages}`;
+        }
+
+        // 페이지 로드 시 초기화
+        window.onload = initializeGallery;
+
     </script>
-
-
-
-
-
 
 
     <!-- //하단 공통 END-->

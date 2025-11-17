@@ -1965,6 +1965,13 @@
 
 .faq-item.hidden {
     display: none;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.faq-item.show {
+    display: block;
+    opacity: 1;
 }
 
 .faq-question {
