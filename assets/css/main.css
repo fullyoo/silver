@@ -436,7 +436,7 @@
     position: relative;
     /* width: 88%; */
     height: 5px;
-    background-color: var(--lightGray-color);
+    background-color: var(--lightgray-color);
     border-radius: 100px;
     overflow: hidden;
 }
@@ -977,7 +977,7 @@
 .form-list input[type="submit"],
 .form-list button[type="submit"] {
     padding: 15px 20px;
-    border: 2px solid var(--lightGray-color);
+    border: 2px solid var(--lightgray-color);
     border-radius: 10px;
     font-size: 18px;
     font-family: 'pretendard', sans-serif;
@@ -1140,58 +1140,13 @@
     margin: 20px 0;
 }
 
-.close-btn {
-    float: right;
-    padding: 5px;
-}
-
-.popup-close {
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    width: 30px;
-    height: 30px;
-    cursor: pointer;
-    transition: transform 0.3s;
-}
-
-.popup-close:hover {
-    transform: rotate(90deg);
-}
-
-.popup-close::before,
-.popup-close::after {
-    content: '';
-    position: absolute;
-    width: 100%;
-    height: 2px;
-    background-color: var(--body-color);
-    top: 50%;
-    left: 0;
-    border-radius: 2px;
-    transition: background-color 0.3s;
-}
-
-.popup-close::before {
-    transform: translateY(-50%) rotate(45deg);
-}
-
-.popup-close::after {
-    transform: translateY(-50%) rotate(-45deg);
-}
-
-.popup-close:hover::before,
-.popup-close:hover::after {
-    background-color: var(--primary-color);
-}
-
 .popup h3 {
     font-size: 28px;
     font-weight: var(--font-700);
     color: var(--text-color);
     margin: 20px 0 30px;
     text-align: center;
-    border-bottom: 2px solid var(--lightGray-color);
+    border-bottom: 2px solid var(--lightgray-color);
     padding-bottom: 20px;
 }
 

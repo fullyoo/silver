@@ -1374,7 +1374,9 @@
     border-top: 1px solid var(--text-color);
 }
 
-.notice-list {}
+.notice-list {
+    background-color: var(--white-color);
+}
 
 .notice-header {
     display: flex;
@@ -1916,6 +1918,7 @@
 #searchInput.active-bgs {
     border-radius: 0 25px 25px 0;
     background: none !important;
+    border: none;
 }
 
 .search-box button {
@@ -2160,12 +2163,31 @@
     margin-bottom: 10px;
 }
 
-
-
-
-
-
 /* 자주묻는 질문 영역 END*/
+
+
+
+/* 문의하기 영역 */
+.qna-wrap {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 40px 20px 0;
+    border-top: 1px solid var(--text-color);
+}
+
+.qna-list {
+    background-color: var(--white-color);
+}
+
+
+
+
+
+
+
+
+/* 문의하기 영역 END*/
+
 
 
 /* 후원안내 영역 */
