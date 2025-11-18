@@ -553,7 +553,6 @@
 
 
                             <div class="form_btn">
-
                                 <div class="privacy-box">
                                     <label class="checkbox-group">
                                         <input type="checkbox" id="agreePrivacy" name="agreePrivacy">
@@ -775,6 +774,8 @@
                 email: ''
             };
 
+            let attachedFiles = []; // 파일 관리용
+
             /* ==========================
                 커스텀 셀렉트 초기화 함수
             ========================== */
@@ -787,7 +788,6 @@
                 // 셀렉트 열기 / 닫기
                 $input.on("click", function (e) {
                     e.stopPropagation();
-
                     $(".custom-select-wrapper").not($wrapper).removeClass("active");
                     $wrapper.toggleClass("active");
                 });
@@ -807,17 +807,12 @@
 
                     $wrapper.removeClass("active");
 
-                    // 카테고리 오류 숨김
                     if (dataKey === 'category') hideError('category');
 
-                    // 이메일 선택 시 도메인 설정
                     if (dataKey === 'email') {
-                        const domain = $("#emailDomain");
-                        if (selectData.email) {
-                            domain.val(selectData.email).prop("readonly", true);
-                        } else {
-                            domain.val("").prop("readonly", false);
-                        }
+                        const $domain = $("#emailDomain");
+                        if (selectData.email) $domain.val(selectData.email).prop("readonly", true);
+                        else $domain.val("").prop("readonly", false);
                     }
                 });
             }
@@ -839,26 +834,24 @@
                 e.preventDefault();
                 e.stopPropagation();
                 $("#privacyPopup").addClass("show");
-                $("body").addClass("body-no-scroll");  // ⭐ 배경 스크롤 금지
+                $("body").addClass("body-no-scroll");  // 배경 스크롤 금지
             });
 
-            // 닫기 버튼
             $("#privacyPopup .popup-close").on("click", function () {
                 $("#privacyPopup").removeClass("show");
                 $("body").removeClass("body-no-scroll");
             });
 
-            // 딤 클릭 시 닫기
             $("#privacyPopup").on("click", function (e) {
                 if (e.target === this) {
-                    $("#privacyPopup").removeClass("show");
+                    $(this).removeClass("show");
                     $("body").removeClass("body-no-scroll");
                 }
             });
 
 
             /* ======================
-                에러 메시지 제어 함수
+                에러 메시지 제어
             ====================== */
             function hideError(fieldId) {
                 $("#" + fieldId + "Error").removeClass("show");
@@ -867,17 +860,13 @@
 
             function showError(fieldId, message) {
                 const $error = $("#" + fieldId + "Error");
-
                 if (message) $error.text(message);
                 $error.addClass("show");
-
                 if (fieldId === "category") $("#categorySelect").addClass("error");
             }
 
-            // 입력 중이면 에러 숨김
             $("#name, #subject, #message, #emailId, #emailDomain, #phone2, #phone3").on("input", function () {
                 const id = this.id;
-
                 if (id === "phone2" || id === "phone3") hideError("phone");
                 else if (id === "emailId" || id === "emailDomain") hideError("email");
                 else hideError(id);
@@ -887,66 +876,98 @@
 
 
             /* ======================
+                파일첨부 처리
+            ====================== */
+            function formatFileSize(bytes) {
+                if (bytes === 0) return '0 Bytes';
+                const k = 1024;
+                const sizes = ['Bytes', 'KB', 'MB'];
+                const i = Math.floor(Math.log(bytes) / Math.log(k));
+                return Math.round(bytes / Math.pow(k, i) * 100) / 100 + ' ' + sizes[i];
+            }
+
+            function renderFileList() {
+                const $fileList = $("#fileList");
+                if (attachedFiles.length === 0) {
+                    $fileList.removeClass('show').empty();
+                    return;
+                }
+
+                $fileList.addClass('show').html(
+                    attachedFiles.map((file, idx) => `
+                <div class="file-item">
+                    <div class="file-item-info">
+                        <span class="file-item-icon">📎</span>
+                        <span class="file-item-name">${file.name}</span>
+                        <span class="file-item-size">(${formatFileSize(file.size)})</span>
+                    </div>
+                    <button type="button" class="file-item-remove" data-index="${idx}">×</button>
+                </div>
+            `).join('')
+                );
+            }
+
+            $("#attachment").on("change", function () {
+                const files = Array.from(this.files);
+                const maxSize = 10 * 1024 * 1024; // 10MB
+                let hasError = false;
+
+                files.forEach(file => {
+                    if (file.size > maxSize) hasError = true;
+                    else attachedFiles.push(file);
+                });
+
+                if (hasError) showError("file", "파일 용량이 초과된 항목이 있습니다.");
+                else hideError("file");
+
+                renderFileList();
+                $(this).val('');
+            });
+
+            $("#fileList").on("click", ".file-item-remove", function () {
+                const idx = $(this).data("index");
+                attachedFiles.splice(idx, 1);
+                renderFileList();
+                hideError("file");
+            });
+
+
+            /* ======================
                 폼 유효성 검사
             ====================== */
             function validateForm() {
                 let isValid = true;
 
-                if (!selectData.category) {
-                    showError("category", "카테고리를 선택해주세요.");
-                    isValid = false;
-                }
-
-                if (!$("#name").val().trim()) {
-                    showError("name", "이름을 입력해주세요.");
-                    isValid = false;
-                }
+                if (!selectData.category) { showError("category", "카테고리를 선택해주세요."); isValid = false; }
+                if (!$("#name").val().trim()) { showError("name", "이름을 입력해주세요."); isValid = false; }
 
                 const p2 = $("#phone2").val().trim();
                 const p3 = $("#phone3").val().trim();
-
-                if (!p2 || !p3) {
-                    showError("phone", "연락처를 입력해주세요.");
-                    isValid = false;
-                } else if (p2.length < 3 || p3.length < 4) {
-                    showError("phone", "올바른 연락처를 입력해주세요.");
-                    isValid = false;
-                }
+                if (!p2 || !p3) { showError("phone", "연락처를 입력해주세요."); isValid = false; }
+                else if (p2.length < 3 || p3.length < 4) { showError("phone", "올바른 연락처를 입력해주세요."); isValid = false; }
 
                 const emailId = $("#emailId").val().trim();
                 const emailDomain = $("#emailDomain").val().trim();
+                if (!emailId || !emailDomain) { showError("email", "이메일을 입력해주세요."); isValid = false; }
 
-                if (!emailId || !emailDomain) {
-                    showError("email", "이메일을 입력해주세요.");
-                    isValid = false;
-                }
+                if (!$("#subject").val().trim()) { showError("subject", "제목을 입력해주세요."); isValid = false; }
+                if (!$("#message").val().trim()) { showError("message", "내용을 입력해주세요."); isValid = false; }
 
-                if (!$("#subject").val().trim()) {
-                    showError("subject", "제목을 입력해주세요.");
-                    isValid = false;
-                }
-
-                if (!$("#message").val().trim()) {
-                    showError("message", "내용을 입력해주세요.");
-                    isValid = false;
-                }
-
-                if (!$("#agreePrivacy").is(":checked")) {
-                    showError("privacy", "필수 항목입니다.");
-                    isValid = false;
-                }
+                if (!$("#agreePrivacy").is(":checked")) { showError("privacy", "필수 항목입니다."); isValid = false; }
 
                 return isValid;
             }
 
 
-            /* ================
+            /* ======================
                 폼 초기화
-            ================ */
+            ====================== */
             function resetForm() {
                 $("#inquiryForm")[0].reset();
-
                 $("#emailDomain").prop("readonly", false);
+
+                attachedFiles = [];
+                renderFileList();
 
                 selectData.category = "";
                 selectData.phone = "010";
@@ -956,7 +977,7 @@
                 $("#categorySelect .custom-select-input").text("선택").addClass("placeholder");
                 $("#categorySelect .custom-select-option").removeClass("selected").eq(0).addClass("selected");
 
-                // 연락처 앞자리 초기화
+                // 연락처 초기화
                 $("#phoneSelect .custom-select-input").text("010");
                 $("#phoneSelect .custom-select-option").removeClass("selected").eq(0).addClass("selected");
 
@@ -979,10 +1000,12 @@
                         phone: selectData.phone + "-" + $("#phone2").val() + "-" + $("#phone3").val(),
                         email: $("#emailId").val() + "@" + $("#emailDomain").val(),
                         subject: $("#subject").val(),
-                        message: $("#message").val()
+                        message: $("#message").val(),
+                        files: attachedFiles.map(f => f.name)
                     };
 
                     console.log("제출된 데이터:", formData);
+                    console.log("첨부 파일:", attachedFiles);
 
                     $("#successModal").addClass("show");
 
@@ -993,7 +1016,7 @@
                 }
             });
 
-            // 배경 클릭 시 성공팝업 닫기
+            // 성공팝업 닫기
             $("#successModal").on("click", function (e) {
                 if (e.target === this) {
                     $(this).removeClass("show");
@@ -1008,9 +1031,9 @@
                 return false;
             });
 
-
         });
     </script>
+
 
 
 

@@ -91,120 +91,6 @@
     <link rel="stylesheet" href="./assets/css/layout.css">
     <link rel="stylesheet" href="./assets/css/main.css">
     <link rel="stylesheet" href="./assets/css/sub.css">
-
-    <style>
-        /* 파일 첨부 스타일 */
-        .file-input {
-            width: 100%;
-            padding: 0.75rem 1rem;
-            border: 2px dashed #d1d5db;
-            border-radius: 0.5rem;
-            font-size: 0.875rem;
-            cursor: pointer;
-            transition: all 0.2s;
-            background-color: #f9fafb;
-        }
-
-        .file-input:hover {
-            border-color: #2563eb;
-            background-color: #eff6ff;
-        }
-
-        .file-input:focus {
-            outline: none;
-            border-color: #2563eb;
-            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
-        }
-
-        .file-input::file-selector-button {
-            padding: 0.5rem 1rem;
-            margin-right: 1rem;
-            background: linear-gradient(135deg, #2563eb 0%, #4f46e5 100%);
-            color: white;
-            border: none;
-            border-radius: 0.375rem;
-            font-size: 0.875rem;
-            font-weight: 500;
-            cursor: pointer;
-            transition: all 0.2s;
-        }
-
-        .file-input::file-selector-button:hover {
-            background: linear-gradient(135deg, #1d4ed8 0%, #4338ca 100%);
-        }
-
-
-        .file-note {
-            margin-top: 0.5rem;
-            font-size: 0.75rem;
-            color: #6b7280;
-        }
-
-        .file-list {
-            margin-top: 0.75rem;
-            display: none;
-        }
-
-        .file-list.show {
-            display: block;
-        }
-
-        .file-item {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 0.5rem 0.75rem;
-            background-color: #f3f4f6;
-            border-radius: 0.375rem;
-            margin-bottom: 0.5rem;
-            font-size: 0.875rem;
-        }
-
-        .file-item-info {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            flex: 1;
-            min-width: 0;
-        }
-
-        .file-item-icon {
-            color: #2563eb;
-            flex-shrink: 0;
-        }
-
-        .file-item-name {
-            color: #374151;
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
-        }
-
-        .file-item-size {
-            color: #6b7280;
-            font-size: 0.75rem;
-            margin-left: 0.5rem;
-            flex-shrink: 0;
-        }
-
-        .file-item-remove {
-            background: none;
-            border: none;
-            color: #ef4444;
-            cursor: pointer;
-            padding: 0.25rem;
-            font-size: 1.25rem;
-            line-height: 1;
-            flex-shrink: 0;
-            transition: color 0.2s;
-        }
-
-        .file-item-remove:hover {
-            color: #dc2626;
-        }
-    </style>
-
-
 </head>
 
 <body>
@@ -541,10 +427,8 @@
                             <div class="form-group">
                                 <label for="attachment">파일 첨부</label>
                                 <div class="input-wrapper">
-                                    <input type="file" id="attachment" name="attachment[]" class="file-input" multiple
-                                        accept="image/*,.pdf,.doc,.docx,.xls,.xlsx,.zip">
+                                    <input type="file" id="attachment" name="attachment[]" class="file-input" multiple>
                                     <div class="file-note">* 첨부파일은 최대 10MB, 여러 개 업로드 가능합니다.</div>
-                                    <div class="file-list" id="fileList"></div>
                                     <div class="error-message" id="fileError">파일 용량을 초과한 항목이 있습니다. (파일당 최대 10MB)</div>
                                 </div>
                             </div>

@@ -1,0 +1,1138 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1:1 문의하기2</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: linear-gradient(135deg, #e0f2fe 0%, #e0e7ff 100%);
+            min-height: 100vh;
+            padding: 3rem 1rem;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .form-wrapper {
+            background: white;
+            border-radius: 1rem;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+
+        .form-header {
+            background: linear-gradient(135deg, #2563eb 0%, #4f46e5 100%);
+            color: white;
+            padding: 2rem;
+        }
+
+        .form-header h1 {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .form-header p {
+            color: #bfdbfe;
+            line-height: 1.6;
+        }
+
+        .form-body {
+            padding: 2rem;
+        }
+
+        .form-group {
+            display: flex;
+            align-items: start;
+            margin-bottom: 1.5rem;
+            gap: 1rem;
+        }
+
+        .form-group label {
+            min-width: 120px;
+            padding-top: 0.75rem;
+            font-weight: 600;
+            color: #374151;
+            font-size: 0.875rem;
+        }
+
+        .form-group .input-wrapper {
+            flex: 1;
+        }
+
+        .required {
+            color: #ef4444;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="tel"],
+        textarea {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            border: 1px solid #d1d5db;
+            border-radius: 0.5rem;
+            font-size: 1rem;
+            transition: all 0.2s;
+            font-family: inherit;
+        }
+
+        input:focus,
+        textarea:focus {
+            outline: none;
+            border-color: #2563eb;
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 150px;
+        }
+
+        /* 커스텀 셀렉트 박스 스타일 */
+        .custom-select-wrapper {
+            position: relative;
+            width: 100%;
+        }
+
+        .custom-select-button {
+            width: 100%;
+            padding: 0.75rem 2.5rem 0.75rem 1rem;
+            font-size: 1rem;
+            background-color: white;
+            border: 1px solid #d1d5db;
+            border-radius: 0.5rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            color: #374151;
+            transition: all 0.2s;
+            text-align: left;
+        }
+
+        .custom-select-button:hover {
+            border-color: #2563eb;
+        }
+
+        .custom-select-button:focus {
+            outline: none;
+            border-color: #2563eb;
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+        }
+
+        .custom-select-button.placeholder {
+            color: #9ca3af;
+        }
+
+        .custom-select-button .arrow {
+            position: absolute;
+            right: 1rem;
+            font-size: 10px;
+            transition: transform 0.3s;
+            color: #6b7280;
+        }
+
+        .custom-select-button.active .arrow {
+            transform: rotate(180deg);
+        }
+
+        .custom-select-options {
+            position: absolute;
+            top: calc(100% + 0.5rem);
+            left: 0;
+            right: 0;
+            background: white;
+            border: 1px solid #e5e7eb;
+            border-radius: 0.5rem;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+            display: none;
+            z-index: 100;
+            max-height: 250px;
+            overflow-y: auto;
+        }
+
+        .custom-select-options.active {
+            display: block;
+        }
+
+        .custom-select-option {
+            padding: 0.75rem 1rem;
+            cursor: pointer;
+            transition: background-color 0.2s;
+            font-size: 1rem;
+        }
+
+        .custom-select-option:hover {
+            background-color: #f3f4f6;
+        }
+
+        .custom-select-option.selected {
+            background-color: #dbeafe;
+            color: #2563eb;
+            font-weight: 500;
+        }
+
+        /* 전화번호 입력 */
+        .phone-inputs {
+            display: flex;
+            gap: 0.5rem;
+            align-items: center;
+        }
+
+        .phone-inputs .custom-select-wrapper {
+            width: 100px;
+        }
+
+        .phone-inputs input {
+            flex: 1;
+        }
+
+        .phone-separator {
+            color: #9ca3af;
+            font-weight: bold;
+        }
+
+        /* 이메일 입력 */
+        .email-inputs {
+            display: flex;
+            gap: 0.5rem;
+            align-items: center;
+        }
+
+        .email-inputs input {
+            flex: 1;
+        }
+
+        .email-inputs .custom-select-wrapper {
+            flex: 1;
+        }
+
+        .email-at {
+            color: #9ca3af;
+            font-weight: bold;
+        }
+
+        /* 파일 첨부 스타일 */
+        .file-input {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            border: 2px dashed #d1d5db;
+            border-radius: 0.5rem;
+            font-size: 0.875rem;
+            cursor: pointer;
+            transition: all 0.2s;
+            background-color: #f9fafb;
+        }
+
+        .file-input:hover {
+            border-color: #2563eb;
+            background-color: #eff6ff;
+        }
+
+        .file-input:focus {
+            outline: none;
+            border-color: #2563eb;
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+        }
+
+        .file-input::file-selector-button {
+            padding: 0.5rem 1rem;
+            margin-right: 1rem;
+            background: linear-gradient(135deg, #2563eb 0%, #4f46e5 100%);
+            color: white;
+            border: none;
+            border-radius: 0.375rem;
+            font-size: 0.875rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .file-input::file-selector-button:hover {
+            background: linear-gradient(135deg, #1d4ed8 0%, #4338ca 100%);
+        }
+
+        .file-note {
+            margin-top: 0.5rem;
+            font-size: 0.75rem;
+            color: #6b7280;
+        }
+
+        .error-message {
+            color: #ef4444;
+            font-size: 0.875rem;
+            margin-top: 0.25rem;
+            display: none;
+        }
+
+        .error-message.show {
+            display: block;
+        }
+
+        .privacy-box {
+            background: #f9fafb;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .checkbox-group {
+            display: flex;
+            align-items: start;
+            cursor: pointer;
+        }
+
+        input[type="checkbox"] {
+            width: 1.25rem;
+            height: 1.25rem;
+            margin-top: 0.25rem;
+            margin-right: 0.75rem;
+            cursor: pointer;
+        }
+
+        .checkbox-label {
+            font-size: 0.875rem;
+            color: #374151;
+            line-height: 1.5;
+        }
+
+        .checkbox-label strong {
+            font-weight: 600;
+        }
+
+        .checkbox-label .sub-text {
+            color: #6b7280;
+            display: block;
+            margin-top: 0.25rem;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 1rem;
+            background: linear-gradient(135deg, #2563eb 0%, #4f46e5 100%);
+            color: white;
+            border: none;
+            border-radius: 0.5rem;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+            box-shadow: 0 4px 6px rgba(37, 99, 235, 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+
+        .submit-btn:hover {
+            background: linear-gradient(135deg, #1d4ed8 0%, #4338ca 100%);
+            box-shadow: 0 6px 12px rgba(37, 99, 235, 0.4);
+            transform: translateY(-1px);
+        }
+
+        .footer-note {
+            text-align: center;
+            color: #6b7280;
+            font-size: 0.875rem;
+            margin-top: 1.5rem;
+        }
+
+        .success-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        .success-modal.show {
+            display: flex;
+        }
+
+        .success-content {
+            background: white;
+            padding: 2rem;
+            border-radius: 1rem;
+            text-align: center;
+            max-width: 400px;
+            margin: 1rem;
+        }
+
+        .success-icon {
+            width: 4rem;
+            height: 4rem;
+            background: #dcfce7;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+        }
+
+        .success-icon svg {
+            width: 2rem;
+            height: 2rem;
+            color: #16a34a;
+        }
+
+        .success-content h2 {
+            color: #1f2937;
+            margin-bottom: 0.5rem;
+        }
+
+        .success-content p {
+            color: #6b7280;
+            line-height: 1.6;
+        }
+
+        .privacy-popup {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        .privacy-popup.show {
+            display: flex;
+        }
+
+        .privacy-popup-content {
+            background: white;
+            padding: 2rem;
+            border-radius: 1rem;
+            max-width: 600px;
+            max-height: 80vh;
+            margin: 1rem;
+            overflow-y: auto;
+        }
+
+        .privacy-popup-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid #e5e7eb;
+        }
+
+        .privacy-popup-header h2 {
+            color: #1f2937;
+            font-size: 1.5rem;
+        }
+
+        .close-btn {
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: #6b7280;
+            padding: 0;
+            width: 2rem;
+            height: 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .close-btn:hover {
+            color: #1f2937;
+        }
+
+        .privacy-popup-body {
+            color: #374151;
+            line-height: 1.8;
+        }
+
+        .privacy-popup-body h3 {
+            margin-top: 1.5rem;
+            margin-bottom: 0.5rem;
+            color: #1f2937;
+        }
+
+        .privacy-popup-body p {
+            margin-bottom: 1rem;
+        }
+
+        .privacy-popup-body ul {
+            margin-left: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .privacy-popup-body li {
+            margin-bottom: 0.5rem;
+        }
+
+        .privacy-link {
+            color: #2563eb;
+            text-decoration: underline;
+            cursor: pointer;
+            margin-left: 0.5rem;
+        }
+
+        .privacy-link:hover {
+            color: #1d4ed8;
+        }
+
+        @media (max-width: 768px) {
+            .form-group {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+
+            .form-group label {
+                min-width: auto;
+                padding-top: 0;
+            }
+
+            .form-group .input-wrapper {
+                width: 100%;
+            }
+
+            .phone-inputs,
+            .email-inputs {
+                flex-wrap: wrap;
+            }
+
+            .privacy-popup-content {
+                max-width: 90%;
+                padding: 1.5rem;
+            }
+
+            .privacy-popup-header h2 {
+                font-size: 1.25rem;
+            }
+        }
+
+        @media (max-width: 640px) {
+            body {
+                padding: 1rem;
+            }
+
+            .form-header h1 {
+                font-size: 1.5rem;
+            }
+
+            .form-body {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="form-wrapper">
+            <div class="form-header">
+                <h1>1:1 문의</h1>
+                <p>필수 입력 정보는 빠짐없이 입력해 주세요.<br>기재해주신 메일로 답변 드리겠습니다.</p>
+            </div>
+
+            <div class="form-body">
+                <form id="inquiryForm">
+                    <div class="form-group">
+                        <label for="category">문의분야 <span class="required">*</span></label>
+                        <div class="input-wrapper">
+                            <div class="custom-select-wrapper">
+                                <div class="custom-select-button placeholder" onclick="toggleSelect('category')">
+                                    <span id="categoryText">선택</span>
+                                    <span class="arrow">▼</span>
+                                </div>
+                                <div class="custom-select-options" id="categoryOptions">
+                                    <div class="custom-select-option" onclick="selectOption('category', '', '선택')">선택
+                                    </div>
+                                    <div class="custom-select-option"
+                                        onclick="selectOption('category', '프로그램 문의', '프로그램 문의')">프로그램 문의</div>
+                                    <div class="custom-select-option"
+                                        onclick="selectOption('category', '입소 상담', '입소 상담')">입소 상담</div>
+                                    <div class="custom-select-option"
+                                        onclick="selectOption('category', '자원봉사 문의', '자원봉사 문의')">자원봉사 문의</div>
+                                    <div class="custom-select-option"
+                                        onclick="selectOption('category', '후원 문의', '후원 문의')">후원 문의</div>
+                                    <div class="custom-select-option"
+                                        onclick="selectOption('category', '기타 문의', '기타 문의')">기타 문의</div>
+                                </div>
+                                <input type="hidden" id="category" name="category" value="">
+                            </div>
+                            <div class="error-message" id="categoryError">문의 유형을 선택해주세요.</div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="name">이름 <span class="required">*</span></label>
+                        <div class="input-wrapper">
+                            <input type="text" id="name" name="name" placeholder="이름을 입력해주세요">
+                            <div class="error-message" id="nameError">이름을 입력해주세요.</div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>연락처 <span class="required">*</span></label>
+                        <div class="input-wrapper">
+                            <div class="phone-inputs">
+                                <div class="custom-select-wrapper">
+                                    <div class="custom-select-button" onclick="toggleSelect('phone1')">
+                                        <span id="phone1Text">010</span>
+                                        <span class="arrow">▼</span>
+                                    </div>
+                                    <div class="custom-select-options" id="phone1Options">
+                                        <div class="custom-select-option selected"
+                                            onclick="selectOption('phone1', '010', '010')">010</div>
+                                        <div class="custom-select-option"
+                                            onclick="selectOption('phone1', '011', '011')">011</div>
+                                        <div class="custom-select-option"
+                                            onclick="selectOption('phone1', '016', '016')">016</div>
+                                        <div class="custom-select-option"
+                                            onclick="selectOption('phone1', '017', '017')">017</div>
+                                        <div class="custom-select-option"
+                                            onclick="selectOption('phone1', '018', '018')">018</div>
+                                        <div class="custom-select-option"
+                                            onclick="selectOption('phone1', '019', '019')">019</div>
+                                    </div>
+                                    <input type="hidden" id="phone1" name="phone1" value="010">
+                                </div>
+                                <span class="phone-separator">-</span>
+                                <input type="tel" id="phone2" name="phone2" maxlength="4" placeholder="0000">
+                                <span class="phone-separator">-</span>
+                                <input type="tel" id="phone3" name="phone3" maxlength="4" placeholder="0000">
+                            </div>
+                            <div class="error-message" id="phoneError">연락처를 입력해주세요.</div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>이메일 <span class="required">*</span></label>
+                        <div class="input-wrapper">
+                            <div class="email-inputs">
+                                <input type="text" id="emailId" name="emailId" placeholder="이메일 아이디">
+                                <span class="email-at">@</span>
+                                <input type="text" id="emailDomain" name="emailDomain" placeholder="직접입력">
+                                <div class="custom-select-wrapper">
+                                    <div class="custom-select-button" onclick="toggleSelect('emailSelect')">
+                                        <span id="emailSelectText">직접 입력</span>
+                                        <span class="arrow">▼</span>
+                                    </div>
+                                    <div class="custom-select-options" id="emailSelectOptions">
+                                        <div class="custom-select-option selected"
+                                            onclick="selectEmailDomain('', '직접 입력')">직접 입력</div>
+                                        <div class="custom-select-option"
+                                            onclick="selectEmailDomain('naver.com', 'naver.com')">naver.com</div>
+                                        <div class="custom-select-option"
+                                            onclick="selectEmailDomain('gmail.com', 'gmail.com')">gmail.com</div>
+                                        <div class="custom-select-option"
+                                            onclick="selectEmailDomain('daum.net', 'daum.net')">daum.net</div>
+                                        <div class="custom-select-option"
+                                            onclick="selectEmailDomain('kakao.com', 'kakao.com')">kakao.com</div>
+                                        <div class="custom-select-option"
+                                            onclick="selectEmailDomain('hanmail.net', 'hanmail.net')">hanmail.net</div>
+                                    </div>
+                                    <input type="hidden" id="emailSelect" name="emailSelect" value="">
+                                </div>
+                            </div>
+                            <div class="error-message" id="emailError">올바른 이메일을 입력해주세요.</div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="subject">제목 <span class="required">*</span></label>
+                        <div class="input-wrapper">
+                            <input type="text" id="subject" name="subject" placeholder="문의 제목을 입력해주세요">
+                            <div class="error-message" id="subjectError">제목을 입력해주세요.</div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message">문의내용 <span class="required">*</span></label>
+                        <div class="input-wrapper">
+                            <textarea id="message" name="message" placeholder="문의하실 내용을 상세히 입력해주세요"></textarea>
+                            <div class="error-message" id="messageError">문의 내용을 입력해주세요.</div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="attachment">파일 첨부</label>
+                        <div class="input-wrapper">
+                            <input type="file" id="attachment" name="attachment[]" class="file-input" multiple>
+                            <div class="file-note">* 첨부파일은 최대 10MB, 여러 개 업로드 가능합니다.</div>
+                            <div class="error-message" id="fileError">파일 용량을 초과한 항목이 있습니다. (파일당 최대 10MB)</div>
+                        </div>
+                    </div>
+
+                    <div class="privacy-box">
+                        <label class="checkbox-group">
+                            <input type="checkbox" id="agreePrivacy" name="agreePrivacy">
+                            <span class="checkbox-label">
+                                <strong>개인정보수집 동의(필수)</strong> <span class="required">*</span>
+                                <span class="sub-text">개인정보처리방침 동의(필수)
+                                    <span class="privacy-link" id="privacyLink">내용보기</span>
+                                </span>
+                            </span>
+                        </label>
+                        <div class="error-message" id="privacyError">개인정보 수집 및 이용에 동의해주세요.</div>
+                    </div>
+
+                    <button type="submit" class="submit-btn">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <line x1="22" y1="2" x2="11" y2="13"></line>
+                            <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+                        </svg>
+                        등록
+                    </button>
+                </form>
+            </div>
+        </div>
+
+        <div class="footer-note">
+            <p>문의사항은 영업일 기준 1-2일 이내에 답변드립니다.</p>
+        </div>
+    </div>
+
+    <!-- Privacy Policy Popup -->
+    <div class="privacy-popup" id="privacyPopup">
+        <div class="privacy-popup-content">
+            <div class="privacy-popup-header">
+                <h2>개인정보 수집 및 이용 동의</h2>
+                <button class="close-btn" id="closePrivacyBtn">×</button>
+            </div>
+            <div class="privacy-popup-body">
+                <h3>1. 개인정보의 수집 및 이용 목적</h3>
+                <p>은빛노인복지센터는 다음의 목적을 위하여 개인정보를 수집·이용합니다. 수집된 개인정보는 아래 목적 외에는 사용되지 않으며, 목적 변경 시 관련 법령에 따라 별도 동의를 받습니다.
+                </p>
+                <ul>
+                    <li>문의 및 상담 요청 확인 및 회신</li>
+                    <li>복지 서비스 이용 관련 상담 제공</li>
+                    <li>프로그램 안내 및 이용 지원</li>
+                    <li>센터 운영을 위한 통계 분석</li>
+                </ul>
+
+                <h3>2. 수집하는 개인정보 항목</h3>
+                <ul>
+                    <li>필수항목: 이름, 연락처, 이메일, 문의내용</li>
+                    <li>선택항목: 해당 없음</li>
+                </ul>
+
+                <h3>3. 개인정보의 보유 및 이용기간</h3>
+                <p>은빛노인복지센터는 개인정보 수집 목적이 달성된 후 즉시 파기합니다. 단, 관련 법령에 따라 일정 기간 보존할 수 있습니다.</p>
+                <ul>
+                    <li>민원·문의사항 처리 기록: 3년 (전자상거래 등에서의 소비자보호에 관한 법률)</li>
+                    <li>기타 법령에서 정한 기간</li>
+                </ul>
+
+                <h3>4. 개인정보의 제3자 제공</h3>
+                <p>센터는 원칙적으로 이용자의 개인정보를 제3자에게 제공하지 않습니다. 단, 아래 경우는 예외로 합니다.</p>
+                <ul>
+                    <li>이용자가 사전에 동의한 경우</li>
+                    <li>법령에 의거해 제공이 요구되는 경우</li>
+                </ul>
+
+                <h3>5. 개인정보 처리의 위탁</h3>
+                <p>센터는 원활한 상담 및 운영을 위해 일부 개인정보 처리 업무를 위탁할 수 있으며, 위탁 시 관련 법령을 준수합니다.</p>
+                <ul>
+                    <li>위탁받는 자: 고객응대 또는 상담 지원 업체(해당 시)</li>
+                    <li>위탁 내용: 문의 상담 및 지원 업무</li>
+                </ul>
+
+                <h3>6. 정보주체의 권리·의무 및 행사방법</h3>
+                <p>이용자는 언제든지 다음 사항에 대해 개인정보 열람, 정정, 삭제, 처리정지를 요청할 수 있습니다.</p>
+                <ul>
+                    <li>개인정보 열람 요구</li>
+                    <li>정정·삭제 요구</li>
+                    <li>처리정지 요구</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Success Modal -->
+    <div class="success-modal" id="successModal">
+        <div class="success-content">
+            <div class="success-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                    <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+            </div>
+            <h2>문의가 접수되었습니다</h2>
+            <p>기재하신 이메일로 답변 드리겠습니다.<br>빠른 시일 내에 연락드리겠습니다.</p>
+        </div>
+    </div>
+
+    <script>
+        const form = document.getElementById('inquiryForm');
+        const successModal = document.getElementById('successModal');
+        const privacyPopup = document.getElementById('privacyPopup');
+        const privacyLink = document.getElementById('privacyLink');
+        const closePrivacyBtn = document.getElementById('closePrivacyBtn');
+        const fileInput = document.getElementById('attachment');
+        const fileList = document.getElementById('fileList');
+
+        // 파일 관리를 위한 배열
+        let attachedFiles = [];
+
+        // 커스텀 셀렉트 박스 데이터 저장
+        const selectData = {
+            category: '',
+            phone: '010',
+            email: ''
+        };
+
+        // 파일 크기 포맷 함수
+        function formatFileSize(bytes) {
+            if (bytes === 0) return '0 Bytes';
+            const k = 1024;
+            const sizes = ['Bytes', 'KB', 'MB'];
+            const i = Math.floor(Math.log(bytes) / Math.log(k));
+            return Math.round(bytes / Math.pow(k, i) * 100) / 100 + ' ' + sizes[i];
+        }
+
+        // 파일 첨부 처리
+        fileInput.addEventListener('change', function (e) {
+            const files = Array.from(e.target.files);
+            const maxSize = 10 * 1024 * 1024; // 10MB
+            let hasError = false;
+
+            files.forEach(file => {
+                if (file.size > maxSize) {
+                    hasError = true;
+                } else {
+                    attachedFiles.push(file);
+                }
+            });
+
+            if (hasError) {
+                showError('file');
+            } else {
+                hideError('file');
+            }
+
+            renderFileList();
+            fileInput.value = ''; // input 초기화하여 같은 파일 다시 선택 가능하게
+        });
+
+        // 파일 목록 렌더링
+        function renderFileList() {
+            if (attachedFiles.length === 0) {
+                fileList.classList.remove('show');
+                fileList.innerHTML = '';
+                return;
+            }
+
+            fileList.classList.add('show');
+            fileList.innerHTML = attachedFiles.map((file, index) => `
+                <div class="file-item">
+                    <div class="file-item-info">
+                        <span class="file-item-icon">📎</span>
+                        <span class="file-item-name">${file.name}</span>
+                        <span class="file-item-size">(${formatFileSize(file.size)})</span>
+                    </div>
+                    <button type="button" class="file-item-remove" onclick="removeFile(${index})">×</button>
+                </div>
+            `).join('');
+        }
+
+        // 파일 삭제
+        window.removeFile = function (index) {
+            attachedFiles.splice(index, 1);
+            renderFileList();
+            hideError('file');
+        };
+
+        // 커스텀 셀렉트 박스 초기화 함수
+        function initCustomSelect(selectId, dataKey) {
+            const wrapper = document.getElementById(selectId);
+            const input = wrapper.querySelector('.custom-select-input');
+            const dropdown = wrapper.querySelector('.custom-select-dropdown');
+            const options = wrapper.querySelectorAll('.custom-select-option');
+
+            // 셀렉트 박스 클릭 시 열기/닫기
+            input.addEventListener('click', function (e) {
+                e.stopPropagation();
+                // 다른 셀렉트 박스 닫기
+                document.querySelectorAll('.custom-select-wrapper').forEach(w => {
+                    if (w !== wrapper) w.classList.remove('active');
+                });
+                wrapper.classList.toggle('active');
+            });
+
+            // 옵션 선택
+            options.forEach(option => {
+                option.addEventListener('click', function (e) {
+                    e.stopPropagation();
+
+                    // 모든 옵션에서 selected 클래스 제거
+                    options.forEach(opt => opt.classList.remove('selected'));
+
+                    // 현재 옵션에 selected 클래스 추가
+                    this.classList.add('selected');
+
+                    // 선택된 값 저장
+                    selectData[dataKey] = this.getAttribute('data-value');
+
+                    // 선택된 텍스트 표시
+                    input.textContent = this.textContent;
+
+                    // placeholder 클래스 관리
+                    if (selectData[dataKey] === '') {
+                        input.classList.add('placeholder');
+                    } else {
+                        input.classList.remove('placeholder');
+                    }
+
+                    // 드롭다운 닫기
+                    wrapper.classList.remove('active');
+
+                    // 에러 메시지 숨기기
+                    if (dataKey === 'category') {
+                        hideError('category');
+                    }
+
+                    // 이메일 도메인 선택 시 자동 입력
+                    if (dataKey === 'email') {
+                        const emailDomain = document.getElementById('emailDomain');
+                        if (selectData.email) {
+                            emailDomain.value = selectData.email;
+                            emailDomain.readOnly = true;
+                        } else {
+                            emailDomain.value = '';
+                            emailDomain.readOnly = false;
+                        }
+                    }
+                });
+            });
+        }
+
+        // 모든 커스텀 셀렉트 박스 초기화
+        initCustomSelect('categorySelect', 'category');
+        initCustomSelect('phoneSelect', 'phone');
+        initCustomSelect('emailSelect', 'email');
+
+        // 외부 클릭 시 모든 드롭다운 닫기
+        document.addEventListener('click', function () {
+            document.querySelectorAll('.custom-select-wrapper').forEach(wrapper => {
+                wrapper.classList.remove('active');
+            });
+        });
+
+        // 개인정보 처리방침 팝업 열기
+        privacyLink.addEventListener('click', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+            privacyPopup.classList.add('show');
+        });
+
+        // 개인정보 처리방침 팝업 닫기
+        closePrivacyBtn.addEventListener('click', function () {
+            privacyPopup.classList.remove('show');
+        });
+
+        // 팝업 배경 클릭 시 닫기
+        privacyPopup.addEventListener('click', function (e) {
+            if (e.target === privacyPopup) {
+                privacyPopup.classList.remove('show');
+            }
+        });
+
+        // 에러 메시지 숨기기
+        function hideError(fieldId) {
+            const errorElement = document.getElementById(fieldId + 'Error');
+            if (errorElement) {
+                errorElement.classList.remove('show');
+            }
+            if (fieldId === 'category') {
+                document.getElementById('categorySelect').classList.remove('error');
+            }
+        }
+
+        // 에러 메시지 표시
+        function showError(fieldId, message) {
+            const errorElement = document.getElementById(fieldId + 'Error');
+            if (errorElement) {
+                if (message) {
+                    errorElement.textContent = message;
+                }
+                errorElement.classList.add('show');
+            }
+            if (fieldId === 'category') {
+                document.getElementById('categorySelect').classList.add('error');
+            }
+        }
+
+        // 입력 필드에 이벤트 리스너 추가
+        ['name', 'subject', 'message', 'emailId', 'emailDomain', 'phone2', 'phone3'].forEach(field => {
+            const element = document.getElementById(field);
+            if (element) {
+                element.addEventListener('input', () => {
+                    hideError(field === 'phone2' || field === 'phone3' ? 'phone' :
+                        field === 'emailId' || field === 'emailDomain' ? 'email' : field);
+                });
+            }
+        });
+
+        document.getElementById('agreePrivacy').addEventListener('change', () => {
+            hideError('privacy');
+        });
+
+        // 폼 유효성 검사
+        function validateForm() {
+            let isValid = true;
+
+            // 문의 유형 검사
+            if (!selectData.category) {
+                showError('category');
+                isValid = false;
+            }
+
+            // 이름 검사
+            const name = document.getElementById('name').value.trim();
+            if (!name) {
+                showError('name');
+                isValid = false;
+            }
+
+            // 연락처 검사
+            const phone2 = document.getElementById('phone2').value.trim();
+            const phone3 = document.getElementById('phone3').value.trim();
+            if (!phone2 || !phone3) {
+                showError('phone', '연락처를 입력해주세요.');
+                isValid = false;
+            } else if (phone2.length < 3 || phone3.length < 4) {
+                showError('phone', '올바른 연락처를 입력해주세요.');
+                isValid = false;
+            }
+
+            // 이메일 검사
+            const emailId = document.getElementById('emailId').value.trim();
+            const emailDomain = document.getElementById('emailDomain').value.trim();
+            if (!emailId || !emailDomain) {
+                showError('email', '이메일을 입력해주세요.');
+                isValid = false;
+            }
+
+            // 제목 검사
+            const subject = document.getElementById('subject').value.trim();
+            if (!subject) {
+                showError('subject');
+                isValid = false;
+            }
+
+            // 문의 내용 검사
+            const message = document.getElementById('message').value.trim();
+            if (!message) {
+                showError('message');
+                isValid = false;
+            }
+
+            // 개인정보 동의 검사
+            const agreePrivacy = document.getElementById('agreePrivacy').checked;
+            if (!agreePrivacy) {
+                showError('privacy');
+                isValid = false;
+            }
+
+            return isValid;
+        }
+
+        // 폼 초기화 함수
+        function resetForm() {
+            form.reset();
+            document.getElementById('emailDomain').readOnly = false;
+
+            // 파일 목록 초기화
+            attachedFiles = [];
+            renderFileList();
+
+            // 커스텀 셀렉트 초기화
+            selectData.category = '';
+            selectData.phone = '010';
+            selectData.email = '';
+
+            // 문의분야 초기화
+            const categorySelect = document.getElementById('categorySelect');
+            const categoryInput = categorySelect.querySelector('.custom-select-input');
+            const categoryOptions = categorySelect.querySelectorAll('.custom-select-option');
+            categoryInput.textContent = '선택';
+            categoryInput.classList.add('placeholder');
+            categoryOptions.forEach(opt => opt.classList.remove('selected'));
+            categoryOptions[0].classList.add('selected');
+
+            // 연락처 초기화
+            const phoneSelect = document.getElementById('phoneSelect');
+            const phoneInput = phoneSelect.querySelector('.custom-select-input');
+            const phoneOptions = phoneSelect.querySelectorAll('.custom-select-option');
+            phoneInput.textContent = '010';
+            phoneInput.classList.remove('placeholder');
+            phoneOptions.forEach(opt => opt.classList.remove('selected'));
+            phoneOptions[0].classList.add('selected');
+
+            // 이메일 도메인 초기화
+            const emailSelect = document.getElementById('emailSelect');
+            const emailInput = emailSelect.querySelector('.custom-select-input');
+            const emailOptions = emailSelect.querySelectorAll('.custom-select-option');
+            emailInput.textContent = '직접 입력';
+            emailInput.classList.add('placeholder');
+            emailOptions.forEach(opt => opt.classList.remove('selected'));
+            emailOptions[0].classList.add('selected');
+        }
+
+        // 폼 제출
+        form.addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            if (validateForm()) {
+                // 폼 데이터 수집
+                const formData = {
+                    category: selectData.category,
+                    name: document.getElementById('name').value,
+                    phone: selectData.phone + '-' +
+                        document.getElementById('phone2').value + '-' +
+                        document.getElementById('phone3').value,
+                    email: document.getElementById('emailId').value + '@' +
+                        document.getElementById('emailDomain').value,
+                    subject: document.getElementById('subject').value,
+                    message: document.getElementById('message').value,
+                    files: attachedFiles.map(f => f.name)
+                };
+
+                console.log('제출된 데이터:', formData);
+                console.log('첨부 파일:', attachedFiles);
+
+                // 성공 모달 표시
+                successModal.classList.add('show');
+
+                // 3초 후 모달 닫고 폼 초기화
+                setTimeout(() => {
+                    successModal.classList.remove('show');
+                    resetForm();
+                }, 3000);
+            }
+        });
+
+        // 모달 클릭 시 닫기
+        successModal.addEventListener('click', function (e) {
+            if (e.target === successModal) {
+                successModal.classList.remove('show');
+                resetForm();
+            }
+        });
+    </script>

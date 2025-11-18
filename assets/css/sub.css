@@ -3440,6 +3440,10 @@ textarea {
         flex-wrap: wrap;
     }
 
+    .qna-wrap {
+        padding: 40px 0 0;
+    }
+
     .qna-list input[type="text"] {
         padding: 15px 20px;
         flex: 1;
