@@ -91,45 +91,6 @@
     <link rel="stylesheet" href="./assets/css/layout.css">
     <link rel="stylesheet" href="./assets/css/main.css">
     <link rel="stylesheet" href="./assets/css/sub.css">
-
-    <style>
-        @media (max-width: 768px) {
-            .form-group {
-                flex-direction: column;
-                gap: 0.5rem;
-            }
-
-            .form-group label {
-                min-width: auto;
-                padding-top: 0;
-            }
-
-            .form-group .input-wrapper {
-                width: 100%;
-            }
-
-            .phone-inputs,
-            .email-inputs {
-                flex-wrap: wrap;
-            }
-
-            .privacy-popup-content {
-                max-width: 90%;
-                padding: 1.5rem;
-            }
-
-            .privacy-popup-header h2 {
-                font-size: 1.25rem;
-            }
-        }
-
-        @media (max-width: 640px) {
-
-            .form-body {
-                padding: 1.5rem;
-            }
-        }
-    </style>
 </head>
 
 <body>
@@ -352,136 +313,133 @@
                 </section>
 
                 <section class="qna-wrap">
-                    <div class="form-wrapper">
+                    <div class="qna-list form-list">
+                        <form id="inquiryForm">
+                            <div class="form-group">
+                                <label for="name">문의분야 <span class="required">*</span></label>
+                                <div class="input-wrapper">
+                                    <div class="custom-select-wrapper" id="categorySelect">
+                                        <div class="custom-select-input placeholder">
+                                            선택
+                                        </div>
+                                        <span class="custom-select-arrow">▼</span>
+                                        <div class="custom-select-dropdown">
+                                            <div class="custom-select-option placeholder selected" data-value="">선택
+                                            </div>
+                                            <div class="custom-select-option" data-value="프로그램 문의">프로그램 문의</div>
+                                            <div class="custom-select-option" data-value="입소 상담">입소 상담</div>
+                                            <div class="custom-select-option" data-value="자원봉사 문의">자원봉사 문의</div>
+                                            <div class="custom-select-option" data-value="후원 문의">후원 문의</div>
+                                            <div class="custom-select-option" data-value="기타 문의">기타 문의</div>
+                                        </div>
+                                    </div>
+                                    <div class="error-message" id="categoryError">문의 유형을 선택해주세요.</div>
+                                </div>
+                            </div>
 
-                        <div class="form-body">
-                            <form id="inquiryForm">
-                                <div class="form-group">
-                                    <label for="name">문의분야 <span class="required">*</span></label>
-                                    <div class="input-wrapper">
-                                        <div class="custom-select-wrapper" id="categorySelect">
-                                            <div class="custom-select-input placeholder">
-                                                선택
+                            <div class="form-group">
+                                <label for="name">이름 <span class="required">*</span></label>
+                                <div class="input-wrapper">
+                                    <input type="text" id="name" name="name" placeholder="이름을 입력해주세요" class="name">
+                                    <div class="error-message" id="nameError">이름을 입력해주세요.</div>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label>연락처 <span class="required">*</span></label>
+                                <div class="input-wrapper">
+                                    <div class="phone-inputs">
+                                        <div class="custom-select-wrapper" id="phoneSelect">
+                                            <div class="custom-select-input">
+                                                010
                                             </div>
                                             <span class="custom-select-arrow">▼</span>
                                             <div class="custom-select-dropdown">
-                                                <div class="custom-select-option placeholder selected" data-value="">선택
+                                                <div class="custom-select-option selected" data-value="010">010
                                                 </div>
-                                                <div class="custom-select-option" data-value="프로그램 문의">프로그램 문의</div>
-                                                <div class="custom-select-option" data-value="입소 상담">입소 상담</div>
-                                                <div class="custom-select-option" data-value="자원봉사 문의">자원봉사 문의</div>
-                                                <div class="custom-select-option" data-value="후원 문의">후원 문의</div>
-                                                <div class="custom-select-option" data-value="기타 문의">기타 문의</div>
+                                                <div class="custom-select-option" data-value="011">011</div>
+                                                <div class="custom-select-option" data-value="016">016</div>
+                                                <div class="custom-select-option" data-value="017">017</div>
+                                                <div class="custom-select-option" data-value="018">018</div>
+                                                <div class="custom-select-option" data-value="019">019</div>
                                             </div>
                                         </div>
-                                        <div class="error-message" id="categoryError">문의 유형을 선택해주세요.</div>
+                                        <span class="phone-separator">-</span>
+                                        <input type="tel" id="phone2" name="phone2" maxlength="4" placeholder="0000">
+                                        <span class="phone-separator">-</span>
+                                        <input type="tel" id="phone3" name="phone3" maxlength="4" placeholder="0000">
                                     </div>
+                                    <div class="error-message" id="phoneError">연락처를 입력해주세요.</div>
                                 </div>
+                            </div>
 
-                                <div class="form-group">
-                                    <label for="name">이름 <span class="required">*</span></label>
-                                    <div class="input-wrapper">
-                                        <input type="text" id="name" name="name" placeholder="이름을 입력해주세요">
-                                        <div class="error-message" id="nameError">이름을 입력해주세요.</div>
-                                    </div>
-                                </div>
-
-                                <div class="form-group">
-                                    <label>연락처 <span class="required">*</span></label>
-                                    <div class="input-wrapper">
-                                        <div class="phone-inputs">
-                                            <div class="custom-select-wrapper" id="phoneSelect">
-                                                <div class="custom-select-input">
-                                                    010
-                                                </div>
-                                                <span class="custom-select-arrow">▼</span>
-                                                <div class="custom-select-dropdown">
-                                                    <div class="custom-select-option selected" data-value="010">010
-                                                    </div>
-                                                    <div class="custom-select-option" data-value="011">011</div>
-                                                    <div class="custom-select-option" data-value="016">016</div>
-                                                    <div class="custom-select-option" data-value="017">017</div>
-                                                    <div class="custom-select-option" data-value="018">018</div>
-                                                    <div class="custom-select-option" data-value="019">019</div>
-                                                </div>
+                            <div class="form-group">
+                                <label>이메일 <span class="required">*</span></label>
+                                <div class="input-wrapper">
+                                    <div class="email-inputs">
+                                        <input type="text" id="emailId" name="emailId" placeholder="이메일 아이디"
+                                            class="email-id">
+                                        <span class="email-at">@</span>
+                                        <input type="text" id="emailDomain" name="emailDomain" placeholder="직접입력">
+                                        <div class="custom-select-wrapper" id="emailSelect">
+                                            <div class="custom-select-input placeholder">
+                                                직접 입력
                                             </div>
-                                            <span class="phone-separator">-</span>
-                                            <input type="tel" id="phone2" name="phone2" maxlength="4"
-                                                placeholder="0000">
-                                            <span class="phone-separator">-</span>
-                                            <input type="tel" id="phone3" name="phone3" maxlength="4"
-                                                placeholder="0000">
-                                        </div>
-                                        <div class="error-message" id="phoneError">연락처를 입력해주세요.</div>
-                                    </div>
-                                </div>
-
-                                <div class="form-group">
-                                    <label>이메일 <span class="required">*</span></label>
-                                    <div class="input-wrapper">
-                                        <div class="email-inputs">
-                                            <input type="text" id="emailId" name="emailId" placeholder="이메일 아이디">
-                                            <span class="email-at">@</span>
-                                            <input type="text" id="emailDomain" name="emailDomain" placeholder="직접입력">
-                                            <div class="custom-select-wrapper" id="emailSelect">
-                                                <div class="custom-select-input placeholder">
-                                                    직접 입력
+                                            <span class="custom-select-arrow">▼</span>
+                                            <div class="custom-select-dropdown">
+                                                <div class="custom-select-option placeholder selected" data-value="">직접
+                                                    입력</div>
+                                                <div class="custom-select-option" data-value="naver.com">naver.com
                                                 </div>
-                                                <span class="custom-select-arrow">▼</span>
-                                                <div class="custom-select-dropdown">
-                                                    <div class="custom-select-option placeholder selected"
-                                                        data-value="">직접 입력</div>
-                                                    <div class="custom-select-option" data-value="naver.com">naver.com
-                                                    </div>
-                                                    <div class="custom-select-option" data-value="gmail.com">gmail.com
-                                                    </div>
-                                                    <div class="custom-select-option" data-value="daum.net">daum.net
-                                                    </div>
-                                                    <div class="custom-select-option" data-value="kakao.com">kakao.com
-                                                    </div>
-                                                    <div class="custom-select-option" data-value="hanmail.net">
-                                                        hanmail.net</div>
+                                                <div class="custom-select-option" data-value="gmail.com">gmail.com
                                                 </div>
+                                                <div class="custom-select-option" data-value="daum.net">daum.net
+                                                </div>
+                                                <div class="custom-select-option" data-value="kakao.com">kakao.com
+                                                </div>
+                                                <div class="custom-select-option" data-value="hanmail.net">
+                                                    hanmail.net</div>
                                             </div>
                                         </div>
-                                        <div class="error-message" id="emailError">올바른 이메일을 입력해주세요.</div>
                                     </div>
+                                    <div class="error-message" id="emailError">올바른 이메일을 입력해주세요.</div>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="subject">제목 <span class="required">*</span></label>
+                                <div class="input-wrapper">
+                                    <input type="text" id="subject" name="subject" placeholder="문의 제목을 입력해주세요"
+                                        class="subject">
+                                    <div class="error-message" id="subjectError">제목을 입력해주세요.</div>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="message">문의내용 <span class="required">*</span></label>
+                                <div class="input-wrapper">
+                                    <textarea id="message" name="message" placeholder="문의하실 내용을 상세히 입력해주세요"></textarea>
+                                    <div class="error-message" id="messageError">문의 내용을 입력해주세요.</div>
+                                </div>
+                            </div>
+
+
+
+                            <div class="form_btn">
+
+                                <div class="privacy-box">
+                                    <label class="checkbox-group">
+                                        <input type="checkbox" id="agreePrivacy" name="agreePrivacy">
+                                        <span class="sub-text">개인정보처리방침 동의(필수)
+                                            <span class="privacy-link" id="privacyLink">자세히보기</span>
+                                        </span>
+                                    </label>
+                                    <div class="error-message" id="privacyError">개인정보 수집 및 이용에 동의해주세요.</div>
                                 </div>
 
-                                <div class="form-group">
-                                    <label for="subject">제목 <span class="required">*</span></label>
-                                    <div class="input-wrapper">
-                                        <input type="text" id="subject" name="subject" placeholder="문의 제목을 입력해주세요">
-                                        <div class="error-message" id="subjectError">제목을 입력해주세요.</div>
-                                    </div>
-                                </div>
+                                <button type="submit" class="form-button">등록</button>
 
-                                <div class="form-group">
-                                    <label for="message">문의내용 <span class="required">*</span></label>
-                                    <div class="input-wrapper">
-                                        <textarea id="message" name="message"
-                                            placeholder="문의하실 내용을 상세히 입력해주세요"></textarea>
-                                        <div class="error-message" id="messageError">문의 내용을 입력해주세요.</div>
-                                    </div>
-                                </div>
-
-
-
-                                <div class="form_btn">
-
-                                    <div class="privacy-box">
-                                        <label class="checkbox-group">
-                                            <input type="checkbox" id="agreePrivacy" name="agreePrivacy">
-                                            <span class="sub-text">개인정보처리방침 동의(필수)
-                                                <span class="privacy-link" id="privacyLink">자세히보기</span>
-                                            </span>
-                                        </label>
-                                        <div class="error-message" id="privacyError">개인정보 수집 및 이용에 동의해주세요.</div>
-                                    </div>
-
-                                    <button type="submit" class="form-button">등록</button>
-
-                                    <!-- <button type="submit" class="submit-btn">
+                                <!-- <button type="submit" class="submit-btn">
                                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                                         stroke-width="2">
                                         <line x1="22" y1="2" x2="11" y2="13"></line>
@@ -489,16 +447,12 @@
                                     </svg>
                                     등록
                                 </button> -->
-                                </div>
-
-
-
-                            </form>
-                        </div>
+                            </div>
+                        </form>
                     </div>
 
                     <div class="footer-note">
-                        <p>문의사항은 영업일 기준 1-2일 이내에 답변드립니다.</p>
+                        문의사항은 영업일 기준 1-2일 이내에 답변드립니다.
                     </div>
                 </section>
             </div>
@@ -570,7 +524,7 @@
                         </svg>
                     </div>
                     <h2>문의가 접수되었습니다</h2>
-                    <p>기재하신 이메일로 답변 드리겠습니다.<br>빠른 시일 내에 연락드리겠습니다.</p>
+                    <p>기재하신 이메일로 <br> 빠른 시일 내에 답변 드리겠습니다. <br>3초뒤에 팝업이 닫힙니다.</p>
                 </div>
             </div>
             <!-- //Success Modal -->
@@ -908,7 +862,7 @@
                     setTimeout(() => {
                         $("#successModal").removeClass("show");
                         resetForm();
-                    }, 3000);
+                    }, 2000);
                 }
             });
 
@@ -919,6 +873,15 @@
                     resetForm();
                 }
             });
+
+            // 성공팝업 스크롤 막기
+            $('#successModal').on('scroll touchmove mousewheel', function (event) {
+                event.preventDefault();
+                event.stopPropagation();
+                return false;
+            });
+
+
         });
     </script>
 
