@@ -315,10 +315,10 @@
 
                 <section class="qna-wrap">
                     <h2 class="hidden">문의하기</h2>
-                    <div class="qna-list form-list">
-                        <form id="inquiryForm">
+                    <form id="inquiryForm">
+                        <div class="qna-list form-list">
                             <div class="form-group">
-                                <label for="name">문의분야 <span class="required">*</span></label>
+                                <label for="category">문의분야 <span class="required">*</span></label>
                                 <div class="input-wrapper">
                                     <div class="custom-select-wrapper" id="categorySelect">
                                         <div class="custom-select-input placeholder">
@@ -351,7 +351,7 @@
                             </div>
 
                             <div class="form-group">
-                                <label>연락처 <span class="required">*</span></label>
+                                <label>연락처 <span class="required">*</span></label> <!-- for 제거, 내부 구조로 처리 -->
                                 <div class="input-wrapper">
                                     <div class="phone-inputs">
                                         <div class="custom-select-wrapper" id="phoneSelect">
@@ -372,8 +372,13 @@
                                             </div>
                                         </div>
                                         <span class="phone-separator">-</span>
+
+                                        <!-- 가운데 숫자 -->
                                         <input type="tel" id="phone2" name="phone2" maxlength="4" placeholder="0000">
+
                                         <span class="phone-separator">-</span>
+
+                                        <!-- 끝 숫자 -->
                                         <input type="tel" id="phone3" name="phone3" maxlength="4" placeholder="0000">
                                     </div>
                                     <div class="error-message" id="phoneError">연락처를 입력해주세요.</div>
@@ -381,7 +386,7 @@
                             </div>
 
                             <div class="form-group">
-                                <label>이메일 <span class="required">*</span></label>
+                                <label for="email">이메일 <span class="required">*</span></label>
                                 <div class="input-wrapper">
                                     <div class="email-inputs">
                                         <input type="text" id="emailId" name="emailId" placeholder="이메일 아이디"
@@ -443,24 +448,24 @@
                                     <div class="error-message" id="fileError">파일 용량을 초과한 항목이 있습니다. (파일당 최대 10MB)</div>
                                 </div>
                             </div>
+                        </div>
+                        <!-- //qna-list form-list-->
 
-
-
-
-                            <div class="form_btn">
-                                <div class="privacy-box">
-                                    <label class="checkbox-group">
-                                        <input type="checkbox" id="agreePrivacy" name="agreePrivacy">
-                                        <span class="sub-text">개인정보처리방침 동의(필수)
-                                            <span class="privacy-link" id="privacyLink">자세히보기</span>
-                                        </span>
-                                    </label>
-                                    <div class="error-message" id="privacyError">개인정보 수집 및 이용에 동의해주세요.</div>
-                                </div>
-
-                                <button type="submit" class="form-button">등록</button>
-
-                                <!-- <button type="submit" class="submit-btn">
+                        <div class="form_btn">
+                            <div class="privacy-box">
+                                <label class="checkbox-group">
+                                    <input type="checkbox" id="agreePrivacy" name="agreePrivacy">
+                                    <span class="sub-text">개인정보처리방침 동의(필수)
+                                        <span class="privacy-link" id="privacyLink">자세히보기</span>
+                                    </span>
+                                </label>
+                                <div class="error-message" id="privacyError">개인정보 수집 및 이용에 동의해주세요.</div>
+                            </div>
+                            <button type="submit" class="form-button">등록</button>
+                            <p class="footer-note">
+                                문의사항은 영업일 기준 1-2일 이내에 답변드립니다.
+                            </p>
+                            <!-- <button type="submit" class="submit-btn">
                                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                                         stroke-width="2">
                                         <line x1="22" y1="2" x2="11" y2="13"></line>
@@ -468,13 +473,9 @@
                                     </svg>
                                     등록
                                 </button> -->
-                            </div>
-                        </form>
-                    </div>
+                        </div>
+                    </form>
 
-                    <div class="footer-note">
-                        문의사항은 영업일 기준 1-2일 이내에 답변드립니다.
-                    </div>
                 </section>
             </div>
             <!-- //inner -->

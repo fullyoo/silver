@@ -18,6 +18,7 @@
     --redbg-color: #fff3f3;
     --border-color: #c3c3c3;
 
+    --font-400: 400;
     --font-500: 500;
     --font-600: 600;
     --font-700: 700;
@@ -322,10 +323,12 @@ video {
 
 
 .form-list input[type="text"],
+.form-list input[type="password"],
 .form-list input[type="submit"],
 .form-list button[type="submit"],
 .form-list input[type="email"],
 .form-list input[type="tel"],
+.form-list input[type="number"],
 .form-list textarea {
     padding: 15px 20px;
     border: 2px solid var(--lightgray-color);
@@ -342,7 +345,9 @@ video {
 }
 
 .form-list input[type="text"]:focus,
-input[type="tel"],
+.form-list input[type="password"]:focus,
+input[type="tel"]:focus,
+input[type="number"]:focus,
 input:focus,
 textarea:focus {
     border-color: var(--primary-color);
@@ -738,8 +743,8 @@ input[type="checkbox"] {
     appearance: none;
     -webkit-appearance: none;
     -moz-appearance: none;
-    width: 20px;
-    height: 20px;
+    width: 22px;
+    height: 22px;
     border: 2px solid var(--lightgray-color);
     border-radius: 4px;
     background-color: var(--white-color);
@@ -747,7 +752,7 @@ input[type="checkbox"] {
     position: relative;
     transition: all 0.3s ease;
     margin: 0;
-    vertical-align: top;
+    vertical-align: middle;
 }
 
 input[type="checkbox"]:hover {

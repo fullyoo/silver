@@ -313,193 +313,32 @@
                 </section>
 
                 <section class="volunteer-list-box qna-wrap">
-                    <div class="qna-list form-list">
-
-                        <div class="form-group">
-                            <label for="name">이름 <span class="required">*</span></label>
-                            <div class="input-wrapper">
-                                <input type="text" id="name" name="name" placeholder="이름을 입력해주세요" class="name">
-                                <div class="error-message" id="nameError">이름을 입력해주세요.</div>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label>연락처 <span class="required">*</span></label>
-                            <div class="input-wrapper">
-                                <div class="phone-inputs">
-                                    <div class="custom-select-wrapper" id="phoneSelect">
-                                        <div class="custom-select-input">
-                                            010
-                                        </div>
-                                        <span class="custom-select-arrow">▼</span>
-                                        <div class="custom-select-dropdown">
-                                            <div class="custom-select-list">
-                                                <div class="custom-select-option selected" data-value="010">010
-                                                </div>
-                                                <div class="custom-select-option" data-value="011">011</div>
-                                                <div class="custom-select-option" data-value="016">016</div>
-                                                <div class="custom-select-option" data-value="017">017</div>
-                                                <div class="custom-select-option" data-value="018">018</div>
-                                                <div class="custom-select-option" data-value="019">019</div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <span class="phone-separator">-</span>
-                                    <input type="tel" id="phone2" name="phone2" maxlength="4" placeholder="0000">
-                                    <span class="phone-separator">-</span>
-                                    <input type="tel" id="phone3" name="phone3" maxlength="4" placeholder="0000">
-                                </div>
-                                <div class="error-message" id="phoneError">연락처를 입력해주세요.</div>
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <label>생년월일 <span class="required">*</span></label>
-                            <div class="input-wrapper">
-                                <div class="birthday-inputs">
-
-                                    <!-- 연도 선택 (1900~2025) -->
-                                    <div class="custom-select-wrapper" id="birthYearSelect">
-                                        <div class="custom-select-input">연도</div>
-                                        <span class="custom-select-arrow">▼</span>
-                                        <div class="custom-select-dropdown">
-                                            <div class="custom-select-list">
-
-                                                <!-- 최신년도 ~ 1900년까지 (필요 시 더 축약 가능) -->
-                                                <!-- 예시로 2025~1900 중 일부만 표시 -->
-                                                <div class="custom-select-option" data-value="2025">2025</div>
-                                                <div class="custom-select-option" data-value="2024">2024</div>
-                                                <div class="custom-select-option" data-value="2023">2023</div>
-                                                <div class="custom-select-option" data-value="2022">2022</div>
-                                                <div class="custom-select-option" data-value="2021">2021</div>
-                                                <!-- ... (중략: 앞서 만든 1900~2025 전체 리스트 그대로 넣으면 됨) -->
-                                                <div class="custom-select-option" data-value="1901">1901</div>
-                                                <div class="custom-select-option" data-value="1900">1900</div>
-
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <span class="phone-separator">-</span>
-
-                                    <!-- 월 선택 -->
-                                    <div class="custom-select-wrapper" id="birthMonthSelect">
-                                        <div class="custom-select-input">월</div>
-                                        <span class="custom-select-arrow">▼</span>
-                                        <div class="custom-select-dropdown">
-                                            <div class="custom-select-list">
-                                                <div class="custom-select-option" data-value="01">01</div>
-                                                <div class="custom-select-option" data-value="02">02</div>
-                                                <div class="custom-select-option" data-value="03">03</div>
-                                                <div class="custom-select-option" data-value="04">04</div>
-                                                <div class="custom-select-option" data-value="05">05</div>
-                                                <div class="custom-select-option" data-value="06">06</div>
-                                                <div class="custom-select-option" data-value="07">07</div>
-                                                <div class="custom-select-option" data-value="08">08</div>
-                                                <div class="custom-select-option" data-value="09">09</div>
-                                                <div class="custom-select-option" data-value="10">10</div>
-                                                <div class="custom-select-option" data-value="11">11</div>
-                                                <div class="custom-select-option" data-value="12">12</div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <span class="phone-separator">-</span>
-
-                                    <!-- 일을 선택 (01~31) -->
-                                    <div class="custom-select-wrapper" id="birthDaySelect">
-                                        <div class="custom-select-input">일</div>
-                                        <span class="custom-select-arrow">▼</span>
-                                        <div class="custom-select-dropdown">
-                                            <div class="custom-select-list">
-                                                <div class="custom-select-option" data-value="01">01</div>
-                                                <div class="custom-select-option" data-value="02">02</div>
-                                                <div class="custom-select-option" data-value="03">03</div>
-                                                <div class="custom-select-option" data-value="04">04</div>
-                                                <div class="custom-select-option" data-value="05">05</div>
-                                                <div class="custom-select-option" data-value="06">06</div>
-                                                <div class="custom-select-option" data-value="07">07</div>
-                                                <div class="custom-select-option" data-value="08">08</div>
-                                                <div class="custom-select-option" data-value="09">09</div>
-                                                <div class="custom-select-option" data-value="10">10</div>
-                                                <div class="custom-select-option" data-value="11">11</div>
-                                                <div class="custom-select-option" data-value="12">12</div>
-                                                <div class="custom-select-option" data-value="13">13</div>
-                                                <div class="custom-select-option" data-value="14">14</div>
-                                                <div class="custom-select-option" data-value="15">15</div>
-                                                <div class="custom-select-option" data-value="16">16</div>
-                                                <div class="custom-select-option" data-value="17">17</div>
-                                                <div class="custom-select-option" data-value="18">18</div>
-                                                <div class="custom-select-option" data-value="19">19</div>
-                                                <div class="custom-select-option" data-value="20">20</div>
-                                                <div class="custom-select-option" data-value="21">21</div>
-                                                <div class="custom-select-option" data-value="22">22</div>
-                                                <div class="custom-select-option" data-value="23">23</div>
-                                                <div class="custom-select-option" data-value="24">24</div>
-                                                <div class="custom-select-option" data-value="25">25</div>
-                                                <div class="custom-select-option" data-value="26">26</div>
-                                                <div class="custom-select-option" data-value="27">27</div>
-                                                <div class="custom-select-option" data-value="28">28</div>
-                                                <div class="custom-select-option" data-value="29">29</div>
-                                                <div class="custom-select-option" data-value="30">30</div>
-                                                <div class="custom-select-option" data-value="31">31</div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                </div>
-
-                                <div class="error-message" id="birthdayError">생년월일을 입력해주세요.</div>
-                            </div>
-                        </div>
-
-
-
-
-                    </div>
-                    <!-- //form-list -->
-
-
-                </section>
-
-                <section class="qna-wrap">
-                    <h2 class="hidden">문의하기</h2>
-                    <div class="qna-list form-list">
-                        <form id="inquiryForm">
-                            <div class="form-group">
-                                <label for="name">문의분야 <span class="required">*</span></label>
-                                <div class="input-wrapper">
-                                    <div class="custom-select-wrapper" id="categorySelect">
-                                        <div class="custom-select-input placeholder">
-                                            선택
-                                        </div>
-                                        <span class="custom-select-arrow">▼</span>
-                                        <div class="custom-select-dropdown">
-                                            <div class="custom-select-list">
-                                                <div class="custom-select-option placeholder selected" data-value="">선택
-                                                </div>
-                                                <div class="custom-select-option" data-value="프로그램 문의">프로그램 문의</div>
-                                                <div class="custom-select-option" data-value="입소 상담">입소 상담</div>
-                                                <div class="custom-select-option" data-value="자원봉사 문의">자원봉사 문의</div>
-                                                <div class="custom-select-option" data-value="후원 문의">후원 문의</div>
-                                                <div class="custom-select-option" data-value="기타 문의">기타 문의</div>
-                                            </div>
-                                        </div>
-
-                                    </div>
-                                    <div class="error-message" id="categoryError">문의 유형을 선택해주세요.</div>
-                                </div>
+                    <h2 class="hidden">후원 신청하기</h2>
+                    <form id="inquiryForm">
+                        <div class="donate-list qna-list form-list" data-aos="fade-up" data-aos-duration="400"
+                            data-aos-delay="800">
+                            <div class="sub-tit-box-list">
+                                <h4 class="sub-tit">후원자 정보</h4>
+                                <p class="add-info">
+                                    <img src="./assets/images/common/bi.svg" alt="bi">기존 후원 내역이 있으시다면, 첫 후원 시 사용한 이름과
+                                    휴대전화번호
+                                    또는 생년월일을 입력하셔야 기존 정보와 연결됩니다.
+                                </p>
                             </div>
 
+                            <!-- 후원자 이름 -->
                             <div class="form-group">
                                 <label for="name">이름 <span class="required">*</span></label>
                                 <div class="input-wrapper">
                                     <input type="text" id="name" name="name" placeholder="이름을 입력해주세요" class="name">
-                                    <div class="error-message" id="nameError">이름을 입력해주세요.</div>
+                                    <div class="error-message" id="nameError">이름을 입력해주세요.</div> <!-- ✅ id 변경 -->
                                 </div>
                             </div>
 
+                            <!-- 연락처 -->
                             <div class="form-group">
                                 <label>연락처 <span class="required">*</span></label>
+                                <!-- ✅ for 제거, select/input 구조로 변경 -->
                                 <div class="input-wrapper">
                                     <div class="phone-inputs">
                                         <div class="custom-select-wrapper" id="phoneSelect">
@@ -528,177 +367,530 @@
                                 </div>
                             </div>
 
+                            <!-- 생년월일 -->
                             <div class="form-group">
-                                <label>이메일 <span class="required">*</span></label>
+                                <label>생년월일 <span class="required">*</span></label> <!-- ✅ for 제거 -->
                                 <div class="input-wrapper">
-                                    <div class="email-inputs">
-                                        <input type="text" id="emailId" name="emailId" placeholder="이메일 아이디"
-                                            class="email-id">
-                                        <span class="email-at">@</span>
-                                        <input type="text" id="emailDomain" name="emailDomain" placeholder="직접입력">
-                                        <div class="custom-select-wrapper" id="emailSelect">
-                                            <div class="custom-select-input placeholder">
-                                                직접 입력
+                                    <div class="birthday-inputs">
+
+                                        <!-- 연도 선택 -->
+                                        <div class="custom-select-wrapper" id="birthYearSelect">
+                                            <div class="custom-select-input">
+                                                연도
                                             </div>
                                             <span class="custom-select-arrow">▼</span>
                                             <div class="custom-select-dropdown">
                                                 <div class="custom-select-list">
-                                                    <div class="custom-select-option placeholder selected"
-                                                        data-value="">직접
-                                                        입력</div>
-                                                    <div class="custom-select-option" data-value="naver.com">naver.com
-                                                    </div>
-                                                    <div class="custom-select-option" data-value="gmail.com">gmail.com
-                                                    </div>
-                                                    <div class="custom-select-option" data-value="daum.net">daum.net
-                                                    </div>
-                                                    <div class="custom-select-option" data-value="kakao.com">kakao.com
-                                                    </div>
-                                                    <div class="custom-select-option" data-value="hanmail.net">
-                                                        hanmail.net</div>
+
+                                                    <!-- 🔻 1900 ~ 2025 전체 연도 옵션 -->
+                                                    <!-- 최신년도 위쪽(내림차순 정렬) -->
+                                                    <div class="custom-select-option" data-value="2025">2025</div>
+                                                    <div class="custom-select-option" data-value="2024">2024</div>
+                                                    <div class="custom-select-option" data-value="2023">2023</div>
+                                                    <div class="custom-select-option" data-value="2022">2022</div>
+                                                    <div class="custom-select-option" data-value="2021">2021</div>
+                                                    <div class="custom-select-option" data-value="2020">2020</div>
+                                                    <div class="custom-select-option" data-value="2019">2019</div>
+                                                    <div class="custom-select-option" data-value="2018">2018</div>
+                                                    <div class="custom-select-option" data-value="2017">2017</div>
+                                                    <div class="custom-select-option" data-value="2016">2016</div>
+                                                    <div class="custom-select-option" data-value="2015">2015</div>
+                                                    <div class="custom-select-option" data-value="2014">2014</div>
+                                                    <div class="custom-select-option" data-value="2013">2013</div>
+                                                    <div class="custom-select-option" data-value="2012">2012</div>
+                                                    <div class="custom-select-option" data-value="2011">2011</div>
+                                                    <div class="custom-select-option" data-value="2010">2010</div>
+
+                                                    <!-- 2000년대 -->
+                                                    <div class="custom-select-option" data-value="2009">2009</div>
+                                                    <div class="custom-select-option" data-value="2008">2008</div>
+                                                    <div class="custom-select-option" data-value="2007">2007</div>
+                                                    <div class="custom-select-option" data-value="2006">2006</div>
+                                                    <div class="custom-select-option" data-value="2005">2005</div>
+                                                    <div class="custom-select-option" data-value="2004">2004</div>
+                                                    <div class="custom-select-option" data-value="2003">2003</div>
+                                                    <div class="custom-select-option" data-value="2002">2002</div>
+                                                    <div class="custom-select-option" data-value="2001">2001</div>
+                                                    <div class="custom-select-option" data-value="2000">2000</div>
+
+                                                    <!-- 1990년대 -->
+                                                    <div class="custom-select-option" data-value="1999">1999</div>
+                                                    <div class="custom-select-option" data-value="1998">1998</div>
+                                                    <div class="custom-select-option" data-value="1997">1997</div>
+                                                    <div class="custom-select-option" data-value="1996">1996</div>
+                                                    <div class="custom-select-option" data-value="1995">1995</div>
+                                                    <div class="custom-select-option" data-value="1994">1994</div>
+                                                    <div class="custom-select-option" data-value="1993">1993</div>
+                                                    <div class="custom-select-option" data-value="1992">1992</div>
+                                                    <div class="custom-select-option" data-value="1991">1991</div>
+                                                    <div class="custom-select-option" data-value="1990">1990</div>
+
+                                                    <!-- 1980년대 -->
+                                                    <div class="custom-select-option" data-value="1989">1989</div>
+                                                    <div class="custom-select-option" data-value="1988">1988</div>
+                                                    <div class="custom-select-option" data-value="1987">1987</div>
+                                                    <div class="custom-select-option" data-value="1986">1986</div>
+                                                    <div class="custom-select-option" data-value="1985">1985</div>
+                                                    <div class="custom-select-option" data-value="1984">1984</div>
+                                                    <div class="custom-select-option" data-value="1983">1983</div>
+                                                    <div class="custom-select-option" data-value="1982">1982</div>
+                                                    <div class="custom-select-option" data-value="1981">1981</div>
+                                                    <div class="custom-select-option" data-value="1980">1980</div>
+
+                                                    <!-- 1970년대 -->
+                                                    <div class="custom-select-option" data-value="1979">1979</div>
+                                                    <div class="custom-select-option" data-value="1978">1978</div>
+                                                    <div class="custom-select-option" data-value="1977">1977</div>
+                                                    <div class="custom-select-option" data-value="1976">1976</div>
+                                                    <div class="custom-select-option" data-value="1975">1975</div>
+                                                    <div class="custom-select-option" data-value="1974">1974</div>
+                                                    <div class="custom-select-option" data-value="1973">1973</div>
+                                                    <div class="custom-select-option" data-value="1972">1972</div>
+                                                    <div class="custom-select-option" data-value="1971">1971</div>
+                                                    <div class="custom-select-option" data-value="1970">1970</div>
+
+                                                    <!-- 1960년대 -->
+                                                    <div class="custom-select-option" data-value="1969">1969</div>
+                                                    <div class="custom-select-option" data-value="1968">1968</div>
+                                                    <div class="custom-select-option" data-value="1967">1967</div>
+                                                    <div class="custom-select-option" data-value="1966">1966</div>
+                                                    <div class="custom-select-option" data-value="1965">1965</div>
+                                                    <div class="custom-select-option" data-value="1964">1964</div>
+                                                    <div class="custom-select-option" data-value="1963">1963</div>
+                                                    <div class="custom-select-option" data-value="1962">1962</div>
+                                                    <div class="custom-select-option" data-value="1961">1961</div>
+                                                    <div class="custom-select-option" data-value="1960">1960</div>
+
+                                                    <!-- 1950년대 -->
+                                                    <div class="custom-select-option" data-value="1959">1959</div>
+                                                    <div class="custom-select-option" data-value="1958">1958</div>
+                                                    <div class="custom-select-option" data-value="1957">1957</div>
+                                                    <div class="custom-select-option" data-value="1956">1956</div>
+                                                    <div class="custom-select-option" data-value="1955">1955</div>
+                                                    <div class="custom-select-option" data-value="1954">1954</div>
+                                                    <div class="custom-select-option" data-value="1953">1953</div>
+                                                    <div class="custom-select-option" data-value="1952">1952</div>
+                                                    <div class="custom-select-option" data-value="1951">1951</div>
+                                                    <div class="custom-select-option" data-value="1950">1950</div>
+
+                                                    <!-- 1940년대 -->
+                                                    <div class="custom-select-option" data-value="1949">1949</div>
+                                                    <div class="custom-select-option" data-value="1948">1948</div>
+                                                    <div class="custom-select-option" data-value="1947">1947</div>
+                                                    <div class="custom-select-option" data-value="1946">1946</div>
+                                                    <div class="custom-select-option" data-value="1945">1945</div>
+                                                    <div class="custom-select-option" data-value="1944">1944</div>
+                                                    <div class="custom-select-option" data-value="1943">1943</div>
+                                                    <div class="custom-select-option" data-value="1942">1942</div>
+                                                    <div class="custom-select-option" data-value="1941">1941</div>
+                                                    <div class="custom-select-option" data-value="1940">1940</div>
+
+                                                    <!-- 1930년대 -->
+                                                    <div class="custom-select-option" data-value="1939">1939</div>
+                                                    <div class="custom-select-option" data-value="1938">1938</div>
+                                                    <div class="custom-select-option" data-value="1937">1937</div>
+                                                    <div class="custom-select-option" data-value="1936">1936</div>
+                                                    <div class="custom-select-option" data-value="1935">1935</div>
+                                                    <div class="custom-select-option" data-value="1934">1934</div>
+                                                    <div class="custom-select-option" data-value="1933">1933</div>
+                                                    <div class="custom-select-option" data-value="1932">1932</div>
+                                                    <div class="custom-select-option" data-value="1931">1931</div>
+                                                    <div class="custom-select-option" data-value="1930">1930</div>
+
+                                                    <!-- 1920년대 -->
+                                                    <div class="custom-select-option" data-value="1929">1929</div>
+                                                    <div class="custom-select-option" data-value="1928">1928</div>
+                                                    <div class="custom-select-option" data-value="1927">1927</div>
+                                                    <div class="custom-select-option" data-value="1926">1926</div>
+                                                    <div class="custom-select-option" data-value="1925">1925</div>
+                                                    <div class="custom-select-option" data-value="1924">1924</div>
+                                                    <div class="custom-select-option" data-value="1923">1923</div>
+                                                    <div class="custom-select-option" data-value="1922">1922</div>
+                                                    <div class="custom-select-option" data-value="1921">1921</div>
+                                                    <div class="custom-select-option" data-value="1920">1920</div>
+
+                                                    <!-- 1910년대 -->
+                                                    <div class="custom-select-option" data-value="1919">1919</div>
+                                                    <div class="custom-select-option" data-value="1918">1918</div>
+                                                    <div class="custom-select-option" data-value="1917">1917</div>
+                                                    <div class="custom-select-option" data-value="1916">1916</div>
+                                                    <div class="custom-select-option" data-value="1915">1915</div>
+                                                    <div class="custom-select-option" data-value="1914">1914</div>
+                                                    <div class="custom-select-option" data-value="1913">1913</div>
+                                                    <div class="custom-select-option" data-value="1912">1912</div>
+                                                    <div class="custom-select-option" data-value="1911">1911</div>
+                                                    <div class="custom-select-option" data-value="1910">1910</div>
+
+                                                    <!-- 1900년대 -->
+                                                    <div class="custom-select-option" data-value="1909">1909</div>
+                                                    <div class="custom-select-option" data-value="1908">1908</div>
+                                                    <div class="custom-select-option" data-value="1907">1907</div>
+                                                    <div class="custom-select-option" data-value="1906">1906</div>
+                                                    <div class="custom-select-option" data-value="1905">1905</div>
+                                                    <div class="custom-select-option" data-value="1904">1904</div>
+                                                    <div class="custom-select-option" data-value="1903">1903</div>
+                                                    <div class="custom-select-option" data-value="1902">1902</div>
+                                                    <div class="custom-select-option" data-value="1901">1901</div>
+                                                    <div class="custom-select-option" data-value="1900">1900</div>
+
                                                 </div>
                                             </div>
                                         </div>
+
+                                        <span class="phone-separator">-</span>
+
+                                        <!-- 월 선택 -->
+                                        <div class="custom-select-wrapper" id="birthMonthSelect">
+                                            <div class="custom-select-input">월</div>
+                                            <span class="custom-select-arrow">▼</span>
+                                            <div class="custom-select-dropdown">
+                                                <div class="custom-select-list">
+                                                    <div class="custom-select-option" data-value="01">01</div>
+                                                    <div class="custom-select-option" data-value="02">02</div>
+                                                    <div class="custom-select-option" data-value="03">03</div>
+                                                    <div class="custom-select-option" data-value="04">04</div>
+                                                    <div class="custom-select-option" data-value="05">05</div>
+                                                    <div class="custom-select-option" data-value="06">06</div>
+                                                    <div class="custom-select-option" data-value="07">07</div>
+                                                    <div class="custom-select-option" data-value="08">08</div>
+                                                    <div class="custom-select-option" data-value="09">09</div>
+                                                    <div class="custom-select-option" data-value="10">10</div>
+                                                    <div class="custom-select-option" data-value="11">11</div>
+                                                    <div class="custom-select-option" data-value="12">12</div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <span class="phone-separator">-</span>
+                                        <!-- 일 입력 -->
+                                        <input type="tel" id="birthDay" name="birthDay" maxlength="2" placeholder="일">
                                     </div>
-                                    <div class="error-message" id="emailError">올바른 이메일을 입력해주세요.</div>
+
+                                    <div class="error-message" id="birthdayError">생년월일을 입력해주세요.</div>
                                 </div>
                             </div>
+                        </div>
+                        <!-- //form-list -->
 
+                        <div class="donate-list qna-list form-list" data-aos="fade-up" data-aos-duration="400"
+                            data-aos-delay="800">
+                            <div class="sub-tit-box-list">
+                                <h4 class="sub-tit">납부방법</h4>
+                                <p class="add-info">
+                                    <img src="./assets/images/common/bi.svg" alt="bi">일시후원은 후원자께서 직접 후원 계좌에 후원금을 입금해주시면
+                                    됩니다.
+                                </p>
+                            </div>
                             <div class="form-group">
-                                <label for="subject">제목 <span class="required">*</span></label>
+                                <label for="account">후원 계좌 <span class="required">*</span></label>
                                 <div class="input-wrapper">
-                                    <input type="text" id="subject" name="subject" placeholder="문의 제목을 입력해주세요"
-                                        class="subject">
-                                    <div class="error-message" id="subjectError">제목을 입력해주세요.</div>
+                                    <p class="info">국민은행 123-456-78901234 (예금주 : 은빛노인복지센터)</p>
                                 </div>
                             </div>
 
+                            <!-- 입금자명 -->
                             <div class="form-group">
-                                <label for="message">문의내용 <span class="required">*</span></label>
+                                <label for="depositor">입금자명 <span class="required">*</span></label>
                                 <div class="input-wrapper">
-                                    <textarea id="message" name="message" placeholder="문의하실 내용을 상세히 입력해주세요"></textarea>
-                                    <div class="error-message" id="messageError">문의 내용을 입력해주세요.</div>
+                                    <input type="text" id="depositor" name="depositor" placeholder="입금자명을 입력해주세요"
+                                        class="name">
+                                    <div class="error-message" id="depositorError">입금자명을 입력해주세요.</div>
                                 </div>
                             </div>
+                        </div>
+                        <!-- //form-list -->
 
+                        <div class="donate-list qna-list form-list" data-aos="fade-up" data-aos-duration="400"
+                            data-aos-delay="800">
+                            <div class="sub-tit-box-list">
+                                <h4 class="sub-tit">기부금 영수증</h4>
+                                <p class="add-info">
+                                    <img src="./assets/images/common/bi.svg" alt="bi">입금 확인 후 감사 안내 및 기부금영수증 발급 절차를
+                                    도와드립니다.
+                                </p>
+                            </div>
+                            <!-- 영수증 발급 (라디오 버튼) -->
                             <div class="form-group">
-                                <label for="attachment">파일 첨부</label>
+                                <label>영수증 발급 여부 <span class="required">*</span></label>
                                 <div class="input-wrapper">
-                                    <input type="file" id="attachment" name="attachment[]" class="file-input" multiple
-                                        accept="image/*,.pdf,.doc,.docx,.xls,.xlsx,.zip">
-                                    <div class="file-note">* 첨부파일은 최대 10MB, 여러 개 업로드 가능합니다.</div>
-                                    <div class="file-list" id="fileList"></div>
-                                    <div class="error-message" id="fileError">파일 용량을 초과한 항목이 있습니다. (파일당 최대 10MB)</div>
+                                    <div class="input-block-group">
+                                        <div class="radio-block">
+                                            <input id="type1" type="radio" name="sp_receipt" value="Y" checked="">
+                                            <i></i>
+                                            <label for="type1">예</label>
+                                        </div>
+                                        <div class="radio-block">
+                                            <input id="type2" type="radio" name="sp_receipt" value="N">
+                                            <i></i>
+                                            <label for="type2">아니오</label>
+                                        </div>
+                                    </div>
+                                    <div class="error-message" id="receiptError">선택해주세요.</div>
                                 </div>
-                            </div>
-
-
-
-
-                            <div class="form_btn">
-                                <div class="privacy-box">
-                                    <label class="checkbox-group">
-                                        <input type="checkbox" id="agreePrivacy" name="agreePrivacy">
-                                        <span class="sub-text">개인정보처리방침 동의(필수)
-                                            <span class="privacy-link" id="privacyLink">자세히보기</span>
-                                        </span>
+                                <!-- <div class="input-wrapper">
+                                    <label>
+                                        <input type="radio" name="receipt" value="yes"> 발급
                                     </label>
-                                    <div class="error-message" id="privacyError">개인정보 수집 및 이용에 동의해주세요.</div>
-                                </div>
-
-                                <button type="submit" class="form-button">등록</button>
-
-                                <!-- <button type="submit" class="submit-btn">
-                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                        stroke-width="2">
-                                        <line x1="22" y1="2" x2="11" y2="13"></line>
-                                        <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
-                                    </svg>
-                                    등록
-                                </button> -->
+                                    <label>
+                                        <input type="radio" name="receipt" value="no" checked> 미발급
+                                    </label>
+                                    <div class="error-message" id="receiptError">선택해주세요.</div> 새로 추가 
+                                </div>-->
                             </div>
-                        </form>
-                    </div>
 
-                    <div class="footer-note">
-                        문의사항은 영업일 기준 1-2일 이내에 답변드립니다.
-                    </div>
-                </section>
+                            <!-- 주민등록번호 -->
+                            <div class="form-group">
+                                <label for="ssn">주민등록번호</label>
+                                <div class="input-wrapper">
+                                    <input type="text" id="ssn1" name="ssn1" maxlength="6" placeholder="앞자리">
+
+                                    <!-- ✅ id/name 변경 -->
+                                    <span class="phone-separator">-</span>
+                                    <input type="password" id="ssn2" name="ssn2" maxlength="7" placeholder="뒷자리">
+                                    <!-- ✅ id/name 변경 -->
+                                    <div class="error-message" id="ssnError">주민등록번호를 정확히 입력해주세요.</div>
+                                    <!-- ✅ id 변경 -->
+                                </div>
+                            </div>
+                        </div> <!-- //form-list -->
+
+                        <div class="donate-list qna-list form-list aos-init aos-animate" data-aos="fade-up"
+                            data-aos-duration="400" data-aos-delay="800">
+                            <div class="sub-tit-box-list">
+                                <h4 class="sub-tit">나의 후원 내용</h4>
+                                <p class="add-info">
+                                    <img src="./assets/images/common/bi.svg" alt="bi">나에게 맞는 후원 형태로 참여하실 수 있습니다. 편하신
+                                    방식으로 후원 내용을 선택해주세요.
+                                </p>
+                            </div>
+                            <!-- 라디오 버튼-->
+                            <div class="form-group">
+                                <label>후원종류 <span class="required">*</span></label>
+                                <div class="input-wrapper">
+                                    <div id="type-input-list" class="input-block-group">
+                                        <div class="radio-block">
+                                            <input id="type-input-sponsor" type="radio" name="sp_type" value="sponsor"
+                                                checked="">
+                                            <i></i>
+                                            <label for="type-input-sponsor">기금후원</label>
+                                        </div>
+
+                                        <div class="radio-block">
+                                            <input id="type-input-goods" type="radio" name="sp_type" value="goods">
+                                            <i></i>
+                                            <label for="type-input-goods">물품후원</label>
+                                        </div>
+
+                                        <div class="radio-block">
+                                            <input id="type-input-anniversary" type="radio" name="sp_type"
+                                                value="anniversary">
+                                            <i></i>
+                                            <label for="type-input-anniversary">기념일후원</label>
+                                        </div>
+                                    </div>
+                                    <div class="error-message" id="donationTypeError">선택해주세요.</div>
+                                </div>
+                            </div>
+
+                            <!-- 라디오 버튼 -->
+                            <div class="form-group">
+                                <label>후원방식 <span class="required">*</span></label>
+                                <div class="input-wrapper">
+                                    <div class="input-block-group">
+                                        <div class="radio-block">
+                                            <input id="type2-1" type="radio" name="sp_regular" value="Y" checked="">
+                                            <i></i>
+                                            <label for="type2-1">정기후원</label>
+                                        </div>
+                                        <div class="radio-block">
+                                            <input id="type2-2" type="radio" name="sp_regular" value="N">
+                                            <i></i>
+                                            <label for="type2-2">일시후원</label>
+                                        </div>
+                                    </div>
+                                    <div class="error-message" id="donationMethodError">선택해주세요.</div>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label>후원금액 <span class="required">*</span></label>
+                                <div class="input-wrapper">
+                                    <div id="amount-input-list" class="input-block-group add">
+
+                                        <div class="radio-block">
+                                            <input id="amount-1" type="radio" name="sp_amount" value="10000" checked>
+                                            <i></i>
+                                            <label for="amount-1">1만원</label>
+                                        </div>
+
+                                        <div class="radio-block">
+                                            <input id="amount-2" type="radio" name="sp_amount" value="20000">
+                                            <i></i>
+                                            <label for="amount-2">2만원</label>
+                                        </div>
+
+                                        <div class="radio-block">
+                                            <input id="amount-3" type="radio" name="sp_amount" value="30000">
+                                            <i></i>
+                                            <label for="amount-3">3만원</label>
+                                        </div>
+
+                                        <div class="radio-block">
+                                            <input id="amount-4" type="radio" name="sp_amount" value="40000">
+                                            <i></i>
+                                            <label for="amount-4">4만원</label>
+                                        </div>
+
+                                        <div class="radio-block">
+                                            <input id="amount-5" type="radio" name="sp_amount" value="50000">
+                                            <i></i>
+                                            <label for="amount-5">5만원</label>
+                                        </div>
+
+                                        <div class="radio-block">
+                                            <input id="amount-10" type="radio" name="sp_amount" value="100000">
+                                            <i></i>
+                                            <label for="amount-10">10만원</label>
+                                        </div>
+
+                                        <div class="radio-block">
+                                            <input id="amount-20" type="radio" name="sp_amount" value="200000">
+                                            <i></i>
+                                            <label for="amount-20">20만원</label>
+                                        </div>
+
+                                        <!-- 직접입력 -->
+                                        <!-- 직접입력 라디오 -->
+                                        <div class="radio-block">
+                                            <input id="amount-direct" type="radio" name="sp_amount" value="direct">
+                                            <i></i>
+                                            <label for="amount-direct">직접입력</label>
+                                        </div>
+
+                                        <!-- 직접입력 input -->
+                                        <div class="direct-input-wrap" id="directAmountWrap" style="display:none;">
+                                            <input type="number" id="directAmount" name="directAmount"
+                                                placeholder="금액을 입력해주세요">
+                                        </div>
+                                        <!-- <div class="radio-block">
+                                            <input id="amount-direct" type="radio" name="sp_amount" value="direct">
+                                            <i></i>
+                                            <label for="amount-direct">직접입력</label>
+                                        </div> -->
+                                    </div>
+
+                                    <p class="form-desc"><span class="required">*</span> 후원 금액은 1,000원 단위로 입력해주세요.</p>
+
+                                    <!-- 직접입력용 텍스트 필드 (선택 시 표시) -->
+                                    <div class="direct-input-wrap" id="directAmountWrap" style="display:none;">
+                                        <input type="number" id="directAmount" name="directAmount"
+                                            placeholder="금액을 입력해주세요">
+                                    </div>
+
+                                    <div class="error-message" id="donationAmountError">선택해주세요.</div>
+                                </div>
+                            </div>
+
+                        </div><!-- //form-list -->
+
+
+
             </div>
-            <!-- //inner -->
-            <!-- Privacy Policy Popup -->
-            <div class="privacy-popup" id="privacyPopup">
-                <div class="privacy-popup-content">
-                    <div class="privacy-popup-header">
-                        <h2>개인정보 수집 및 이용 동의</h2>
-                        <div class="close-btn popup-close"></div>
-                        <!-- <button class="close-btn" id="closePrivacyBtn">X</button> -->
-                    </div>
-                    <div class="privacy-popup-body">
-                        <h3>1. 개인정보의 수집 및 이용 목적</h3>
-                        <p>은빛노인복지센터는 다음의 목적을 위하여 개인정보를 수집·이용합니다. 수집된 개인정보는 아래 목적 외에는 사용되지 않으며, 목적 변경 시 관련 법령에 따라 별도
-                            동의를 받습니다.
-                        </p>
-                        <ul>
-                            <li>문의 및 상담 요청 확인 및 회신</li>
-                            <li>복지 서비스 이용 관련 상담 제공</li>
-                            <li>프로그램 안내 및 이용 지원</li>
-                            <li>센터 운영을 위한 통계 분석</li>
-                        </ul>
+            <!-- //donate-list -->
 
-                        <h3>2. 수집하는 개인정보 항목</h3>
-                        <ul>
-                            <li>필수항목: 이름, 연락처, 이메일, 문의내용</li>
-                            <li>선택항목: 해당 없음</li>
-                        </ul>
-
-                        <h3>3. 개인정보의 보유 및 이용기간</h3>
-                        <p>은빛노인복지센터는 개인정보 수집 목적이 달성된 후 즉시 파기합니다. 단, 관련 법령에 따라 일정 기간 보존할 수 있습니다.</p>
-                        <ul>
-                            <li>민원·문의사항 처리 기록: 3년 (전자상거래 등에서의 소비자보호에 관한 법률)</li>
-                            <li>기타 법령에서 정한 기간</li>
-                        </ul>
-
-                        <h3>4. 개인정보의 제3자 제공</h3>
-                        <p>센터는 원칙적으로 이용자의 개인정보를 제3자에게 제공하지 않습니다. 단, 아래 경우는 예외로 합니다.</p>
-                        <ul>
-                            <li>이용자가 사전에 동의한 경우</li>
-                            <li>법령에 의거해 제공이 요구되는 경우</li>
-                        </ul>
-
-                        <h3>5. 개인정보 처리의 위탁</h3>
-                        <p>센터는 원활한 상담 및 운영을 위해 일부 개인정보 처리 업무를 위탁할 수 있으며, 위탁 시 관련 법령을 준수합니다.</p>
-                        <ul>
-                            <li>위탁받는 자: 고객응대 또는 상담 지원 업체(해당 시)</li>
-                            <li>위탁 내용: 문의 상담 및 지원 업무</li>
-                        </ul>
-
-                        <h3>6. 정보주체의 권리·의무 및 행사방법</h3>
-                        <p>이용자는 언제든지 다음 사항에 대해 개인정보 열람, 정정, 삭제, 처리정지를 요청할 수 있습니다.</p>
-                        <ul>
-                            <li>개인정보 열람 요구</li>
-                            <li>정정·삭제 요구</li>
-                            <li>처리정지 요구</li>
-                        </ul>
-                    </div>
+            <div class="form_btn">
+                <div class="privacy-box">
+                    <label class="checkbox-group">
+                        <input type="checkbox" id="agreePrivacy" name="agreePrivacy">
+                        <span class="sub-text">개인정보처리방침 동의(필수)
+                            <span class="privacy-link" id="privacyLink">자세히보기</span>
+                        </span>
+                    </label>
+                    <div class="error-message" id="privacyError">개인정보 수집 및 이용에 동의해주세요.</div>
                 </div>
+                <button type="submit" class="form-button">등록</button>
+                <!-- <p class="footer-note">
+                                문의사항은 영업일 기준 1-2일 이내에 답변드립니다.
+                            </p> -->
             </div>
-
-            <!-- Success Modal -->
-            <div class="success-modal" id="successModal">
-                <div class="success-content">
-                    <div class="success-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
-                            <polyline points="20 6 9 17 4 12"></polyline>
-                        </svg>
-                    </div>
-                    <h2>문의가 접수되었습니다</h2>
-                    <p>기재하신 이메일로 <br> 빠른 시일 내에 답변 드리겠습니다. <br>3초뒤에 팝업이 닫힙니다.</p>
-                </div>
-            </div>
-            <!-- //Success Modal -->
-
+            </form>
+            </section>
         </div>
+        <!-- //inner -->
+
+        <!-- Privacy Policy Popup -->
+        <div class="privacy-popup" id="privacyPopup">
+            <div class="privacy-popup-content">
+                <div class="privacy-popup-header">
+                    <h2>개인정보 수집 및 이용 동의</h2>
+                    <div class="close-btn popup-close"></div>
+                    <!-- <button class="close-btn" id="closePrivacyBtn">X</button> -->
+                </div>
+                <div class="privacy-popup-body">
+                    <h3>1. 개인정보의 수집 및 이용 목적</h3>
+                    <p>은빛노인복지센터는 다음의 목적을 위하여 개인정보를 수집·이용합니다. 수집된 개인정보는 아래 목적 외에는 사용되지 않으며, 목적 변경 시 관련 법령에 따라 별도
+                        동의를 받습니다.
+                    </p>
+                    <ul>
+                        <li>문의 및 상담 요청 확인 및 회신</li>
+                        <li>복지 서비스 이용 관련 상담 제공</li>
+                        <li>프로그램 안내 및 이용 지원</li>
+                        <li>센터 운영을 위한 통계 분석</li>
+                    </ul>
+
+                    <h3>2. 수집하는 개인정보 항목</h3>
+                    <ul>
+                        <li>필수항목: 이름, 연락처, 이메일, 문의내용</li>
+                        <li>선택항목: 해당 없음</li>
+                    </ul>
+
+                    <h3>3. 개인정보의 보유 및 이용기간</h3>
+                    <p>은빛노인복지센터는 개인정보 수집 목적이 달성된 후 즉시 파기합니다. 단, 관련 법령에 따라 일정 기간 보존할 수 있습니다.</p>
+                    <ul>
+                        <li>민원·문의사항 처리 기록: 3년 (전자상거래 등에서의 소비자보호에 관한 법률)</li>
+                        <li>기타 법령에서 정한 기간</li>
+                    </ul>
+
+                    <h3>4. 개인정보의 제3자 제공</h3>
+                    <p>센터는 원칙적으로 이용자의 개인정보를 제3자에게 제공하지 않습니다. 단, 아래 경우는 예외로 합니다.</p>
+                    <ul>
+                        <li>이용자가 사전에 동의한 경우</li>
+                        <li>법령에 의거해 제공이 요구되는 경우</li>
+                    </ul>
+
+                    <h3>5. 개인정보 처리의 위탁</h3>
+                    <p>센터는 원활한 상담 및 운영을 위해 일부 개인정보 처리 업무를 위탁할 수 있으며, 위탁 시 관련 법령을 준수합니다.</p>
+                    <ul>
+                        <li>위탁받는 자: 고객응대 또는 상담 지원 업체(해당 시)</li>
+                        <li>위탁 내용: 문의 상담 및 지원 업무</li>
+                    </ul>
+
+                    <h3>6. 정보주체의 권리·의무 및 행사방법</h3>
+                    <p>이용자는 언제든지 다음 사항에 대해 개인정보 열람, 정정, 삭제, 처리정지를 요청할 수 있습니다.</p>
+                    <ul>
+                        <li>개인정보 열람 요구</li>
+                        <li>정정·삭제 요구</li>
+                        <li>처리정지 요구</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Success Modal -->
+        <div class="success-modal" id="successModal">
+            <div class="success-content">
+                <div class="success-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                        <polyline points="20 6 9 17 4 12"></polyline>
+                    </svg>
+                </div>
+                <h2>문의가 접수되었습니다</h2>
+                <p>기재하신 이메일로 <br> 빠른 시일 내에 답변 드리겠습니다. <br>3초뒤에 팝업이 닫힙니다.</p>
+            </div>
+        </div>
+        <!-- //Success Modal -->
+
+    </div>
     </div><!-- sub-content END -->
     <!-- #sub END-->
 
@@ -811,10 +1003,32 @@
     <script>
         $(function () {
 
+            const $amountRadios = $("input[name='sp_amount']");
+            const $directRadio = $("#amount-direct");
+            const $directWrap = $("#directAmountWrap");
+            const $directInput = $("#directAmount");
+
+            $amountRadios.on("change", function () {
+
+                if ($directRadio.is(":checked")) {
+                    // 직접입력 선택 시
+                    $directWrap.show();
+                    $directInput.focus(); // 바로 입력 가능
+                } else {
+                    // 다른 금액 선택 시 숨김 + 값 초기화
+                    $directWrap.hide();
+                    $directInput.val("");
+                }
+
+            });
+
             const selectData = {
                 category: '',
                 phone: '010',
-                email: ''
+                email: '',
+                birthYear: '',
+                birthMonth: '',
+                birthDay: ''
             };
 
             let attachedFiles = []; // 파일 관리용
@@ -844,18 +1058,19 @@
 
                     selectData[dataKey] = $(this).data("value");
                     $input.text($(this).text());
-
-                    if (!selectData[dataKey]) $input.addClass("placeholder");
-                    else $input.removeClass("placeholder");
+                    $input.removeClass("placeholder");
 
                     $wrapper.removeClass("active");
 
+                    // 각 필드 선택 시 에러 숨기기
                     if (dataKey === 'category') hideError('category');
-
                     if (dataKey === 'email') {
                         const $domain = $("#emailDomain");
                         if (selectData.email) $domain.val(selectData.email).prop("readonly", true);
                         else $domain.val("").prop("readonly", false);
+                    }
+                    if (dataKey === 'birthYear' || dataKey === 'birthMonth' || dataKey === 'birthDay') {
+                        $("#birthdayError").removeClass("show");
                     }
                 });
             }
@@ -863,6 +1078,9 @@
             initCustomSelect("categorySelect", "category");
             initCustomSelect("phoneSelect", "phone");
             initCustomSelect("emailSelect", "email");
+            initCustomSelect("birthYearSelect", "birthYear");
+            initCustomSelect("birthMonthSelect", "birthMonth");
+            initCustomSelect("birthDaySelect", "birthDay");
 
             // 클릭 시 셀렉트 닫기
             $(document).on("click", function () {
@@ -870,9 +1088,9 @@
             });
 
 
-            /* =======================
+            /* ==========================
                 개인정보 처리방침 팝업
-            ======================= */
+            ========================== */
             $("#privacyLink").on("click", function (e) {
                 e.preventDefault();
                 e.stopPropagation();
@@ -893,9 +1111,9 @@
             });
 
 
-            /* ======================
+            /* ==========================
                 에러 메시지 제어
-            ====================== */
+            ========================== */
             function hideError(fieldId) {
                 $("#" + fieldId + "Error").removeClass("show");
                 if (fieldId === "category") $("#categorySelect").removeClass("error");
@@ -918,9 +1136,9 @@
             $("#agreePrivacy").on("change", () => hideError("privacy"));
 
 
-            /* ======================
+            /* ==========================
                 파일첨부 처리
-            ====================== */
+            ========================== */
             function formatFileSize(bytes) {
                 if (bytes === 0) return '0 Bytes';
                 const k = 1024;
@@ -940,8 +1158,6 @@
                     attachedFiles.map((file, idx) => `
                 <div class="file-item">
                     <div class="file-item-info">
-                        <!-- <span class="file-item-icon">📎</span> -->
-
                         <span class="file-item-icon">
                             <svg width="13" height="20" viewBox="0 0 19 18" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M3.42857 23C2.78447 23 2.16676 22.7425 1.71131 22.284C1.25587 21.8256 1 21.2039 1 20.5556V1H11.9286L18 7.11111V20.5556C18 21.2039 17.7441 21.8256 17.2887 22.284C16.8332 22.7425 16.2155 23 15.5714 23H3.42857Z" stroke="#555555" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -982,9 +1198,9 @@
             });
 
 
-            /* ======================
+            /* ==========================
                 폼 유효성 검사
-            ====================== */
+            ========================== */
             function validateForm() {
                 let isValid = true;
 
@@ -1003,15 +1219,20 @@
                 if (!$("#subject").val().trim()) { showError("subject", "제목을 입력해주세요."); isValid = false; }
                 if (!$("#message").val().trim()) { showError("message", "내용을 입력해주세요."); isValid = false; }
 
+                if (!selectData.birthYear || !selectData.birthMonth || !selectData.birthDay) {
+                    $("#birthdayError").addClass("show");
+                    isValid = false;
+                }
+
                 if (!$("#agreePrivacy").is(":checked")) { showError("privacy", "필수 항목입니다."); isValid = false; }
 
                 return isValid;
             }
 
 
-            /* ======================
+            /* ==========================
                 폼 초기화
-            ====================== */
+            ========================== */
             function resetForm() {
                 $("#inquiryForm")[0].reset();
                 $("#emailDomain").prop("readonly", false);
@@ -1022,6 +1243,9 @@
                 selectData.category = "";
                 selectData.phone = "010";
                 selectData.email = "";
+                selectData.birthYear = "";
+                selectData.birthMonth = "";
+                selectData.birthDay = "";
 
                 // 카테고리 초기화
                 $("#categorySelect .custom-select-input").text("선택").addClass("placeholder");
@@ -1034,12 +1258,22 @@
                 // 이메일 초기화
                 $("#emailSelect .custom-select-input").text("직접 입력").addClass("placeholder");
                 $("#emailSelect .custom-select-option").removeClass("selected").eq(0).addClass("selected");
+
+                // 생년월일 초기화
+                $("#birthYearSelect .custom-select-input").text("연도").addClass("placeholder");
+                $("#birthYearSelect .custom-select-option").removeClass("selected");
+
+                $("#birthMonthSelect .custom-select-input").text("월").addClass("placeholder");
+                $("#birthMonthSelect .custom-select-option").removeClass("selected");
+
+                $("#birthDaySelect .custom-select-input").text("일").addClass("placeholder");
+                $("#birthDaySelect .custom-select-option").removeClass("selected");
             }
 
 
-            /* ======================
+            /* ==========================
                 폼 제출 이벤트
-            ====================== */
+            ========================== */
             $("#inquiryForm").on("submit", function (e) {
                 e.preventDefault();
 
@@ -1049,6 +1283,7 @@
                         name: $("#name").val(),
                         phone: selectData.phone + "-" + $("#phone2").val() + "-" + $("#phone3").val(),
                         email: $("#emailId").val() + "@" + $("#emailDomain").val(),
+                        birthday: selectData.birthYear + "-" + selectData.birthMonth + "-" + selectData.birthDay,
                         subject: $("#subject").val(),
                         message: $("#message").val(),
                         files: attachedFiles.map(f => f.name)
@@ -1081,145 +1316,10 @@
                 return false;
             });
 
-            // 생년월일 셀렉트박스 초기화
-            function initBirthdaySelects() {
-                const birthYearSelect = document.getElementById('birthYearSelect');
-                const birthMonthSelect = document.getElementById('birthMonthSelect');
-                const birthDaySelect = document.getElementById('birthDaySelect');
-
-                // 연도 옵션 생성 (2025 ~ 1900)
-                const yearList = birthYearSelect.querySelector('.custom-select-list');
-                yearList.innerHTML = '';
-                for (let year = 2025; year >= 1900; year--) {
-                    const option = document.createElement('div');
-                    option.className = 'custom-select-option';
-                    option.setAttribute('data-value', year);
-                    option.textContent = year;
-                    yearList.appendChild(option);
-                }
-
-                // 각 셀렉트박스에 이벤트 리스너 추가
-                setupCustomSelect(birthYearSelect);
-                setupCustomSelect(birthMonthSelect);
-                setupCustomSelect(birthDaySelect);
-            }
-
-            // 커스텀 셀렉트 박스 설정
-            function setupCustomSelect(selectWrapper) {
-                const input = selectWrapper.querySelector('.custom-select-input');
-                const dropdown = selectWrapper.querySelector('.custom-select-dropdown');
-                const options = selectWrapper.querySelectorAll('.custom-select-option');
-
-                // 셀렉트박스 클릭 시 드롭다운 토글
-                input.addEventListener('click', function (e) {
-                    e.stopPropagation();
-
-                    // 다른 열려있는 드롭다운 닫기
-                    document.querySelectorAll('.custom-select-dropdown').forEach(dd => {
-                        if (dd !== dropdown) {
-                            dd.style.display = 'none';
-                        }
-                    });
-
-                    // 현재 드롭다운 토글
-                    if (dropdown.style.display === 'block') {
-                        dropdown.style.display = 'none';
-                    } else {
-                        dropdown.style.display = 'block';
-                    }
-                });
-
-                // 옵션 선택 시
-                options.forEach(option => {
-                    option.addEventListener('click', function (e) {
-                        e.stopPropagation();
-
-                        // 선택된 옵션 표시 업데이트
-                        options.forEach(opt => opt.classList.remove('selected'));
-                        this.classList.add('selected');
-
-                        // input 값 업데이트
-                        input.textContent = this.getAttribute('data-value');
-                        input.classList.add('selected');
-
-                        // 드롭다운 닫기
-                        dropdown.style.display = 'none';
-                    });
-                });
-            }
-
-            // 외부 클릭 시 모든 드롭다운 닫기
-            document.addEventListener('click', function () {
-                document.querySelectorAll('.custom-select-dropdown').forEach(dropdown => {
-                    dropdown.style.display = 'none';
-                });
-            });
-
-            // 생년월일 유효성 검사
-            function validateBirthday() {
-                const yearInput = document.querySelector('#birthYearSelect .custom-select-input');
-                const monthInput = document.querySelector('#birthMonthSelect .custom-select-input');
-                const dayInput = document.querySelector('#birthDaySelect .custom-select-input');
-                const errorMsg = document.getElementById('birthdayError');
-
-                const year = yearInput.textContent;
-                const month = monthInput.textContent;
-                const day = dayInput.textContent;
-
-                // 기본값인지 확인
-                if (year === '연도' || month === '월' || day === '일') {
-                    errorMsg.style.display = 'block';
-                    return false;
-                }
-
-                // 날짜 유효성 검사
-                const date = new Date(year, month - 1, day);
-                if (date.getFullYear() != year ||
-                    date.getMonth() != month - 1 ||
-                    date.getDate() != day) {
-                    errorMsg.textContent = '올바른 날짜를 입력해주세요.';
-                    errorMsg.style.display = 'block';
-                    return false;
-                }
-
-                errorMsg.style.display = 'none';
-                return true;
-            }
-
-            // 생년월일 값 가져오기
-            function getBirthdayValue() {
-                const year = document.querySelector('#birthYearSelect .custom-select-input').textContent;
-                const month = document.querySelector('#birthMonthSelect .custom-select-input').textContent;
-                const day = document.querySelector('#birthDaySelect .custom-select-input').textContent;
-
-                if (year === '연도' || month === '월' || day === '일') {
-                    return null;
-                }
-
-                return `${year}-${month}-${day}`;
-            }
-
-            // 페이지 로드 시 초기화
-            document.addEventListener('DOMContentLoaded', function () {
-                initBirthdaySelects();
-            });
-
-            // 사용 예시: 폼 제출 시
-            // document.querySelector('form').addEventListener('submit', function(e) {
-            //     e.preventDefault();
-            //     if (validateBirthday()) {
-            //         const birthday = getBirthdayValue();
-            //         console.log('생년월일:', birthday);
-            //     }
-            // });
-
-
-
 
 
         });
     </script>
-
 
 
 
