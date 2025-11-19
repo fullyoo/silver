@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>회원 정보 입력 폼</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background-color: #f5f5f5;
+            padding: 20px;
+        }
+
+        .qna-list {
+            max-width: 600px;
+            margin: 0 auto;
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-group {
+            margin-bottom: 24px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: #333;
+            font-size: 14px;
+        }
+
+        .required {
+            color: #ff4444;
+        }
+
+        .input-wrapper {
+            position: relative;
+        }
+
+        input[type="text"],
+        input[type="tel"] {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 14px;
+            transition: border-color 0.3s;
+        }
+
+        input[type="text"]:focus,
+        input[type="tel"]:focus {
+            outline: none;
+            border-color: #4CAF50;
+        }
+
+        .phone-inputs,
+        .birthday-inputs {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .phone-inputs input[type="tel"] {
+            flex: 1;
+        }
+
+        .phone-separator {
+            color: #999;
+            font-weight: 500;
+        }
+
+        /* 커스텀 셀렉트 박스 스타일 */
+        .custom-select-wrapper {
+            position: relative;
+            flex: 1;
+            cursor: pointer;
+        }
+
+        .custom-select-input {
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            background: white;
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            transition: border-color 0.3s;
+            user-select: none;
+        }
+
+        .custom-select-input.selected {
+            color: #333;
+        }
+
+        .custom-select-input:not(.selected) {
+            color: #999;
+        }
+
+        .custom-select-wrapper:hover .custom-select-input {
+            border-color: #4CAF50;
+        }
+
+        .custom-select-arrow {
+            position: absolute;
+            right: 12px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #999;
+            pointer-events: none;
+            font-size: 10px;
+        }
+
+        .custom-select-dropdown {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            background: white;
+            border: 1px solid #ddd;
+            border-top: none;
+            border-radius: 0 0 4px 4px;
+            max-height: 200px;
+            overflow-y: auto;
+            z-index: 1000;
+            display: none;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .custom-select-list {
+            list-style: none;
+        }
+
+        .custom-select-option {
+            padding: 10px 12px;
+            cursor: pointer;
+            transition: background-color 0.2s;
+            font-size: 14px;
+        }
+
+        .custom-select-option:hover {
+            background-color: #f0f0f0;
+        }
+
+        .custom-select-option.selected {
+            background-color: #e8f5e9;
+            color: #4CAF50;
+            font-weight: 500;
+        }
+
+        .error-message {
+            display: none;
+            color: #ff4444;
+            font-size: 12px;
+            margin-top: 6px;
+        }
+
+        .error-message.show {
+            display: block;
+        }
+
+        /* 버튼 스타일 */
+        .submit-btn {
+            width: 100%;
+            padding: 14px;
+            background: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            margin-top: 20px;
+        }
+
+        .submit-btn:hover {
+            background: #45a049;
+        }
+
+        /* 스크롤바 스타일 */
+        .custom-select-dropdown::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        .custom-select-dropdown::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+
+        .custom-select-dropdown::-webkit-scrollbar-thumb {
+            background: #888;
+            border-radius: 4px;
+        }
+
+        .custom-select-dropdown::-webkit-scrollbar-thumb:hover {
+            background: #555;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="qna-list form-list">
+        <div class="form-group">
+            <label for="name">이름 <span class="required">*</span></label>
+            <div class="input-wrapper">
+                <input type="text" id="name" name="name" placeholder="이름을 입력해주세요" class="name">
+                <div class="error-message" id="nameError">이름을 입력해주세요.</div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label>연락처 <span class="required">*</span></label>
+            <div class="input-wrapper">
+                <div class="phone-inputs">
+                    <div class="custom-select-wrapper" id="phoneSelect">
+                        <div class="custom-select-input selected">010</div>
+                        <span class="custom-select-arrow">▼</span>
+                        <div class="custom-select-dropdown">
+                            <div class="custom-select-list">
+                                <div class="custom-select-option selected" data-value="010">010</div>
+                                <div class="custom-select-option" data-value="011">011</div>
+                                <div class="custom-select-option" data-value="016">016</div>
+                                <div class="custom-select-option" data-value="017">017</div>
+                                <div class="custom-select-option" data-value="018">018</div>
+                                <div class="custom-select-option" data-value="019">019</div>
+                            </div>
+                        </div>
+                    </div>
+                    <span class="phone-separator">-</span>
+                    <input type="tel" id="phone2" name="phone2" maxlength="4" placeholder="0000">
+                    <span class="phone-separator">-</span>
+                    <input type="tel" id="phone3" name="phone3" maxlength="4" placeholder="0000">
+                </div>
+                <div class="error-message" id="phoneError">연락처를 입력해주세요.</div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label>생년월일 <span class="required">*</span></label>
+            <div class="input-wrapper">
+                <div class="birthday-inputs">
+                    <!-- 연도 선택 -->
+                    <div class="custom-select-wrapper" id="birthYearSelect">
+                        <div class="custom-select-input">연도</div>
+                        <span class="custom-select-arrow">▼</span>
+                        <div class="custom-select-dropdown">
+                            <div class="custom-select-list" id="yearList">
+                                <!-- JavaScript로 동적 생성 -->
+                            </div>
+                        </div>
+                    </div>
+
+                    <span class="phone-separator">-</span>
+
+                    <!-- 월 선택 -->
+                    <div class="custom-select-wrapper" id="birthMonthSelect">
+                        <div class="custom-select-input">월</div>
+                        <span class="custom-select-arrow">▼</span>
+                        <div class="custom-select-dropdown">
+                            <div class="custom-select-list">
+                                <div class="custom-select-option" data-value="01">01</div>
+                                <div class="custom-select-option" data-value="02">02</div>
+                                <div class="custom-select-option" data-value="03">03</div>
+                                <div class="custom-select-option" data-value="04">04</div>
+                                <div class="custom-select-option" data-value="05">05</div>
+                                <div class="custom-select-option" data-value="06">06</div>
+                                <div class="custom-select-option" data-value="07">07</div>
+                                <div class="custom-select-option" data-value="08">08</div>
+                                <div class="custom-select-option" data-value="09">09</div>
+                                <div class="custom-select-option" data-value="10">10</div>
+                                <div class="custom-select-option" data-value="11">11</div>
+                                <div class="custom-select-option" data-value="12">12</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <span class="phone-separator">-</span>
+
+                    <!-- 일 선택 -->
+                    <div class="custom-select-wrapper" id="birthDaySelect">
+                        <div class="custom-select-input">일</div>
+                        <span class="custom-select-arrow">▼</span>
+                        <div class="custom-select-dropdown">
+                            <div class="custom-select-list">
+                                <div class="custom-select-option" data-value="01">01</div>
+                                <div class="custom-select-option" data-value="02">02</div>
+                                <div class="custom-select-option" data-value="03">03</div>
+                                <div class="custom-select-option" data-value="04">04</div>
+                                <div class="custom-select-option" data-value="05">05</div>
+                                <div class="custom-select-option" data-value="06">06</div>
+                                <div class="custom-select-option" data-value="07">07</div>
+                                <div class="custom-select-option" data-value="08">08</div>
+                                <div class="custom-select-option" data-value="09">09</div>
+                                <div class="custom-select-option" data-value="10">10</div>
+                                <div class="custom-select-option" data-value="11">11</div>
+                                <div class="custom-select-option" data-value="12">12</div>
+                                <div class="custom-select-option" data-value="13">13</div>
+                                <div class="custom-select-option" data-value="14">14</div>
+                                <div class="custom-select-option" data-value="15">15</div>
+                                <div class="custom-select-option" data-value="16">16</div>
+                                <div class="custom-select-option" data-value="17">17</div>
+                                <div class="custom-select-option" data-value="18">18</div>
+                                <div class="custom-select-option" data-value="19">19</div>
+                                <div class="custom-select-option" data-value="20">20</div>
+                                <div class="custom-select-option" data-value="21">21</div>
+                                <div class="custom-select-option" data-value="22">22</div>
+                                <div class="custom-select-option" data-value="23">23</div>
+                                <div class="custom-select-option" data-value="24">24</div>
+                                <div class="custom-select-option" data-value="25">25</div>
+                                <div class="custom-select-option" data-value="26">26</div>
+                                <div class="custom-select-option" data-value="27">27</div>
+                                <div class="custom-select-option" data-value="28">28</div>
+                                <div class="custom-select-option" data-value="29">29</div>
+                                <div class="custom-select-option" data-value="30">30</div>
+                                <div class="custom-select-option" data-value="31">31</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="error-message" id="birthdayError">생년월일을 입력해주세요.</div>
+            </div>
+        </div>
+
+        <button type="button" class="submit-btn" onclick="handleSubmit()">제출하기</button>
+    </div>
+
+    <script>
+        // 페이지 로드 시 초기화
+        document.addEventListener('DOMContentLoaded', function () {
+            initYearOptions();
+            initAllSelects();
+            initPhoneInputs();
+        });
+
+        // 연도 옵션 동적 생성 (2025 ~ 1900)
+        function initYearOptions() {
+            const yearList = document.getElementById('yearList');
+            for (let year = 2025; year >= 1900; year--) {
+                const option = document.createElement('div');
+                option.className = 'custom-select-option';
+                option.setAttribute('data-value', year);
+                option.textContent = year;
+                yearList.appendChild(option);
+            }
+        }
+
+        // 모든 커스텀 셀렉트박스 초기화
+        function initAllSelects() {
+            const selects = document.querySelectorAll('.custom-select-wrapper');
+            selects.forEach(select => setupCustomSelect(select));
+        }
+
+        // 커스텀 셀렉트박스 설정
+        function setupCustomSelect(selectWrapper) {
+            const input = selectWrapper.querySelector('.custom-select-input');
+            const dropdown = selectWrapper.querySelector('.custom-select-dropdown');
+            const options = selectWrapper.querySelectorAll('.custom-select-option');
+
+            // 셀렉트박스 클릭 시 드롭다운 토글
+            input.addEventListener('click', function (e) {
+                e.stopPropagation();
+
+                // 다른 열려있는 드롭다운 닫기
+                document.querySelectorAll('.custom-select-dropdown').forEach(dd => {
+                    if (dd !== dropdown) {
+                        dd.style.display = 'none';
+                    }
+                });
+
+                // 현재 드롭다운 토글
+                dropdown.style.display = dropdown.style.display === 'block' ? 'none' : 'block';
+            });
+
+            // 옵션 선택 시
+            options.forEach(option => {
+                option.addEventListener('click', function (e) {
+                    e.stopPropagation();
+
+                    // 선택된 옵션 표시 업데이트
+                    options.forEach(opt => opt.classList.remove('selected'));
+                    this.classList.add('selected');
+
+                    // input 값 업데이트
+                    input.textContent = this.getAttribute('data-value');
+                    input.classList.add('selected');
+
+                    // 드롭다운 닫기
+                    dropdown.style.display = 'none';
+                });
+            });
+        }
+
+        // 전화번호 입력 필드 숫자만 입력 가능하도록 설정
+        function initPhoneInputs() {
+            const phone2 = document.getElementById('phone2');
+            const phone3 = document.getElementById('phone3');
+
+            [phone2, phone3].forEach(input => {
+                input.addEventListener('input', function (e) {
+                    this.value = this.value.replace(/[^0-9]/g, '');
+                });
+            });
+        }
+
+        // 외부 클릭 시 모든 드롭다운 닫기
+        document.addEventListener('click', function () {
+            document.querySelectorAll('.custom-select-dropdown').forEach(dropdown => {
+                dropdown.style.display = 'none';
+            });
+        });
+
+        // 이름 유효성 검사
+        function validateName() {
+            const name = document.getElementById('name').value.trim();
+            const errorMsg = document.getElementById('nameError');
+
+            if (name === '') {
+                errorMsg.style.display = 'block';
+                return false;
+            }
+
+            errorMsg.style.display = 'none';
+            return true;
+        }
+
+        // 연락처 유효성 검사
+        function validatePhone() {
+            const phone1 = document.querySelector('#phoneSelect .custom-select-input').textContent;
+            const phone2 = document.getElementById('phone2').value;
+            const phone3 = document.getElementById('phone3').value;
+            const errorMsg = document.getElementById('phoneError');
+
+            if (phone2.length < 3 || phone2.length > 4 || phone3.length < 4) {
+                errorMsg.style.display = 'block';
+                return false;
+            }
+
+            errorMsg.style.display = 'none';
+            return true;
+        }
+
+        // 생년월일 유효성 검사
+        function validateBirthday() {
+            const yearInput = document.querySelector('#birthYearSelect .custom-select-input');
+            const monthInput = document.querySelector('#birthMonthSelect .custom-select-input');
+            const dayInput = document.querySelector('#birthDaySelect .custom-select-input');
+            const errorMsg = document.getElementById('birthdayError');
+
+            const year = yearInput.textContent;
+            const month = monthInput.textContent;
+            const day = dayInput.textContent;
+
+            // 기본값인지 확인
+            if (year === '연도' || month === '월' || day === '일') {
+                errorMsg.textContent = '생년월일을 입력해주세요.';
+                errorMsg.style.display = 'block';
+                return false;
+            }
+
+            // 날짜 유효성 검사
+            const date = new Date(year, month - 1, day);
+            if (date.getFullYear() != year ||
+                date.getMonth() != month - 1 ||
+                date.getDate() != day) {
+                errorMsg.textContent = '올바른 날짜를 입력해주세요.';
+                errorMsg.style.display = 'block';
+                return false;
+            }
+
+            errorMsg.style.display = 'none';
+            return true;
+        }
+
+        // 폼 제출 처리
+        function handleSubmit() {
+            const isNameValid = validateName();
+            const isPhoneValid = validatePhone();
+            const isBirthdayValid = validateBirthday();
+
+            if (isNameValid && isPhoneValid && isBirthdayValid) {
+                // 데이터 수집
+                const formData = {
+                    name: document.getElementById('name').value,
+                    phone: getPhoneValue(),
+                    birthday: getBirthdayValue()
+                };
+
+                console.log('제출 데이터:', formData);
+                alert('입력이 완료되었습니다!\n\n' +
+                    '이름: ' + formData.name + '\n' +
+                    '연락처: ' + formData.phone + '\n' +
+                    '생년월일: ' + formData.birthday);
+            } else {
+                alert('모든 필수 항목을 정확히 입력해주세요.');
+            }
+        }
+
+        // 전화번호 값 가져오기
+        function getPhoneValue() {
+            const phone1 = document.querySelector('#phoneSelect .custom-select-input').textContent;
+            const phone2 = document.getElementById('phone2').value;
+            const phone3 = document.getElementById('phone3').value;
+            return `${phone1}-${phone2}-${phone3}`;
+        }
+
+        // 생년월일 값 가져오기
+        function getBirthdayValue() {
+            const year = document.querySelector('#birthYearSelect .custom-select-input').textContent;
+            const month = document.querySelector('#birthMonthSelect .custom-select-input').textContent;
+            const day = document.querySelector('#birthDaySelect .custom-select-input').textContent;
+            return `${year}-${month}-${day}`;
+        }
+    </script>
+</body>
+
+</html>
