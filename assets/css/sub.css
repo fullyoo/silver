@@ -373,7 +373,7 @@
 }
 
 .title-xs {
-    color: var(--body-color2);
+    color: var(--body2-color);
     font-size: 18px;
 
 }
@@ -931,7 +931,7 @@
     justify-content: center;
     padding: 13px 40px;
     border-radius: 5px;
-    border: 1px solid var(--body-color2);
+    border: 1px solid var(--body2-color);
     background-color: var(--white-color);
     box-sizing: border-box;
     color: var(--text-color);
@@ -1052,7 +1052,7 @@
 
 .customoverlay:nth-of-type(n) {
     border: none;
-    box-shadow: 0px 1px 2px var(--body-color2);
+    box-shadow: 0px 1px 2px var(--body2-color);
 }
 
 .customoverlay a {
@@ -1434,7 +1434,7 @@
 }
 
 .notice-item .notice-date {
-    color: var(--body-color2);
+    color: var(--body2-color);
     font-weight: var(--font-500);
 }
 
@@ -1586,7 +1586,7 @@
 
 .gallery-date {
     font-size: 16px;
-    color: var(--body-color2);
+    color: var(--body2-color);
 }
 
 
@@ -1658,13 +1658,13 @@
 .view-box .title div hr {
     width: 1px;
     height: 15px;
-    background-color: var(--body-color2);
+    background-color: var(--body2-color);
     border: none;
     margin: 0;
 }
 
 .view-box .title div span {
-    color: var(--body-color2);
+    color: var(--body2-color);
 }
 
 .view-box .view-content-list {
@@ -2227,7 +2227,7 @@
 .qna-list textarea {
     width: 50%;
     border: 1px solid var(--border-color);
-    font-size: 20px;
+    font-size: 18px;
 }
 
 .qna-list textarea:focus {
@@ -2310,7 +2310,7 @@ textarea {
     padding: 15px 20px;
     border: 1px solid var(--border-color);
     border-radius: 10px;
-    font-size: 20px;
+    font-size: 18px;
     flex-grow: 1;
     transition: .3s;
     cursor: pointer;
@@ -2328,7 +2328,7 @@ textarea {
 .custom-select-wrapper.active .custom-select-input {
     border-color: var(--primary-color);
     color: var(--primary-color);
-    /* box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1); */
+    /* box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.1); */
 }
 
 .custom-select-wrapper:hover .custom-select-arrow {
@@ -2405,10 +2405,13 @@ textarea {
     display: block;
 }
 
+.error-message#fileError {
+    text-align: center;
+}
+
 .privacy-box {
     background-color: var(--bg-color);
     padding: 30px;
-    border-radius: 10px;
     margin-bottom: 30px;
 }
 
@@ -2606,6 +2609,127 @@ textarea {
 .form_btn {
     text-align: center;
 }
+
+/* 파일 첨부 스타일 */
+.file-input {
+    width: 100%;
+    padding: 12px 16px;
+    border: 1px dashed var(--border-color);
+    border-radius: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.2s;
+    background-color: var(--lightgraybg-color);
+}
+
+.file-input:hover {
+    border: 1px dashed var(--primary-color);
+    background-color: var(--redbg-color);
+}
+
+.file-input:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    /* box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.1); */
+}
+
+.file-input::file-selector-button {
+    padding: 8px 12px;
+    margin-right: 10px;
+    color: var(--body-color);
+    background-color: var(--white-color);
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    font-size: 15px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.file-input::file-selector-button:hover {
+    background-color: var(--white-color);
+    color: var(--primary-color);
+    border: 1px solid var(--primary-color);
+}
+
+.file-note {
+    margin-top: 10px;
+    font-size: 15px;
+    color: var(--body-color);
+}
+
+.file-list {
+    margin-top: 10px;
+    display: none;
+}
+
+.file-list.show {
+    display: block;
+}
+
+.file-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px 12px;
+    background-color: var(--bg-color);
+    border-radius: 10px;
+    margin-bottom: 10px;
+    font-size: 14px;
+}
+
+.file-item-info {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    flex: 1;
+    /* flex-grow, flex-shrink, flex-basis */
+    min-width: 0;
+    /* 중요! flexbox에서 줄임표 적용 */
+    overflow: hidden;
+    /* 필수 */
+}
+
+.file-item-icon {
+    color: var(--primary-color);
+    flex-shrink: 0;
+}
+
+.file-item-name {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 500px;
+    /* flex: 1 1 auto; */
+    flex: 1;
+    /* 줄임표 적용, 남은 공간을 차지하되 넘치지 않음 */
+    min-width: 0;
+    /* flexbox에서 줄임표가 제대로 작동하게 하는 필수 속성 */
+}
+
+.file-item-size {
+    color: var(--body-color);
+    font-size: 13px;
+    margin-left: 10px;
+    flex-shrink: 0;
+}
+
+.file-item-remove {
+    background: none;
+    border: none;
+    color: var(--primary-color);
+    cursor: pointer;
+    padding: 5px;
+    font-size: 20px;
+    line-height: 1;
+    flex-shrink: 0;
+    transition: color 0.2s;
+}
+
+.file-item-remove:hover {
+    color: var(--primary-color);
+}
+
 
 /* 문의하기 영역 END*/
 
@@ -3428,7 +3552,7 @@ textarea {
     }
 
     .custom-select-input {
-        font-size: 18px;
+        font-size: 16px;
     }
 
     .form-group .input-wrapper {
@@ -3447,7 +3571,7 @@ textarea {
     .qna-list input[type="text"] {
         padding: 15px 20px;
         flex: 1;
-        font-size: 18px;
+        font-size: 16px;
     }
 
     .custom-select-wrapper {
@@ -3456,12 +3580,12 @@ textarea {
 
     .qna-list input[type="text"].name {
         width: 100%;
-        font-size: 18px;
+        font-size: 16px;
     }
 
     .qna-list input[type="tel"] {
         flex: 1;
-        font-size: 18px;
+        font-size: 16px;
     }
 
     .phone-inputs .custom-select-wrapper {
@@ -3473,11 +3597,19 @@ textarea {
     }
 
     .qna-list textarea {
-        font-size: 18px;
+        font-size: 16px;
     }
 
     .checkbox-group {
         font-size: 16px;
+    }
+
+    .privacy-box {
+        padding: 12px 16px;
+    }
+
+    .file-item-name {
+        width: 100%;
     }
 
 }
@@ -3944,6 +4076,16 @@ textarea {
     .view-box dl {
         height: 60px;
     }
+
+    .privacy-popup-content {
+        padding: 20px;
+    }
+
+    .privacy-popup-header h2 {
+        font-size: 25px;
+        padding-right: 50px;
+    }
+
 
 }
 

@@ -726,7 +726,7 @@
 
 
 .notice-list .t-box .t3 {
-    color: var(--body-color2);
+    color: var(--body2-color);
 }
 
 .notice-sec .cont-sec li a {}
@@ -979,7 +979,7 @@
 }
 
 .check-list input[type="checkbox"]+label {
-    color: var(--body-color2);
+    color: var(--body2-color);
 }
 
 .check-list .more {
@@ -1003,7 +1003,7 @@
 
 .check-list span {
     font-size: 16px;
-    color: var(--body-color2);
+    color: var(--body2-color);
 }
 
 
@@ -1100,12 +1100,10 @@
     margin: 20px 0;
 }
 
-.popup h3 {
+.popup h2 {
     font-size: 28px;
     font-weight: var(--font-700);
     color: var(--text-color);
-    margin: 20px 0 30px;
-
     border-bottom: 2px solid var(--lightgray-color);
     padding-bottom: 20px;
 }
@@ -1587,7 +1585,7 @@
     }
 
     .popup {
-        padding: 30px 20px;
+        padding: 20px;
     }
 
     .popup-close {
@@ -1595,9 +1593,9 @@
         height: 25px;
     }
 
-    .popup h3 {
-        font-size: 24px;
-        margin: 25px 0 30px;
+    .popup h2 {
+        font-size: 25px;
+        padding-right: 50px;
     }
 
     .letter-wrap>div {
