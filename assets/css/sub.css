@@ -2380,7 +2380,7 @@ textarea {
 .custom-select-list {
     max-height: 250px;
     overflow-y: auto;
-    padding-right: 5px;
+    padding-right: 0px;
 }
 
 /* Firefox 지원 */
@@ -3751,7 +3751,7 @@ textarea {
 
     .title-xl {
         font-size: 28px;
-        padding: 60px 0 20px;
+        padding: 50px 0 20px;
     }
 
     .title-xl:before {
