@@ -312,11 +312,11 @@
                     </div>
                 </section>
 
-                <section class="volunteer-list-box qna-wrap">
+                <section class="volunteer-list-box qna-wrap" data-aos="fade-up" data-aos-duration="400"
+                    data-aos-delay="800">
                     <h2 class="hidden">후원 신청하기</h2>
-                    <form id="inquiryForm">
-                        <div class="donate-list qna-list form-list" data-aos="fade-up" data-aos-duration="400"
-                            data-aos-delay="800">
+                    <form id="donateForm">
+                        <div class="donate-list qna-list form-list">
                             <div class="sub-tit-box-list">
                                 <h4 class="sub-tit">후원자 정보</h4>
                                 <p class="add-info">
@@ -342,14 +342,13 @@
                                 <div class="input-wrapper">
                                     <div class="phone-inputs">
                                         <div class="custom-select-wrapper" id="phoneSelect">
-                                            <div class="custom-select-input">
-                                                010
-                                            </div>
-                                            <span class="custom-select-arrow">▼</span>
+                                            <div class="custom-select-input"> 선택 </div> <span
+                                                class="custom-select-arrow">▼</span>
                                             <div class="custom-select-dropdown">
                                                 <div class="custom-select-list">
-                                                    <div class="custom-select-option selected" data-value="010">010
-                                                    </div>
+                                                    <div class="custom-select-option disabled" data-value="선택">
+                                                        선택 </div>
+                                                    <div class="custom-select-option" data-value="010">010 </div>
                                                     <div class="custom-select-option" data-value="011">011</div>
                                                     <div class="custom-select-option" data-value="016">016</div>
                                                     <div class="custom-select-option" data-value="017">017</div>
@@ -364,6 +363,43 @@
                                         <input type="tel" id="phone3" name="phone3" maxlength="4" placeholder="0000">
                                     </div>
                                     <div class="error-message" id="phoneError">연락처를 입력해주세요.</div>
+                                </div>
+                            </div>
+
+                            <!-- 이메일 -->
+                            <div class="form-group">
+                                <label for="email">이메일 <span class="required">*</span></label>
+                                <div class="input-wrapper">
+                                    <div class="email-inputs">
+                                        <input type="text" id="emailId" name="emailId" placeholder="이메일 아이디"
+                                            class="email-id">
+                                        <span class="email-at">@</span>
+                                        <input type="text" id="emailDomain" name="emailDomain" placeholder="직접입력">
+                                        <div class="custom-select-wrapper" id="emailSelect">
+                                            <div class="custom-select-input placeholder">
+                                                직접 입력
+                                            </div>
+                                            <span class="custom-select-arrow">▼</span>
+                                            <div class="custom-select-dropdown">
+                                                <div class="custom-select-list">
+                                                    <div class="custom-select-option placeholder selected"
+                                                        data-value="">직접
+                                                        입력</div>
+                                                    <div class="custom-select-option" data-value="naver.com">naver.com
+                                                    </div>
+                                                    <div class="custom-select-option" data-value="gmail.com">gmail.com
+                                                    </div>
+                                                    <div class="custom-select-option" data-value="daum.net">daum.net
+                                                    </div>
+                                                    <div class="custom-select-option" data-value="kakao.com">kakao.com
+                                                    </div>
+                                                    <div class="custom-select-option" data-value="hanmail.net">
+                                                        hanmail.net</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="error-message" id="emailError">올바른 이메일을 입력해주세요.</div>
                                 </div>
                             </div>
 
@@ -562,18 +598,56 @@
                                         </div>
 
                                         <span class="phone-separator">-</span>
-                                        <!-- 일 입력 -->
-                                        <input type="tel" id="birthDay" name="birthDay" maxlength="2" placeholder="일">
+
+                                        <!-- 일을 선택 (01~31) -->
+                                        <div class="custom-select-wrapper" id="birthDaySelect">
+                                            <div class="custom-select-input">일</div>
+                                            <span class="custom-select-arrow">▼</span>
+                                            <div class="custom-select-dropdown">
+                                                <div class="custom-select-list">
+                                                    <div class="custom-select-option" data-value="01">01</div>
+                                                    <div class="custom-select-option" data-value="02">02</div>
+                                                    <div class="custom-select-option" data-value="03">03</div>
+                                                    <div class="custom-select-option" data-value="04">04</div>
+                                                    <div class="custom-select-option" data-value="05">05</div>
+                                                    <div class="custom-select-option" data-value="06">06</div>
+                                                    <div class="custom-select-option" data-value="07">07</div>
+                                                    <div class="custom-select-option" data-value="08">08</div>
+                                                    <div class="custom-select-option" data-value="09">09</div>
+                                                    <div class="custom-select-option" data-value="10">10</div>
+                                                    <div class="custom-select-option" data-value="11">11</div>
+                                                    <div class="custom-select-option" data-value="12">12</div>
+                                                    <div class="custom-select-option" data-value="13">13</div>
+                                                    <div class="custom-select-option" data-value="14">14</div>
+                                                    <div class="custom-select-option" data-value="15">15</div>
+                                                    <div class="custom-select-option" data-value="16">16</div>
+                                                    <div class="custom-select-option" data-value="17">17</div>
+                                                    <div class="custom-select-option" data-value="18">18</div>
+                                                    <div class="custom-select-option" data-value="19">19</div>
+                                                    <div class="custom-select-option" data-value="20">20</div>
+                                                    <div class="custom-select-option" data-value="21">21</div>
+                                                    <div class="custom-select-option" data-value="22">22</div>
+                                                    <div class="custom-select-option" data-value="23">23</div>
+                                                    <div class="custom-select-option" data-value="24">24</div>
+                                                    <div class="custom-select-option" data-value="25">25</div>
+                                                    <div class="custom-select-option" data-value="26">26</div>
+                                                    <div class="custom-select-option" data-value="27">27</div>
+                                                    <div class="custom-select-option" data-value="28">28</div>
+                                                    <div class="custom-select-option" data-value="29">29</div>
+                                                    <div class="custom-select-option" data-value="30">30</div>
+                                                    <div class="custom-select-option" data-value="31">31</div>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
 
                                     <div class="error-message" id="birthdayError">생년월일을 입력해주세요.</div>
                                 </div>
                             </div>
                         </div>
-                        <!-- //form-list -->
+                        <!-- //donate-list 1-->
 
-                        <div class="donate-list qna-list form-list" data-aos="fade-up" data-aos-duration="400"
-                            data-aos-delay="800">
+                        <div class="donate-list qna-list form-list">
                             <div class="sub-tit-box-list">
                                 <h4 class="sub-tit">납부방법</h4>
                                 <p class="add-info">
@@ -598,10 +672,9 @@
                                 </div>
                             </div>
                         </div>
-                        <!-- //form-list -->
+                        <!-- //donate-list 2-->
 
-                        <div class="donate-list qna-list form-list" data-aos="fade-up" data-aos-duration="400"
-                            data-aos-delay="800">
+                        <div class="donate-list qna-list form-list">
                             <div class="sub-tit-box-list">
                                 <h4 class="sub-tit">기부금 영수증</h4>
                                 <p class="add-info">
@@ -652,10 +725,10 @@
                                     <!-- ✅ id 변경 -->
                                 </div>
                             </div>
-                        </div> <!-- //form-list -->
+                        </div>
+                        <!-- //donate-list 3-->
 
-                        <div class="donate-list qna-list form-list aos-init aos-animate" data-aos="fade-up"
-                            data-aos-duration="400" data-aos-delay="800">
+                        <div class="donate-list qna-list form-list">
                             <div class="sub-tit-box-list">
                                 <h4 class="sub-tit">나의 후원 내용</h4>
                                 <p class="add-info">
@@ -796,108 +869,106 @@
                                     <div class="error-message" id="donationAmountError">선택해주세요.</div>
                                 </div>
                             </div>
+                            <div class="form-group total">
+                                <label for="account">총 후원 금액</label>
+                                <div class="input-wrapper">
+                                    <p class="info total-price">10,000원</p>
+                                </div>
+                            </div>
 
-                        </div><!-- //form-list -->
+                        </div>
+                        <!-- //donate-list 4-->
 
-
-
-            </div>
-            <!-- //donate-list -->
-
-            <div class="form_btn">
-                <div class="privacy-box">
-                    <label class="checkbox-group">
-                        <input type="checkbox" id="agreePrivacy" name="agreePrivacy">
-                        <span class="sub-text">개인정보처리방침 동의(필수)
-                            <span class="privacy-link" id="privacyLink">자세히보기</span>
-                        </span>
-                    </label>
-                    <div class="error-message" id="privacyError">개인정보 수집 및 이용에 동의해주세요.</div>
-                </div>
-                <button type="submit" class="form-button">등록</button>
-                <!-- <p class="footer-note">
+                        <div class="form_btn">
+                            <div class="privacy-box">
+                                <label class="checkbox-group">
+                                    <input type="checkbox" id="agreePrivacy" name="agreePrivacy">
+                                    <span class="sub-text">개인정보처리방침 동의(필수)
+                                        <span class="privacy-link" id="privacyLink">자세히보기</span>
+                                    </span>
+                                </label>
+                                <div class="error-message" id="privacyError">개인정보 수집 및 이용에 동의해주세요.</div>
+                            </div>
+                            <button type="submit" class="form-button">신청</button>
+                            <!-- <p class="footer-note">
                                 문의사항은 영업일 기준 1-2일 이내에 답변드립니다.
                             </p> -->
+                        </div>
+                        <!-- //form_btn -->
+                    </form>
+                </section>
             </div>
-            </form>
-            </section>
-        </div>
-        <!-- //inner -->
+            <!-- //inner -->
 
-        <!-- Privacy Policy Popup -->
-        <div class="privacy-popup" id="privacyPopup">
-            <div class="privacy-popup-content">
-                <div class="privacy-popup-header">
-                    <h2>개인정보 수집 및 이용 동의</h2>
-                    <div class="close-btn popup-close"></div>
-                    <!-- <button class="close-btn" id="closePrivacyBtn">X</button> -->
-                </div>
-                <div class="privacy-popup-body">
-                    <h3>1. 개인정보의 수집 및 이용 목적</h3>
-                    <p>은빛노인복지센터는 다음의 목적을 위하여 개인정보를 수집·이용합니다. 수집된 개인정보는 아래 목적 외에는 사용되지 않으며, 목적 변경 시 관련 법령에 따라 별도
-                        동의를 받습니다.
-                    </p>
-                    <ul>
-                        <li>문의 및 상담 요청 확인 및 회신</li>
-                        <li>복지 서비스 이용 관련 상담 제공</li>
-                        <li>프로그램 안내 및 이용 지원</li>
-                        <li>센터 운영을 위한 통계 분석</li>
-                    </ul>
+            <!-- Privacy Policy Popup -->
+            <div class="privacy-popup" id="privacyPopup">
+                <div class="privacy-popup-content">
+                    <div class="privacy-popup-header">
+                        <h2>개인정보 수집 및 이용 동의</h2>
+                        <div class="close-btn popup-close"></div>
+                        <!-- <button class="close-btn" id="closePrivacyBtn">X</button> -->
+                    </div>
+                    <div class="privacy-popup-body">
+                        <h3>1. 개인정보의 수집 및 이용 목적</h3>
+                        <p>은빛노인복지센터는 후원 업무 처리 및 기부금 영수증 발급을 위해 아래와 같이 개인정보를 수집·이용합니다.</p>
 
-                    <h3>2. 수집하는 개인정보 항목</h3>
-                    <ul>
-                        <li>필수항목: 이름, 연락처, 이메일, 문의내용</li>
-                        <li>선택항목: 해당 없음</li>
-                    </ul>
 
-                    <h3>3. 개인정보의 보유 및 이용기간</h3>
-                    <p>은빛노인복지센터는 개인정보 수집 목적이 달성된 후 즉시 파기합니다. 단, 관련 법령에 따라 일정 기간 보존할 수 있습니다.</p>
-                    <ul>
-                        <li>민원·문의사항 처리 기록: 3년 (전자상거래 등에서의 소비자보호에 관한 법률)</li>
-                        <li>기타 법령에서 정한 기간</li>
-                    </ul>
+                        <h3>2. 수집하는 개인정보 항목</h3>
+                        <ul>
+                            <li>필수항목: 성명, 연락처, 생년월일, 입금자명</li>
+                            <li>선택항목: 주민등록번호 (기부금 영수증 발급 시)</li>
+                        </ul>
 
-                    <h3>4. 개인정보의 제3자 제공</h3>
-                    <p>센터는 원칙적으로 이용자의 개인정보를 제3자에게 제공하지 않습니다. 단, 아래 경우는 예외로 합니다.</p>
-                    <ul>
-                        <li>이용자가 사전에 동의한 경우</li>
-                        <li>법령에 의거해 제공이 요구되는 경우</li>
-                    </ul>
+                        <h3>3. 개인정보의 보유 및 이용 기간</h3>
+                        <p>후원 종료 후 5년간 보관하며, 관련 법령에 따라 일정 기간 보관 후 파기합니다.</p>
+                        <ul>
+                            <li>민원·문의사항 처리 기록: 3년 (전자상거래 등에서의 소비자보호에 관한 법률)</li>
+                            <li>기타 법령에서 정한 기간</li>
+                        </ul>
 
-                    <h3>5. 개인정보 처리의 위탁</h3>
-                    <p>센터는 원활한 상담 및 운영을 위해 일부 개인정보 처리 업무를 위탁할 수 있으며, 위탁 시 관련 법령을 준수합니다.</p>
-                    <ul>
-                        <li>위탁받는 자: 고객응대 또는 상담 지원 업체(해당 시)</li>
-                        <li>위탁 내용: 문의 상담 및 지원 업무</li>
-                    </ul>
+                        <h3>4. 개인정보 제공 동의 거부 권리</h3>
+                        <p>귀하는 개인정보 제공 동의를 거부할 권리가 있으나, 동의를 거부하실 경우 후원 신청이 제한될 수 있습니다.</p>
+                        <ul>
+                            <li>이용자가 사전에 동의한 경우</li>
+                            <li>법령에 의거해 제공이 요구되는 경우</li>
+                        </ul>
 
-                    <h3>6. 정보주체의 권리·의무 및 행사방법</h3>
-                    <p>이용자는 언제든지 다음 사항에 대해 개인정보 열람, 정정, 삭제, 처리정지를 요청할 수 있습니다.</p>
-                    <ul>
-                        <li>개인정보 열람 요구</li>
-                        <li>정정·삭제 요구</li>
-                        <li>처리정지 요구</li>
-                    </ul>
+                        <h3>5. 개인정보 처리의 위탁</h3>
+                        <p>센터는 원활한 상담 및 운영을 위해 일부 개인정보 처리 업무를 위탁할 수 있으며, 위탁 시 관련 법령을 준수합니다.</p>
+                        <ul>
+                            <li>위탁받는 자: 고객응대 또는 상담 지원 업체(해당 시)</li>
+                            <li>위탁 내용: 문의 상담 및 지원 업무</li>
+                        </ul>
+
+                        <h3>6. 정보주체의 권리·의무 및 행사방법</h3>
+                        <p>이용자는 언제든지 다음 사항에 대해 개인정보 열람, 정정, 삭제, 처리정지를 요청할 수 있습니다.</p>
+                        <ul>
+                            <li>개인정보 열람 요구</li>
+                            <li>정정·삭제 요구</li>
+                            <li>처리정지 요구</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
-        </div>
 
-        <!-- Success Modal -->
-        <div class="success-modal" id="successModal">
-            <div class="success-content">
-                <div class="success-icon">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
-                        <polyline points="20 6 9 17 4 12"></polyline>
-                    </svg>
+            <!-- Success Modal -->
+            <div class="success-modal" id="successModal">
+                <div class="success-content">
+                    <div class="success-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                            <polyline points="20 6 9 17 4 12"></polyline>
+                        </svg>
+                    </div>
+                    <h2>후원신청이 완료되었습니다</h2>
+                    <p><span>소중한 후원에 진심으로 감사드립니다.</span> <br>
+                        입금 확인 후 연락드리겠습니다.<br><br>
+                        3초뒤에 팝업이 닫힙니다.</p>
                 </div>
-                <h2>문의가 접수되었습니다</h2>
-                <p>기재하신 이메일로 <br> 빠른 시일 내에 답변 드리겠습니다. <br>3초뒤에 팝업이 닫힙니다.</p>
             </div>
+            <!-- //Success Modal -->
         </div>
-        <!-- //Success Modal -->
-
+        <!-- sub-content END -->
     </div>
-    </div><!-- sub-content END -->
     <!-- #sub END-->
 
 
@@ -1009,199 +1080,267 @@
     <script>
         $(function () {
 
+            /* ==========================
+                후원금액 처리 + 총 후원금액 업데이트
+            ========================== */
             const $amountRadios = $("input[name='sp_amount']");
             const $directRadio = $("#amount-direct");
             const $directWrap = $("#directAmountWrap");
             const $directInput = $("#directAmount");
+            const $totalPrice = $(".total-price");
 
-            $amountRadios.on("change", function () {
+            function updateTotalPrice() {
+                let amount = 0;
+                const selectedVal = $("input[name='sp_amount']:checked").val();
 
-                if ($directRadio.is(":checked")) {
-                    // 직접입력 선택 시
-                    $directWrap.show();
-                    $directInput.focus(); // 바로 입력 가능
+                if (selectedVal === 'direct') {
+                    let directVal = $directInput.val().replace(/[^0-9]/g, '');
+                    $directInput.val(directVal);
+                    hideError("donationAmount");
+
+                    amount = parseInt(directVal, 10) || 0;
+                    if (amount > 0 && amount % 1000 !== 0) {
+                        showError("donationAmount", "1,000원 단위로 입력해주세요.");
+                    }
                 } else {
-                    // 다른 금액 선택 시 숨김 + 값 초기화
-                    $directWrap.hide();
-                    $directInput.val("");
+                    amount = parseInt(selectedVal, 10) || 0;
                 }
 
+                $totalPrice.text(amount.toLocaleString() + "원");
+            }
+
+            $amountRadios.on("change", function () {
+                if ($directRadio.is(":checked")) {
+                    $directWrap.show();
+                    $directInput.focus();
+                } else {
+                    $directWrap.hide();
+                    $directInput.val("");
+                    hideError("donationAmount");
+                }
+                updateTotalPrice();
             });
 
-            const selectData = {
-                category: '',
-                phone: '010',
-                email: '',
-                birthYear: '',
-                birthMonth: '',
-                birthDay: ''
-            };
+            $directInput.on("input", updateTotalPrice);
+            updateTotalPrice();
 
-            let attachedFiles = []; // 파일 관리용
 
             /* ==========================
-                커스텀 셀렉트 초기화 함수
+                커스텀 셀렉트 초기화
             ========================== */
+            const selectData = { phone: '선택', birthYear: '', birthMonth: '', birthDay: '' };
+
             function initCustomSelect(selectId, dataKey) {
                 const $wrapper = $("#" + selectId);
                 const $input = $wrapper.find(".custom-select-input");
-                const $dropdown = $wrapper.find(".custom-select-dropdown");
                 const $options = $wrapper.find(".custom-select-option");
 
-                // 셀렉트 열기 / 닫기
                 $input.on("click", function (e) {
                     e.stopPropagation();
                     $(".custom-select-wrapper").not($wrapper).removeClass("active");
                     $wrapper.toggleClass("active");
                 });
 
-                // 옵션 선택
                 $options.on("click", function (e) {
                     e.stopPropagation();
+                    if ($(this).hasClass("disabled")) return;
 
                     $options.removeClass("selected");
                     $(this).addClass("selected");
 
                     selectData[dataKey] = $(this).data("value");
-                    $input.text($(this).text());
-                    $input.removeClass("placeholder");
-
+                    $input.text($(this).text()).removeClass("placeholder");
                     $wrapper.removeClass("active");
 
-                    // 각 필드 선택 시 에러 숨기기
-                    if (dataKey === 'category') hideError('category');
-                    if (dataKey === 'email') {
-                        const $domain = $("#emailDomain");
-                        if (selectData.email) $domain.val(selectData.email).prop("readonly", true);
-                        else $domain.val("").prop("readonly", false);
-                    }
-                    if (dataKey === 'birthYear' || dataKey === 'birthMonth' || dataKey === 'birthDay') {
-                        $("#birthdayError").removeClass("show");
+                    if (['phone', 'birthYear', 'birthMonth', 'birthDay'].includes(dataKey)) {
+                        hideError(dataKey === 'phone' ? 'phone' : 'birthday');
                     }
                 });
             }
 
-            initCustomSelect("categorySelect", "category");
-            initCustomSelect("phoneSelect", "phone");
-            initCustomSelect("emailSelect", "email");
-            initCustomSelect("birthYearSelect", "birthYear");
-            initCustomSelect("birthMonthSelect", "birthMonth");
-            initCustomSelect("birthDaySelect", "birthDay");
+            ["phoneSelect", "birthYearSelect", "birthMonthSelect", "birthDaySelect"]
+                .forEach((id, idx) => initCustomSelect(id, Object.keys(selectData)[idx]));
 
-            // 클릭 시 셀렉트 닫기
-            $(document).on("click", function () {
-                $(".custom-select-wrapper").removeClass("active");
+
+            /* ==========================
+                이메일 셀렉트 초기화
+            ========================== */
+            const emailData = { domain: '' };
+
+            function initEmailSelect(selectId) {
+                const $wrapper = $("#" + selectId);
+                const $input = $wrapper.find(".custom-select-input");
+                const $options = $wrapper.find(".custom-select-option");
+                const $emailDomain = $("#emailDomain");
+
+                $input.on("click", function (e) {
+                    e.stopPropagation();
+                    $(".custom-select-wrapper").not($wrapper).removeClass("active");
+                    $wrapper.toggleClass("active");
+                });
+
+                $options.on("click", function (e) {
+                    e.stopPropagation();
+                    const value = $(this).data("value");
+                    $emailDomain.val(value || '').prop("disabled", !!value).focus();
+                    $options.removeClass("selected");
+                    $(this).addClass("selected");
+                    emailData.domain = value;
+
+                    $input.text($(this).text()).removeClass("placeholder");
+                    $wrapper.removeClass("active");
+                    hideError("email");
+                });
+            }
+
+            initEmailSelect("emailSelect");
+
+            $(document).on("click", function (e) {
+                $(".custom-select-wrapper").each(function () {
+                    if (!$(this).is(e.target) && $(this).has(e.target).length === 0) {
+                        $(this).removeClass("active");
+                    }
+                });
             });
 
 
             /* ==========================
-                개인정보 처리방침 팝업
+                개인정보 팝업
             ========================== */
+            function togglePopup(show) {
+                $("#privacyPopup").toggleClass("show", show);
+                $("body").toggleClass("body-no-scroll", show);
+            }
+
             $("#privacyLink").on("click", function (e) {
-                e.preventDefault();
-                e.stopPropagation();
-                $("#privacyPopup").addClass("show");
-                $("body").addClass("body-no-scroll");  // 배경 스크롤 금지
+                e.preventDefault(); e.stopPropagation();
+                togglePopup(true);
             });
 
-            $("#privacyPopup .popup-close").on("click", function () {
-                $("#privacyPopup").removeClass("show");
-                $("body").removeClass("body-no-scroll");
-            });
-
+            $("#privacyPopup .popup-close").on("click", () => togglePopup(false));
             $("#privacyPopup").on("click", function (e) {
-                if (e.target === this) {
-                    $(this).removeClass("show");
-                    $("body").removeClass("body-no-scroll");
-                }
+                if (e.target === this) togglePopup(false);
             });
 
 
             /* ==========================
                 에러 메시지 제어
             ========================== */
-            function hideError(fieldId) {
-                $("#" + fieldId + "Error").removeClass("show");
-                if (fieldId === "category") $("#categorySelect").removeClass("error");
-            }
-
             function showError(fieldId, message) {
                 const $error = $("#" + fieldId + "Error");
                 if (message) $error.text(message);
                 $error.addClass("show");
-                if (fieldId === "category") $("#categorySelect").addClass("error");
             }
 
-            $("#name, #subject, #message, #emailId, #emailDomain, #phone2, #phone3").on("input", function () {
-                const id = this.id;
-                if (id === "phone2" || id === "phone3") hideError("phone");
-                else if (id === "emailId" || id === "emailDomain") hideError("email");
-                else hideError(id);
-            });
-
-            $("#agreePrivacy").on("change", () => hideError("privacy"));
+            function hideError(fieldId) {
+                $("#" + fieldId + "Error").removeClass("show");
+            }
 
 
             /* ==========================
-                파일첨부 처리
+                첫 번째 에러 필드 focus
             ========================== */
-            function formatFileSize(bytes) {
-                if (bytes === 0) return '0 Bytes';
-                const k = 1024;
-                const sizes = ['Bytes', 'KB', 'MB'];
-                const i = Math.floor(Math.log(bytes) / Math.log(k));
-                return Math.round(bytes / Math.pow(k, i) * 100) / 100 + ' ' + sizes[i];
-            }
+            function focusFirstError() {
+                $(".custom-select-input").removeClass("error-focus");
 
-            function renderFileList() {
-                const $fileList = $("#fileList");
-                if (attachedFiles.length === 0) {
-                    $fileList.removeClass('show').empty();
-                    return;
+                const $firstError = $(".error-message.show").first();
+                if (!$firstError.length) return;
+
+                let $fieldToFocus;
+
+                const idMap = {
+                    phoneError: () => {
+                        if (!selectData.phone || selectData.phone === "선택") return $("#phoneSelect .custom-select-input");
+                        if (!$("#phone2").val() || $("#phone2").val().length < 3) return $("#phone2");
+                        if (!$("#phone3").val() || $("#phone3").val().length < 4) return $("#phone3");
+                    },
+                    birthdayError: () => $("#birthYearSelect, #birthMonthSelect, #birthDaySelect")
+                        .filter((_, el) => !selectData[$(el).attr('id').replace('Select', '')])
+                        .first().find(".custom-select-input"),
+                    ssnError: () => $("#ssn1, #ssn2").filter((_, el) => el.value.length < parseInt(el.maxLength)).first(),
+                    emailError: () => !$("#emailId").val().trim() ? $("#emailId") : $("#emailDomain")
+                };
+
+                if (idMap[$firstError.attr('id')]) $fieldToFocus = idMap[$firstError.attr('id')]();
+
+                if (!$fieldToFocus || !$fieldToFocus.length) {
+                    $fieldToFocus = $firstError.closest('.form-group').find('input, select, textarea').first();
                 }
 
-                $fileList.addClass('show').html(
-                    attachedFiles.map((file, idx) => `
-                <div class="file-item">
-                    <div class="file-item-info">
-                        <span class="file-item-icon">
-                            <svg width="13" height="20" viewBox="0 0 19 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M3.42857 23C2.78447 23 2.16676 22.7425 1.71131 22.284C1.25587 21.8256 1 21.2039 1 20.5556V1H11.9286L18 7.11111V20.5556C18 21.2039 17.7441 21.8256 17.2887 22.284C16.8332 22.7425 16.2155 23 15.5714 23H3.42857Z" stroke="#555555" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                <path d="M10.7148 1V8.33333H18.0006" stroke="#555555" stroke-width="1" stroke-linejoin="round"/>
-                            </svg>
-                        </span>
-                        <span class="file-item-name">${file.name}</span>
-                        <span class="file-item-size">(${formatFileSize(file.size)})</span>
-                    </div>
-                    <button type="button" class="file-item-remove" data-index="${idx}">×</button>
-                </div>
-            `).join('')
-                );
+                $('html, body').animate({
+                    scrollTop: $firstError.closest('.form-group').offset().top - 100
+                }, 300, function () {
+                    $fieldToFocus.hasClass('custom-select-input') ? $fieldToFocus.addClass('error-focus') : $fieldToFocus.focus();
+                });
             }
 
-            $("#attachment").on("change", function () {
-                const files = Array.from(this.files);
-                const maxSize = 10 * 1024 * 1024; // 10MB
-                let hasError = false;
 
-                files.forEach(file => {
-                    if (file.size > maxSize) hasError = true;
-                    else attachedFiles.push(file);
+            /* ==========================
+                숫자 입력 필드
+            ========================== */
+            function validateNumericInput($field, fieldId, maxLength) {
+                $field.on("input", function () {
+                    const numeric = this.value.replace(/[^0-9]/g, '');
+                    if (this.value !== numeric) {
+                        this.value = numeric;
+                        showError(fieldId, "숫자만 입력해주세요.");
+                    } else hideError(fieldId);
+
+                    if (maxLength && this.value.length > maxLength) this.value = this.value.slice(0, maxLength);
                 });
+            }
 
-                if (hasError) showError("file", "파일 용량이 초과된 항목이 있습니다.");
-                else hideError("file");
+            validateNumericInput($("#phone2"), "phone", 4);
+            validateNumericInput($("#phone3"), "phone", 4);
+            validateNumericInput($("#ssn1"), "ssn", 6);
+            validateNumericInput($("#ssn2"), "ssn", 7);
+            validateNumericInput($directInput, "donationAmount");
 
-                renderFileList();
-                $(this).val('');
-            });
+            $("#ssn1").on("blur", () => { if ($("#ssn1").val().length !== 6) showError("ssn", "주민등록번호 앞자리는 6자리로 입력해주세요."); });
+            $("#ssn2").on("blur", () => { if ($("#ssn2").val().length !== 7) showError("ssn", "주민등록번호 뒷자리는 7자리로 입력해주세요."); });
 
-            $("#fileList").on("click", ".file-item-remove", function () {
-                const idx = $(this).data("index");
-                attachedFiles.splice(idx, 1);
-                renderFileList();
-                hideError("file");
-            });
+            $("#name, #depositor, #emailId, #emailDomain").on("input", function () { hideError(this.id); });
+            $("input[name='sp_receipt'], input[name='sp_type'], input[name='sp_regular']").on("change", function () { hideError(this.name); });
+            $("#agreePrivacy").on("change", function () { hideError("privacy"); });
+
+
+            /* ==========================
+                자동 다음 칸 이동
+            ========================== */
+            function setupAutoTab($inputs) {
+                $inputs.each(function (i) {
+                    const $this = $(this);
+                    const maxLength = parseInt($this.attr('maxlength'), 10) || 999;
+
+                    $this.on("input", function () {
+                        if ($this.val().length >= maxLength) $inputs.eq(i + 1).focus();
+                    });
+
+                    $this.on("keydown", function (e) {
+                        if (e.key === "Backspace" && !$this.val()) $inputs.eq(i - 1).focus();
+                    });
+                });
+            }
+
+            setupAutoTab($("#phone2, #phone3"));
+            setupAutoTab($("#ssn1, #ssn2"));
+
+
+            /* ==========================
+                이메일 유효성 검사
+            ========================== */
+            function validateEmail() {
+                const emailId = $("#emailId").val().trim();
+                const emailDomain = $("#emailDomain").val().trim();
+                const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+                if (!emailId || !emailDomain || !emailPattern.test(emailId + "@" + emailDomain)) {
+                    showError("email", "올바른 이메일을 입력해주세요.");
+                    return false;
+                }
+                hideError("email");
+                return true;
+            }
 
 
             /* ==========================
@@ -1210,28 +1349,44 @@
             function validateForm() {
                 let isValid = true;
 
-                if (!selectData.category) { showError("category", "카테고리를 선택해주세요."); isValid = false; }
                 if (!$("#name").val().trim()) { showError("name", "이름을 입력해주세요."); isValid = false; }
 
-                const p2 = $("#phone2").val().trim();
-                const p3 = $("#phone3").val().trim();
-                if (!p2 || !p3) { showError("phone", "연락처를 입력해주세요."); isValid = false; }
-                else if (p2.length < 3 || p3.length < 4) { showError("phone", "올바른 연락처를 입력해주세요."); isValid = false; }
+                const p2 = $("#phone2").val().trim(), p3 = $("#phone3").val().trim();
+                if (!p2 || !p3 || p2.length < 3 || p3.length < 4) { showError("phone", "올바른 연락처를 입력해주세요."); isValid = false; }
 
-                const emailId = $("#emailId").val().trim();
-                const emailDomain = $("#emailDomain").val().trim();
-                if (!emailId || !emailDomain) { showError("email", "이메일을 입력해주세요."); isValid = false; }
+                if (!selectData.birthYear || !selectData.birthMonth || !selectData.birthDay) { showError("birthday", "생년월일을 입력해주세요."); isValid = false; }
 
-                if (!$("#subject").val().trim()) { showError("subject", "제목을 입력해주세요."); isValid = false; }
-                if (!$("#message").val().trim()) { showError("message", "내용을 입력해주세요."); isValid = false; }
+                if (!$("#depositor").val().trim()) { showError("depositor", "입금자명을 입력해주세요."); isValid = false; }
 
-                if (!selectData.birthYear || !selectData.birthMonth || !selectData.birthDay) {
-                    $("#birthdayError").addClass("show");
-                    isValid = false;
+                const receiptChecked = $("input[name='sp_receipt']:checked").val();
+                if (!receiptChecked) { showError("receipt", "영수증 발급 여부를 선택해주세요."); isValid = false; }
+                if (receiptChecked === 'Y') {
+                    if ($("#ssn1").val().length !== 6 || $("#ssn2").val().length !== 7) { showError("ssn", "주민등록번호를 올바르게 입력해주세요."); isValid = false; }
                 }
 
-                if (!$("#agreePrivacy").is(":checked")) { showError("privacy", "필수 항목입니다."); isValid = false; }
+                if (!$("input[name='sp_type']:checked").val()) { showError("donationType", "후원종류를 선택해주세요."); isValid = false; }
+                if (!$("input[name='sp_regular']:checked").val()) { showError("donationMethod", "후원방식을 선택해주세요."); isValid = false; }
 
+                const amountSelected = $("input[name='sp_amount']:checked").val();
+                if (!amountSelected) {
+                    showError("donationAmount", "후원금액을 선택해주세요.");
+                    isValid = false;
+                } else if (amountSelected === 'direct') {
+                    const directAmount = parseInt($directInput.val(), 10);
+                    if (isNaN(directAmount) || directAmount < 1000) {
+                        showError("donationAmount", "최소 후원금액은 1,000원입니다.");
+                        isValid = false;
+                    }
+                    else if (directAmount % 1000 !== 0) {
+                        showError("donationAmount", "1,000원 단위로 입력해주세요.");
+                        isValid = false;
+                    }
+                }
+
+                if (!validateEmail()) isValid = false;
+                if (!$("#agreePrivacy").is(":checked")) { showError("privacy", "개인정보 수집 및 이용에 동의해주세요."); isValid = false; }
+
+                if (!isValid) focusFirstError();
                 return isValid;
             }
 
@@ -1240,92 +1395,92 @@
                 폼 초기화
             ========================== */
             function resetForm() {
-                $("#inquiryForm")[0].reset();
-                $("#emailDomain").prop("readonly", false);
+                $("#donateForm")[0].reset();
+                selectData.phone = "선택"; selectData.birthYear = ""; selectData.birthMonth = ""; selectData.birthDay = "";
 
-                attachedFiles = [];
-                renderFileList();
-
-                selectData.category = "";
-                selectData.phone = "010";
-                selectData.email = "";
-                selectData.birthYear = "";
-                selectData.birthMonth = "";
-                selectData.birthDay = "";
-
-                // 카테고리 초기화
-                $("#categorySelect .custom-select-input").text("선택").addClass("placeholder");
-                $("#categorySelect .custom-select-option").removeClass("selected").eq(0).addClass("selected");
-
-                // 연락처 초기화
-                $("#phoneSelect .custom-select-input").text("010");
+                $("#phoneSelect .custom-select-input").text("선택");
                 $("#phoneSelect .custom-select-option").removeClass("selected").eq(0).addClass("selected");
 
-                // 이메일 초기화
-                $("#emailSelect .custom-select-input").text("직접 입력").addClass("placeholder");
-                $("#emailSelect .custom-select-option").removeClass("selected").eq(0).addClass("selected");
-
-                // 생년월일 초기화
                 $("#birthYearSelect .custom-select-input").text("연도").addClass("placeholder");
-                $("#birthYearSelect .custom-select-option").removeClass("selected");
-
                 $("#birthMonthSelect .custom-select-input").text("월").addClass("placeholder");
-                $("#birthMonthSelect .custom-select-option").removeClass("selected");
-
                 $("#birthDaySelect .custom-select-input").text("일").addClass("placeholder");
-                $("#birthDaySelect .custom-select-option").removeClass("selected");
+                $(".custom-select-option").removeClass("selected");
+
+                $directWrap.hide();
+                $(".error-message").removeClass("show");
+
+                updateTotalPrice();
             }
 
 
             /* ==========================
                 폼 제출 이벤트
             ========================== */
-            $("#inquiryForm").on("submit", function (e) {
+            $("#donateForm").on("submit", function (e) {
                 e.preventDefault();
+                if (!validateForm()) return;
 
-                if (validateForm()) {
-                    const formData = {
-                        category: selectData.category,
-                        name: $("#name").val(),
-                        phone: selectData.phone + "-" + $("#phone2").val() + "-" + $("#phone3").val(),
-                        email: $("#emailId").val() + "@" + $("#emailDomain").val(),
-                        birthday: selectData.birthYear + "-" + selectData.birthMonth + "-" + selectData.birthDay,
-                        subject: $("#subject").val(),
-                        message: $("#message").val(),
-                        files: attachedFiles.map(f => f.name)
-                    };
+                const amountSelected = $("input[name='sp_amount']:checked").val();
+                const finalAmount = amountSelected === 'direct' ? $directInput.val() : amountSelected;
 
-                    console.log("제출된 데이터:", formData);
-                    console.log("첨부 파일:", attachedFiles);
+                const formData = {
+                    name: $("#name").val().trim(),
+                    phone: selectData.phone + "-" + $("#phone2").val() + "-" + $("#phone3").val(),
+                    birthday: selectData.birthYear + "-" + selectData.birthMonth + "-" + selectData.birthDay,
+                    depositor: $("#depositor").val().trim(),
+                    receipt: $("input[name='sp_receipt']:checked").val(),
+                    ssn: $("#ssn1").val() + "-" + $("#ssn2").val(),
+                    donationType: $("input[name='sp_type']:checked").val(),
+                    donationMethod: $("input[name='sp_regular']:checked").val(),
+                    amount: finalAmount,
+                    email: $("#emailId").val().trim() + "@" + $("#emailDomain").val().trim()
+                };
 
-                    $("#successModal").addClass("show");
+                console.log("제출된 후원 데이터:", formData);
+
+                const $submitBtn = $(".form-button");
+                const originalText = $submitBtn.text();
+                $submitBtn.text("제출 중...").prop("disabled", true);
+
+                setTimeout(() => {
+                    $("#successModal").fadeIn(200).addClass("show");
+                    $("body").addClass("body-no-scroll");
 
                     setTimeout(() => {
-                        $("#successModal").removeClass("show");
+                        $("#successModal").fadeOut(200).removeClass("show");
+                        $("body").removeClass("body-no-scroll");
+                        $submitBtn.text(originalText).prop("disabled", false);
                         resetForm();
-                    }, 2000);
-                }
+                    }, 3000);
+                }, 500);
             });
 
-            // 성공팝업 닫기
-            $("#successModal").on("click", function (e) {
+
+            /* ==========================
+                성공 팝업 스크롤 방지
+            ========================== */
+            $(document).on("click", "#successModal", function (e) {
                 if (e.target === this) {
-                    $(this).removeClass("show");
-                    resetForm();
+                    $(this).fadeOut(200).removeClass("show");
+                    $("body").removeClass("body-no-scroll");
                 }
             });
 
-            // 성공팝업 스크롤 막기
             $('#successModal').on('scroll touchmove mousewheel', function (event) {
                 event.preventDefault();
                 event.stopPropagation();
                 return false;
             });
 
-
-
         });
     </script>
+
+
+
+
+
+
+
 
 
 

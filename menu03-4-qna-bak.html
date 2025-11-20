@@ -355,11 +355,11 @@
                                 <div class="input-wrapper">
                                     <div class="phone-inputs">
                                         <div class="custom-select-wrapper" id="phoneSelect">
-                                            <div class="custom-select-input" id="phonePrefix"> 선택 </div> <span
+                                            <div class="custom-select-input"> 선택 </div> <span
                                                 class="custom-select-arrow">▼</span>
                                             <div class="custom-select-dropdown">
                                                 <div class="custom-select-list">
-                                                    <div class="custom-select-option disabled" data-value="선택 gkrl">
+                                                    <div class="custom-select-option disabled" data-value="선택">
                                                         선택 </div>
                                                     <div class="custom-select-option" data-value="010">010 </div>
                                                     <div class="custom-select-option" data-value="011">011</div>
@@ -955,39 +955,6 @@
                 e.stopPropagation();
                 return false;
             });
-
-
-            /* ==========================
-                자동 다음 칸 이동 + 백스페이스 이전칸 이동
-            ========================== */
-            function setupAutoTab($inputs) {
-                $inputs.each(function (index) {
-                    const $this = $(this);
-                    const maxLength = parseInt($this.attr('maxlength'), 10) || 999;
-
-                    // 다음칸 자동 이동
-                    $this.on("input", function () {
-                        if ($this.val().length >= maxLength) {
-                            const $next = $inputs.eq(index + 1);
-                            if ($next.length) $next.focus();
-                        }
-                    });
-
-                    // 백스페이스 시 이전칸 이동
-                    $this.on("keydown", function (e) {
-                        if (e.key === "Backspace" && !$this.val()) {
-                            const $prev = $inputs.eq(index - 1);
-                            if ($prev.length) $prev.focus();
-                        }
-                    });
-                });
-            }
-
-            setupAutoTab($("#phone2, #phone3"));
-            setupAutoTab($("#emailId, #emailDomain"));
-            setupAutoTab($("#subject, #message"));
-
-
 
 
         });

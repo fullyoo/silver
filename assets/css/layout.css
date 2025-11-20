@@ -338,6 +338,34 @@ video {
     flex-grow: 1;
     width: 20%;
     transition: .3s;
+    color: var(--text-color);
+}
+
+/* 자동완성으로 채워진 경우: 배경색 변경 금지 */
+/* :-webkit-autofill 은 자동완성된 input에만 적용됨 */
+/* -webkit-box-shadow 는 크롬에서 자동완성 배경을 덮는 정석 해결법 */
+input[type="text"]:-webkit-autofill,
+input:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0px 1000px var(--white-color)inset !important;
+    /* background-color: var(--white-color) !important; */
+    /* 기본 색으로 유지 */
+}
+
+/* 직접 입력한 경우만 배경색 변경 */
+/* :not(:-webkit-autofill) 를 결합하면 자동완성 제외한 입력에만 색을 적용 */
+input[type="text"]:not(:placeholder-shown):not(:-webkit-autofill),
+input:not(:placeholder-shown):not(:-webkit-autofill) {
+    /* background-color: var(--white-color); */
+}
+
+
+/* 자동완성 항목 선택 시 색 바뀌지 않도록 조건 바꾸기 */
+input[type="text"]:not(:placeholder-shown) {
+    background-color: var(--white-color);
+}
+
+input[type="text"]:valid {
+    /* background-color: #c61717; */
 }
 
 .form-list input[type="text"]:nth-child(2) {
@@ -346,8 +374,8 @@ video {
 
 .form-list input[type="text"]:focus,
 .form-list input[type="password"]:focus,
-input[type="tel"]:focus,
-input[type="number"]:focus,
+.form-list input[type="tel"]:focus,
+.form-listinput[type="number"]:focus,
 input:focus,
 textarea:focus {
     border-color: var(--primary-color);

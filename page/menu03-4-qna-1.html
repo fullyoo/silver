@@ -355,11 +355,11 @@
                                 <div class="input-wrapper">
                                     <div class="phone-inputs">
                                         <div class="custom-select-wrapper" id="phoneSelect">
-                                            <div class="custom-select-input" id="phonePrefix"> 선택 </div> <span
+                                            <div class="custom-select-input"> 선택 </div> <span
                                                 class="custom-select-arrow">▼</span>
                                             <div class="custom-select-dropdown">
                                                 <div class="custom-select-list">
-                                                    <div class="custom-select-option disabled" data-value="선택 gkrl">
+                                                    <div class="custom-select-option disabled" data-value="선택">
                                                         선택 </div>
                                                     <div class="custom-select-option" data-value="010">010 </div>
                                                     <div class="custom-select-option" data-value="011">011</div>
@@ -667,25 +667,26 @@
         $(function () {
 
             /* ==========================
-                커스텀 셀렉트 초기화
+                커스텀 셀렉트 공용 초기화
             ========================== */
-            const selectData = { category: '', phone: '선택' };
-            const emailData = { domain: '' };
+            const selectData = { category: '', phone: '선택', email: '' };
 
-            function initCustomSelect(wrapperId, dataKey, isEmail = false) {
-                const $wrapper = $("#" + wrapperId);
+            function initCustomSelect(selectId, dataKey) {
+                const $wrapper = $("#" + selectId);
                 const $input = $wrapper.find(".custom-select-input");
                 const $options = $wrapper.find(".custom-select-option");
-                const $emailDomain = $("#emailDomain");
 
-                // 클릭 시 드롭다운 토글
-                $input.on("click", e => {
+                $input.on("click", function (e) {
                     e.stopPropagation();
                     $(".custom-select-wrapper").not($wrapper).removeClass("active");
-                    $wrapper.toggleClass("active");
+
+                    if ($(this).hasClass("placeholder")) {
+                        $wrapper.addClass("active");
+                    } else {
+                        $wrapper.toggleClass("active");
+                    }
                 });
 
-                // 옵션 선택
                 $options.on("click", function (e) {
                     e.stopPropagation();
                     if ($(this).hasClass("disabled")) return;
@@ -693,54 +694,55 @@
                     $options.removeClass("selected");
                     $(this).addClass("selected");
 
-                    const value = $(this).data("value");
+                    selectData[dataKey] = $(this).data("value");
+                    $input.text($(this).text());
+                    if (!selectData[dataKey]) $input.addClass("placeholder");
+                    else $input.removeClass("placeholder");
 
-                    if (isEmail) {
-                        if (!value) {
-                            $emailDomain.val('').prop("disabled", false).focus();
-                            $input.text("직접 입력").addClass("placeholder"); // placeholder 유지
+                    // categorySelect 선택 시 에러 메시지 제거 + 포커스 스타일 제거
+                    if (selectId === "categorySelect") {
+                        hideError("category");
+                        $input.removeClass("error-focus");
+                    }
+
+                    // 이메일 특별 처리
+                    if (selectId === "emailSelect") {
+                        hideError("email"); // 선택하면 에러 제거
+                        const $domainInput = $("#emailDomain");
+                        if ($(this).hasClass("placeholder") || !selectData[dataKey]) {
+                            $domainInput.val("").prop("disabled", false).focus();
                         } else {
-                            $emailDomain.val(value).prop("disabled", true);
-                            $input.text($(this).text()).removeClass("placeholder");
-                        }
-                        emailData.domain = value;
-                        hideError("email");
-                    } else {
-                        selectData[dataKey] = value;
-                        if (value) $input.text($(this).text()).removeClass("placeholder");
-                        hideError(dataKey);
-
-                        // categorySelect 클릭 시 error-focus 제거
-                        if (wrapperId === "categorySelect") {
-                            $input.removeClass("error-focus");
+                            $domainInput.val(selectData[dataKey]).prop("disabled", true);
                         }
                     }
 
-                    if (!$(this).hasClass("disabled")) $wrapper.removeClass("active");
+                    $wrapper.removeClass("active");
                 });
             }
 
             initCustomSelect("categorySelect", "category");
             initCustomSelect("phoneSelect", "phone");
-            initCustomSelect("emailSelect", "email", true);
+            initCustomSelect("emailSelect", "email");
 
-            $(document).on("click", e => {
-                $(".custom-select-wrapper").each(function () {
-                    if (!$(this).is(e.target) && $(this).has(e.target).length === 0) $(this).removeClass("active");
-                });
+            $(document).on("click", function () {
+                $(".custom-select-wrapper").removeClass("active");
             });
 
             /* ==========================
                 개인정보 처리방침 팝업
             ========================== */
-            $("#privacyLink").on("click", e => {
-                e.preventDefault();
+            $("#privacyLink").on("click", function (e) {
+                e.preventDefault(); e.stopPropagation();
                 $("#privacyPopup").addClass("show");
                 $("body").addClass("body-no-scroll");
             });
-            $("#privacyPopup, #privacyPopup .popup-close").on("click", function (e) {
-                if (e.target === this || $(this).hasClass("popup-close")) {
-                    $("#privacyPopup").removeClass("show");
+            $("#privacyPopup .popup-close").on("click", function () {
+                $("#privacyPopup").removeClass("show");
+                $("body").removeClass("body-no-scroll");
+            });
+            $("#privacyPopup").on("click", function (e) {
+                if (e.target === this) {
+                    $(this).removeClass("show");
                     $("body").removeClass("body-no-scroll");
                 }
             });
@@ -752,18 +754,23 @@
                 const $error = $("#" + fieldId + "Error");
                 if (message) $error.text(message);
                 $error.addClass("show");
-                $("#" + fieldId + "Select .custom-select-input").addClass("error");
+                if (fieldId === "category") $("#categorySelect .custom-select-input").addClass("error");
+                if (fieldId === "phone") $("#phoneSelect .custom-select-input").addClass("error");
             }
             function hideError(fieldId) {
                 $("#" + fieldId + "Error").removeClass("show");
-                $("#" + fieldId + "Select .custom-select-input").removeClass("error");
+                if (fieldId === "category") $("#categorySelect .custom-select-input").removeClass("error");
+                if (fieldId === "phone") $("#phoneSelect .custom-select-input").removeClass("error");
                 if (fieldId === "email") $("#emailSelect .custom-select-input").removeClass("error");
             }
 
+            /* ==========================
+                입력 이벤트 에러 제거
+            ========================== */
             $("#name, #subject, #message, #emailId, #emailDomain, #phone2, #phone3").on("input", function () {
                 const id = this.id;
-                if (id.includes("phone")) hideError("phone");
-                else if (id.includes("email")) hideError("email");
+                if (id === "phone2" || id === "phone3") hideError("phone");
+                else if (id === "emailId" || id === "emailDomain") hideError("email");
                 else hideError(id);
             });
             $("#agreePrivacy").on("change", () => hideError("privacy"));
@@ -772,42 +779,39 @@
                 파일첨부 처리
             ========================== */
             let attachedFiles = [];
-            const maxFileSize = 10 * 1024 * 1024; // 10MB
-
             function formatFileSize(bytes) {
                 if (bytes === 0) return '0 Bytes';
                 const k = 1024, sizes = ['Bytes', 'KB', 'MB'];
                 const i = Math.floor(Math.log(bytes) / Math.log(k));
                 return Math.round(bytes / Math.pow(k, i) * 100) / 100 + ' ' + sizes[i];
             }
-
             function renderFileList() {
                 const $fileList = $("#fileList");
                 if (!attachedFiles.length) { $fileList.removeClass('show').empty(); return; }
                 $fileList.addClass('show').html(
                     attachedFiles.map((file, idx) => `
-                <div class="file-item">
-                    <div class="file-item-info">
-                        <span class="file-item-name">${file.name}</span>
-                        <span class="file-item-size">(${formatFileSize(file.size)})</span>
-                    </div>
-                    <button type="button" class="file-item-remove" data-index="${idx}">×</button>
+            <div class="file-item">
+                <div class="file-item-info">
+                    <span class="file-item-name">${file.name}</span>
+                    <span class="file-item-size">(${formatFileSize(file.size)})</span>
                 </div>
-            `).join('')
+                <button type="button" class="file-item-remove" data-index="${idx}">×</button>
+            </div>
+        `).join('')
                 );
             }
-
             $("#attachment").on("change", function () {
-                const files = Array.from(this.files);
+                const files = Array.from(this.files), maxSize = 10 * 1024 * 1024;
                 let hasError = false;
-                files.forEach(f => f.size > maxFileSize ? hasError = true : attachedFiles.push(f));
-                hasError ? showError("file", "파일 용량을 초과한 항목이 있습니다.") : hideError("file");
+                files.forEach(file => { if (file.size > maxSize) hasError = true; else attachedFiles.push(file); });
+                if (hasError) showError("file", "파일 용량을 초과한 항목이 있습니다.");
+                else hideError("file");
                 renderFileList();
                 $(this).val('');
             });
-
             $("#fileList").on("click", ".file-item-remove", function () {
-                attachedFiles.splice($(this).data("index"), 1);
+                const idx = $(this).data("index");
+                attachedFiles.splice(idx, 1);
                 renderFileList();
                 hideError("file");
             });
@@ -817,8 +821,16 @@
             ========================== */
             function validateNumericInput($field, fieldId, maxLength) {
                 $field.on("input", function () {
-                    this.value = this.value.replace(/[^0-9]/g, '');
-                    if (maxLength && this.value.length > maxLength) this.value = this.value.slice(0, maxLength);
+                    const original = this.value;
+                    if (/[^0-9]/.test(original)) {
+                        showError(fieldId, "숫자만 입력해주세요.");
+                        this.value = original.replace(/[^0-9]/g, '');
+                    } else {
+                        hideError(fieldId);
+                    }
+                    if (maxLength && this.value.length > maxLength) {
+                        this.value = this.value.slice(0, maxLength);
+                    }
                 });
             }
             validateNumericInput($("#phone2"), "phone", 4);
@@ -832,18 +844,22 @@
                 if (!$firstError.length) return;
 
                 let $fieldToFocus;
-                const id = $firstError.attr('id');
 
-                if (id === 'phoneError') {
+                if ($firstError.attr('id') === 'phoneError') {
                     if (!selectData.phone || selectData.phone === "선택") $fieldToFocus = $("#phoneSelect .custom-select-input");
-                    else if ($("#phone2").val().length < 3) $fieldToFocus = $("#phone2");
-                    else if ($("#phone3").val().length < 4) $fieldToFocus = $("#phone3");
-                } else if (id === 'categoryError') $fieldToFocus = $("#categorySelect .custom-select-input");
-                else if (id === 'emailError') $fieldToFocus = !$("#emailId").val() ? $("#emailId") : $("#emailDomain");
+                    else if (!$("#phone2").val() || $("#phone2").val().length < 3) $fieldToFocus = $("#phone2");
+                    else if (!$("#phone3").val() || $("#phone3").val().length < 4) $fieldToFocus = $("#phone3");
+                    else $fieldToFocus = null;
+                }
+                else if ($firstError.attr('id') === 'categoryError') $fieldToFocus = $("#categorySelect .custom-select-input");
+                else if ($firstError.attr('id') === 'emailError') {
+                    if (!$("#emailId").val().trim()) $fieldToFocus = $("#emailId");
+                    else if (!$("#emailDomain").val().trim()) $fieldToFocus = $("#emailDomain");
+                }
                 else $fieldToFocus = $firstError.closest('.form-group').find('input, textarea').first();
 
                 if ($fieldToFocus) {
-                    $('html, body').animate({ scrollTop: $firstError.closest('.form-group, .custom-select-wrapper').offset().top - 100 }, 300, () => {
+                    $('html, body').animate({ scrollTop: $firstError.closest('.form-group, .custom-select-wrapper').offset().top - 100 }, 300, function () {
                         if ($fieldToFocus.hasClass('custom-select-input')) $fieldToFocus.addClass('error-focus');
                         else $fieldToFocus.focus();
                     });
@@ -882,44 +898,41 @@
             ========================== */
             $("#inquiryForm").on("submit", function (e) {
                 e.preventDefault();
-                if (!validateForm()) return;
+                if (validateForm()) {
+                    const formData = {
+                        category: selectData.category,
+                        name: $("#name").val().trim(),
+                        phone: selectData.phone + "-" + $("#phone2").val() + "-" + $("#phone3").val(),
+                        email: $("#emailId").val() + "@" + $("#emailDomain").val(),
+                        subject: $("#subject").val().trim(),
+                        message: $("#message").val().trim(),
+                        files: attachedFiles.map(f => f.name)
+                    };
+                    console.log("제출된 문의 데이터:", formData);
 
-                const formData = {
-                    category: selectData.category,
-                    name: $("#name").val().trim(),
-                    phone: selectData.phone + "-" + $("#phone2").val() + "-" + $("#phone3").val(),
-                    email: $("#emailId").val() + "@" + $("#emailDomain").val(),
-                    subject: $("#subject").val().trim(),
-                    message: $("#message").val().trim(),
-                    files: attachedFiles.map(f => f.name)
-                };
-                console.log("제출된 문의 데이터:", formData);
-
-                $("#successModal").addClass("show");
-                $("body").addClass("body-no-scroll");
-
-                setTimeout(() => {
-                    $("#successModal").removeClass("show");
-                    $("body").removeClass("body-no-scroll");
-                    $("#inquiryForm")[0].reset();
-                    attachedFiles = [];
-                    renderFileList();
-
-                    selectData.category = '';
-                    selectData.phone = '선택';
-                    $("#categorySelect .custom-select-input").text("선택").addClass("placeholder");
-                    $("#categorySelect .custom-select-option").removeClass("selected").eq(0).addClass("selected");
-
-                    $("#phoneSelect .custom-select-input").text("010");
-                    $("#phoneSelect .custom-select-option").removeClass("selected").eq(0).addClass("selected");
-
-                    $("#emailSelect .custom-select-input").text("직접 입력").addClass("placeholder");
-                    $("#emailSelect .custom-select-option").removeClass("selected").eq(0).addClass("selected");
-                }, 2000);
+                    $("#successModal").addClass("show");
+                    $("body").addClass("body-no-scroll");
+                    setTimeout(() => {
+                        $("#successModal").removeClass("show");
+                        $("body").removeClass("body-no-scroll");
+                        $("#inquiryForm")[0].reset();
+                        attachedFiles = [];
+                        renderFileList();
+                        selectData.category = '';
+                        selectData.phone = '선택';
+                        selectData.email = '';
+                        $("#categorySelect .custom-select-input").text("선택").addClass("placeholder");
+                        $("#categorySelect .custom-select-option").removeClass("selected").eq(0).addClass("selected");
+                        $("#phoneSelect .custom-select-input").text("010");
+                        $("#phoneSelect .custom-select-option").removeClass("selected").eq(0).addClass("selected");
+                        $("#emailSelect .custom-select-input").text("직접 입력").addClass("placeholder");
+                        $("#emailSelect .custom-select-option").removeClass("selected").eq(0).addClass("selected");
+                    }, 2000);
+                }
             });
 
             /* ==========================
-                성공 팝업 처리 + 딤화면
+                성공 팝업 처리
             ========================== */
             const $modal = $("#successModal");
             const $body = $("body");
@@ -942,60 +955,20 @@
                 $body.removeClass("body-no-scroll");
             }
 
-            // 딤화면(팝업 배경) 클릭 시 닫기
+            // 딤화면 = 팝업 배경, 클릭 시 팝업 닫기
             $modal.on("click", function (e) {
-                if (e.target === this) {  // 팝업 내부 클릭은 무시, 배경 클릭만 닫기
-                    hideSuccessModal();
-                }
+                if (e.target === this) hideSuccessModal();
             });
 
-            // 팝업 내부 스크롤 방지 (딤화면 클릭 시 스크롤 막기)
+            // 팝업 안쪽 스크롤 방지
             $modal.on('scroll touchmove mousewheel', function (e) {
                 e.preventDefault();
                 e.stopPropagation();
                 return false;
             });
 
-
-            /* ==========================
-                자동 다음 칸 이동 + 백스페이스 이전칸 이동
-            ========================== */
-            function setupAutoTab($inputs) {
-                $inputs.each(function (index) {
-                    const $this = $(this);
-                    const maxLength = parseInt($this.attr('maxlength'), 10) || 999;
-
-                    // 다음칸 자동 이동
-                    $this.on("input", function () {
-                        if ($this.val().length >= maxLength) {
-                            const $next = $inputs.eq(index + 1);
-                            if ($next.length) $next.focus();
-                        }
-                    });
-
-                    // 백스페이스 시 이전칸 이동
-                    $this.on("keydown", function (e) {
-                        if (e.key === "Backspace" && !$this.val()) {
-                            const $prev = $inputs.eq(index - 1);
-                            if ($prev.length) $prev.focus();
-                        }
-                    });
-                });
-            }
-
-            setupAutoTab($("#phone2, #phone3"));
-            setupAutoTab($("#emailId, #emailDomain"));
-            setupAutoTab($("#subject, #message"));
-
-
-
-
         });
     </script>
-
-
-
-
 
 
 

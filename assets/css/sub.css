@@ -396,11 +396,15 @@
     background-color: var(--primary-color);
     color: var(--white-color);
     border: 1px solid var(--primary-color);
+    margin: 0px auto;
+    transition: .3s;
+    /* width: calc(28% - 20px); */
 }
 
 .form-button:hover {
     background-color: var(--white-color);
     color: var(--primary-color);
+    transform: translateY(-5px);
 }
 
 /* //서브 공통 영역 END*/
@@ -1440,7 +1444,7 @@
 
 .notice-item .notice-title:hover {
     /* text-decoration: underline; */
-    /* text-underline-offset: 4px; */
+    /* text-underline-offset: 5px; */
 }
 
 .notice-item .notice-date {
@@ -1780,16 +1784,6 @@
     border: none;
 }
 
-.view-box .form-button {
-    margin: 40px auto;
-    transition: .3s;
-    width: calc(28% - 20px);
-}
-
-.view-box .form-button:hover {
-    transform: translateY(-5px);
-}
-
 /* 뷰페이지 영역 END*/
 
 
@@ -1934,6 +1928,7 @@
     border-radius: 0 25px 25px 0;
     background: none !important;
     border: none;
+    color: var(--text-color);
 }
 
 .search-box button {
@@ -2328,6 +2323,15 @@ textarea {
     cursor: pointer;
 }
 
+.custom-select-input.error-focus {
+    border-color: var(--primary-color);
+}
+
+.custom-select-input:focus {
+    /* border-color: var(--primary-color); */
+}
+
+
 .custom-select-input.placeholder {
     color: var(--body-color);
 }
@@ -2360,6 +2364,7 @@ textarea {
     transition: transform 0.3s ease;
     font-weight: var(--font-600);
     color: var(--text-color);
+    font-size: 15px;
 }
 
 .custom-select-wrapper.active .custom-select-arrow {
@@ -2390,7 +2395,7 @@ textarea {
 
 /* 스크롤은 여기에만 적용 */
 .custom-select-list {
-    max-height: 250px;
+    max-height: 210px;
     overflow-y: auto;
     padding-right: 0px;
 }
@@ -2440,9 +2445,21 @@ textarea {
 
 .custom-select-option {
     cursor: pointer;
-    font-size: 20px;
+    font-size: 18px;
     transition: background-color 0.2s;
     padding: 15px 20px;
+}
+
+.custom-select-option.disabled {
+    pointer-events: none;
+    /* 클릭 불가 */
+    color: var(--body2-color);
+    background-color: var(--bg-color);
+}
+
+/* 마우스 오버 효과 제거 */
+.custom-select-option.disabled:hover {
+    background-color: var(--bg-color);
 }
 
 .custom-select-option:hover {
@@ -2483,6 +2500,10 @@ textarea {
 .checkbox-group {
     vertical-align: text-bottom;
     font-size: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
 }
 
 .qna-list input[type="checkbox"] {
@@ -2532,7 +2553,8 @@ textarea {
     padding: 30px;
     border-radius: 10px;
     text-align: center;
-    max-width: 500px;
+    max-width: 400px;
+    width: calc(100% - 40px);
     position: absolute;
     top: 50%;
     left: 50%;
@@ -2560,12 +2582,17 @@ textarea {
 }
 
 .success-content h2 {
-    margin-bottom: 10px;
-    font-size: 18px;
+    margin: 25px 0 10px;
+    font-size: 20px;
     color: var(--text-color);
 }
 
 .success-content p {}
+
+.success-content p span {
+    text-decoration: underline;
+    text-underline-offset: 5px;
+}
 
 .privacy-popup {
     display: none;
@@ -2945,6 +2972,20 @@ textarea {
     color: var(--text-color);
 }
 
+.form-group.total {
+    background-color: var(--redbg-color);
+}
+
+.form-group.total label {
+    font-weight: var(--font-700);
+}
+
+.form-group.total .input-wrapper p.total-price {
+    color: var(--primary-color);
+    font-weight: var(--font-600);
+    font-size: 24px;
+}
+
 .birthday-inputs {
     display: flex;
     gap: 10px;
@@ -2962,8 +3003,10 @@ textarea {
     border: 1px solid var(--border-color);
 }
 
+/* 라디오버튼 */
 .input-block-group {
     display: flex;
+    flex-wrap: wrap;
     gap: 10px;
 }
 
@@ -2971,10 +3014,12 @@ textarea {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
+    position: relative;
 }
 
 .input-block-group .radio-block {
-    flex: 0 1 180px;
+    /* flex: 0 1 180px; */
+    flex: 0 1 calc(20% - 10px);
     display: inline-block;
     position: relative;
     /* margin-right: -1px; */
@@ -3004,7 +3049,7 @@ textarea {
     left: 0;
     width: 100%;
     height: 100%;
-    border: 1px solid #e5e5e5;
+    border: 1px solid var(--border-color);
     pointer-events: none;
     transition: all ease .15s;
     border-radius: 10px;
@@ -3017,18 +3062,18 @@ textarea {
 
 .input-block-group .radio-block input:checked~i {
     z-index: 2;
-    border-color: #ea002c;
+    border-color: var(--primary-color);
 }
 
 .input-block-group .radio-block input:checked~label {
-    color: #ea002c;
+    color: var(--primary-color);
 }
 
 .input-block-group .radio-block label {
     display: block;
     padding: 15px 20px;
     font-size: 18px;
-    color: #999999;
+    color: var(--body2-color);
     font-weight: 500;
     cursor: pointer;
     transition: all ease .15s;
@@ -3047,6 +3092,9 @@ textarea {
 #directAmount[type="number"] {
     -moz-appearance: textfield;
     width: 200px;
+    width: calc(20% - 10px);
+    position: absolute;
+    bottom: 0;
 }
 
 
@@ -3756,6 +3804,19 @@ textarea {
         font-size: 16px;
     }
 
+    .custom-select-arrow {
+        font-size: 13px;
+    }
+
+    .custom-select-option {
+        font-size: 16px;
+        padding: 12px 20px;
+    }
+
+    .custom-select-list {
+        max-height: 180px;
+    }
+
     .form-group .input-wrapper {
         width: 100%;
     }
@@ -3820,6 +3881,18 @@ textarea {
 
     .donate-list:not(:last-child) {
         margin-bottom: 30px;
+    }
+
+    .donate-list input[type="password"] {
+        font-size: 16px;
+    }
+
+    .input-block-group .radio-block label {
+        font-size: 16px;
+    }
+
+    .form-group.total {
+        text-align: center;
     }
 
 }
@@ -4245,9 +4318,8 @@ textarea {
         margin: 10px 0 0;
     }
 
-    .view-box .form-button {
-        width: 100%;
-        margin: 30px auto;
+    .form-button {
+        /* width: 100%; */
         font-size: 16px;
         height: 45px;
         transition: background-color 0s;
@@ -4292,8 +4364,12 @@ textarea {
     }
 
     .privacy-popup-header h2 {
-        font-size: 25px;
-        padding-right: 50px;
+        font-size: 22px;
+        padding-right: 30px;
+    }
+
+    .input-block-group .radio-block {
+        flex: 0 1 calc(50% - 5px);
     }
 
 
@@ -4424,6 +4500,10 @@ textarea {
     .phone-inputs .custom-select-wrapper {
         flex: 0 0 auto;
         width: calc(100% - 20px);
+    }
+
+    .input-block-group .radio-block {
+        flex: 0 1 calc(50% - 5px);
     }
 
 }

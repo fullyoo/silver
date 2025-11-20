@@ -976,6 +976,9 @@
     margin-top: 20px;
     font-size: 18px;
     font-weight: var(--font-600);
+    display: flex;
+    align-items: center;
+    gap: 5px;
 }
 
 .check-list input[type="checkbox"]+label {
@@ -1582,6 +1585,7 @@
 
     .check-list {
         font-size: 16px;
+        display: block;
     }
 
     .popup {
@@ -1594,8 +1598,8 @@
     }
 
     .popup h2 {
-        font-size: 25px;
-        padding-right: 50px;
+        font-size: 22px;
+        padding-right: 30px;
     }
 
     .letter-wrap>div {
