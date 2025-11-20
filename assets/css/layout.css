@@ -375,7 +375,7 @@ input[type="text"]:valid {
 .form-list input[type="text"]:focus,
 .form-list input[type="password"]:focus,
 .form-list input[type="tel"]:focus,
-.form-listinput[type="number"]:focus,
+.form-list input[type="number"]:focus,
 input:focus,
 textarea:focus {
     border-color: var(--primary-color);

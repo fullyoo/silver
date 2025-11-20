@@ -3079,8 +3079,6 @@ textarea {
     transition: all ease .15s;
 }
 
-.form-list input[type="number"] {}
-
 /* Chrome, Edge, Safari */
 #directAmount::-webkit-outer-spin-button,
 #directAmount::-webkit-inner-spin-button {
