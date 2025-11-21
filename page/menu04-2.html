@@ -658,7 +658,9 @@
                             <div class="form-group">
                                 <label for="account">후원 계좌 <span class="required">*</span></label>
                                 <div class="input-wrapper">
-                                    <p class="info">국민은행 123-456-78901234 (예금주 : 은빛노인복지센터)</p>
+                                    <p class="info">국민은행 123-456-78901234
+                                        <span>(예금주 : 은빛노인복지센터)</span>
+                                    </p>
                                 </div>
                             </div>
 
@@ -715,11 +717,13 @@
                             <div class="form-group">
                                 <label for="ssn">주민등록번호</label>
                                 <div class="input-wrapper">
-                                    <input type="text" id="ssn1" name="ssn1" maxlength="6" placeholder="앞자리">
+                                    <input type="text" id="ssn1" name="ssn1" maxlength="6" placeholder="앞자리"
+                                        class="half">
 
                                     <!-- ✅ id/name 변경 -->
                                     <span class="phone-separator">-</span>
-                                    <input type="password" id="ssn2" name="ssn2" maxlength="7" placeholder="뒷자리">
+                                    <input type="password" id="ssn2" name="ssn2" maxlength="7" placeholder="뒷자리"
+                                        class="half">
                                     <!-- ✅ id/name 변경 -->
                                     <div class="error-message" id="ssnError">주민등록번호를 정확히 입력해주세요.</div>
                                     <!-- ✅ id 변경 -->
@@ -848,10 +852,13 @@
 
                                         <!-- 직접입력 input -->
                                         <div class="direct-input-wrap" id="directAmountWrap" style="display:none;">
+                                            <!--input type="text"  -->
                                             <input type="text" id="directAmount" name="directAmount"
                                                 placeholder="금액을 입력해주세요">
-                                            <input type="number" id="directAmount" name="directAmount"
-                                                placeholder="금액을 입력해주세요">
+
+                                            <!-- input type="number" -->
+                                            <!-- <input type="number" id="directAmount" name="directAmount"
+                                                placeholder="금액을 입력해주세요"> -->
                                         </div>
                                         <!-- <div class="radio-block">
                                             <input id="amount-direct" type="radio" name="sp_amount" value="direct">
@@ -863,10 +870,11 @@
                                     <p class="form-desc"><span class="required">*</span> 후원 금액은 1,000원 단위로 입력해주세요.</p>
 
                                     <!-- 직접입력용 텍스트 필드 (선택 시 표시) -->
-                                    <div class="direct-input-wrap" id="directAmountWrap" style="display:none;">
+
+                                    <!-- <div class="direct-input-wrap" id="directAmountWrap" style="display:none;">
                                         <input type="number" id="directAmount" name="directAmount"
                                             placeholder="금액을 입력해주세요">
-                                    </div>
+                                    </div> -->
 
                                     <div class="error-message" id="donationAmountError">선택해주세요.</div>
                                 </div>

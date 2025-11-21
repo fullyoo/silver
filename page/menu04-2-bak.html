@@ -148,7 +148,7 @@
                     <li><a href="#menu04-1" class="links">참여 & 후원<span class="sub-toggle"></span></a>
                         <ul class="sub-menu">
                             <li><a href="#menu04-1">후원 안내</a></li>
-                            <li><a href="#menu04-2">후원 신청</a></li>
+                            <li><a href="#menu04-2-donate">후원 신청</a></li>
                             <li><a href="#menu04-3">자원봉사 안내</a></li>
                         </ul>
                     </li>
@@ -256,7 +256,7 @@
                             </a>
                             <ul class="fullmenu-list">
                                 <li><a href="#menu04-1">후원 안내</a></li>
-                                <li><a href="#menu04-2">후원 신청</a></li>
+                                <li><a href="#menu04-2-donate">후원 신청</a></li>
                                 <li><a href="#menu04-3">자원봉사 안내</a></li>
                             </ul>
                         </div>
@@ -342,14 +342,13 @@
                                 <div class="input-wrapper">
                                     <div class="phone-inputs">
                                         <div class="custom-select-wrapper" id="phoneSelect">
-                                            <div class="custom-select-input">
-                                                010
-                                            </div>
-                                            <span class="custom-select-arrow">▼</span>
+                                            <div class="custom-select-input"> 선택 </div> <span
+                                                class="custom-select-arrow">▼</span>
                                             <div class="custom-select-dropdown">
                                                 <div class="custom-select-list">
-                                                    <div class="custom-select-option selected" data-value="010">010
-                                                    </div>
+                                                    <div class="custom-select-option disabled" data-value="선택">
+                                                        선택 </div>
+                                                    <div class="custom-select-option" data-value="010">010 </div>
                                                     <div class="custom-select-option" data-value="011">011</div>
                                                     <div class="custom-select-option" data-value="016">016</div>
                                                     <div class="custom-select-option" data-value="017">017</div>
@@ -364,6 +363,43 @@
                                         <input type="tel" id="phone3" name="phone3" maxlength="4" placeholder="0000">
                                     </div>
                                     <div class="error-message" id="phoneError">연락처를 입력해주세요.</div>
+                                </div>
+                            </div>
+
+                            <!-- 이메일 -->
+                            <div class="form-group">
+                                <label for="email">이메일 <span class="required">*</span></label>
+                                <div class="input-wrapper">
+                                    <div class="email-inputs">
+                                        <input type="text" id="emailId" name="emailId" placeholder="이메일 아이디"
+                                            class="email-id">
+                                        <span class="email-at">@</span>
+                                        <input type="text" id="emailDomain" name="emailDomain" placeholder="직접입력">
+                                        <div class="custom-select-wrapper" id="emailSelect">
+                                            <div class="custom-select-input placeholder">
+                                                직접 입력
+                                            </div>
+                                            <span class="custom-select-arrow">▼</span>
+                                            <div class="custom-select-dropdown">
+                                                <div class="custom-select-list">
+                                                    <div class="custom-select-option placeholder selected"
+                                                        data-value="">직접
+                                                        입력</div>
+                                                    <div class="custom-select-option" data-value="naver.com">naver.com
+                                                    </div>
+                                                    <div class="custom-select-option" data-value="gmail.com">gmail.com
+                                                    </div>
+                                                    <div class="custom-select-option" data-value="daum.net">daum.net
+                                                    </div>
+                                                    <div class="custom-select-option" data-value="kakao.com">kakao.com
+                                                    </div>
+                                                    <div class="custom-select-option" data-value="hanmail.net">
+                                                        hanmail.net</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="error-message" id="emailError">올바른 이메일을 입력해주세요.</div>
                                 </div>
                             </div>
 
@@ -924,8 +960,8 @@
                         </svg>
                     </div>
                     <h2>후원신청이 완료되었습니다</h2>
-                    <p>소중한 후원에 진심으로 감사드립니다.<br>
-                        입금 확인 후 연락드리겠습니다.<br>
+                    <p><span>소중한 후원에 진심으로 감사드립니다.</span> <br>
+                        입금 확인 후 연락드리겠습니다.<br><br>
                         3초뒤에 팝업이 닫힙니다.</p>
                 </div>
             </div>
@@ -1045,7 +1081,7 @@
         $(function () {
 
             /* ==========================
-                후원금액 직접입력 처리 + 총 후원금액 업데이트
+                후원금액 처리 + 총 후원금액 업데이트
             ========================== */
             const $amountRadios = $("input[name='sp_amount']");
             const $directRadio = $("#amount-direct");
@@ -1058,23 +1094,16 @@
                 const selectedVal = $("input[name='sp_amount']:checked").val();
 
                 if (selectedVal === 'direct') {
-                    let directVal = $directInput.val();
-                    if (directVal && /[^0-9]/.test(directVal)) {
-                        showError("donationAmount", "숫자만 입력해주세요.");
-                        directVal = directVal.replace(/[^0-9]/g, '');
-                        $directInput.val(directVal);
-                    } else {
-                        hideError("donationAmount");
-                    }
+                    let directVal = $directInput.val().replace(/[^0-9]/g, '');
+                    $directInput.val(directVal);
+                    hideError("donationAmount");
 
-                    amount = parseInt(directVal, 10);
-                    if (!isNaN(amount) && amount > 0 && amount % 1000 !== 0) {
+                    amount = parseInt(directVal, 10) || 0;
+                    if (amount > 0 && amount % 1000 !== 0) {
                         showError("donationAmount", "1,000원 단위로 입력해주세요.");
                     }
-
-                    amount = isNaN(amount) ? 0 : amount;
                 } else {
-                    amount = parseInt(selectedVal, 10);
+                    amount = parseInt(selectedVal, 10) || 0;
                 }
 
                 $totalPrice.text(amount.toLocaleString() + "원");
@@ -1092,16 +1121,14 @@
                 updateTotalPrice();
             });
 
-            $directInput.on("input", function () {
-                updateTotalPrice();
-            });
+            $directInput.on("input", updateTotalPrice);
+            updateTotalPrice();
 
-            updateTotalPrice(); // 초기 로드 시 금액 표시
 
             /* ==========================
                 커스텀 셀렉트 초기화
             ========================== */
-            const selectData = { phone: '010', birthYear: '', birthMonth: '', birthDay: '' };
+            const selectData = { phone: '선택', birthYear: '', birthMonth: '', birthDay: '' };
 
             function initCustomSelect(selectId, dataKey) {
                 const $wrapper = $("#" + selectId);
@@ -1116,70 +1143,150 @@
 
                 $options.on("click", function (e) {
                     e.stopPropagation();
+                    if ($(this).hasClass("disabled")) return;
+
                     $options.removeClass("selected");
                     $(this).addClass("selected");
+
                     selectData[dataKey] = $(this).data("value");
                     $input.text($(this).text()).removeClass("placeholder");
-
                     $wrapper.removeClass("active");
-                    if (dataKey === 'phone') hideError('phone');
-                    if (dataKey === 'birthYear' || dataKey === 'birthMonth' || dataKey === 'birthDay') $("#birthdayError").removeClass("show");
+
+                    if (['phone', 'birthYear', 'birthMonth', 'birthDay'].includes(dataKey)) {
+                        hideError(dataKey === 'phone' ? 'phone' : 'birthday');
+                    }
                 });
             }
 
-            initCustomSelect("phoneSelect", "phone");
-            initCustomSelect("birthYearSelect", "birthYear");
-            initCustomSelect("birthMonthSelect", "birthMonth");
-            initCustomSelect("birthDaySelect", "birthDay");
+            ["phoneSelect", "birthYearSelect", "birthMonthSelect", "birthDaySelect"]
+                .forEach((id, idx) => initCustomSelect(id, Object.keys(selectData)[idx]));
 
-            $(document).on("click", function () {
-                $(".custom-select-wrapper").removeClass("active");
-            });
 
             /* ==========================
-                개인정보 처리방침 팝업
+                이메일 셀렉트 초기화
             ========================== */
+            const emailData = { domain: '' };
+
+            function initEmailSelect(selectId) {
+                const $wrapper = $("#" + selectId);
+                const $input = $wrapper.find(".custom-select-input");
+                const $options = $wrapper.find(".custom-select-option");
+                const $emailDomain = $("#emailDomain");
+
+                $input.on("click", function (e) {
+                    e.stopPropagation();
+                    $(".custom-select-wrapper").not($wrapper).removeClass("active");
+                    $wrapper.toggleClass("active");
+                });
+
+                $options.on("click", function (e) {
+                    e.stopPropagation();
+                    const value = $(this).data("value");
+                    $emailDomain.val(value || '').prop("disabled", !!value).focus();
+                    $options.removeClass("selected");
+                    $(this).addClass("selected");
+                    emailData.domain = value;
+
+                    $input.text($(this).text()).removeClass("placeholder");
+                    $wrapper.removeClass("active");
+                    hideError("email");
+                });
+            }
+
+            initEmailSelect("emailSelect");
+
+            $(document).on("click", function (e) {
+                $(".custom-select-wrapper").each(function () {
+                    if (!$(this).is(e.target) && $(this).has(e.target).length === 0) {
+                        $(this).removeClass("active");
+                    }
+                });
+            });
+
+
+            /* ==========================
+                개인정보 팝업
+            ========================== */
+            function togglePopup(show) {
+                $("#privacyPopup").toggleClass("show", show);
+                $("body").toggleClass("body-no-scroll", show);
+            }
+
             $("#privacyLink").on("click", function (e) {
-                e.preventDefault();
-                e.stopPropagation();
-                $("#privacyPopup").addClass("show");
-                $("body").addClass("body-no-scroll");
+                e.preventDefault(); e.stopPropagation();
+                togglePopup(true);
             });
 
-            $("#privacyPopup .popup-close").on("click", function () {
-                $("#privacyPopup").removeClass("show");
-                $("body").removeClass("body-no-scroll");
-            });
-
+            $("#privacyPopup .popup-close").on("click", () => togglePopup(false));
             $("#privacyPopup").on("click", function (e) {
-                if (e.target === this) {
-                    $(this).removeClass("show");
-                    $("body").removeClass("body-no-scroll");
-                }
+                if (e.target === this) togglePopup(false);
             });
+
 
             /* ==========================
                 에러 메시지 제어
             ========================== */
-            function hideError(fieldId) { $("#" + fieldId + "Error").removeClass("show"); }
             function showError(fieldId, message) {
                 const $error = $("#" + fieldId + "Error");
                 if (message) $error.text(message);
                 $error.addClass("show");
             }
 
+            function hideError(fieldId) {
+                $("#" + fieldId + "Error").removeClass("show");
+            }
+
+
+            /* ==========================
+                첫 번째 에러 필드 focus
+            ========================== */
+            function focusFirstError() {
+                $(".custom-select-input").removeClass("error-focus");
+
+                const $firstError = $(".error-message.show").first();
+                if (!$firstError.length) return;
+
+                let $fieldToFocus;
+
+                const idMap = {
+                    phoneError: () => {
+                        if (!selectData.phone || selectData.phone === "선택") return $("#phoneSelect .custom-select-input");
+                        if (!$("#phone2").val() || $("#phone2").val().length < 3) return $("#phone2");
+                        if (!$("#phone3").val() || $("#phone3").val().length < 4) return $("#phone3");
+                    },
+                    birthdayError: () => $("#birthYearSelect, #birthMonthSelect, #birthDaySelect")
+                        .filter((_, el) => !selectData[$(el).attr('id').replace('Select', '')])
+                        .first().find(".custom-select-input"),
+                    ssnError: () => $("#ssn1, #ssn2").filter((_, el) => el.value.length < parseInt(el.maxLength)).first(),
+                    emailError: () => !$("#emailId").val().trim() ? $("#emailId") : $("#emailDomain")
+                };
+
+                if (idMap[$firstError.attr('id')]) $fieldToFocus = idMap[$firstError.attr('id')]();
+
+                if (!$fieldToFocus || !$fieldToFocus.length) {
+                    $fieldToFocus = $firstError.closest('.form-group').find('input, select, textarea').first();
+                }
+
+                $('html, body').animate({
+                    scrollTop: $firstError.closest('.form-group').offset().top - 100
+                }, 300, function () {
+                    $fieldToFocus.hasClass('custom-select-input') ? $fieldToFocus.addClass('error-focus') : $fieldToFocus.focus();
+                });
+            }
+
+
+            /* ==========================
+                숫자 입력 필드
+            ========================== */
             function validateNumericInput($field, fieldId, maxLength) {
                 $field.on("input", function () {
-                    const original = this.value;
-                    if (/[^0-9]/.test(original)) {
+                    const numeric = this.value.replace(/[^0-9]/g, '');
+                    if (this.value !== numeric) {
+                        this.value = numeric;
                         showError(fieldId, "숫자만 입력해주세요.");
-                        this.value = original.replace(/[^0-9]/g, '');
-                    } else {
-                        hideError(fieldId);
-                    }
-                    if (maxLength && this.value.length > maxLength) {
-                        this.value = this.value.slice(0, maxLength);
-                    }
+                    } else hideError(fieldId);
+
+                    if (maxLength && this.value.length > maxLength) this.value = this.value.slice(0, maxLength);
                 });
             }
 
@@ -1189,46 +1296,52 @@
             validateNumericInput($("#ssn2"), "ssn", 7);
             validateNumericInput($directInput, "donationAmount");
 
-            $("#ssn1").on("blur", function () {
-                if (this.value.length !== 6) showError("ssn", "주민등록번호 앞자리는 6자리로 입력해주세요.");
-            });
-            $("#ssn2").on("blur", function () {
-                if (this.value.length !== 7) showError("ssn", "주민등록번호 뒷자리는 7자리로 입력해주세요.");
-            });
+            $("#ssn1").on("blur", () => { if ($("#ssn1").val().length !== 6) showError("ssn", "주민등록번호 앞자리는 6자리로 입력해주세요."); });
+            $("#ssn2").on("blur", () => { if ($("#ssn2").val().length !== 7) showError("ssn", "주민등록번호 뒷자리는 7자리로 입력해주세요."); });
 
-            $("#name").on("input", function () { hideError("name"); });
-            $("#depositor").on("input", function () { hideError("depositor"); });
-            $("input[name='sp_receipt']").on("change", function () { hideError("receipt"); });
-            $("input[name='sp_type']").on("change", function () { hideError("donationType"); });
-            $("input[name='sp_regular']").on("change", function () { hideError("donationMethod"); });
+            $("#name, #depositor, #emailId, #emailDomain").on("input", function () { hideError(this.id); });
+            $("input[name='sp_receipt'], input[name='sp_type'], input[name='sp_regular']").on("change", function () { hideError(this.name); });
             $("#agreePrivacy").on("change", function () { hideError("privacy"); });
+
 
             /* ==========================
                 자동 다음 칸 이동
             ========================== */
             function setupAutoTab($inputs) {
-                $inputs.each(function (index) {
+                $inputs.each(function (i) {
                     const $this = $(this);
                     const maxLength = parseInt($this.attr('maxlength'), 10) || 999;
 
                     $this.on("input", function () {
-                        if ($this.val().length >= maxLength) {
-                            const $next = $inputs.eq(index + 1);
-                            if ($next.length) $next.focus();
-                        }
+                        if ($this.val().length >= maxLength) $inputs.eq(i + 1).focus();
                     });
 
                     $this.on("keydown", function (e) {
-                        if (e.key === "Backspace" && !$this.val()) {
-                            const $prev = $inputs.eq(index - 1);
-                            if ($prev.length) $prev.focus();
-                        }
+                        if (e.key === "Backspace" && !$this.val()) $inputs.eq(i - 1).focus();
                     });
                 });
             }
 
             setupAutoTab($("#phone2, #phone3"));
             setupAutoTab($("#ssn1, #ssn2"));
+
+
+            /* ==========================
+                이메일 유효성 검사
+            ========================== */
+            function validateEmail() {
+                const emailId = $("#emailId").val().trim();
+                const emailDomain = $("#emailDomain").val().trim();
+                const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+                if (!emailId || !emailDomain || !emailPattern.test(emailId + "@" + emailDomain)) {
+                    showError("email", "올바른 이메일을 입력해주세요.");
+                    return false;
+                }
+                hideError("email");
+                return true;
+            }
+
 
             /* ==========================
                 폼 유효성 검사
@@ -1238,10 +1351,8 @@
 
                 if (!$("#name").val().trim()) { showError("name", "이름을 입력해주세요."); isValid = false; }
 
-                const p2 = $("#phone2").val().trim();
-                const p3 = $("#phone3").val().trim();
-                if (!p2 || !p3) { showError("phone", "연락처를 입력해주세요."); isValid = false; }
-                else if (p2.length < 3 || p3.length < 4) { showError("phone", "올바른 연락처를 입력해주세요."); isValid = false; }
+                const p2 = $("#phone2").val().trim(), p3 = $("#phone3").val().trim();
+                if (!p2 || !p3 || p2.length < 3 || p3.length < 4) { showError("phone", "올바른 연락처를 입력해주세요."); isValid = false; }
 
                 if (!selectData.birthYear || !selectData.birthMonth || !selectData.birthDay) { showError("birthday", "생년월일을 입력해주세요."); isValid = false; }
 
@@ -1249,88 +1360,51 @@
 
                 const receiptChecked = $("input[name='sp_receipt']:checked").val();
                 if (!receiptChecked) { showError("receipt", "영수증 발급 여부를 선택해주세요."); isValid = false; }
-
                 if (receiptChecked === 'Y') {
-                    const ssn1 = $("#ssn1").val().trim();
-                    const ssn2 = $("#ssn2").val().trim();
-                    if (!ssn1 || !ssn2) { showError("ssn", "영수증 발급을 위해 주민등록번호를 입력해주세요."); isValid = false; }
-                    else {
-                        if (ssn1.length !== 6) { showError("ssn", "주민등록번호 앞자리는 6자리로 입력해주세요."); isValid = false; }
-                        if (ssn2.length !== 7) { showError("ssn", "주민등록번호 뒷자리는 7자리로 입력해주세요."); isValid = false; }
-                    }
+                    if ($("#ssn1").val().length !== 6 || $("#ssn2").val().length !== 7) { showError("ssn", "주민등록번호를 올바르게 입력해주세요."); isValid = false; }
                 }
 
                 if (!$("input[name='sp_type']:checked").val()) { showError("donationType", "후원종류를 선택해주세요."); isValid = false; }
                 if (!$("input[name='sp_regular']:checked").val()) { showError("donationMethod", "후원방식을 선택해주세요."); isValid = false; }
 
                 const amountSelected = $("input[name='sp_amount']:checked").val();
-                if (!amountSelected) { showError("donationAmount", "후원금액을 선택해주세요."); isValid = false; }
-                else if (amountSelected === 'direct') {
+                if (!amountSelected) {
+                    showError("donationAmount", "후원금액을 선택해주세요.");
+                    isValid = false;
+                } else if (amountSelected === 'direct') {
                     const directAmount = parseInt($directInput.val(), 10);
-                    if (isNaN(directAmount) || directAmount < 1000) { showError("donationAmount", "최소 후원금액은 1,000원입니다."); isValid = false; }
-                    else if (directAmount % 1000 !== 0) { showError("donationAmount", "1,000원 단위로 입력해주세요."); isValid = false; }
-                }
-
-                if (!$("#agreePrivacy").is(":checked")) { showError("privacy", "개인정보 수집 및 이용에 동의해주세요."); isValid = false; }
-
-                /* ==========================
-                    에러 발생 시 스크롤 + 포커스 처리
-                ========================== */
-                if (!isValid) {
-                    const $firstError = $(".error-message.show").first();
-                    if ($firstError.length) {
-                        const $inputs = $firstError.closest('.form-group').find('input, select, textarea');
-                        let $fieldToFocus;
-
-                        // 전화번호
-                        if ($firstError.attr('id') === 'phoneError') {
-                            $fieldToFocus = $inputs.filter(function () { return !$(this).val(); }).first();
-                        }
-                        // 주민등록번호
-                        else if ($firstError.attr('id') === 'ssnError') {
-                            $fieldToFocus = $inputs.filter(function () {
-                                if ($(this).attr('id') === 'ssn2' && $(this).val().length < 7) return true;
-                                if ($(this).attr('id') === 'ssn1' && $(this).val().length < 6) return true;
-                                return false;
-                            }).first();
-                        }
-
-                        // 일반 에러
-                        if (!$fieldToFocus || !$fieldToFocus.length) {
-                            $fieldToFocus = $inputs.filter(function () { return !$(this).val(); }).first();
-                            if (!$fieldToFocus.length) $fieldToFocus = $inputs.first();
-                        }
-
-                        $('html, body').animate({ scrollTop: $firstError.closest('.form-group').offset().top - 100 }, 300, function () {
-                            $fieldToFocus.focus();
-                        });
+                    if (isNaN(directAmount) || directAmount < 1000) {
+                        showError("donationAmount", "최소 후원금액은 1,000원입니다.");
+                        isValid = false;
+                    }
+                    else if (directAmount % 1000 !== 0) {
+                        showError("donationAmount", "1,000원 단위로 입력해주세요.");
+                        isValid = false;
                     }
                 }
 
+                if (!validateEmail()) isValid = false;
+                if (!$("#agreePrivacy").is(":checked")) { showError("privacy", "개인정보 수집 및 이용에 동의해주세요."); isValid = false; }
+
+                if (!isValid) focusFirstError();
                 return isValid;
             }
+
 
             /* ==========================
                 폼 초기화
             ========================== */
             function resetForm() {
                 $("#donateForm")[0].reset();
-                selectData.phone = "010";
-                selectData.birthYear = "";
-                selectData.birthMonth = "";
-                selectData.birthDay = "";
+                selectData.phone = "선택"; selectData.birthYear = ""; selectData.birthMonth = ""; selectData.birthDay = "";
 
-                $("#phoneSelect .custom-select-input").text("010");
+                $("#phoneSelect .custom-select-input").text("선택");
                 $("#phoneSelect .custom-select-option").removeClass("selected").eq(0).addClass("selected");
 
                 $("#birthYearSelect .custom-select-input").text("연도").addClass("placeholder");
-                $("#birthYearSelect .custom-select-option").removeClass("selected");
-
                 $("#birthMonthSelect .custom-select-input").text("월").addClass("placeholder");
-                $("#birthMonthSelect .custom-select-option").removeClass("selected");
-
                 $("#birthDaySelect .custom-select-input").text("일").addClass("placeholder");
-                $("#birthDaySelect .custom-select-option").removeClass("selected");
+                $(".custom-select-option").removeClass("selected");
 
                 $directWrap.hide();
                 $(".error-message").removeClass("show");
@@ -1338,67 +1412,58 @@
                 updateTotalPrice();
             }
 
+
             /* ==========================
                 폼 제출 이벤트
             ========================== */
             $("#donateForm").on("submit", function (e) {
                 e.preventDefault();
+                if (!validateForm()) return;
 
-                if (validateForm()) {
-                    let finalAmount;
-                    const amountSelected = $("input[name='sp_amount']:checked").val();
-                    if (amountSelected === 'direct') { finalAmount = $directInput.val(); }
-                    else { finalAmount = amountSelected; }
+                const amountSelected = $("input[name='sp_amount']:checked").val();
+                const finalAmount = amountSelected === 'direct' ? $directInput.val() : amountSelected;
 
-                    let ssnData = '';
-                    const receiptValue = $("input[name='sp_receipt']:checked").val();
-                    if (receiptValue === 'Y') { ssnData = $("#ssn1").val() + "-" + $("#ssn2").val(); }
+                const formData = {
+                    name: $("#name").val().trim(),
+                    phone: selectData.phone + "-" + $("#phone2").val() + "-" + $("#phone3").val(),
+                    birthday: selectData.birthYear + "-" + selectData.birthMonth + "-" + selectData.birthDay,
+                    depositor: $("#depositor").val().trim(),
+                    receipt: $("input[name='sp_receipt']:checked").val(),
+                    ssn: $("#ssn1").val() + "-" + $("#ssn2").val(),
+                    donationType: $("input[name='sp_type']:checked").val(),
+                    donationMethod: $("input[name='sp_regular']:checked").val(),
+                    amount: finalAmount,
+                    email: $("#emailId").val().trim() + "@" + $("#emailDomain").val().trim()
+                };
 
-                    const formData = {
-                        name: $("#name").val().trim(),
-                        phone: selectData.phone + "-" + $("#phone2").val() + "-" + $("#phone3").val(),
-                        birthday: selectData.birthYear + "-" + selectData.birthMonth + "-" + selectData.birthDay,
-                        depositor: $("#depositor").val().trim(),
-                        receipt: receiptValue,
-                        ssn: ssnData,
-                        donationType: $("input[name='sp_type']:checked").val(),
-                        donationMethod: $("input[name='sp_regular']:checked").val(),
-                        amount: finalAmount
-                    };
+                console.log("제출된 후원 데이터:", formData);
 
-                    console.log("제출된 후원 데이터:", formData);
+                const $submitBtn = $(".form-button");
+                const originalText = $submitBtn.text();
+                $submitBtn.text("제출 중...").prop("disabled", true);
 
-                    const $submitBtn = $(".form-button");
-                    const originalText = $submitBtn.text();
-                    $submitBtn.text("제출 중...").prop("disabled", true);
+                setTimeout(() => {
+                    $("#successModal").fadeIn(200).addClass("show");
+                    $("body").addClass("body-no-scroll");
 
                     setTimeout(() => {
-                        $("#successModal").addClass("show");
-                        $("body").addClass("body-no-scroll");
+                        $("#successModal").fadeOut(200).removeClass("show");
+                        $("body").removeClass("body-no-scroll");
                         $submitBtn.text(originalText).prop("disabled", false);
-
-                        setTimeout(() => {
-                            $("#successModal").removeClass("show");
-                            $("body").removeClass("body-no-scroll");
-                            resetForm();
-                        }, 3000);
-                    }, 500);
-                }
+                        resetForm();
+                    }, 3000);
+                }, 500);
             });
+
 
             /* ==========================
-                성공 팝업 처리
+                성공 팝업 스크롤 방지
             ========================== */
-            $("#successModal").on("click", function (e) {
+            $(document).on("click", "#successModal", function (e) {
                 if (e.target === this) {
-                    $(this).removeClass("show");
+                    $(this).fadeOut(200).removeClass("show");
                     $("body").removeClass("body-no-scroll");
                 }
-            });
-
-            $("#successModal .popup-close").on("click", function () {
-                $("#successModal").removeClass("show");
-                $("body").removeClass("body-no-scroll");
             });
 
             $('#successModal').on('scroll touchmove mousewheel', function (event) {
@@ -1408,11 +1473,12 @@
             });
 
         });
-
-
-
-
     </script>
+
+
+
+
+
 
 
 

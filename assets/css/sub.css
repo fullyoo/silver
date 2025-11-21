@@ -2590,6 +2590,8 @@ textarea {
 .success-content p span {
     text-decoration: underline;
     text-underline-offset: 5px;
+    font-weight: var(--font-600);
+    color: var(--primary-color);
 }
 
 .privacy-popup {
