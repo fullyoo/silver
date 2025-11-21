@@ -318,28 +318,30 @@
                     <form id="inquiryForm">
                         <div class="qna-list form-list">
                             <div class="form-group">
-                                <label for="categorySelect">문의분야 <span class="required">*</span></label>
-                                <div class="input-wrapper">
-                                    <div class="custom-select-wrapper" id="categorySelect">
-                                        <div class="custom-select-input placeholder">
-                                            선택
-                                        </div>
-                                        <span class="custom-select-arrow">▼</span>
-                                        <div class="custom-select-dropdown">
-                                            <div class="custom-select-list">
-                                                <div class="custom-select-option placeholder disabled" data-value="">선택
-                                                </div>
-                                                <div class="custom-select-option" data-value="프로그램 문의">프로그램 문의</div>
-                                                <div class="custom-select-option" data-value="입소 상담">입소 상담</div>
-                                                <div class="custom-select-option" data-value="자원봉사 문의">자원봉사 문의</div>
-                                                <div class="custom-select-option" data-value="후원 문의">후원 문의</div>
-                                                <div class="custom-select-option" data-value="기타 문의">기타 문의</div>
+                                <label>문의분야 <span class="required">*</span>
+                                    <div class="input-wrapper">
+                                        <div class="custom-select-wrapper" id="categorySelect">
+                                            <div class="custom-select-input placeholder">
+                                                선택
                                             </div>
-                                        </div>
+                                            <span class="custom-select-arrow">▼</span>
+                                            <div class="custom-select-dropdown">
+                                                <div class="custom-select-list">
+                                                    <div class="custom-select-option placeholder disabled"
+                                                        data-value="">선택
+                                                    </div>
+                                                    <div class="custom-select-option" data-value="프로그램 문의">프로그램 문의</div>
+                                                    <div class="custom-select-option" data-value="입소 상담">입소 상담</div>
+                                                    <div class="custom-select-option" data-value="자원봉사 문의">자원봉사 문의</div>
+                                                    <div class="custom-select-option" data-value="후원 문의">후원 문의</div>
+                                                    <div class="custom-select-option" data-value="기타 문의">기타 문의</div>
+                                                </div>
+                                            </div>
 
+                                        </div>
+                                        <div class="error-message" id="categoryError">문의 유형을 선택해주세요.</div>
                                     </div>
-                                    <div class="error-message" id="categoryError">문의 유형을 선택해주세요.</div>
-                                </div>
+                                </label>
                             </div>
 
                             <div class="form-group">
@@ -385,7 +387,7 @@
                             </div>
 
                             <div class="form-group">
-                                <label for="emailId">이메일 <span class="required">*</span></label>
+                                <label for="email">이메일 <span class="required">*</span></label>
                                 <div class="input-wrapper">
                                     <div class="email-inputs">
                                         <input type="text" id="emailId" name="emailId" placeholder="이메일 아이디"
