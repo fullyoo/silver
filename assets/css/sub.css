@@ -112,6 +112,7 @@
     color: var(--white-color);
     font-size: 55px;
     font-weight: var(--font-800);
+    font-family: 'Tmoney Round Wind';
     /* line-height: 100%; */
 }
 
@@ -331,6 +332,7 @@
     font-size: 42px;
     font-weight: var(--font-800);
     padding: 70px 0;
+    font-family: 'Tmoney Round Wind';
     /* margin-bottom: 35px; */
     /* border-bottom: 1px dashed var( --lightgray-color); */
 }

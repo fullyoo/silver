@@ -5,7 +5,15 @@
 
 @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css');
 
-/* @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap'); */
+
+@import url('https://cdn.jsdelivr.net/gh/fonts-archive/TmoneyRoundWind/TmoneyRoundWind.css');
+
+
+
+
+/* ==========================
+    01. 프리텐다드
+========================== */
 
 
 /* font-display: swap; = 웹폰트 로딩 전까지는 기본폰트로 보여주고, 다운로드되면 즉시 웹폰트로 교체*/
@@ -127,4 +135,31 @@
         url('../fonts/Pretendard-Black.woff2') format('woff2'),
         url('../fonts/Pretendard-Black.woff') format('woff'),
         url('../fonts/Pretendard-Black.ttf') format('truetype');
+}
+
+
+/* ==========================
+    02. 티머니 둥근바람
+========================== */
+
+@font-face {
+    font-family: 'Tmoney Round Wind';
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+    src: url('https://cdn.jsdelivr.net/gh/fonts-archive/TmoneyRoundWind/TmoneyRoundWindRegular.woff2') format('woff2'),
+        url('https://cdn.jsdelivr.net/gh/fonts-archive/TmoneyRoundWind/TmoneyRoundWindRegular.woff') format('woff'),
+        url('https://cdn.jsdelivr.net/gh/fonts-archive/TmoneyRoundWind/TmoneyRoundWindRegular.otf') format('opentype'),
+        url('https://cdn.jsdelivr.net/gh/fonts-archive/TmoneyRoundWind/TmoneyRoundWindRegular.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Tmoney Round Wind';
+    font-weight: 800;
+    font-style: normal;
+    font-display: swap;
+    src: url('https://cdn.jsdelivr.net/gh/fonts-archive/TmoneyRoundWind/TmoneyRoundWindExtraBold.woff2') format('woff2'),
+        url('https://cdn.jsdelivr.net/gh/fonts-archive/TmoneyRoundWind/TmoneyRoundWindExtraBold.woff') format('woff'),
+        url('https://cdn.jsdelivr.net/gh/fonts-archive/TmoneyRoundWind/TmoneyRoundWindExtraBold.otf') format('opentype'),
+        url('https://cdn.jsdelivr.net/gh/fonts-archive/TmoneyRoundWind/TmoneyRoundWindExtraBold.ttf') format('truetype');
 }
