@@ -35,6 +35,8 @@ body {
     min-height: 100vh;
     width: 100%;
     height: 100%;
+    max-width: 640px;
+    margin: 0 auto;
 }
 
 .logo-all {
@@ -43,8 +45,9 @@ body {
     left: 50%;
     transform: translate(-50%, -50%);
     width: 100%;
-    max-width: 640px;
-    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 50px;
 }
 
 .box {
@@ -153,7 +156,7 @@ body {
 }
 
 @-webkit-keyframes fade {
-    0% {
+    /* 0% {
         opacity: 0;
     }
 
@@ -165,7 +168,7 @@ body {
     100% {
         opacity: 1;
         padding-left: 160px;
-    }
+    } */
 }
 
 @keyframes fade {
@@ -191,17 +194,23 @@ body {
 
     .logo-all {
         max-width: 420px;
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        gap: 0;
     }
 
     .text {
         font-size: 40px;
-        line-height: 50px;
-        padding-left: 100px;
+        line-height: 60px;
+        padding-left: 0px;
+        padding-top: 50px;
     }
 
     .box {
         width: 60px;
         height: 60px;
+        position: static;
     }
 
     .box:after {
@@ -217,52 +226,19 @@ body {
 
         65% {
             opacity: 0;
-            padding-left: 90px;
+            padding-left: 0;
+            padding-top: 0px;
         }
 
         100% {
             opacity: 1;
-            padding-left: 100px;
+            padding-left: 0;
+            padding-top: 50px;
         }
     }
+
 
 }
 
 
-@media(max-width:480px) {
-    .logo-all {
-        max-width: 210px;
-    }
-
-    .text {
-        font-size: 20px;
-        line-height: 30px;
-        padding-left: 50px;
-    }
-
-    .box {
-        width: 30px;
-        height: 30px;
-    }
-
-    .box:after {
-        right: -10px;
-    }
-
-    @keyframes fade {
-        0% {
-            opacity: 0;
-        }
-
-        65% {
-            opacity: 0;
-            padding-left: 40px;
-        }
-
-        100% {
-            opacity: 1;
-            padding-left: 50px;
-        }
-    }
-
-}
+@media(max-width:640px) {}
