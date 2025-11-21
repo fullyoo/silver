@@ -32,12 +32,12 @@
 
                 // 인트로 fade out
                 intro.style.transition = 'opacity 0.8s ease';
-                // intro.style.opacity = 0;
+                intro.style.opacity = 0;
 
                 // 0.8초 후 인트로 제거 후 index.html로 이동
                 setTimeout(() => {
-                    // intro.style.display = 'none';
-                    // window.location.href = "index.html"; // 메인 페이지로 이동
+                    intro.style.display = 'none';
+                    window.location.href = "index.html"; // 메인 페이지로 이동
                 }, 800);
 
             }, 3000); // 애니메이션 전체 시간 고려 (2~2.5초 + 여유)
