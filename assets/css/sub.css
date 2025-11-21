@@ -2214,7 +2214,8 @@
     border-bottom: 1px solid var(--lightgray-color);
 }
 
-.form-group label {
+.form-group label,
+.form-group .label {
     min-width: 200px;
     padding: 20px 30px;
     font-size: 20px;
@@ -3806,10 +3807,15 @@ textarea {
         padding: 20px 0;
     }
 
-    .form-group label {
+    .form-group label,
+    .form-group .label {
         min-width: 100%;
         padding: 0 0 12px;
         font-size: 18px;
+    }
+
+    .form-group .input-wrapper p.info {
+        font-size: 16px;
     }
 
     .custom-select-input {
@@ -4426,10 +4432,6 @@ textarea {
     #directAmount[type="text"] {
         /* width: 180px; */
         width: 100%;
-    }
-
-    .form-group .input-wrapper p.info {
-        font-size: 16px;
     }
 
     .form-group .input-wrapper p.info span {
