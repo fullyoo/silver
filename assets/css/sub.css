@@ -2374,7 +2374,7 @@ textarea {
 
 .custom-select-dropdown {
     position: absolute;
-    top: calc(100% + 8px);
+    top: calc(100% + 5px);
     left: 0;
     right: 0;
     background-color: var(--white-color);
@@ -2970,6 +2970,8 @@ textarea {
     color: var(--text-color);
 }
 
+.form-group .input-wrapper p.info span {}
+
 .form-group.total {
     background-color: var(--redbg-color);
 }
@@ -3016,8 +3018,9 @@ textarea {
 }
 
 .input-block-group .radio-block {
-    /* flex: 0 1 180px; */
-    flex: 0 1 calc(20% - 10px);
+    width: 203px;
+    /* flex: 0 1 203px; */
+    /* flex: 0 1 calc(20% - 10px); */
     display: inline-block;
     position: relative;
     /* margin-right: -1px; */
@@ -3086,6 +3089,7 @@ textarea {
 
 /* Firefox */
 #directAmount[type="number"] {
+    /* 상하 화살표 숨김 */
     -moz-appearance: textfield;
     width: 200px;
     width: calc(20% - 10px);
@@ -3093,6 +3097,14 @@ textarea {
     bottom: 0;
 }
 
+.direct-input-wrap {
+    flex: 1;
+}
+
+#directAmount[type="text"] {
+    /* width: calc(100% - 10px); */
+    width: 203px;
+}
 
 /* 후원신청하기 영역 END*/
 
@@ -3798,15 +3810,17 @@ textarea {
 
     .custom-select-input {
         font-size: 16px;
+        padding: 12px 10px;
     }
 
     .custom-select-arrow {
-        font-size: 13px;
+        font-size: 12px;
+        right: 10px;
     }
 
     .custom-select-option {
         font-size: 16px;
-        padding: 12px 20px;
+        padding: 12px 10px;
     }
 
     .custom-select-list {
@@ -3820,6 +3834,7 @@ textarea {
     .phone-inputs,
     .email-inputs {
         flex-wrap: wrap;
+        gap: 6px;
     }
 
     .qna-wrap {
@@ -3827,7 +3842,7 @@ textarea {
     }
 
     .qna-list input[type="text"] {
-        padding: 15px 20px;
+        padding: 12px 10px;
         flex: 1;
         font-size: 16px;
     }
@@ -3844,6 +3859,7 @@ textarea {
     .qna-list input[type="tel"] {
         flex: 1;
         font-size: 16px;
+        padding: 12px 10px;
     }
 
     .phone-inputs .custom-select-wrapper {
@@ -3885,11 +3901,44 @@ textarea {
 
     .input-block-group .radio-block label {
         font-size: 16px;
+        padding: 12px 10px;
     }
 
     .form-group.total {
         text-align: center;
     }
+
+    .form-list input[type="text"].half {
+        width: calc(50% - 6px);
+    }
+
+    .form-list input[type="password"].half {
+        width: calc(50% - 6px);
+        padding: 12px 10px;
+    }
+
+    .birthday-inputs {
+        gap: 6px;
+        flex-wrap: wrap;
+    }
+
+    .birthday-inputs .custom-select-wrapper#birthYearSelect {
+        flex: 0 0 auto;
+        width: calc(100% - 20px);
+    }
+
+    .custom-select-dropdown {
+        top: calc(100% + 3px);
+    }
+
+    .input-block-group .radio-block {
+        width: calc(50% - 5px);
+    }
+
+    #directAmount[type="text"] {
+        width: 100%;
+    }
+
 
 }
 
@@ -4366,9 +4415,23 @@ textarea {
     }
 
     .input-block-group .radio-block {
+        /* width: 180px; */
         flex: 0 1 calc(50% - 5px);
     }
 
+    #directAmount[type="text"] {
+        /* width: 180px; */
+        width: 100%;
+    }
+
+    .form-group .input-wrapper p.info {
+        font-size: 16px;
+    }
+
+    .form-group .input-wrapper p.info span {
+        display: block;
+        font-size: 14px;
+    }
 
 }
 
@@ -4499,9 +4562,8 @@ textarea {
         width: calc(100% - 20px);
     }
 
-    .input-block-group .radio-block {
-        flex: 0 1 calc(50% - 5px);
-    }
+    #directAmount[type="text"] {}
+
 
 }
 

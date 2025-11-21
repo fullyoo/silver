@@ -381,6 +381,9 @@ textarea:focus {
     border-color: var(--primary-color);
 }
 
+.form-list input.half {
+    width: calc(50% - 6px);
+}
 
 
 .form-list input[type="submit"],
