@@ -27,13 +27,14 @@ body {
 
 
 /* ==========================
-    01. ver
+    01. intrp 인트로
 ========================== */
 
 .logo-wrap {
     position: relative;
     min-height: 100vh;
     width: 100%;
+    font-family: 'Tmoney Round Wind';
 }
 
 .logo-all {
