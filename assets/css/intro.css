@@ -54,7 +54,7 @@ img {
     01. intro 인트로
 ========================== */
 
-.logo-wrap {
+.intro-wrap .logo-wrap {
     position: relative;
     width: 100%;
     height: 100vh;
@@ -70,7 +70,7 @@ img {
 }
 
 
-.logo-all {
+.intro-wrap .logo-all {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -80,7 +80,7 @@ img {
     margin: 0 auto;
 }
 
-.box {
+.intro-wrap .box {
     width: 80px;
     height: 80px;
     position: absolute;
@@ -90,7 +90,7 @@ img {
     animation: logos 2s;
 }
 
-.box:after {
+.intro-wrap .box:after {
     content: "";
     display: block;
     height: 90%;
@@ -105,7 +105,7 @@ img {
     animation: expand 2s;
 }
 
-.text {
+.intro-wrap .text {
     color: #191919;
     padding-left: 160px;
     line-height: 70px;
@@ -243,26 +243,26 @@ img {
 /* 반응형 브레이크 포인트 */
 @media(max-width:767px) {
 
-    .logo-wrap {
+    .intro-wrap .logo-wrap {
         min-height: 100dvh;
     }
 
-    .logo-all {
+    .intro-wrap .logo-all {
         max-width: 420px;
     }
 
-    .text {
+    .intro-wrap .text {
         font-size: 40px;
         line-height: 50px;
         padding-left: 100px;
     }
 
-    .box {
+    .intro-wrap .box {
         width: 60px;
         height: 60px;
     }
 
-    .box:after {
+    .intro-wrap .box:after {
         right: -20px;
     }
 
@@ -305,22 +305,22 @@ img {
 
 
 @media(max-width:480px) {
-    .logo-all {
+    .intro-wrap .logo-all {
         max-width: 300px;
     }
 
-    .text {
+    .intro-wrap .text {
         font-size: 30px;
         line-height: 40px;
         padding-left: 60px;
     }
 
-    .box {
+    .intro-wrap .box {
         width: 40px;
         height: 40px;
     }
 
-    .box:after {
+    .intro-wrap .box:after {
         right: -10px;
     }
 
@@ -362,22 +362,22 @@ img {
 
 
 @media(max-width:320px) {
-    .logo-all {
+    .intro-wrap .logo-all {
         max-width: 210px;
     }
 
-    .text {
+    .intro-wrap .text {
         font-size: 20px;
         line-height: 30px;
         padding-left: 50px;
     }
 
-    .box {
+    .intro-wrap .box {
         width: 30px;
         height: 30px;
     }
 
-    .box:after {
+    .intro-wrap .box:after {
         right: -10px;
     }
 

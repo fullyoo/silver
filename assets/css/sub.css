@@ -1882,7 +1882,7 @@
 
 .search-options {
     position: absolute;
-    top: calc(100% + 10px);
+    top: calc(100% + 8px);
     left: 0;
     background-color: var(--white-color);
     border: 1px solid var(--border-color);
@@ -2587,6 +2587,7 @@ textarea {
     margin: 25px 0 10px;
     font-size: 20px;
     color: var(--text-color);
+    font-family: 'Tmoney Round Wind';
 }
 
 .success-content p {}
@@ -2642,6 +2643,7 @@ textarea {
     font-size: 28px;
     font-weight: var(--font-700);
     color: var(--text-color);
+    font-family: 'Tmoney Round Wind';
 }
 
 .privacy-popup-content {

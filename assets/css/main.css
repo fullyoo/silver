@@ -17,8 +17,8 @@
 }
 
 #main-content {
-    display: none;
     opacity: 0;
+    /* display: none; */
 }
 
 
@@ -1130,6 +1130,7 @@
     color: var(--text-color);
     border-bottom: 2px solid var(--lightgray-color);
     padding-bottom: 20px;
+    font-family: 'Tmoney Round Wind';
 }
 
 .popup strong {
