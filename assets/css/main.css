@@ -5,6 +5,17 @@
 
 /* ============ 0. 인트로 관련 =============== */
 
+#intro-container {
+    position: fixed;
+    /* 화면에 고정 */
+    inset: 0;
+    /* 상하좌우 0으로 꽉 채움 */
+    overflow: hidden;
+    /* 인트로 내부 스크롤 숨김 */
+    z-index: 9999;
+    /* 메인 콘텐츠 위에 표시 */
+}
+
 #main-content {
     display: none;
     opacity: 0;
@@ -1434,6 +1445,8 @@
 
     .gallery-sec .cont-sec a:hover .t-box .t2 {
         margin-bottom: 15px;
+        padding: 5px 0 0;
+
     }
 
     .gallery-list .t-box .t2 b {

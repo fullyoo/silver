@@ -2,9 +2,38 @@
 /* @import url("reset.css"); */
 
 
+/* @import url('https://cdn.jsdelivr.net/gh/fonts-archive/TmoneyRoundWind/TmoneyRoundWind.css'); */
 
-@import url('https://cdn.jsdelivr.net/gh/fonts-archive/TmoneyRoundWind/TmoneyRoundWind.css');
 
+/* ==========================
+    02. 티머니 둥근바람
+========================== */
+
+@font-face {
+    font-family: 'Tmoney Round Wind';
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+    src: url('../fonts/TmoneyRoundWindRegular.eot');
+    src: url('../fonts/TmoneyRoundWindRegular.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/TmoneyRoundWindRegular.woff2') format('woff2'),
+        url('../fonts/TmoneyRoundWindRegular.woff') format('woff'),
+        url('../fonts/TmoneyRoundWindRegular.otf') format('opentype'),
+        url('../fonts/TmoneyRoundWindRegular.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Tmoney Round Wind';
+    font-weight: 800;
+    font-style: normal;
+    font-display: swap;
+    src: url('../fonts/TmoneyRoundWindExtraBold.eot');
+    src: url('../fonts/TmoneyRoundWindExtraBold.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/TmoneyRoundWindExtraBold.woff2') format('woff2'),
+        url('../fonts/TmoneyRoundWindExtraBold.woff') format('woff'),
+        url('../fonts/TmoneyRoundWindExtraBold.otf') format('opentype'),
+        url('../fonts/TmoneyRoundWindExtraBold.ttf') format('truetype');
+}
 
 
 * {

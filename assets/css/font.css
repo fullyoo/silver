@@ -1,12 +1,11 @@
 @charset "utf-8";
 
 
-/* @import url('https://cdn.jsdelivr.net/gh/fonts-archive/Pretendard/Pretendard.css'); */
+/* @import url('../fonts/Pretendard/Pretendard.css'); */
+/* @import url('../fonts/TmoneyRoundWind.css'); */
 
 @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css');
 
-
-@import url('https://cdn.jsdelivr.net/gh/fonts-archive/TmoneyRoundWind/TmoneyRoundWind.css');
 
 
 
@@ -147,10 +146,12 @@
     font-weight: 400;
     font-style: normal;
     font-display: swap;
-    src: url('https://cdn.jsdelivr.net/gh/fonts-archive/TmoneyRoundWind/TmoneyRoundWindRegular.woff2') format('woff2'),
-        url('https://cdn.jsdelivr.net/gh/fonts-archive/TmoneyRoundWind/TmoneyRoundWindRegular.woff') format('woff'),
-        url('https://cdn.jsdelivr.net/gh/fonts-archive/TmoneyRoundWind/TmoneyRoundWindRegular.otf') format('opentype'),
-        url('https://cdn.jsdelivr.net/gh/fonts-archive/TmoneyRoundWind/TmoneyRoundWindRegular.ttf') format('truetype');
+    src: url('../fonts/TmoneyRoundWindRegular.eot');
+    src: url('../fonts/TmoneyRoundWindRegular.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/TmoneyRoundWindRegular.woff2') format('woff2'),
+        url('../fonts/TmoneyRoundWindRegular.woff') format('woff'),
+        url('../fonts/TmoneyRoundWindRegular.otf') format('opentype'),
+        url('../fonts/TmoneyRoundWindRegular.ttf') format('truetype');
 }
 
 @font-face {
@@ -158,8 +159,10 @@
     font-weight: 800;
     font-style: normal;
     font-display: swap;
-    src: url('https://cdn.jsdelivr.net/gh/fonts-archive/TmoneyRoundWind/TmoneyRoundWindExtraBold.woff2') format('woff2'),
-        url('https://cdn.jsdelivr.net/gh/fonts-archive/TmoneyRoundWind/TmoneyRoundWindExtraBold.woff') format('woff'),
-        url('https://cdn.jsdelivr.net/gh/fonts-archive/TmoneyRoundWind/TmoneyRoundWindExtraBold.otf') format('opentype'),
-        url('https://cdn.jsdelivr.net/gh/fonts-archive/TmoneyRoundWind/TmoneyRoundWindExtraBold.ttf') format('truetype');
+    src: url('../fonts/TmoneyRoundWindExtraBold.eot');
+    src: url('../fonts/TmoneyRoundWindExtraBold.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/TmoneyRoundWindExtraBold.woff2') format('woff2'),
+        url('../fonts/TmoneyRoundWindExtraBold.woff') format('woff'),
+        url('../fonts/TmoneyRoundWindExtraBold.otf') format('opentype'),
+        url('../fonts/TmoneyRoundWindExtraBold.ttf') format('truetype');
 }
