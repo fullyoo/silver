@@ -22,20 +22,30 @@ img {
 
 body {
     font-family: 'Tmoney Round Wind';
-    background-color: #f6f6f6;
+    overflow: hidden;
+    /* 인트로 동안 스크롤바 숨김 */
 }
 
 
 /* ==========================
-    01. intrp 인트로
+    01. intro 인트로
 ========================== */
 
 .logo-wrap {
     position: relative;
-    min-height: 100vh;
     width: 100%;
+    height: 100vh;
     font-family: 'Tmoney Round Wind';
+    position: fixed;
+    inset: 0;
+    overflow: hidden;
+    width: 100%;
+    height: 100vh;
+    background-color: #f6f6f6;
+    z-index: 9999;
+    animation: introBg 4s 1.5s cubic-bezier(1, 0, 0.8, 1);
 }
+
 
 .logo-all {
     position: absolute;
@@ -159,12 +169,12 @@ body {
 
     65% {
         opacity: 0;
-        padding-left: 150px;
+        /* padding-left: 150px; */
     }
 
     100% {
         opacity: 1;
-        padding-left: 160px;
+        /* padding-left: 160px; */
     }
 }
 
@@ -175,15 +185,36 @@ body {
 
     65% {
         opacity: 0;
-        padding-left: 150px;
+        /* padding-left: 150px; */
     }
 
     100% {
         opacity: 1;
-        padding-left: 160px;
+        /* padding-left: 160px; */
     }
 }
 
+
+@keyframes introBg {
+    0% {
+        z-index: 1000;
+        transform: translateY(0%);
+    }
+
+    80% {
+        z-index: 1000;
+        transform: translateY(0%);
+    }
+
+    99% {
+        z-index: 1000;
+    }
+
+    100% {
+        z-index: -1px;
+        transform: translateY(-100%);
+    }
+}
 
 
 /* 반응형 브레이크 포인트 */
@@ -220,12 +251,12 @@ body {
 
         65% {
             opacity: 0;
-            padding-left: 90px;
+            /* padding-left: 90px; */
         }
 
         100% {
             opacity: 1;
-            padding-left: 100px;
+            /* padding-left: 100px; */
         }
     }
 
@@ -238,12 +269,12 @@ body {
 
         65% {
             opacity: 0;
-            padding-left: 90px;
+            /* padding-left: 90px; */
         }
 
         100% {
             opacity: 1;
-            padding-left: 100px;
+            /* padding-left: 100px; */
         }
     }
 
@@ -277,12 +308,12 @@ body {
 
         65% {
             opacity: 0;
-            padding-left: 50px;
+            /* padding-left: 50px; */
         }
 
         100% {
             opacity: 1;
-            padding-left: 60px;
+            /* padding-left: 60px; */
         }
     }
 
@@ -293,12 +324,12 @@ body {
 
         65% {
             opacity: 0;
-            padding-left: 50px;
+            /* padding-left: 50px; */
         }
 
         100% {
             opacity: 1;
-            padding-left: 60px;
+            /* padding-left: 60px; */
         }
 
     }
@@ -334,12 +365,12 @@ body {
 
         65% {
             opacity: 0;
-            padding-left: 40px;
+            /* padding-left: 40px; */
         }
 
         100% {
             opacity: 1;
-            padding-left: 50px;
+            /* padding-left: 50px; */
         }
     }
 
@@ -350,12 +381,12 @@ body {
 
         65% {
             opacity: 0;
-            padding-left: 40px;
+            /* padding-left: 40px; */
         }
 
         100% {
             opacity: 1;
-            padding-left: 50px;
+            /* padding-left: 50px; */
         }
     }
 
