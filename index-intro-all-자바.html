@@ -89,7 +89,7 @@
     <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@xpressengine/xeicon@2.3.3/xeicon.min.css">
     <link rel="stylesheet" href="./assets/css/swiper-bundle.min.css">
     <link rel="stylesheet" href="./assets/css/layout.css">
-    <link rel="stylesheet" href="./assets/css/intro.css">
+    <!-- <link rel="stylesheet" href="./assets/css/intro.css"> -->
     <link rel="stylesheet" href="./assets/css/main.css">
 </head>
 
@@ -928,7 +928,7 @@
     <script src="./assets/js/script.js"></script>
 
     <script>
-        window.addEventListener('load', () => {
+        window.addEventListener('load', function () {
 
             const intro = document.getElementById('intro-container');
             const main = document.getElementById('main-content');
@@ -936,25 +936,33 @@
             // const intro = document.querySelector('.intro-container');
             // const main = document.querySelector('.main-content');
 
-            // 인트로 보여주는 시간
-            setTimeout(() => {
+            // 인트로 시간
+            setTimeout(function () {
 
-                // 인트로 서서히 사라짐
-                intro.style.transition = 'opacity 1s ease';
-                intro.style.opacity = 0;
+                // 인트로 fade-out
+                intro.style.transition = 'opacity 0.8s ease';
+                intro.style.opacity = '0';
 
-                // 인트로 사라진 뒤 메인 콘텐츠 등장
-                setTimeout(() => {
+                // fadeOut 완료 후 실행
+                setTimeout(function () {
+
                     intro.style.display = 'none';
 
                     // 메인 fade-in
-                    main.style.transition = 'opacity 1s ease';
-                    main.style.opacity = 1;
+                    main.style.display = 'block';
+                    main.style.opacity = '0';
+                    main.style.transition = 'opacity 0.8s ease';
+                    main.style.opacity = '1';
 
-                }, 1000);
-            }, 4000); // 인트로 보여주는 시간
+                    // 🔥 스크롤 다시 활성화
+                    document.body.style.overflow = 'auto';
+
+                }, 800); // fade 시간과 동일해야 함
+
+            }, 4000);
         });
     </script>
+
     <!-- //하단 공통 END-->
 
 
