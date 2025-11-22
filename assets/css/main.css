@@ -1441,11 +1441,11 @@
     .gallery-list .t-box .t2 {
         font-size: 17px;
         margin-bottom: 15px;
+        padding: 5px 0 0;
     }
 
     .gallery-sec .cont-sec a:hover .t-box .t2 {
         margin-bottom: 15px;
-        padding: 5px 0 0;
 
     }
 
