@@ -464,6 +464,24 @@ $(function () {
         });
     });
 
+
+
+    // =====06-1. 풋터메뉴 레이어팝업 =====
+
+    // 팝업 열기 (단, .footer-location 제외)
+    $(".footer-nav ul li a").not(".footer-location").on("click", function (e) {
+        e.preventDefault();
+        $popupWrap.fadeIn(200);
+
+        // 팝업 스크롤 차단
+        $popupWrap.on("scroll touchmove mousewheel", function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+            return false;
+        });
+    });
+
+
     // 팝업 닫기 (버튼 클릭)
     $(".popup-close").on("click", function () {
         $popupWrap.fadeOut(200);
