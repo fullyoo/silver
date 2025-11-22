@@ -941,37 +941,45 @@
     <script src="./assets/js/script.js"></script>
 
     <script>
-        let mainSwiper; // 전역 변수 선언만 함
+        // ✅ 메인 비주얼 Swiper 초기화 (전역 등록 필수)
+        window.mainSwiper = new Swiper(".main_slide", {
+            loop: true,
+            speed: 800,
+            pagination: {
+                el: ".kv-sec .pager",
+                bulletActiveClass: 'on',
+                clickable: true
+            },
+            autoplay: {
+                delay: 3000,
+                disableOnInteraction: false,
+            },
+        });
 
+        // ✅ 인트로 → 메인 전환 처리
         $(window).on('load', function () {
 
-            const $intro = $('#intro-container');
-            const $main = $('#main-content');
+            const $intro = $('#intro-container');   // 인트로 박스
+            const $main = $('#main-content');       // 메인 컨텐츠
 
+            // 인트로 시간(4초 후 전환)
             setTimeout(function () {
 
+                // 인트로 서서히 사라짐
                 $intro.fadeOut(800, function () {
 
+                    // 메인 화면 표시 + 페이드인
                     $main.css({ opacity: 0, display: 'block' })
                         .animate({ opacity: 1 }, 800, function () {
 
-                            // 🚀 인트로가 끝난 후에 메인 비주얼 Swiper 최초 초기화
-                            mainSwiper = new Swiper(".main_slide", {
-                                loop: true,
-                                speed: 800,
-                                pagination: {
-                                    el: ".kv-sec .pager",
-                                    bulletActiveClass: 'on',
-                                    clickable: true
-                                },
-                                autoplay: {
-                                    delay: 3000,
-                                    disableOnInteraction: false
-                                }
-                            });
-
+                            // 🔥 Swiper 재계산 + autoplay 재시작
+                            if (window.mainSwiper) {
+                                window.mainSwiper.update();
+                                window.mainSwiper.autoplay.start();
+                            }
                         });
 
+                    // 스크롤 다시 활성화
                     $('body').removeClass('no-scroll');
                 });
 
@@ -979,7 +987,6 @@
 
         });
     </script>
-
 
     <!-- //하단 공통 END-->
 

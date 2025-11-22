@@ -250,24 +250,21 @@ $(function () {
 
 
 
-
-
-
     // =====02. 메인 비주얼=====
 
-    var mainSwiper = new Swiper(".main_slide", {
-        loop: true,
-        speed: 800,
-        pagination: {
-            el: ".kv-sec .pager",
-            bulletActiveClass: 'on',
-            clickable: true
-        },
-        autoplay: {
-            delay: 3000,
-            disableOnInteraction: false,
-        },
-    });
+    // var mainSwiper = new Swiper(".main_slide", {
+    //     loop: true,
+    //     speed: 800,
+    //     pagination: {
+    //         el: ".kv-sec .pager",
+    //         bulletActiveClass: 'on',
+    //         clickable: true
+    //     },
+    //     autoplay: {
+    //         delay: 3000,
+    //         disableOnInteraction: false,
+    //     },
+    // });
 
 
 
@@ -281,10 +278,10 @@ $(function () {
         autoHeight: true,
         loop: true,
         centeredSlides: true,
-        // autoplay: {
-        //     delay: 3000,
-        //     disableOnInteraction: false
-        // },
+        autoplay: {
+            delay: 2000,
+            disableOnInteraction: false
+        },
 
         navigation: {
             nextEl: ".team-sec .swiper-button-next",
@@ -341,10 +338,10 @@ $(function () {
 
         crossFade: true, //fade 이펙트 겹침 현상 시 해결
 
-        // autoplay: {
-        //     delay: 3000,
-        //     disableOnInteraction: false
-        // },
+        autoplay: {
+            delay: 3000,
+            disableOnInteraction: false
+        },
 
         navigation: {
             nextEl: ".gallery-sec .swiper-button-next",
@@ -378,10 +375,10 @@ $(function () {
 
         crossFade: true, //fade 이펙트 겹침 현상 시 해결
 
-        // autoplay: {
-        //     delay: 2000,
-        //     disableOnInteraction: false
-        // },
+        autoplay: {
+            delay: 2000,
+            disableOnInteraction: false
+        },
 
         navigation: {
             nextEl: ".notice-sec .swiper-button-next",
@@ -713,11 +710,6 @@ $(function () {
     $(function () {
         scrollBar.init(); // ✅ DOM 로드 후 실행
     });
-
-
-
-
-
 
 
 
