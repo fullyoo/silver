@@ -257,7 +257,8 @@
     max-width: 1620px;
     width: 100%;
     margin: 0 auto;
-    padding: 70px 20px 100px;
+    /* padding: 70px 20px 100px; */
+    padding: 100px 20px;
     box-sizing: border-box;
 }
 
@@ -1266,7 +1267,11 @@
     font-size: 60px;
 }
 
-.step-list-box {}
+.step-list-box {
+    border-bottom: 1px dashed var(--border-color);
+    border-bottom: 1px solid var(--text-color);
+    padding-bottom: 100px;
+}
 
 .step-list {}
 
@@ -1294,8 +1299,11 @@
 }
 
 .step-do-list .sub-tit {
+    display: flex;
+    gap: 10px;
     justify-content: flex-start;
     border-bottom: 1px dashed var(--border-color);
+    padding-bottom: 20px;
 }
 
 .step-do-list ul {
@@ -3299,7 +3307,8 @@ textarea {
 @media(max-width: 1280px) {
 
     .sub-content .inner {
-        padding: 30px 40px 70px;
+        /* padding: 30px 40px 70px; */
+        padding: 70px 40px;
     }
 
     .sub-content .pd-add {
@@ -3378,16 +3387,25 @@ textarea {
         padding-bottom: 40px;
     }
 
+    .step-item:last-child {
+        border-bottom: none;
+    }
+
+    .step-list-box {
+        padding-bottom: 20px;
+    }
+
     .step-do-list {
         display: flex;
         justify-content: space-evenly;
         justify-content: center;
+        align-items: center;
         gap: 50px;
     }
 
     .step-do-list .sub-tit {
         border: none;
-        gap: 10px;
+        padding-bottom: 0px;
     }
 
     .cost-list.sponsor-list {
@@ -3984,7 +4002,7 @@ textarea {
     }
 
     .sub-content .inner {
-        padding: 40px 20px;
+        padding: 50px 20px;
     }
 
     .sub-content .pd-add {
