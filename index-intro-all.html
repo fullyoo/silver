@@ -94,20 +94,24 @@
 
     <style>
         body {
-            overflow: hidden;
+            /* overflow: hidden; */
             /* 인트로 동안 스크롤바 숨김 */
+        }
+
+        body.no-scroll {
+            overflow: hidden;
         }
     </style>
 </head>
 
 
-<body>
+<body class="no-scroll">
 
     <!-- ✅ 인트로 영역 -->
     <div id="intro-container" class="intro-wrap">
         <div class="logo-wrap">
             <div class="logo-all">
-                <div class="box"><img src="./assets/images/common/bi.svg" alt=""></div>
+                <div class="box"><img src="./assets/images/common/bi.svg" alt="로고심볼"></div>
                 <div class="text">
                     <span class="first">은빛노인</span>
                     <span class="second">복지센터</span>
@@ -937,23 +941,46 @@
     <script src="./assets/js/script.js"></script>
 
     <script>
+        let mainSwiper; // 전역 변수 선언만 함
+
         $(window).on('load', function () {
-            var $intro = $('#intro-container');
-            var $main = $('#main-content');
 
-            // 인트로 보여주는 시간
+            const $intro = $('#intro-container');
+            const $main = $('#main-content');
+
             setTimeout(function () {
-                // 인트로 fade-out
-                $intro.fadeOut(800, function () {
-                    // fadeOut 완료 후 메인 fade-in
-                    $main.css({ opacity: 0 }).show().animate({ opacity: 1 }, 800);
 
-                    // body 스크롤 다시 활성화
-                    $('body').css('overflow', 'auto');
+                $intro.fadeOut(800, function () {
+
+                    $main.css({ opacity: 0, display: 'block' })
+                        .animate({ opacity: 1 }, 800, function () {
+
+                            // 🚀 인트로가 끝난 후에 메인 비주얼 Swiper 최초 초기화
+                            mainSwiper = new Swiper(".main_slide", {
+                                loop: true,
+                                speed: 800,
+                                pagination: {
+                                    el: ".kv-sec .pager",
+                                    bulletActiveClass: 'on',
+                                    clickable: true
+                                },
+                                autoplay: {
+                                    delay: 3000,
+                                    disableOnInteraction: false
+                                }
+                            });
+
+                        });
+
+                    $('body').removeClass('no-scroll');
                 });
-            }, 4000); // 인트로 시간 4초
+
+            }, 4000);
+
         });
     </script>
+
+
     <!-- //하단 공통 END-->
 
 
