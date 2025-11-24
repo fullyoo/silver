@@ -1066,7 +1066,7 @@ input[type="checkbox"]:focus {
 .fullmenu-item>a {}
 
 .fullmenu-item:hover {
-    color: var(--primary-color);
+    /* color: var(--primary-color); */
     /* transform: translateX(5px); */
 }
 
@@ -1166,6 +1166,7 @@ input[type="checkbox"]:focus {
 
 .fullmenu-list a:hover {
     color: var(--primary-color);
+    font-weight: var(--font-500)
 }
 
 .fullmenu-list a:hover::before {
