@@ -24,6 +24,10 @@
     --font-700: 700;
     --font-800: 800;
     --font-900: 900;
+
+    --base-font: 'Pretendard', 'Noto Sans KR', 'Malgun Gothic', 'verdana', sans-serif;
+    --key-font: "Tmoney Round Wind";
+
 }
 
 html {
@@ -132,7 +136,7 @@ video {
     font-weight: var(--font-800);
     /* line-height: 1.2; */
     color: var(--text-color);
-    font-family: 'Tmoney Round Wind';
+    font-family: var(--key-font);
     letter-spacing: -1.5px;
 }
 
@@ -718,7 +722,7 @@ body.menu-open {
     color: var(--text-color);
     margin-bottom: 30px;
     text-align: center;
-    font-family: 'Tmoney Round Wind';
+    font-family: var(--key-font);
 }
 
 .login-form {

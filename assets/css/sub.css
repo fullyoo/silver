@@ -113,7 +113,8 @@
     color: var(--white-color);
     font-size: 55px;
     font-weight: var(--font-800);
-    font-family: 'Tmoney Round Wind';
+    font-family: var(--key-font);
+
     /* line-height: 100%; */
 }
 
@@ -333,8 +334,9 @@
     color: var(--text-color);
     font-size: 42px;
     font-weight: var(--font-800);
-    padding: 70px 0;
-    font-family: 'Tmoney Round Wind';
+    padding: 70px 0 50px;
+    font-family: var(--key-font);
+
     /* margin-bottom: 35px; */
     /* border-bottom: 1px dashed var( --lightgray-color); */
 }
@@ -2597,7 +2599,8 @@ textarea {
     margin: 25px 0 10px;
     font-size: 20px;
     color: var(--text-color);
-    font-family: 'Tmoney Round Wind';
+    font-family: var(--key-font);
+
 }
 
 .success-content p {}
@@ -2653,7 +2656,8 @@ textarea {
     font-size: 28px;
     font-weight: var(--font-700);
     color: var(--text-color);
-    font-family: 'Tmoney Round Wind';
+    font-family: var(--key-font);
+
 }
 
 .privacy-popup-content {

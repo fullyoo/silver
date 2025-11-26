@@ -2,14 +2,14 @@
 /* @import url("reset.css"); */
 
 
-/* @import url('https://cdn.jsdelivr.net/gh/fonts-archive/TmoneyRoundWind/TmoneyRoundWind.css'); */
+@import url('https://cdn.jsdelivr.net/gh/fonts-archive/TmoneyRoundWind/TmoneyRoundWind.css');
 
 
 /* ==========================
     02. 티머니 둥근바람
 ========================== */
 
-@font-face {
+/* @font-face {
     font-family: 'Tmoney Round Wind';
     font-weight: 400;
     font-style: normal;
@@ -33,7 +33,7 @@
         url('../fonts/TmoneyRoundWindExtraBold.woff') format('woff'),
         url('../fonts/TmoneyRoundWindExtraBold.otf') format('opentype'),
         url('../fonts/TmoneyRoundWindExtraBold.ttf') format('truetype');
-}
+} */
 
 
 * {
@@ -58,7 +58,7 @@ img {
     position: relative;
     width: 100%;
     height: 100vh;
-    font-family: 'Tmoney Round Wind';
+    font-family: var(--key-font);
     position: fixed;
     inset: 0;
     overflow: hidden;
