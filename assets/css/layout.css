@@ -1020,6 +1020,10 @@ input[type="checkbox"]:focus {
     transform: rotate(0deg) scale(1);
 }
 
+.fullmenu-overlay.active .fullmenu-close:hover {
+    transform: rotate(90deg) scale(1.2);
+}
+
 .fullmenu-close:hover {
     transform: rotate(90deg) scale(1.2);
 }
