@@ -1924,6 +1924,11 @@ input[type="checkbox"]:focus {
 
     #header.menu-open .mo-btn {
         z-index: 9999;
+        transition: transform 0.3s ease;
+    }
+
+    #header.menu-open .mo-btn:hover {
+        transform: rotate(90deg);
     }
 
     .logo-nav {
