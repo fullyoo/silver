@@ -108,7 +108,7 @@
 <body class="no-scroll">
 
     <!-- 인트로 영역 -->
-    <div id="intro-container" class="intro-wrap">
+    <div id="intro-container" class="intro-box">
         <div class="logo-wrap">
             <div class="logo-all">
                 <div class="box"><img src="./assets/images/common/bi.svg" alt="로고심볼"></div>
@@ -121,7 +121,7 @@
     </div>
 
     <!-- 실제 메인 콘텐츠 -->
-    <div id="main-content" style="opacity: 1;">
+    <div id="main-content" style="opacity: 0;">
         <header id="header">
             <div class="header-dim"></div>
             <div class="inner-sec header-container">
@@ -313,7 +313,7 @@
                                 <source src="./assets/images/main/kv-video3-1.mp4" type="video/mp4">
                             </video>
                         </li>
-                        <li class="swiper-slide bg02">
+                        <!-- <li class="swiper-slide bg02">
                             <div class="inner-sec">
                                 <div class="main_txt">
                                     <span>함께하면 채워지는 어르신의 따뜻한 세상</span>
@@ -327,7 +327,7 @@
                             <video loop playsinline muted data-keepplaying autoplay>
                                 <source src="./assets/images/main/kv-video2.mp4" type="video/mp4">
                             </video>
-                        </li>
+                        </li> -->
                         <li class="swiper-slide bg03">
                             <div class="inner-sec">
                                 <div class="main_txt">
@@ -959,13 +959,17 @@
                             mainSwiper = new Swiper(".main_slide", {
                                 loop: true,
                                 speed: 800,
+                                effect: "fade",
+                                fadeEffect: {
+                                    crossFade: true
+                                },
                                 pagination: {
                                     el: ".kv-sec .pager",
                                     bulletActiveClass: 'on',
                                     clickable: true
                                 },
                                 autoplay: {
-                                    delay: 3000,
+                                    delay: 5000,
                                     disableOnInteraction: false
                                 }
                             });
@@ -975,7 +979,7 @@
                     $('body').removeClass('no-scroll');
                 });
 
-            }, 0); //기존:4000
+            }, 4000);
 
         });
     </script>

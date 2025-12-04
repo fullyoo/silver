@@ -54,7 +54,7 @@ img {
     01. intro 인트로
 ========================== */
 
-.intro-wrap .logo-wrap {
+.intro-box .logo-wrap {
     position: relative;
     width: 100%;
     height: 100vh;
@@ -64,13 +64,13 @@ img {
     overflow: hidden;
     width: 100%;
     height: 100vh;
-    background-color: #f6f6f6;
+    background-color: var(--bg-color);
     z-index: 9999;
     animation: introBg 4s 1.5s cubic-bezier(1, 0, 0.8, 1);
 }
 
 
-.intro-wrap .logo-all {
+.intro-box .logo-all {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -80,7 +80,7 @@ img {
     margin: 0 auto;
 }
 
-.intro-wrap .box {
+.intro-box .box {
     width: 80px;
     height: 80px;
     position: absolute;
@@ -90,12 +90,12 @@ img {
     animation: logos 2s;
 }
 
-.intro-wrap .box:after {
+.intro-box .box:after {
     content: "";
     display: block;
     height: 90%;
     width: 1px;
-    background-color: #bbb;
+    background-color: var(--border-color);
     position: absolute;
     top: 0;
     right: -40px;
@@ -105,8 +105,8 @@ img {
     animation: expand 2s;
 }
 
-.intro-wrap .text {
-    color: #191919;
+.intro-box .text {
+    color: var(--text-color);
     padding-left: 160px;
     line-height: 70px;
     font-size: 60px;
@@ -243,26 +243,26 @@ img {
 /* 반응형 브레이크 포인트 */
 @media(max-width:767px) {
 
-    .intro-wrap .logo-wrap {
+    .intro-box .logo-wrap {
         min-height: 100dvh;
     }
 
-    .intro-wrap .logo-all {
+    .intro-box .logo-all {
         max-width: 420px;
     }
 
-    .intro-wrap .text {
+    .intro-box .text {
         font-size: 40px;
         line-height: 50px;
         padding-left: 100px;
     }
 
-    .intro-wrap .box {
+    .intro-box .box {
         width: 60px;
         height: 60px;
     }
 
-    .intro-wrap .box:after {
+    .intro-box .box:after {
         right: -20px;
     }
 
@@ -305,22 +305,22 @@ img {
 
 
 @media(max-width:480px) {
-    .intro-wrap .logo-all {
+    .intro-box .logo-all {
         max-width: 300px;
     }
 
-    .intro-wrap .text {
+    .intro-box .text {
         font-size: 30px;
         line-height: 40px;
         padding-left: 60px;
     }
 
-    .intro-wrap .box {
+    .intro-box .box {
         width: 40px;
         height: 40px;
     }
 
-    .intro-wrap .box:after {
+    .intro-box .box:after {
         right: -10px;
     }
 
@@ -362,22 +362,22 @@ img {
 
 
 @media(max-width:320px) {
-    .intro-wrap .logo-all {
+    .intro-box .logo-all {
         max-width: 210px;
     }
 
-    .intro-wrap .text {
+    .intro-box .text {
         font-size: 20px;
         line-height: 30px;
         padding-left: 50px;
     }
 
-    .intro-wrap .box {
+    .intro-box .box {
         width: 30px;
         height: 30px;
     }
 
-    .intro-wrap .box:after {
+    .intro-box .box:after {
         right: -10px;
     }
 

@@ -16,6 +16,7 @@
     /* 인트로 구간 스크롤 막기 */
     z-index: 9999;
     /* 메인 콘텐츠 위에 표시 */
+    /* display: block; */
 }
 
 #main-content {
@@ -372,12 +373,12 @@
 
 .service-wrap li a {
     border-radius: 20px;
-    transition: .3s;
+    transition: .5s;
     overflow: hidden;
 }
 
 .service-wrap li a:hover {
-    border-radius: 100px 100px 100px 0;
+    /* border-radius: 100px 100px 100px 0; */
 }
 
 
@@ -486,11 +487,11 @@
     overflow: hidden;
     border-radius: 100px 100px 100px 0;
     border-radius: 20px;
-    transition: .3s;
+    transition: .5s;
 }
 
 .team-sec .cont-sec li:hover {
-    border-radius: 100px 100px 100px 0;
+    /* border-radius: 100px 100px 100px 0; */
 }
 
 .team-sec .cont-sec li a {}
@@ -516,7 +517,7 @@
 }
 
 .gallery-list li {
-    transition: .3s;
+    transition: .5s;
 }
 
 .gallery-list li:hover {}
@@ -526,7 +527,7 @@
     height: 450px;
     overflow: hidden;
     border-radius: 20px;
-    transition: .3s;
+    transition: .5s;
     position: relative;
     background: url(../images/main/plus_w.png) center no-repeat;
 }
@@ -723,7 +724,7 @@
     padding: 30px;
     border-radius: 20px;
     position: relative;
-    transition: .3s;
+    transition: .5s;
     margin: 10px 0;
     transform: translateY(0px);
 }
@@ -767,7 +768,7 @@
     /* border: 2px solid var(--primary-color);
     padding: 29px;
     box-sizing: border-box;
-    transition: .3s; */
+    transition: .5s; */
     transform: translateY(-10px);
     border-color: #fff;
     border-radius: 70px 70px 70px 0px;
@@ -785,7 +786,7 @@
     left: 0;
     border-radius: 20px;
     opacity: 0;
-    transition: .3s;
+    transition: .5s;
     border-radius: 70px 70px 70px 0px;
     box-sizing: border-box;
 }
@@ -837,7 +838,6 @@
 .intro-wrap {
     display: flex;
     justify-content: space-between;
-    display: none;
 }
 
 .intro-wrap li {
@@ -933,7 +933,7 @@
     background-color: var(--primary-color);
     padding: 18px 40px;
     border-radius: 10px;
-    transition: .3s;
+    transition: .5s;
     text-align: center;
 }
 
@@ -1087,7 +1087,7 @@
     padding: 15px 50px;
     font-size: 18px;
     font-weight: var(--font-800);
-    transition: .3s;
+    transition: .5s;
 }
 
 .donate-link a:hover {
@@ -1154,10 +1154,6 @@
         /* height: 800px; */
         /* min-height: auto; */
         border-bottom-right-radius: 120px;
-    }
-
-    .kv-sec .swiper-slide-active .main_txt .txt {
-        font-size: 42px;
     }
 
     .kv-sec .main_txt span {

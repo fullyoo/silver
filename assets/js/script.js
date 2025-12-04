@@ -279,7 +279,7 @@ $(function () {
         loop: true,
         centeredSlides: true,
         autoplay: {
-            delay: 2000,
+            delay: 5000,
             disableOnInteraction: false
         },
 
@@ -324,22 +324,22 @@ $(function () {
 
     // =====04. 갤러리 활동 사진=====
     feather.replace();
+
     var imgSwiper2 = new Swiper(".gallery-slide .gallery-list", {
         speed: 700,
-        slidesPerView: '1',
+        slidesPerView: 1,
         spaceBetween: 10,
         loop: true,
         autoHeight: false,
         centeredSlides: false,
 
-        effect: "slide",
-        // 기본값은 좌우이동("slide" 따옴표를 비우면 됨)
-        // 전환 효과. 'slide', 'fade', 'cube', 'coverflow', 'flip', 'creative'또는'cards'
-
-        crossFade: true, //fade 이펙트 겹침 현상 시 해결
+        effect: "fade",               // ★ 페이드 효과 적용
+        fadeEffect: {
+            crossFade: true          // ★ 페이드 겹침 문제 해결
+        },
 
         autoplay: {
-            delay: 3000,
+            delay: 5000,
             disableOnInteraction: false
         },
 
@@ -350,10 +350,9 @@ $(function () {
 
         pagination: {
             el: ".gallery-sec .swiper-pagination",
-            // type: "progressbar"
         }
-
     });
+
 
 
 
@@ -376,7 +375,7 @@ $(function () {
         crossFade: true, //fade 이펙트 겹침 현상 시 해결
 
         autoplay: {
-            delay: 2000,
+            delay: 5000,
             disableOnInteraction: false
         },
 
