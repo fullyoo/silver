@@ -338,10 +338,10 @@ $(function () {
             crossFade: true          // ★ 페이드 겹침 문제 해결
         },
 
-        autoplay: {
-            delay: 5000,
-            disableOnInteraction: false
-        },
+        // autoplay: {
+        //     delay: 5000,
+        //     disableOnInteraction: false
+        // },
 
         navigation: {
             nextEl: ".gallery-sec .swiper-button-next",

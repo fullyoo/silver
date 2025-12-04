@@ -208,8 +208,7 @@ video {
     -ms-transform-origin-y: bottom;
     -o-transform-origin-y: bottom;
     transition: 0.8s;
-    background-color: rgba(219, 42, 34, 0.5);
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: rgba(0, 0, 0, 0.2);
 }
 
 .cont-sec li a:hover::before {
