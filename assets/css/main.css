@@ -19,8 +19,8 @@
 }
 
 #main-content {
-    opacity: 1;
-    /* display: none; */
+    opacity: 0;
+    /* 기존 opacity:0 → 1 */
 }
 
 
