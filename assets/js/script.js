@@ -63,30 +63,30 @@ $(function () {
         let username = $.trim($("#username").val());
         let password = $.trim($("#password").val());
 
-        // 1️⃣ 아이디 확인
+        // 1️.아이디 확인
         if (username === "") {
             alert("아이디를 입력해주세요.");
             $("#username").focus();
             return false;
         }
 
-        // 2️⃣ 비밀번호 확인
+        // 2️.비밀번호 확인
         if (password === "") {
             alert("비밀번호를 입력해주세요.");
             $("#password").focus();
             return false;
         }
 
-        // 3️⃣ 가짜 로그인 검증
+        // 3️.가짜 로그인 검증
         // if (username !== "admin" || password !== "1234") {
         //     alert("아이디 또는 비밀번호가 올바르지 않습니다.");
         //     return false;
         // }
 
-        // ✅ 모든 입력이 완료된 경우
+        // 모든 입력이 완료된 경우
         alert("로그인이 완료되었습니다!-테스트버전 입니다");
 
-        // 🔹 입력값 초기화 (폼 리셋)
+        // 입력값 초기화 (폼 리셋)
         $(this).trigger("reset");
     });
 
@@ -171,7 +171,7 @@ $(function () {
 
             // 다른 메뉴들의 active/on 클래스 제거 및 패딩 복원
             $parent.siblings().removeClass('on');
-            // $parent.siblings().css('padding', '0 20px');  // ✅ 패딩 복원
+            // $parent.siblings().css('padding', '0 20px');  // 패딩 복원
             $parent.siblings().find('.sub-menu').removeClass('active');
             $parent.siblings().find('.sub-toggle').removeClass('active');
             $parent.siblings().find('a.links').removeClass('on');
@@ -184,9 +184,9 @@ $(function () {
 
             // on 클래스 여부에 따라 패딩 조절
             // if ($parent.hasClass('on')) {
-            //     $parent.css('padding', '0');  // ✅ on 클래스 있으면 패딩 0
+            //     $parent.css('padding', '0');  // on 클래스 있으면 패딩 0
             // } else {
-            //     $parent.css('padding', '0 20px');  // ✅ on 클래스 없으면 패딩 복원
+            //     $parent.css('padding', '0 20px');  // on 클래스 없으면 패딩 복원
             // }
         }
 
@@ -234,7 +234,7 @@ $(function () {
         $(this).attr('href', newHref);
     });
 
-    console.log("✅ header 및 fullmenu 내부의 #menu 링크가 .html로 자동 변환되었습니다.");
+    console.log("header 및 fullmenu 내부의 #menu 링크가 .html로 자동 변환되었습니다.");
 
 
 
@@ -245,7 +245,7 @@ $(function () {
         $(this).attr('href', newHref);
     });
 
-    console.log("✅ snb-list 내부의 #menu 링크가 .html로 자동 변환되었습니다.");
+    console.log("snb-list 내부의 #menu 링크가 .html로 자동 변환되었습니다.");
 
 
 
@@ -508,21 +508,21 @@ $(function () {
         let email = $.trim($("input[name='email']").val());
         let agree = $("#volunteer-letter-check").is(":checked");
 
-        // 1️⃣ 이름 확인
+        // 1️.이름 확인
         if (name === "") {
             alert("이름을 입력해주세요.");
             $("input[name='name']").focus();
             return false;
         }
 
-        // 2️⃣ 이메일 확인
+        // 2️.이메일 확인
         if (email === "") {
             alert("이메일 주소를 입력해주세요.");
             $("input[name='email']").focus();
             return false;
         }
 
-        //  3️⃣ 이메일 형식 검사 (간단한 정규식)
+        //  3️.이메일 형식 검사 (간단한 정규식)
         let emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         if (!emailPattern.test(email)) {
             alert("올바른 이메일 주소를 입력해주세요.");
@@ -530,19 +530,19 @@ $(function () {
             return false;
         }
 
-        //  4️⃣ 개인정보 동의 체크
+        //  4️.개인정보 동의 체크
         if (!agree) {
             alert("개인정보 수집/이용 동의가 필요합니다.");
             $("#volunteer-letter-check").focus();
             return false;
         }
 
-        // ✅ 모든 조건 통과 시
+        // 모든 조건 통과 시
         alert("자원봉사 신청이 완료되었습니다!-테스트 버전입니다");
         // 실제 전송하려면 아래 주석을 해제
         // this.submit();
 
-        // 🔹 입력값 초기화 (폼 리셋)
+        // 입력값 초기화 (폼 리셋)
         $(this).trigger("reset");
 
     });
@@ -655,7 +655,7 @@ $(function () {
         }
     });
 
-    // ✅ 추가: 활성 메뉴 자동 스크롤 (모바일 대응)
+    // 추가: 활성 메뉴 자동 스크롤 (모바일 대응)
     $(window).on('load', function () {
         const $wrap = $('.snb-list ul');
         const $active = $('.snb-list ul li.active');
@@ -686,7 +686,7 @@ $(function () {
         },
         bar: function () {
             const $wrap = $(".history-box");
-            if ($wrap.length === 0) return; // ✅ 요소 없으면 함수 중단
+            if ($wrap.length === 0) return; // 요소 없으면 함수 중단
 
             const winScroll = $(window).scrollTop();
             const winHeight = $(window).height();
@@ -708,7 +708,7 @@ $(function () {
         }
     };
     $(function () {
-        scrollBar.init(); // ✅ DOM 로드 후 실행
+        scrollBar.init(); // DOM 로드 후 실행
     });
 
 
