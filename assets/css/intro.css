@@ -235,7 +235,7 @@ img {
 
     100% {
         z-index: -1px;
-        transform: translateY(-100%);
+        transform: translateY(0%);
     }
 }
 
