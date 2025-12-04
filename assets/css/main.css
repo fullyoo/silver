@@ -837,6 +837,7 @@
 .intro-wrap {
     display: flex;
     justify-content: space-between;
+    display: none;
 }
 
 .intro-wrap li {
