@@ -949,7 +949,7 @@
 
                 $intro.fadeOut(800, function () {
 
-                    $main.css({ opacity: 0, display: 'block' })
+                    $main.css({ opacity: 1, display: 'block' })
                         .animate({ opacity: 1 }, 800, function () {
 
                             // ===== Swiper 초기화 =====
@@ -976,7 +976,7 @@
                     $('body').removeClass('no-scroll');
                 });
 
-            }, 2000); // 기존 3000 → 0초
+            }, 3000); // 기존 3000 → 0초
         });
 
     </script>
