@@ -1381,7 +1381,7 @@
 /* 768px 이하 - 태블릿/모바일 중간 */
 @media(max-width:767px) {
     .kv-sec {
-        height: calc(100vh - 20px);
+        /* height: calc(100vh - 20px); */
         border-bottom-right-radius: 100px;
     }
 
