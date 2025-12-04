@@ -1390,7 +1390,7 @@
     }
 
     .kv-sec .main_txt .txt {
-        font-size: 32px;
+        font-size: 34px;
         padding: 18px 0 35px;
     }
 
@@ -1641,7 +1641,7 @@
     }
 
     .kv-sec .main_txt .txt {
-        font-size: 26px;
+        font-size: 30px;
         padding: 15px 0 30px;
         white-space: normal;
     }
@@ -1654,6 +1654,10 @@
 
     .service-wrap li {
         width: 100%;
+    }
+
+    .intro-sec .title {
+        font-size: 26px;
     }
 
     .donate-link {

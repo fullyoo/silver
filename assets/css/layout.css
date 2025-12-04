@@ -2220,7 +2220,7 @@ input[type="checkbox"]:focus {
     }
 
     .title {
-        font-size: 32px;
+        font-size: 30px;
     }
 
     .footer-nav {
@@ -2279,6 +2279,10 @@ input[type="checkbox"]:focus {
     .login-options {
         flex-direction: column;
         gap: 5px;
+    }
+
+    .title {
+        font-size: 26px;
     }
 
 
