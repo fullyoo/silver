@@ -96,6 +96,7 @@
     z-index: 101;
     transform: translateX(-50%);
     width: max-content;
+    transition: 1s ease 1s;
 }
 
 .kv-sec .pager span {
@@ -105,7 +106,7 @@
     height: 50px;
     margin: 0 5px;
     background-color: transparent;
-    transition: all 0.3s;
+    transition: all 0.5s;
 }
 
 .kv-sec .pager span.on {
@@ -124,7 +125,7 @@
     height: 50px;
     border: 1px solid rgba(255, 255, 255, .3);
     border-radius: 50%;
-    transition: all 0.3s;
+    transition: all 0.5s;
 }
 
 .kv-sec .pager span.on:before {
@@ -152,20 +153,23 @@
     font-size: 18px;
     font-weight: var(--font-500);
     opacity: 0;
-    transition: opacity 0.5s ease;
+    transition: 0.5s ease;
+    transition: 0.5s ease 0.3s;
+    transform: translateY(-10px);
     position: relative;
     z-index: 9;
 }
 
 .kv-sec .swiper-slide-active .main_txt {
     opacity: 1;
+    transform: translateY(0px);
 }
 
 /* 상단 작은 문구 */
 .kv-sec .main_txt span {
     font-weight: var(--font-600);
     opacity: 0;
-    transition: opacity 0.6s ease 0.4s;
+    /* transition: opacity 0.6s ease 0.4s; */
     color: var(--white-color);
     font-size: 30px;
 }
@@ -181,7 +185,7 @@
     font-weight: var(--font-700);
     white-space: pre-line;
     opacity: 0;
-    transition: opacity 0.6s ease 0.6s;
+    /* transition: opacity 0.6s ease 0.6s; */
     color: var(--white-color);
     font-family: var(--key-font);
     letter-spacing: -1.5px;
@@ -199,7 +203,7 @@
 /* 버튼 */
 .kv-sec .main_txt .btn {
     opacity: 0;
-    transition: opacity .6s ease .8s;
+    /* transition: opacity .6s ease .8s; */
 }
 
 .kv-sec .swiper-slide-active .main_txt .btn {
@@ -296,7 +300,7 @@
 /* ============ 2. 메인 주요 서비스 =============== */
 
 .service-sec {
-    background-image: url(../images/main/icon_main-cont.svg);
+    /* background-image: url(../images/main/icon_main-cont.svg); */
     background-color: var(--white-color);
     background-position: 100%;
     background-size: contain;
@@ -772,8 +776,8 @@
     left: 0;
     border-radius: 20px;
     opacity: 0;
-    transition: 0.3s;
-    border-radius: 70px 70px 70px 0px;
+    transition: 0.4s;
+    border-radius: 40px 40px 40px 0px;
     box-sizing: border-box;
 }
 

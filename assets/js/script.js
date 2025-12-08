@@ -278,10 +278,10 @@ $(function () {
         autoHeight: true,
         loop: true,
         centeredSlides: true,
-        autoplay: {
-            delay: 5000,
-            disableOnInteraction: false
-        },
+        // autoplay: {
+        //     delay: 5000,
+        //     disableOnInteraction: false
+        // },
 
         navigation: {
             nextEl: ".team-sec .swiper-button-next",
