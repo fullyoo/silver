@@ -94,9 +94,6 @@ img {
     width: 100%;
     max-width: 640px;
     margin: 0 auto;
-    display: flex;
-    justify-content: center;
-    align-items: center;
 }
 
 .intro-box .box {
@@ -130,6 +127,7 @@ img {
     line-height: 70px;
     font-size: 60px;
     font-weight: 800;
+    font-family: var(--key-font);
     -webkit-animation: fade 2.5s;
     animation: fade 2.5s;
 }
