@@ -2060,6 +2060,7 @@
 .toggle-icon.active {
     transform: rotate(180deg);
     color: var(--primary-color);
+    color: var(--text-color);
 }
 
 .faq-answer {
@@ -4363,6 +4364,10 @@ textarea {
 
     .faq-question {
         padding: 30px 20px;
+    }
+
+    .faq-question:hover .question-text {
+        color: var(--text-color);
     }
 
     .question-text {
