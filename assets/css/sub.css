@@ -2386,8 +2386,8 @@ textarea {
     pointer-events: none;
     transition: transform 0.3s ease;
     font-weight: var(--font-600);
-    color: var(--text-color);
-    font-size: 15px;
+    color: var(--border-color);
+    font-size: 14px;
 }
 
 .custom-select-wrapper.active .custom-select-arrow {
@@ -4404,7 +4404,7 @@ textarea {
     }
 
     .notice-wrap .search-all {
-        border-bottom: 2px solid var(--border-color);
+        border-bottom: 2px solid var(--lightgraybg-color);
         padding-bottom: 20px;
         margin-bottom: 0;
     }

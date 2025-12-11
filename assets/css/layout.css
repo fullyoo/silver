@@ -1891,13 +1891,16 @@ input[type="checkbox"]:focus {
     }
 
     .header-menu>li.on {
-        background-color: var(--primary-color);
+        /* background-color: var(--primary-color); */
     }
 
+    .header-menu>li.on .links.on {
+        color: red !important;
+    }
 
     .header-menu>li>a.on {
-        color: var(--white-color) !important;
-        padding: 20px;
+        /* color: var(--white-color) !important; */
+        /* padding: 20px; */
 
     }
 
@@ -2054,8 +2057,13 @@ input[type="checkbox"]:focus {
     }
 
     .sub-toggle.active {
-        transform: rotate(180deg);
+        /* transform: rotate(180deg); */
+        transform: rotate(0deg);
         background-color: var(--white-color);
+    }
+
+    .sub-toggle.active:before {
+        opacity: 0;
     }
 
     .sub-toggle.active:after {
