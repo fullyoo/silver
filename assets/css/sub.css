@@ -316,7 +316,7 @@
     top: -60px;
     left: 60px;
     z-index: -1;
-    animation: sub-dot 2s linear 1s infinite reverse forwards;
+    animation: sub-dot 3s linear 1s infinite reverse forwards;
 
     /* animation-name: sub-dot;
     animation-duration: 2s;
