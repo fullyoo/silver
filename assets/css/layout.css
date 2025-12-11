@@ -423,7 +423,7 @@ textarea:focus {
     height: 65px;
     background-color: var(--primary-color);
     border-radius: 100%;
-    box-shadow: 0 0 15px 5px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 0 5px 2px rgba(0, 0, 0, 0.2);
     box-sizing: border-box;
     color: #FFF;
     font-size: 14px;

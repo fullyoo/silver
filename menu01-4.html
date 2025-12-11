@@ -5,8 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- iOS 전화번호, 이메일, 주소 자동링크 방지 -->
-    <meta name="format-detection" content="telephone=no, email=no, address=no">
+    <!-- iOS 전화번호 자동링크 방지 -->
+    <meta name="format-detection" content="telephone=no">
 
     <!-- 기본 메타 정보 -->
     <title>오시는 길 | 은빛노인 복지센터</title>
@@ -318,13 +318,13 @@
                     <div class="map-item">
                         <div class="map-info">
                             <div class="map-info-list">
-                                <ul data-aos="fade-down" data-aos-duration="400" data-aos-delay="400">
+                                <ul>
                                     <li><b>Tel.</b> 02-1234-5678</li>
                                     <li><b>Fax.</b> 02-9876-5432 </li>
                                     <li><b>E-mail.</b> <a href="mailto:silvercare@naver.com"
                                             target="_blank">silvercare@admin.com</a></li>
                                 </ul>
-                                <div class="map-all" data-aos="fade-down" data-aos-duration="400" data-aos-delay="600">
+                                <div class="map-all">
                                     <p class="address">서울특별시 강남구 논현로 130, 2층 <br>(행복동 45-2)</p>
                                     <div class="link">
                                         <a href="https://naver.me/FZ8ahqzr" target="_blank" title="새창열림"
@@ -335,7 +335,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <h4 class="name" data-aos="zoom-in-up" data-aos-duration="400" data-aos-delay="600">
+                            <h4 class="name">
                                 <span>silver-care</span>
                                 은빛노인 복지센터 정보
                             </h4>
@@ -530,54 +530,59 @@
     <!-- //하단 공통 END-->
 
 
-
     <!-- 카카오 지도 API -->
+    <script src="https://dapi.kakao.com/v2/maps/sdk.js?appkey=5e8fe49c121c1ec2749e6e7f23267822&autoload=false"></script>
 
-    <script src="//dapi.kakao.com/v2/maps/sdk.js?appkey=5e8fe49c121c1ec2749e6e7f23267822"></script>
     <script>
-        var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
-            mapOption = {
-                center: new kakao.maps.LatLng(37.511297, 127.029554), // 지도의 중심좌표 (위도, 경도)
-                level: 4 // 지도의 확대 레벨
-            };
+        document.addEventListener("DOMContentLoaded", function () {
 
-        var map = new kakao.maps.Map(mapContainer, mapOption);
+            kakao.maps.load(function () {   // autoload=false일 때 반드시 필요
 
-        var imageSrc = '../assets/images/sub/marker_red.png', // 마커이미지의 주소입니다    
-            imageSize = new kakao.maps.Size(60, 60), // 마커이미지의 크기입니다
-            imageOption = { offset: new kakao.maps.Point(27, 69) }; // 마커이미지의 옵션입니다. 마커의 좌표와 일치시킬 이미지 안에서의 좌표를 설정합니다.
+                var mapContainer = document.getElementById('map'),
+                    mapOption = {
+                        center: new kakao.maps.LatLng(37.511297, 127.029554),
+                        level: 4
+                    };
 
-        // 마커의 이미지정보를 가지고 있는 마커이미지를 생성합니다
-        var markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize, imageOption),
-            markerPosition = new kakao.maps.LatLng(37.511297, 127.029554); // 마커가 표시될 위치입니다. (위도, 경도)
+                var map = new kakao.maps.Map(mapContainer, mapOption);
 
-        // 마커를 생성합니다
-        var marker = new kakao.maps.Marker({
-            position: markerPosition,
-            image: markerImage // 마커이미지 설정 
-        });
+                var imageSrc = '../assets/images/sub/marker_red.png',
+                    imageSize = new kakao.maps.Size(60, 60),
+                    imageOption = { offset: new kakao.maps.Point(27, 69) };
 
-        // 마커가 지도 위에 표시되도록 설정합니다
-        marker.setMap(map);
+                var markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize, imageOption),
+                    markerPosition = new kakao.maps.LatLng(37.511297, 127.029554);
 
-        // 커스텀 오버레이에 표출될 내용으로 HTML 문자열이나 document element가 가능합니다
-        var content = '<div class="customoverlay">' +
-            '  <a href="https://kko.kakao.com/MF2ZXEf_de" target="_blank">' +
-            '    <span class="title">저희 센터에 오신 걸 <br>환영합니다!</span>' +
-            '  </a>' +
-            '</div>';
+                var marker = new kakao.maps.Marker({
+                    position: markerPosition,
+                    image: markerImage
+                });
 
-        // 커스텀 오버레이가 표시될 위치입니다 
-        var position = new kakao.maps.LatLng(37.511297, 127.029554);
+                marker.setMap(map);
 
-        // 커스텀 오버레이를 생성합니다
-        var customOverlay = new kakao.maps.CustomOverlay({
-            map: map,
-            position: position,
-            content: content,
-            yAnchor: 1
+                var content = `
+            <div class="customoverlay">
+                <a href="https://kko.kakao.com/MF2ZXEf_de" target="_blank">
+                    <span class="title">저희 센터에 오신 걸 <br>환영합니다!</span>
+                </a>
+            </div>
+        `;
+
+                var position = new kakao.maps.LatLng(37.511297, 127.029554);
+
+                var customOverlay = new kakao.maps.CustomOverlay({
+                    map: map,
+                    position: position,
+                    content: content,
+                    yAnchor: 1
+                });
+
+            });
+
         });
     </script>
+
+
 
 
 
