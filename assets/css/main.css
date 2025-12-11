@@ -14,8 +14,10 @@
     overflow: hidden;
     /* 인트로 구간 스크롤 막기 */
     z-index: 9999;
-    /* 메인 콘텐츠 위에 표시 */
     /* display: none; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 #main-content {
