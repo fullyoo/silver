@@ -67,6 +67,9 @@ img {
     background-color: var(--bg-color);
     z-index: 9999;
     animation: introBg 4s 1.5s cubic-bezier(1, 0, 0.8, 1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 
@@ -78,6 +81,9 @@ img {
     width: 100%;
     max-width: 640px;
     margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .intro-box .box {
