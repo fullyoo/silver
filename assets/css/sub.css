@@ -1648,6 +1648,7 @@
     gap: 20px 0;
     padding: 0 0 40px;
     align-items: center;
+    font-family: 'Pretendard', sans-serif;
 }
 
 .view-box .title h4 {
@@ -2097,11 +2098,12 @@
 
 .answer-content ul {
     margin: 10px 0;
-    padding-left: 20px;
+    padding-left: 10px;
 }
 
 .answer-content li {
     margin: 8px 0;
+    list-style: auto;
 }
 
 .answer-content a {
@@ -4458,7 +4460,7 @@ textarea {
 
     .answer-content {
         padding: 20px;
-        font-size: 15px;
+        font-size: 14px;
     }
 
     .answer-content h3 {
@@ -4556,6 +4558,8 @@ textarea {
 
     .view-box .title div {
         gap: 8px;
+        display: flex;
+        align-items: stretch;
     }
 
     .view-box .view-content {
@@ -4687,7 +4691,7 @@ textarea {
     }
 
     .view-box .title h4 {
-        font-size: 16px;
+        /* font-size: 16px; */
         text-align: left;
     }
 
