@@ -2167,6 +2167,28 @@ input[type="checkbox"]:focus {
         font-size: 13px;
     }
 
+    /* 모바일 호버 효과 제거 */
+    .cont-sec li a:hover::before {
+        display: none;
+    }
+
+    .cont-sec a:hover .t-box .more {
+        background-color: transparent;
+        padding: 0
+    }
+
+    .cont-sec a:hover .t-box .t2 {
+        margin-bottom: 0;
+    }
+
+    .cont-sec a:hover>img,
+    .cont-sec a:hover>.img_wrap .thum-img>img {
+        transform: scale(1);
+    }
+
+
+
+
 
 }
 
@@ -2204,11 +2226,12 @@ input[type="checkbox"]:focus {
     }
 
     .t-box .t1 {
-        font-size: 25px;
+        font-size: 22px;
+        line-height: 1.3;
     }
 
     .more {
-        font-size: 14px;
+        font-size: 12px;
     }
 
     .more img {
@@ -2222,8 +2245,21 @@ input[type="checkbox"]:focus {
 
     .control .next,
     .control .prev {
-        width: 50px;
-        height: 50px;
+        width: 35px;
+        height: 35px;
+    }
+
+    .control svg {
+        height: 20px;
+    }
+
+    .title-wrap {
+        gap: 35px;
+        margin-bottom: 25px;
+    }
+
+    .cont-sec {
+        padding: 40px 0;
     }
 
     .title {
@@ -2289,7 +2325,7 @@ input[type="checkbox"]:focus {
     }
 
     .title {
-        font-size: 26px;
+        font-size: 24px;
     }
 
 
