@@ -2098,7 +2098,7 @@
 
 .answer-content ul {
     margin: 10px 0;
-    padding-left: 10px;
+    padding-left: 20px;
 }
 
 .answer-content li {
@@ -4560,6 +4560,8 @@ textarea {
         gap: 8px;
         display: flex;
         align-items: stretch;
+        align-items: center;
+
     }
 
     .view-box .view-content {
