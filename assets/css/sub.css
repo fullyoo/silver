@@ -447,7 +447,7 @@
     display: flex;
     justify-content: space-between;
     gap: 70px;
-    margin: 100px 0;
+    margin: 70px 0;
 }
 
 .cont-box p {
@@ -1246,7 +1246,7 @@
     text-align: center;
     border-top: 1px solid var(--text-color);
     padding: 80px 0 60px;
-    margin: 80px 0 0px;
+    margin: 80px 0;
 }
 
 .step-wrap .cont-box p {
@@ -3724,7 +3724,7 @@ textarea {
     }
 
     .step-wrap .cont-box {
-        margin: 40px 0 0;
+        margin: 40px 0 80px;
         padding: 40px 0;
     }
 
@@ -4285,6 +4285,10 @@ textarea {
         height: 220px;
     }
 
+    .step-wrap .cont-box {
+        margin-bottom: 40px;
+    }
+
     .step-wrap .cont-img .all-imgs {
         gap: 20px;
     }
@@ -4396,10 +4400,18 @@ textarea {
         /* order: 3; */
     }
 
+    .notice-item .notice-title {
+        font-size: 18px;
+    }
+
     .notice-date {
         margin-left: 0;
         font-size: 13px;
         width: auto;
+    }
+
+    .notice-item span {
+        font-size: 13px;
     }
 
     .search-box {
@@ -4428,6 +4440,10 @@ textarea {
         border-radius: 20px;
     }
 
+    .gallery-date {
+        font-size: 13px;
+    }
+
     .faq-question {
         padding: 30px 20px;
     }
@@ -4437,7 +4453,7 @@ textarea {
     }
 
     .question-text {
-        /* font-size: 18px; */
+        font-size: 18px;
     }
 
     .answer-content {
@@ -4626,6 +4642,7 @@ textarea {
 
     .service-list li p {
         padding-bottom: 30px;
+        font-size: 15px;
     }
 
     .history-item .head .year {
@@ -4664,12 +4681,16 @@ textarea {
     }
 
     .view-box .title h4 {
-        font-size: 20px;
+        font-size: 18px;
         text-align: left;
     }
 
     .view-box .view-content {
         padding: 20px 0 0;
+    }
+
+    .view-box .title div * {
+        font-size: 14px;
     }
 
     .view-box dl {
@@ -4682,6 +4703,10 @@ textarea {
 
     .gallery-wrap {
         padding: 20px 0 0;
+    }
+
+    .gallery-title {
+        font-size: 18px;
     }
 
     .gallery-grid {
