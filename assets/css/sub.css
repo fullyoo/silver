@@ -3477,7 +3477,7 @@ textarea {
 
     .status-box {
         flex-direction: column;
-        padding-top: 30px;
+        padding-top: 20px;
     }
 
     .etc-box-list {
@@ -3622,7 +3622,7 @@ textarea {
     }
 
     .service-list li img {
-        width: 85%;
+        /* width: 85% !important; */
     }
 
     .service-list li p {
@@ -3733,7 +3733,7 @@ textarea {
     }
 
     .step-do-list li {
-        font-size: 18px;
+        font-size: 15px;
     }
 
     .step-wrap .sub-tit b {
@@ -3997,8 +3997,13 @@ textarea {
 
 
 @media(max-width: 767px) {
+
     #sub-visual {
         height: 350px;
+    }
+
+    #sub-visual .visual-text h2 {
+        font-size: 28px;
     }
 
     #sub-visual .visual-bg {
@@ -4019,6 +4024,10 @@ textarea {
         height: 2px;
         margin: 0 10px;
         vertical-align: 4px;
+    }
+
+    .sub-content .location li {
+        font-size: 13px;
     }
 
     .sub-content .inner {
@@ -4081,7 +4090,7 @@ textarea {
     }
 
     .title-xl {
-        font-size: 28px;
+        font-size: 24px;
         padding: 50px 0 20px;
     }
 
@@ -4091,14 +4100,27 @@ textarea {
         top: -20px;
     }
 
+    .title-lg {
+        font-size: 18px;
+    }
+
     .title-md {}
 
     .title-sm {}
 
     .title-xs {}
 
+    .sub-tit {
+        font-size: 18px;
+    }
+
+    .checkbox-group {
+        font-size: 14px;
+    }
+
     .cont-box p {
         margin-bottom: 20px;
+        font-size: 14px;
     }
 
     .cont-bg img {
@@ -4112,6 +4134,14 @@ textarea {
     .cont-box {
         margin: 40px 0;
         gap: 30px;
+    }
+
+    .list-num {
+        font-size: 28px;
+    }
+
+    .sign {
+        font-size: 16px;
     }
 
     .profile-container {
@@ -4139,16 +4169,28 @@ textarea {
     }
 
     .profile-sticky .name {
-        font-size: 22px;
+        font-size: 18px;
     }
 
     .profile-sticky .role {
-        font-size: 16px;
+        font-size: 15px;
     }
 
     .profile-content h4 {
-        font-size: 24px;
+        font-size: 20px;
         text-align: center;
+    }
+
+    .profile-content h5 {
+        font-size: 18px;
+    }
+
+    .profile-content li {
+        font-size: 15px;
+    }
+
+    .profile-content .greet {
+        font-size: 15px;
     }
 
     .profile-content p,
@@ -4159,6 +4201,14 @@ textarea {
 
     .profile-section {
         padding-top: 50px;
+    }
+
+    .history-item .list li .date {
+        font-size: 18px;
+    }
+
+    .history-item .list li .text {
+        font-size: 15px;
     }
 
     .team-list {
@@ -4279,8 +4329,20 @@ textarea {
         border-radius: 30px 30px 30px 0;
     }
 
+    .sponsor-list li .more {
+        margin-bottom: 20px;
+    }
+
     .tb_wrap table thead tr th {
-        font-size: 18px;
+        font-size: 15px;
+    }
+
+    .tb_wrap table tbody tr th {
+        font-size: 14px;
+    }
+
+    .tb_wrap table tbody tr td {
+        font-size: 14px;
     }
 
     .tb_wrap .scroll-touch {
@@ -4298,6 +4360,10 @@ textarea {
     .tb_wrap .scroll-desc {
         display: block;
         padding-top: 20px;
+    }
+
+    .add-info {
+        font-size: 14px;
     }
 
     .page-header h1 {
@@ -4422,10 +4488,31 @@ textarea {
 
     .form-button {
         /* width: 100%; */
-        font-size: 16px;
+        font-size: 15px;
         height: 45px;
         margin: 20px auto;
         transition: background-color 0s;
+    }
+
+    .form-group label,
+    .form-group .label {
+        font-size: 15px;
+    }
+
+    .qna-list input[type="text"].name {
+        font-size: 14px;
+    }
+
+    .custom-select-input {
+        font-size: 14px;
+    }
+
+    .qna-list input[type="tel"] {
+        font-size: 14px;
+    }
+
+    .qna-list input[type="text"] {
+        font-size: 14px;
     }
 
     .view-box dl * {
@@ -4486,6 +4573,14 @@ textarea {
         font-size: 14px;
     }
 
+    .sponsor-list li .title-box .tit b {
+        font-size: 16px;
+    }
+
+    .sponsor-list li .title-box .tit {
+        font-size: 15px;
+    }
+
 }
 
 
@@ -4526,7 +4621,7 @@ textarea {
     }
 
     .service-list li img {
-        width: 80%;
+        /* width: 80% !important; */
     }
 
     .service-list li p {
@@ -4534,7 +4629,7 @@ textarea {
     }
 
     .history-item .head .year {
-        font-size: 40px;
+        font-size: 28px;
     }
 
     .history-item .head img {

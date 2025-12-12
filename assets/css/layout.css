@@ -2253,6 +2253,10 @@ input[type="checkbox"]:focus {
         height: 20px;
     }
 
+    .sub-menu a {
+        font-size: 16px;
+    }
+
     .title-wrap {
         gap: 35px;
         margin-bottom: 25px;
@@ -2303,7 +2307,7 @@ input[type="checkbox"]:focus {
     #btnTop,
     #btnTop::before {
         font-size: 13px;
-        right: 20px;
+        right: 10px;
         bottom: 250px;
     }
 
