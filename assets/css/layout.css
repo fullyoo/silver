@@ -2178,7 +2178,7 @@ input[type="checkbox"]:focus {
     }
 
     .cont-sec a:hover .t-box .t2 {
-        margin-bottom: 0;
+        margin-bottom: 15px;
     }
 
     .cont-sec a:hover>img,
@@ -2241,6 +2241,7 @@ input[type="checkbox"]:focus {
 
     .cont-sec a:hover .t-box .more {
         padding: 8px 20px;
+        padding: 0;
     }
 
     .control .next,
