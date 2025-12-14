@@ -4595,8 +4595,16 @@ textarea {
     }
 
     .privacy-popup-header h2 {
-        font-size: 22px;
+        font-size: 20px;
         padding-right: 30px;
+    }
+
+    .privacy-popup-body p {
+        font-size: 15px;
+    }
+
+    .privacy-popup-body li {
+        font-size: 15px;
     }
 
     .input-block-group .radio-block {
