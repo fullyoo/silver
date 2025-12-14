@@ -2169,16 +2169,16 @@ input[type="checkbox"]:focus {
 
     /* 모바일 호버 효과 제거 */
     .cont-sec li a:hover::before {
-        display: none;
+        transform: scaleY(0);
     }
 
     .cont-sec a:hover .t-box .more {
         background-color: transparent;
-        padding: 0
+        padding: 0;
     }
 
     .cont-sec a:hover .t-box .t2 {
-        margin-bottom: 15px;
+        margin-bottom: 0px;
     }
 
     .cont-sec a:hover>img,
@@ -2186,6 +2186,9 @@ input[type="checkbox"]:focus {
         transform: scale(1);
     }
 
+    .cont-sec a:hover .t-box .more img {
+        transform: rotate(0deg);
+    }
 
 
 
