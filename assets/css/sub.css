@@ -4340,6 +4340,10 @@ textarea {
         margin-bottom: 20px;
     }
 
+    .sponsor-list li .more img {
+        width: 12px !important;
+    }
+
     .tb_wrap table thead tr th {
         font-size: 15px;
     }
@@ -4670,6 +4674,7 @@ textarea {
 
     .sponsor-list {
         flex-direction: column;
+        padding-bottom: 0;
     }
 
     .sponsor-list li {
