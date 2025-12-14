@@ -4662,8 +4662,16 @@ textarea {
     }
 
     .service-list li p {
-        padding-bottom: 30px;
+        padding-bottom: 0px;
         font-size: 15px;
+    }
+
+    .sponsor-list {
+        flex-direction: column;
+    }
+
+    .sponsor-list li {
+        width: 100%;
     }
 
     .history-item .head .year {
