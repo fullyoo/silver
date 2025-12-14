@@ -4033,7 +4033,7 @@ textarea {
     }
 
     .sub-content .inner {
-        padding: 30px 20px;
+        padding: 30px 20px 0;
     }
 
     .sub-content .pd-add {
@@ -4122,7 +4122,7 @@ textarea {
 
     .cont-box p {
         margin-bottom: 20px;
-        font-size: 14px;
+        font-size: 15px;
     }
 
     .cont-bg img {
@@ -4638,6 +4638,7 @@ textarea {
     .cont-box {
         flex-direction: column;
         gap: 0;
+        margin: 25px 0;
     }
 
     .cont-box .cont {
