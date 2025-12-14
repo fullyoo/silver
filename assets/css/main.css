@@ -1623,6 +1623,7 @@
         flex-direction: column;
         align-items: center;
         text-align: center;
+        gap: 20px;
     }
 
     .donate-right {
@@ -1640,6 +1641,10 @@
     .donate-link a {
         font-size: 14px;
         padding: 10px;
+    }
+
+    .donate-left img {
+        width: 40px;
     }
 
     .letter-sec .form-list {
