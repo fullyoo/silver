@@ -4722,6 +4722,10 @@ textarea {
         display: none;
     }
 
+    .history-item .head .year .dot {
+        left: calc(50% - 100px);
+    }
+
     .team-list li a .namem .team-list li a .view {
         font-size: 12px;
     }

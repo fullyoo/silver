@@ -279,10 +279,10 @@ $(function () {
         loop: true,
         centeredSlides: true,
 
-        // autoplay: {
-        //     delay: 5000,
-        //     disableOnInteraction: false
-        // },
+        autoplay: {
+            delay: 5000,
+            disableOnInteraction: false
+        },
 
         navigation: {
             nextEl: ".team-sec .swiper-button-next",
@@ -339,10 +339,10 @@ $(function () {
             crossFade: true          // ★ 페이드 겹침 문제 해결
         },
 
-        // autoplay: {
-        //     delay: 5000,
-        //     disableOnInteraction: false
-        // },
+        autoplay: {
+            delay: 5000,
+            disableOnInteraction: false
+        },
 
         navigation: {
             nextEl: ".gallery-sec .swiper-button-next",
@@ -356,10 +356,7 @@ $(function () {
 
 
 
-
-
-
-    // =====05. 복지센터 소식=====
+    // =====05. 복지센터 공지사항=====
     feather.replace();
     var imgSwiper3 = new Swiper(".notice-slide .notice-list", {
         speed: 700,
@@ -375,10 +372,10 @@ $(function () {
 
         crossFade: true, //fade 이펙트 겹침 현상 시 해결
 
-        // autoplay: {
-        //     delay: 5000,
-        //     disableOnInteraction: false
-        // },
+        autoplay: {
+            delay: 5000,
+            disableOnInteraction: false
+        },
 
         navigation: {
             nextEl: ".notice-sec .swiper-button-next",
