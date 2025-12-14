@@ -3620,7 +3620,7 @@ textarea {
 
     .service-list {
         padding: 20px 0;
-        gap: inherit;
+        gap: 20px;
     }
 
     .service-list li img {
@@ -4033,7 +4033,7 @@ textarea {
     }
 
     .sub-content .inner {
-        padding: 30px 20px 0;
+        padding: 40px 20px;
     }
 
     .sub-content .pd-add {
@@ -4609,6 +4609,8 @@ textarea {
         font-size: 15px;
     }
 
+    .table-wrap-box {}
+
 }
 
 
@@ -4646,7 +4648,13 @@ textarea {
     }
 
     .service-list {
-        flex-direction: column;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+
+    .service-list li {
+        width: calc(50% - 10px);
     }
 
     .service-list li img {
@@ -4763,4 +4771,10 @@ textarea {
     .search-box button {
         /* width: 100%; */
     }
+
+    .sub-content {
+        padding-bottom: 0;
+    }
+
+
 }
