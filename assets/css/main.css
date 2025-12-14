@@ -928,7 +928,7 @@
 }
 
 .letter-wrap>div img {
-    width: 50px;
+    width: 35px;
 }
 
 .letter-wrap>div .btn {}
@@ -1630,7 +1630,7 @@
     }
 
     .donate-title .tit {
-        font-size: 24px;
+        font-size: 22px;
     }
 
     .donate-title .txt {
@@ -1652,6 +1652,7 @@
         width: calc(100% - 40px);
         width: 100%;
         padding: 10px 15px;
+        font-size: 15px;
     }
 
     .form-list input[type="text"]:nth-child(2) {
@@ -1673,10 +1674,16 @@
     .check-list span {
         display: block;
         margin: 3px 0 0 28px;
+        font-size: 15px;
     }
 
     .check-list .more {
         font-size: 16px;
+    }
+
+    .check-list input[type="checkbox"] {
+        width: 22px;
+        height: 22px;
     }
 
     .kakako-wrap .btn {
@@ -1687,19 +1694,19 @@
         width: 100%;
         text-align: center;
         padding: 12px 15px;
-        font-size: 18px;
+        font-size: 15px;
     }
 
     .letter-title .tit {
-        font-size: 24px;
+        font-size: 22px;
     }
 
     .letter-title .txt {
-        font-size: 18px;
+        font-size: 16px;
     }
 
     .check-list {
-        font-size: 16px;
+        font-size: 15px;
         display: block;
     }
 
@@ -1761,6 +1768,10 @@
         font-size: 24px;
     }
 
+
+}
+
+@media(max-width:360px) {
     .donate-link {
         flex-direction: column;
         text-align: center;
