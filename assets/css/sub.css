@@ -4324,6 +4324,7 @@ textarea {
     .cost-list.sponsor-list li {
         width: 100%;
         border-radius: 30px 30px 30px 0;
+        min-height: 170px;
     }
 
     .sponsor-list {
@@ -4366,6 +4367,7 @@ textarea {
     .tb_wrap .scroll-desc {
         display: block;
         padding-top: 20px;
+        font-size: 14px;
     }
 
     .add-info {
