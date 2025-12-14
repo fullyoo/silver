@@ -1203,7 +1203,7 @@
 }
 
 .service-list li p {
-    font-size: 22px;
+    font-size: 20px;
     padding: 30px 0;
     color: var(--text-color);
     font-weight: var(--font-500);
@@ -2886,7 +2886,7 @@ textarea {
 }
 
 .sponsor-list li .title-box .tit b {
-    font-size: 28px;
+    font-size: 24px;
     font-weight: var(--font-700);
     display: block;
     padding-bottom: 30px;
@@ -2894,7 +2894,7 @@ textarea {
 }
 
 .tit b {
-    font-size: 28px;
+    font-size: 24px;
     font-weight: var(--font-700);
     color: var(--text-color);
     display: block;
@@ -3005,6 +3005,7 @@ textarea {
 
 .donate-list .sub-tit-box-list {
     padding: 40px;
+    padding-bottom: 0;
 }
 
 .form-group .input-wrapper p.info {
@@ -3169,7 +3170,7 @@ textarea {
 }
 
 .list-num {
-    font-size: 55px;
+    font-size: 45px;
     color: var(--primary-color);
     font-weight: var(--font-600);
 }
@@ -3954,7 +3955,7 @@ textarea {
     }
 
     .donate-list .sub-tit-box-list {
-        padding: 30px 20px;
+        padding: 30px 20px 0;
     }
 
     .donate-list:not(:last-child) {
@@ -3966,7 +3967,7 @@ textarea {
     }
 
     .input-block-group .radio-block label {
-        font-size: 16px;
+        font-size: 14px;
         padding: 12px 10px;
     }
 
@@ -3981,6 +3982,7 @@ textarea {
     .form-list input[type="password"].half {
         width: calc(50% - 6px);
         padding: 12px 10px;
+        font-size: 14px;
     }
 
     .birthday-inputs {
