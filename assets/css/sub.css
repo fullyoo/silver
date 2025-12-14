@@ -3922,7 +3922,7 @@ textarea {
     }
 
     .qna-list textarea {
-        font-size: 16px;
+        font-size: 14px;
     }
 
     .checkbox-group {
@@ -3935,6 +3935,10 @@ textarea {
 
     .file-item-name {
         width: 100%;
+    }
+
+    .file-input {
+        font-size: 14px;
     }
 
     .birthday-inputs .custom-select-wrapper {
@@ -4533,6 +4537,10 @@ textarea {
         font-size: 14px;
     }
 
+    .custom-select-option {
+        font-size: 14px;
+    }
+
     .qna-list input[type="tel"] {
         font-size: 14px;
     }
@@ -4565,7 +4573,6 @@ textarea {
     .view-box .title div {
         gap: 8px;
         display: flex;
-        align-items: stretch;
         align-items: center;
 
     }
