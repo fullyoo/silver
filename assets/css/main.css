@@ -1638,7 +1638,8 @@
     }
 
     .donate-link a {
-        font-size: 15px;
+        font-size: 14px;
+        padding: 10px;
     }
 
     .letter-sec .form-list {
