@@ -529,7 +529,7 @@ body.menu-open {
 
 .menu-wrap .line:first-child {
     top: 0;
-    transform-origin: 23% 50%;
+    transform-origin: 22% 50%;
 }
 
 .menu-wrap .line:nth-child(2) {
@@ -538,7 +538,7 @@ body.menu-open {
 
 .menu-wrap .line:last-child {
     bottom: 0;
-    transform-origin: 23% 50%;
+    transform-origin: 22% 50%;
 }
 
 .menu-wrap.open .line:first-child {
