@@ -1,18 +1,71 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<rss version="2.0">
+<rss version="2.0"
+     xmlns:atom="http://www.w3.org/2005/Atom">
+
   <channel>
-    <title>은빛노인복지센터 소식</title>
+    <title>Silver RE</title>
     <link>https://silver-re.netlify.app/</link>
-    <description>은빛노인복지센터의 공지 및 소식을 전해드립니다.</description>
+    <description>은빛노인 복지센터 공식 웹사이트 소식 및 업데이트</description>
     <language>ko</language>
-    <lastBuildDate>Thu, 06 Nov 2025 09:00:00 +0900</lastBuildDate>
+    <lastBuildDate>Mon, 15 Dec 2025 00:00:00 +0900</lastBuildDate>
+
+    <!-- RSS Self Link (권장) -->
+    <atom:link
+      href="https://silver-re.netlify.app/rss.xml"
+      rel="self"
+      type="application/rss+xml" />
+
+    <!-- ===== 아이템 ===== -->
+
+    <!-- 공지 / 리스트 -->
+    <item>
+      <title>게시판 목록 안내</title>
+      <link>https://silver-re.netlify.app/menu03-1-list.html</link>
+      <guid isPermaLink="true">
+        https://silver-re.netlify.app/menu03-1-list.html
+      </guid>
+      <pubDate>Mon, 15 Dec 2025 00:00:00 +0900</pubDate>
+      <description><![CDATA[
+        은빛노인 복지센터 게시판 목록 페이지입니다.
+      ]]></description>
+    </item>
 
     <item>
-      <title>RSS 테스트 게시글</title>
-      <link>https://silver-re.netlify.app/menu03-1.html</link>
-      <description>이 RSS는 임시 테스트용입니다.</description>
-      <pubDate>Thu, 06 Nov 2025 09:00:00 +0900</pubDate>
-      <guid>https://silver-re.netlify.app/menu03-1.html</guid>
+      <title>게시글 상세 보기</title>
+      <link>https://silver-re.netlify.app/menu03-1-view.html</link>
+      <guid isPermaLink="true">
+        https://silver-re.netlify.app/menu03-1-view.html
+      </guid>
+      <pubDate>Mon, 15 Dec 2025 00:00:00 +0900</pubDate>
+      <description><![CDATA[
+        게시글 상세 내용을 확인할 수 있습니다.
+      ]]></description>
+    </item>
+
+    <!-- FAQ -->
+    <item>
+      <title>자주 묻는 질문 (FAQ)</title>
+      <link>https://silver-re.netlify.app/menu03-3-faq.html</link>
+      <guid isPermaLink="true">
+        https://silver-re.netlify.app/menu03-3-faq.html
+      </guid>
+      <pubDate>Mon, 15 Dec 2025 00:00:00 +0900</pubDate>
+      <description><![CDATA[
+        은빛노인 복지센터 서비스 관련 자주 묻는 질문 모음입니다.
+      ]]></description>
+    </item>
+
+    <!-- Q&A -->
+    <item>
+      <title>문의 및 답변 (Q&amp;A)</title>
+      <link>https://silver-re.netlify.app/menu03-4-qna.html</link>
+      <guid isPermaLink="true">
+        https://silver-re.netlify.app/menu03-4-qna.html
+      </guid>
+      <pubDate>Mon, 15 Dec 2025 00:00:00 +0900</pubDate>
+      <description><![CDATA[
+        문의사항을 남기고 답변을 확인할 수 있는 Q&A 페이지입니다.
+      ]]></description>
     </item>
 
   </channel>

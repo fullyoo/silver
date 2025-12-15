@@ -1,7 +1,6 @@
-# robots.txt for https://silver-re.netlify.app/
+# https://www.robotstxt.org/robotstxt.html
 
 User-agent: *
 Allow: /
 
-# 사이트맵 위치
 Sitemap: https://silver-re.netlify.app/sitemap.xml
