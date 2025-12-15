@@ -3,7 +3,6 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- iOS 전화번호, 이메일, 주소 자동링크 방지 -->
@@ -11,20 +10,88 @@
 
     <!-- 기본 메타 정보 -->
     <title>은빛노인 복지센터 | 방문요양·방문목욕·방문간호·간병돌봄 서비스</title>
+    <meta name="description"
+        content="은빛노인 복지센터는 가족 같은 마음으로 어르신의 일상을 지키는 방문요양·방문목욕·방문간호·간병돌봄 전문기관입니다. 정서지원, 재활케어, 맞춤 돌봄으로 어르신의 행복한 노후를 함께합니다.">
+    <meta name="keywords" content="은빛노인복지센터, 방문요양, 방문목욕, 방문간호, 간병돌봄, 정서지원, 노인복지, 재활케어, 요양서비스, 서울 복지센터">
+
+    <!-- 검색엔진 크롤링 설정 -->
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+    <link rel="canonical" href="https://silver-re.netlify.app/">
+
+    <!-- Open Graph (Facebook, Kakao, Instagram 등) -->
+    <meta property="og:url" content="https://silver-re.netlify.app/">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="은빛노인 복지센터">
+    <meta property="og:title" content="은빛노인 복지센터 – 어르신의 따뜻한 동반자">
+    <meta property="og:description" content="방문요양, 방문목욕, 방문간호, 간병돌봄까지 – 은빛노인 복지센터가 어르신의 일상을 지켜드립니다.">
+    <meta property="og:image" content="https://silver-re.netlify.app/assets/images/og-image.jpg"> <!-- 실제 이미지 경로로 수정 -->
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="은빛노인 복지센터 대표 이미지">
+    <meta property="og:locale" content="ko_KR">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="은빛노인 복지센터 | 전문 방문요양·간병돌봄 서비스">
+    <meta name="twitter:description" content="서울 지역 어르신을 위한 맞춤 돌봄 서비스 – 방문요양, 방문목욕, 간병돌봄까지 한 번에.">
+    <meta name="twitter:image" content="https://silver-re.netlify.app/assets/images/og-image.jpg">
+
     <!-- 파비콘 -->
     <link rel="icon" href="./assets/images/common/favicon.ico" type="image/x-icon">
     <link rel="apple-touch-icon" href="./assets/images/common/favicon.ico">
 
+    <!-- 소셜미디어 프로필 연결 (예시) -->
+    <link rel="me" href="https://www.instagram.com/fully.yoo">
 
-    <!-- <link rel="sitemap" type="application/xml" href="/sitemap.xml">
-    <link rel="alternate" type="application/rss+xml" title="Damrok Chair RSS" href="/rss.xml"> -->
+    <!-- 구조화 데이터 (JSON-LD) -->
+    <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "은빛노인 복지센터",
+    "url": "https://silver-re.netlify.app/",
+    "logo": "https://silver-re.netlify.app/assets/images/common/logo.svg",
+    "image": "https://silver-re.netlify.app/assets/images/og-image.jpg",
+    "description": "은빛노인 복지센터 – 방문요양, 방문목욕, 방문간호, 간병돌봄 전문기관입니다. 어르신의 행복한 일상을 함께합니다.",
+    "sameAs": [
+      "https://www.instagram.com/fully.yoo"
+    ]
+  }
+  </script>
 
+    <!-- Google Search Console 인증 -->
+    <meta name="google-site-verification" content="vnqBy3aQtFRNgqglh3m3ATc2MnZ5PjiFwBi-0th2VOs">
+
+
+    <!-- Google Analytics 4 최신 코드 (기존 UA보다 권장됨) -->
+    <!-- window.GA_ID 값이 있을 경우 자동으로 삽입,없을 경우 기본 ID(G-7ABCD1234E) 사용 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-7ABCD1234E"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-7ABCD1234E'); // 🔹 UA → GA4 ID로 변경 
+    </script>
+
+
+    <!-- Naver Analytics -->
+    <script src="//wcs.naver.net/wcslog.js"></script>
+    <script>
+        if (!wcs_add) var wcs_add = {};
+        wcs_add["wa"] = "671e216cccdff8"; // 네이버 애널리틱스 ID 입력
+        if (window.wcs) {
+            wcs_do();
+        }
+    </script>
+
+    <!-- 스타일 / 외부 CSS -->
     <link rel="stylesheet" href="./assets/css/aos.css">
     <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@xpressengine/xeicon@2.3.3/xeicon.min.css">
     <link rel="stylesheet" href="./assets/css/swiper-bundle.min.css">
     <link rel="stylesheet" href="./assets/css/layout.css">
     <!-- <link rel="stylesheet" href="./assets/css/intro.css"> -->
     <link rel="stylesheet" href="./assets/css/main.css">
+
     <style>
         body {
             /* overflow: hidden; */
@@ -35,67 +102,6 @@
             overflow: hidden;
         }
     </style>
-
-    <!-- SEO 최적화 -->
-    <!-- ================== 기본 메타 태그 (SEO) ================== -->
-    <meta name="title" content="은빛노인 복지센터 | 방문요양·방문목욕·방문간호·간병돌봄 전문기관">
-    <meta name="description"
-        content="은빛노인 복지센터는 가족 같은 마음으로 어르신의 일상을 지키는 방문요양·방문목욕·방문간호·간병돌봄 전문기관입니다. 숙련된 요양보호사가 정성껏 돌봄 서비스를 제공합니다.">
-    <meta name="keywords" content="은빛노인복지센터, 방문요양, 방문목욕, 방문간호, 간병돌봄, 재가요양, 노인돌봄서비스, 요양보호사">
-    <meta name="author" content="은빛노인 복지센터">
-    <meta name="robots" content="index, follow">
-
-    <!-- ================== Open Graph 메타 태그 (SNS 공유: Facebook, Kakao 등) ================== -->
-    <meta property="og:title" content="은빛노인 복지센터 | 가족 같은 마음으로 어르신의 일상을 지킵니다">
-    <meta property="og:description" content="방문요양·방문목욕·방문간호·간병돌봄 전문기관 은빛노인 복지센터. 어르신 한 분 한 분을 가족처럼 정성껏 돌봅니다.">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://silver-re.netlify.app">
-    <meta property="og:image" content="https://silver-re.netlify.app/assets/images/og-image.jpg">
-    <meta property="og:image:width" content="1200">
-    <meta property="og:image:height" content="630">
-    <meta property="og:image:alt" content="은빛노인 복지센터 방문요양·방문간호 서비스 안내 이미지">
-    <meta property="og:site_name" content="은빛노인 복지센터">
-    <meta property="og:locale" content="ko_KR">
-
-    <!-- ================== Twitter 카드 메타 태그 ================== -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="은빛노인 복지센터 | 방문요양·방문목욕·방문간호 전문">
-    <meta name="twitter:description" content="가족 같은 마음으로 어르신의 일상을 지키는 방문요양·방문목욕·방문간호·간병돌봄 전문기관, 은빛노인 복지센터입니다.">
-    <meta name="twitter:image" content="https://silver-re.netlify.app/assets/images/og-image.jpg">
-    <meta name="twitter:image:alt" content="은빛노인 복지센터 노인돌봄 서비스 대표 이미지">
-    <meta name="twitter:site" content="@eunbitsilvercare">
-    <meta name="twitter:creator" content="@eunbitsilvercare">
-
-    <!-- ================== SEO 및 사용자 경험 보완 태그 ================== -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="language" content="ko">
-    <meta name="distribution" content="global">
-    <meta name="rating" content="general">
-    <meta name="format-detection" content="telephone=no">
-    <link rel="canonical" href="https://silver-re.netlify.app">
-
-    <!-- ================== 웹앱 및 브라우저 최적화 ================== -->
-    <meta name="theme-color" content="#DB2A22">
-    <meta name="application-name" content="은빛노인 복지센터">
-    <meta name="msapplication-TileColor" content="#DB2A22">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-title" content="은빛노인 복지센터">
-
-    <!-- ================== 아이콘 및 리소스 링크 ================== -->
-    <link rel="icon" href="/favicon.ico" type="image/x-icon">
-    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-    <link rel="manifest" href="/site.webmanifest">
-
-
-    <!-- 각 사이트 등록 -->
-    <!-- google -->
-    <meta name="google-site-verification" content="vnqBy3aQtFRNgqglh3m3ATc2MnZ5PjiFwBi-0th2VOs" />
-
-    <!-- naver -->
-    <meta name="naver-site-verification" content="5e424db3f984309e378a8a2ed18b1a7c3bf9833d" />
-
-
-
 </head>
 
 
