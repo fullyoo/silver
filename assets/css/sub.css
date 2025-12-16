@@ -2244,6 +2244,8 @@
     font-size: 20px;
     font-weight: var(--font-600);
     color: var(--text-color);
+    /* pointer-events: none; */
+    cursor: default;
 }
 
 .form-group .input-wrapper {
@@ -2513,7 +2515,8 @@ textarea {
 }
 
 .error-message#fileError {
-    text-align: center;
+    font-size: 13px;
+    /* text-align: center; */
 }
 
 .privacy-box {
@@ -2733,6 +2736,60 @@ textarea {
 }
 
 /* 파일 첨부 스타일 */
+.fonm-file-wrap {
+    /* flex: 1; */
+    flex: 0.6;
+}
+
+#file-name {
+    font-size: 16px;
+    padding: 15px 20px;
+    border-radius: 10px;
+    border: 1px solid var(--border-color);
+    flex: 1;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 100px;
+
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    max-width: 100%;
+}
+
+#file-main {
+    max-width: calc(100% - 60px);
+    /* '외 n개' 공간 확보 */
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+#file-count {
+    flex-shrink: 0;
+}
+
+.form-group label.file-btn {
+    background-color: #f6f6f6;
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    padding: 15px 20px;
+    font-size: 16px;
+    font-weight: 400;
+    cursor: pointer;
+    min-width: 100px;
+    text-align: center;
+}
+
+.file-box {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    justify-content: flex-start;
+    /* flex-direction: row-reverse; */
+}
+
 .file-input {
     width: 100%;
     padding: 12px 16px;
@@ -2742,6 +2799,8 @@ textarea {
     cursor: pointer;
     transition: all 0.2s;
     background-color: var(--lightgraybg-color);
+    display: block;
+    display: none;
 }
 
 .file-input:hover {
@@ -3509,6 +3568,10 @@ textarea {
         margin-bottom: 40px;
     }
 
+    .fonm-file-wrap {
+        flex: 1;
+    }
+
 
 
 }
@@ -3930,7 +3993,7 @@ textarea {
     }
 
     .qna-list textarea {
-        font-size: 14px;
+        font-size: 16px;
     }
 
     .checkbox-group {
@@ -3947,6 +4010,24 @@ textarea {
 
     .file-input {
         font-size: 14px;
+    }
+
+    .fonm-file-wrap {
+        width: 100%;
+    }
+
+    .file-box {
+        gap: 6px;
+    }
+
+    #file-name {
+        font-size: 16px;
+        padding: 12px 10px;
+    }
+
+    .form-group label.file-btn {
+        font-size: 16px;
+        padding: 12px 10px;
     }
 
     .birthday-inputs .custom-select-wrapper {
@@ -4546,8 +4627,20 @@ textarea {
         font-size: 14px;
     }
 
+    #file-name {
+        font-size: 14px;
+    }
+
+    .form-group label.file-btn {
+        font-size: 14px;
+    }
+
     .custom-select-input {
         font-size: 14px;
+    }
+
+    .file-note {
+        font-size: 13px;
     }
 
     .custom-select-option {
@@ -4559,6 +4652,10 @@ textarea {
     }
 
     .qna-list input[type="text"] {
+        font-size: 14px;
+    }
+
+    .qna-list textarea {
         font-size: 14px;
     }
 
@@ -4824,5 +4921,18 @@ textarea {
         padding-bottom: 0;
     }
 
+}
 
+@media(max-width: 360px) {
+    .file-box {
+        flex-direction: column;
+    }
+
+    .form-group label.file-btn {
+        width: 100%;
+    }
+
+    #file-name {
+        width: 100%;
+    }
 }

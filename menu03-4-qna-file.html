@@ -462,13 +462,7 @@
                                 <div class="fonm-file-wrap">
                                     <div class="file-box">
                                         <label for="attachment" class="file-btn">파일 선택</label>
-
-                                        <!-- <span id="file-name" aria-live="polite">선택된 파일 없음</span> -->
-                                        <span id="file-name" aria-live="polite">
-                                            <span id="file-main">선택된 파일 없음</span>
-                                            <span id="file-count"></span>
-                                        </span>
-
+                                        <span id="file-name" aria-live="polite">선택된 파일 없음</span>
                                     </div>
                                     <div class="input-wrapper">
                                         <input type="file" id="attachment" name="attachment[]" class="file-input"
@@ -882,26 +876,19 @@
             let attachedFiles = [];
             const maxFileSize = 10 * 1024 * 1024; // 10MB
 
-            /* 파일 개수 문구 업데이트-수정 */
-
+            /* 파일 개수 문구 업데이트 */
             function updateFileNameText() {
+                const $fileName = $('#file-name');
                 const count = attachedFiles.length;
 
                 if (count === 0) {
-                    $('#file-main').text('선택된 파일 없음');
-                    $('#file-count').text('');
+                    $fileName.text('선택된 파일 없음');
                 } else if (count === 1) {
-                    $('#file-main').text('파일 1개 첨부됨');
-                    $('#file-count').text('');
+                    $fileName.text('파일 1개 첨부됨');
                 } else {
-                    $('#file-main').text(attachedFiles[0].name);
-                    $('#file-count').text(`외 ${count - 1}개`);
+                    $fileName.text(`파일 ${count}개 첨부됨`);
                 }
             }
-
-
-
-
 
             /* 파일 사이즈 포맷 */
             function formatFileSize(bytes) {
