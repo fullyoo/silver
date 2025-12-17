@@ -928,7 +928,7 @@
 }
 
 .letter-wrap>div img {
-    width: 35px;
+    width: 55px;
 }
 
 .letter-wrap>div .btn {}
@@ -936,9 +936,9 @@
 .letter-wrap>div .btn a {
     color: var(--white-color);
     font-weight: var(--font-800);
-    font-size: 19px;
+    font-size: 18px;
     background-color: var(--primary-color);
-    padding: 18px 40px;
+    padding: 16px 40px;
     border-radius: 10px;
     transition: 0.3s;
     text-align: center;
@@ -1476,8 +1476,14 @@
         font-size: 18px;
     }
 
+    .letter-wrap>div img {
+        width: 35px;
+    }
+
     .letter-wrap>div .btn a {
         font-size: 15px;
+        padding: 12px 15px;
+        width: calc(30% - 10px);
     }
 
     .check-list {
@@ -1492,7 +1498,7 @@
 
 
 /* 768px 이하 - 태블릿/모바일 중간 */
-@media(max-width:767px) {
+@media(max-width:768px) {
     .kv-sec {
         /* height: calc(100vh - 20px); */
         border-bottom-right-radius: 100px;

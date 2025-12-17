@@ -2193,19 +2193,15 @@ input[type="checkbox"]:focus {
     .form-list input[type="text"],
     .form-list input[type="submit"],
     .form-list button[type="submit"] {
-        width: calc(100% - 40px);
-        width: 100%;
         padding: 10px 15px;
         font-size: 15px;
     }
 
 
-
-
 }
 
 
-@media(max-width: 767px) {
+@media(max-width: 768px) {
     .inner-sec {
         max-width: 100%;
         width: calc(100% - 40px);
@@ -2322,6 +2318,14 @@ input[type="checkbox"]:focus {
         font-size: 13px;
         right: 10px;
         bottom: 250px;
+    }
+
+    .form-list input[type="text"],
+    .form-list input[type="submit"],
+    .form-list button[type="submit"] {
+        width: calc(100% - 40px);
+        width: 100%;
+        font-size: 14px;
     }
 
 }
