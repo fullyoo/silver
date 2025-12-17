@@ -1685,7 +1685,7 @@
 }
 
 .view-box .title div h6 {
-    color: var(--color-main);
+    color: var(--body-color);
 }
 
 .view-box .title div hr {

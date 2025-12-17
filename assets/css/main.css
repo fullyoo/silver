@@ -1381,7 +1381,7 @@
     }
 
     .donate-title .tit {
-        font-size: 28px;
+        font-size: 24px;
     }
 
     .donate-title .txt {
@@ -1467,6 +1467,23 @@
         margin-bottom: 15px;
         padding: 5px 0 0;
     }
+
+    .letter-title .tit {
+        font-size: 24px;
+    }
+
+    .letter-title .txt {
+        font-size: 18px;
+    }
+
+    .letter-wrap>div .btn a {
+        font-size: 15px;
+    }
+
+    .check-list {
+        font-size: 16px;
+    }
+
 
 
 }
@@ -1671,15 +1688,6 @@
         gap: 5px;
     }
 
-    .form-list input[type="text"],
-    .form-list input[type="submit"],
-    .form-list button[type="submit"] {
-        width: calc(100% - 40px);
-        width: 100%;
-        padding: 10px 15px;
-        font-size: 15px;
-    }
-
     .form-list input[type="text"]:nth-child(2) {
         width: calc(100% - 40px);
         width: 100%;
@@ -1699,7 +1707,7 @@
     .check-list span {
         display: block;
         margin: 3px 0 0 28px;
-        font-size: 15px;
+        font-size: 14px;
     }
 
     .check-list .more {
@@ -1719,7 +1727,6 @@
         width: 100%;
         text-align: center;
         padding: 12px 15px;
-        font-size: 15px;
     }
 
     .letter-title .tit {

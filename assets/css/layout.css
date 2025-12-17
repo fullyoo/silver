@@ -2190,6 +2190,15 @@ input[type="checkbox"]:focus {
         transform: rotate(0deg);
     }
 
+    .form-list input[type="text"],
+    .form-list input[type="submit"],
+    .form-list button[type="submit"] {
+        width: calc(100% - 40px);
+        width: 100%;
+        padding: 10px 15px;
+        font-size: 15px;
+    }
+
 
 
 
