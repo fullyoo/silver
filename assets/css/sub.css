@@ -3305,7 +3305,7 @@ textarea {
 .etc-box {
     display: flex;
     justify-content: space-between;
-    /* gap: 80px; */
+    gap: 80px;
     width: 100%;
 }
 
@@ -3433,7 +3433,7 @@ textarea {
     }
 
     .profile-sticky img {
-        width: 300px;
+        /* width: 300px; */
     }
 
     .team-wrap.history-wrap .dot {
@@ -3472,7 +3472,7 @@ textarea {
     .step-wrap .cont-img .all-imgs {
         flex-wrap: wrap;
         justify-content: space-between;
-        gap: 10px;
+        gap: 20px;
     }
 
     .step-wrap .cont-img .all-imgs img {
@@ -3563,10 +3563,6 @@ textarea {
         padding-top: 20px;
     }
 
-    .etc-box-list {
-        flex-direction: column;
-    }
-
     .etc-box .step-do-list {
         display: flex;
         flex-direction: column;
@@ -3579,7 +3575,7 @@ textarea {
     }
 
     .etc-box:not(:last-child) {
-        margin-bottom: 40px;
+        /* margin-bottom: 40px; */
     }
 
     .fonm-file-wrap {
@@ -3626,6 +3622,10 @@ textarea {
 
     .sub-content .location li {
         font-size: 14px;
+    }
+
+    .sub-content .inner {
+        padding: 30px;
     }
 
     .sub-list-wrap {
@@ -3710,7 +3710,7 @@ textarea {
     }
 
     .service-list li img {
-        /* width: 85% !important; */
+        width: 85% !important;
     }
 
     .service-list li p {
@@ -3774,6 +3774,10 @@ textarea {
         padding-bottom: 40px;
     }
 
+    .profile-section {
+        padding-top: 50px;
+    }
+
     .profile-sticky {
         flex-basis: 250px;
     }
@@ -3831,6 +3835,10 @@ textarea {
 
     .step-item img {
         width: 70%;
+    }
+
+    .etc-box {
+        gap: 30px;
     }
 
     .cost-wrap .sub-tit-box {
@@ -4294,6 +4302,11 @@ textarea {
         font-size: 15px;
     }
 
+    .profile-content {
+        width: 420px;
+        margin: 0 auto;
+    }
+
     .profile-content h4 {
         font-size: 20px;
         text-align: center;
@@ -4324,8 +4337,10 @@ textarea {
     }
 
     .profile-section {
-        padding-top: 50px;
+        padding-top: 40px;
     }
+
+
 
     .history-item .list li .date {
         font-size: 18px;
@@ -4411,14 +4426,11 @@ textarea {
 
     .step-wrap .cont-box {
         margin-bottom: 40px;
-    }
-
-    .step-wrap .cont-img .all-imgs {
-        gap: 20px;
+        padding: 40px 0 30px;
     }
 
     .step-wrap .cont-img .all-imgs img {
-        width: 100%;
+        /* width: 100%; */
     }
 
     .step-wrap .sub-tit b {
@@ -4426,12 +4438,11 @@ textarea {
     }
 
     .step-item img {
-        width: 100%;
+        /* width: 100%; */
     }
 
     .step-do-list {
         flex-direction: column;
-        align-items: center;
         gap: 0;
     }
 
@@ -4442,6 +4453,12 @@ textarea {
     .step-item:not(:last-child) {
         margin-bottom: 50px;
     }
+
+    .etc-box-list {
+        flex-direction: column;
+        gap: 30px;
+    }
+
 
     .cost-list.sponsor-list li {
         width: 100%;
@@ -4775,8 +4792,17 @@ textarea {
 
 
 @media(max-width: 640px) {
+    .title-lg {
+        /* font-size: 20px; */
+    }
+
     .cont-bg img {
         height: 220px;
+    }
+
+    .cont-img-txt .dot {
+        width: 150px;
+        height: 150px;
     }
 
     #sub-visual .visual-bg {
@@ -4851,6 +4877,14 @@ textarea {
         left: calc(50% - 100px);
     }
 
+    .profile-content {
+        width: 100%;
+    }
+
+    .profile-container {
+        padding: 30px;
+    }
+
     .team-list li a .namem .team-list li a .view {
         font-size: 12px;
     }
@@ -4861,11 +4895,24 @@ textarea {
 
     .etc-box {
         flex-direction: column;
+        gap: 0px;
     }
 
     .etc-box .step-do-list {
         width: 100%;
         padding-left: 20px;
+    }
+
+    .step-wrap .cont-img .all-imgs {
+        flex-direction: column;
+    }
+
+    .step-wrap .cont-img .all-imgs img {
+        width: 100%;
+    }
+
+    .step-item img {
+        width: 100%;
     }
 
     .view-box .title {
