@@ -1388,10 +1388,6 @@
     padding: 50px 30px;
 }
 
-.cost-list.sponsor-list li .title-box .tit b {
-    padding-bottom: 10px;
-}
-
 .cost-box.status-box ul {
     width: 100%;
     display: flex;
@@ -2932,15 +2928,8 @@ textarea {
 ========================== */
 
 /* 후원안내 영역 */
-.sponsor-list-box {}
-
-.sponsor-list {}
-
 .sponsor-list li {
     width: 100%;
-}
-
-.sponsor-list li a {
     display: block;
     border: 1px solid var(--lightgray-color);
     border-radius: 60px 60px 60px 0;
@@ -2961,7 +2950,7 @@ textarea {
     font-size: 24px;
     font-weight: var(--font-700);
     display: block;
-    padding-bottom: 30px;
+    padding-bottom: 10px;
     color: var(--text-color);
 }
 
@@ -2986,7 +2975,7 @@ textarea {
     background-color: var(--primary-color);
     border-radius: 50px;
     padding: 5px 10px;
-    margin: 20px 0 60px;
+    margin: 20px 0 50px;
 }
 
 .sponsor-list li p {}
@@ -3252,7 +3241,7 @@ textarea {
     gap: 5px;
     font-weight: var(--font-600);
     color: var(--body-color);
-    margin-top: 35px;
+    margin-top: 30px;
 }
 
 .add-info>img {
@@ -3300,10 +3289,12 @@ textarea {
 .etc-box-list {
     display: flex;
     justify-content: space-between;
+    gap: 30px;
 }
 
 .etc-box {
     display: flex;
+    align-items: flex-start;
     justify-content: space-between;
     gap: 80px;
     width: 100%;
@@ -3406,8 +3397,7 @@ textarea {
 @media(max-width: 1280px) {
 
     .sub-content .inner {
-        /* padding: 30px 40px 70px; */
-        padding: 40px;
+        padding: 40px 30px;
     }
 
     .sub-content .pd-add {
@@ -3508,35 +3498,28 @@ textarea {
         padding-bottom: 0px;
     }
 
+    .etc-box {
+        gap: 40px;
+    }
+
     .cost-list.sponsor-list {
         padding-top: 30px;
     }
 
-    .cost-list.sponsor-list li {
-        width: calc(50% - 10px);
-        padding: 30px;
-    }
-
-    .cost-box.status-box li {
-        width: calc(50% - 10px);
+    .status-box {
+        gap: 30px;
     }
 
     .sponsor-list {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: flex-start;
+        gap: 30px;
     }
 
     .sponsor-list li {
-        width: calc(50% - 30px);
+        width: 100%;
     }
 
     .sponsor-list li .more {
         opacity: 1;
-    }
-
-    .sponsor-list li a {
-        padding: 40px;
     }
 
     .table-wrap-box {
@@ -3544,24 +3527,19 @@ textarea {
         gap: 30px;
     }
 
-    .tb_wrap {
-        width: 100%;
-        /* margin-bottom: 50px; */
-    }
-
     .tb_wrap table tbody tr td {
         text-align: center;
         padding: 20px 10px;
+    }
+
+    .tb_wrap {
+        width: 100%;
     }
 
     .table-full .tb_wrap {
         margin: 0;
     }
 
-    .status-box {
-        flex-direction: column;
-        padding-top: 20px;
-    }
 
     .etc-box .step-do-list {
         display: flex;
@@ -3570,19 +3548,9 @@ textarea {
         align-items: flex-start;
     }
 
-    .volunteer-list li {
-        padding: 30px;
-    }
-
-    .etc-box:not(:last-child) {
-        /* margin-bottom: 40px; */
-    }
-
     .fonm-file-wrap {
         flex: 1;
     }
-
-
 
 }
 
@@ -3625,7 +3593,7 @@ textarea {
     }
 
     .sub-content .inner {
-        padding: 30px;
+        padding: 40px 30px;
     }
 
     .sub-list-wrap {
@@ -3682,7 +3650,8 @@ textarea {
 
     .cont-img>img {
         width: 100%;
-        border-radius: 80px;
+        height: 300px;
+        border-radius: 60px;
         border-bottom-left-radius: 0px;
     }
 
@@ -3705,7 +3674,7 @@ textarea {
     }
 
     .service-list {
-        padding: 20px 0;
+        padding: 20px 0 0;
         gap: 20px;
     }
 
@@ -3752,11 +3721,6 @@ textarea {
 
     .history-item .list li .date {
         font-size: 25px;
-    }
-
-    .full-img>img {
-        border-radius: 30px;
-        height: 300px;
     }
 
     .history-item .head .year .dot {
@@ -3837,10 +3801,6 @@ textarea {
         width: 70%;
     }
 
-    .etc-box {
-        gap: 30px;
-    }
-
     .cost-wrap .sub-tit-box {
         display: flex;
         flex-direction: column;
@@ -3852,21 +3812,54 @@ textarea {
         width: 100%;
     }
 
-    .cost-list.sponsor-list li {
-        width: calc(50% - 20px);
+    .cost-sec li img {
+        width: auto !important;
     }
 
-    .cost-box.status-box li {
+    .cost-list.sponsor-list li {
+        width: calc(50% - 20px);
+        padding: 30px;
+        border-radius: 30px 30px 30px 0;
+    }
+
+    .cost-box.status-box ul {
+        flex-direction: row;
+    }
+
+    .cost-box.status-box ul li {
+        width: calc(50% - 15px);
+        padding: 30px;
+        border-radius: 30px;
+    }
+
+    .status-box {
+        display: flex;
+        text-align: center;
+        flex-direction: column;
+        padding-top: 20px;
+    }
+
+    .status-box ul {
         width: 100%;
+        gap: 10px;
+    }
+
+    .status-box ul li {
+        padding: 25px 20px;
+        width: calc(50% - 15px);
+    }
+
+    .status-box>img {
+        width: 350px;
     }
 
     .sponsor-list {
-        gap: 30px;
+        gap: 20px;
     }
 
-    .sponsor-list li a {
-        padding: 30px;
+    .sponsor-list li {
         border-radius: 30px 30px 30px 0;
+        padding: 30px;
     }
 
     .sponsor-list li .more {
@@ -4249,6 +4242,12 @@ textarea {
         font-size: 15px;
     }
 
+    .cont-img>img {
+        height: 220px;
+        border-radius: 30px;
+        border-bottom-left-radius: 0px;
+    }
+
     .cont-bg img {
         height: 340px;
     }
@@ -4420,10 +4419,6 @@ textarea {
         padding-top: 30px;
     }
 
-    .full-img>img {
-        height: 220px;
-    }
-
     .step-wrap .cont-box {
         margin-bottom: 40px;
         padding: 40px 0 30px;
@@ -4461,17 +4456,27 @@ textarea {
 
 
     .cost-list.sponsor-list li {
-        width: 100%;
         border-radius: 30px 30px 30px 0;
         padding: 25px 20px;
+        gap: 20px;
+    }
+
+    .cost-sec li img {
+        width: 60px !important;
+    }
+
+    .status-box>img {
+        width: 240px;
     }
 
     .sponsor-list {
         gap: 20px;
+        flex-wrap: wrap;
+        justify-content: flex-start;
     }
 
     .sponsor-list li {
-        width: 100%;
+        width: calc(50% - 15px);
         border-radius: 30px 30px 30px 0;
     }
 
@@ -4492,24 +4497,6 @@ textarea {
     }
 
     .tb_wrap table tbody tr td {
-        font-size: 14px;
-    }
-
-    .tb_wrap .scroll-touch {
-        overflow-x: auto;
-        -webkit-overflow-scrolling: touch;
-        /* iOS 부드러운 스크롤 */
-    }
-
-    .tb_wrap .scroll-touch table {
-        min-width: 800px;
-        /* 테이블이 너무 좁아지지 않게 */
-        border-collapse: collapse;
-    }
-
-    .tb_wrap .scroll-desc {
-        display: block;
-        padding-top: 20px;
         font-size: 14px;
     }
 
@@ -4786,7 +4773,9 @@ textarea {
         font-size: 15px;
     }
 
-    .table-wrap-box {}
+    .table-wrap-box {
+        gap: 20px;
+    }
 
 }
 
@@ -4840,7 +4829,7 @@ textarea {
     }
 
     .service-list li {
-        width: calc(50% - 10px);
+        width: 100%;
     }
 
     .service-list li img {
@@ -4852,14 +4841,6 @@ textarea {
         font-size: 15px;
     }
 
-    .sponsor-list {
-        flex-direction: column;
-        padding-bottom: 0;
-    }
-
-    .sponsor-list li {
-        width: 100%;
-    }
 
     .history-item .head .year {
         font-size: 28px;
@@ -4913,6 +4894,36 @@ textarea {
 
     .step-item img {
         width: 100%;
+    }
+
+    .cost-list.sponsor-list li {
+        width: 100%;
+    }
+
+    .cost-box.status-box ul li {
+        width: 100%;
+    }
+
+    .status-box ul li {
+        width: 100%;
+    }
+
+    .tb_wrap .scroll-touch {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        /* iOS 부드러운 스크롤 */
+    }
+
+    .tb_wrap .scroll-touch table {
+        min-width: 800px;
+        /* 테이블이 너무 좁아지지 않게 */
+        border-collapse: collapse;
+    }
+
+    .tb_wrap .scroll-desc {
+        display: block;
+        padding-top: 20px;
+        font-size: 13px;
     }
 
     .view-box .title {
