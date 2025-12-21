@@ -401,7 +401,7 @@
     background-color: var(--primary-color);
     color: var(--white-color);
     border: 1px solid var(--primary-color);
-    margin: 30px auto;
+    margin: 30px auto 0;
     transition: .3s;
     /* width: calc(28% - 20px); */
 }
@@ -421,7 +421,10 @@
 
 
 /*  센터장 인사말 영역 */
-.greeting-wrap {}
+.greeting-wrap .cont-box {
+    padding-bottom: 0;
+}
+
 
 .cont-bg {
     position: relative;
@@ -446,12 +449,19 @@
     display: flex;
     justify-content: space-between;
     gap: 70px;
-    margin: 70px 0;
+    padding: 70px 0 0;
+}
+
+.cont-box.border-dot {
+    padding: 70px 0 40px;
 }
 
 .cont-box p {
     font-size: 22px;
-    margin-bottom: 30px;
+}
+
+.cont-box p:not(:first-child) {
+    margin-top: 30px;
 }
 
 .cont-box .cont {
@@ -462,6 +472,7 @@
     font-size: 24px;
     color: var(--text-color);
     font-weight: var(--font-700);
+    margin-top: 30px;
 }
 
 /*  센터장 인사말 영역 END */
@@ -1054,8 +1065,6 @@
     color: var(--body-color);
     font-size: 20px;
     padding-bottom: 10px;
-
-
 }
 
 .map-item .map-info ul li b {
@@ -1195,7 +1204,9 @@
     font-weight: var(--font-500);
 }
 
-.service-list-box {}
+#service-list-01 {
+    padding-top: 70px;
+}
 
 .service-list-box+.service-list-box {}
 
@@ -1216,7 +1227,7 @@
 
 .service-list li p {
     font-size: 20px;
-    padding: 30px 0;
+    padding: 30px 0 0;
     color: var(--text-color);
     font-weight: var(--font-500);
 }
@@ -1350,10 +1361,19 @@
 
 .cost-wrap .sub-tit {}
 
-.cost-wrap .cont-box {}
+.cost-wrap .cont-box {
+    margin-bottom: 40px;
+}
 
 .cost-wrap .cont-box p {
     width: 50%;
+}
+
+.cost-list-box {}
+
+.cost-list-box .sub-tit {
+    justify-content: start;
+    padding-top: 40px;
 }
 
 .table-wrap-box.table-full {
@@ -1370,6 +1390,10 @@
 
 .tb_wrap .scroll-desc {
     display: none;
+}
+
+.cost-box.status-box {
+    padding-top: 0;
 }
 
 .cost-list {
@@ -1793,6 +1817,7 @@
     border-top: 1px solid var(--lightgray-color);
     border-bottom: 1px solid var(--lightgray-color);
     position: relative;
+    margin-top: 30px;
 }
 
 .view-box .preview::before {
@@ -1822,6 +1847,10 @@
     border: none;
     margin: 0;
     padding: 0 0 40px;
+}
+
+.board-wrap .cont-box p:not(:first-child) {
+    margin-top: 0px;
 }
 
 .faq-wrap {
@@ -3312,8 +3341,6 @@ textarea {
 
 
 
-
-
 /* 애니메이션 */
 
 @keyframes origin_left {
@@ -3431,7 +3458,6 @@ textarea {
     }
 
     .map-item .map-info {
-        align-items: center;
         padding: 0 10px;
         justify-content: space-between;
     }
@@ -3514,10 +3540,6 @@ textarea {
         gap: 30px;
     }
 
-    .sponsor-list li {
-        width: 100%;
-    }
-
     .sponsor-list li .more {
         opacity: 1;
     }
@@ -3592,10 +3614,6 @@ textarea {
         font-size: 14px;
     }
 
-    .sub-content .inner {
-        padding: 40px 30px;
-    }
-
     .sub-list-wrap {
         white-space: nowrap;
         overflow-x: auto;
@@ -3626,11 +3644,19 @@ textarea {
     .title-xs {}
 
     .cont-box {
-        margin: 40px 0;
+        padding: 40px 0 0;
+    }
+
+    .cont-box.border-dot {
+        padding: 40px 0 20px;
     }
 
     .cont-box p {
         font-size: 18px;
+    }
+
+    .cont-box p:not(:first-child) {
+        margin-top: 0px;
     }
 
     .cont-bg img {
@@ -3680,6 +3706,10 @@ textarea {
 
     .service-list li img {
         width: 85% !important;
+    }
+
+    #service-list-01 {
+        padding-top: 40px;
     }
 
     .service-list li p {
@@ -3781,7 +3811,7 @@ textarea {
     }
 
     .step-wrap .cont-box {
-        margin: 40px 0 80px;
+        margin: 40px 0;
         padding: 40px 0;
     }
 
@@ -3810,6 +3840,10 @@ textarea {
 
     .cost-wrap .cont-box p {
         width: 100%;
+    }
+
+    .cost-list-box .sub-tit {
+        padding: 0;
     }
 
     .cost-sec li img {
@@ -3853,13 +3887,17 @@ textarea {
         width: 350px;
     }
 
-    .sponsor-list {
-        gap: 20px;
+    .service-list {
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
     }
 
     .sponsor-list li {
         border-radius: 30px 30px 30px 0;
         padding: 30px;
+        width: calc(33.33% - 20px);
     }
 
     .sponsor-list li .more {
@@ -4233,19 +4271,31 @@ textarea {
         font-size: 20px;
     }
 
+    .sub-tit-box {
+        padding-bottom: 0px;
+    }
+
     .checkbox-group {
         font-size: 14px;
     }
 
     .cont-box p {
-        margin-bottom: 20px;
         font-size: 15px;
+    }
+
+    .cont-box p:not(:first-child) {
+        margin-top: 0px;
     }
 
     .cont-img>img {
         height: 220px;
         border-radius: 30px;
         border-bottom-left-radius: 0px;
+    }
+
+    .cont-img-txt {
+        width: 100%;
+        padding-bottom: 0px;
     }
 
     .cont-bg img {
@@ -4257,8 +4307,11 @@ textarea {
     }
 
     .cont-box {
-        margin: 40px 0;
         gap: 30px;
+    }
+
+    .cont-box.border-dot {
+        padding: 40px 0;
     }
 
     .list-num {
@@ -4339,8 +4392,6 @@ textarea {
         padding-top: 40px;
     }
 
-
-
     .history-item .list li .date {
         font-size: 18px;
     }
@@ -4405,18 +4456,20 @@ textarea {
         margin-right: 6px;
     }
 
-    .map-item .map-info {
-        flex-direction: column-reverse;
-        align-items: flex-start;
-        gap: 30px;
-    }
-
     .map-item .map-info-list {
         gap: 20px;
     }
 
+    .map-item .map-info {
+        align-items: flex-end;
+    }
+
     .map-area {
         padding-top: 30px;
+    }
+
+    .service-list li p {
+        font-size: 16px;
     }
 
     .step-wrap .cont-box {
@@ -4454,7 +4507,6 @@ textarea {
         gap: 30px;
     }
 
-
     .cost-list.sponsor-list li {
         border-radius: 30px 30px 30px 0;
         padding: 25px 20px;
@@ -4469,14 +4521,8 @@ textarea {
         width: 240px;
     }
 
-    .sponsor-list {
-        gap: 20px;
-        flex-wrap: wrap;
-        justify-content: flex-start;
-    }
-
     .sponsor-list li {
-        width: calc(50% - 15px);
+        width: calc(50% - 10px);
         border-radius: 30px 30px 30px 0;
     }
 
@@ -4502,6 +4548,7 @@ textarea {
 
     .add-info {
         font-size: 14px;
+        margin-top: 20px;
     }
 
     .page-header h1 {
@@ -4574,6 +4621,10 @@ textarea {
         border-radius: 20px;
     }
 
+    .view-box .preview {
+        margin-top: 20px;
+    }
+
     .gallery-date {
         font-size: 13px;
     }
@@ -4609,9 +4660,7 @@ textarea {
     }
 
     .board-wrap .cont-box {
-        padding-bottom: 10px;
-        margin-top: -10px;
-        margin-bottom: 0;
+        padding: 0;
     }
 
     .faq-wrap {
@@ -4642,7 +4691,7 @@ textarea {
         /* width: 100%; */
         font-size: 15px;
         height: 45px;
-        margin: 20px auto;
+        margin: 20px auto 0;
         transition: background-color 0s;
     }
 
@@ -4815,21 +4864,19 @@ textarea {
     .cont-box {
         flex-direction: column;
         gap: 0;
-        margin: 25px 0;
+        /* padding: 0; */
     }
 
     .cont-box .cont {
         width: 100%;
     }
 
-    .service-list {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-between;
+    .cont-box.border-dot {
+        padding: 30px 0;
     }
 
-    .service-list li {
-        width: 100%;
+    #service-list-01 {
+        padding-top: 10px;
     }
 
     .service-list li img {
@@ -4840,7 +4887,6 @@ textarea {
         padding-bottom: 0px;
         font-size: 15px;
     }
-
 
     .history-item .head .year {
         font-size: 28px;
@@ -4868,6 +4914,12 @@ textarea {
 
     .team-list li a .namem .team-list li a .view {
         font-size: 12px;
+    }
+
+    .map-item .map-info {
+        flex-direction: column-reverse;
+        align-items: flex-start;
+        gap: 30px;
     }
 
     .map-item .map-info .address br {
@@ -4905,6 +4957,10 @@ textarea {
     }
 
     .status-box ul li {
+        width: 100%;
+    }
+
+    .sponsor-list li {
         width: 100%;
     }
 
