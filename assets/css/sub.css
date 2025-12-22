@@ -1677,7 +1677,7 @@
     -webkit-box-direction: normal;
     -ms-flex-direction: column;
     flex-direction: column;
-    gap: 20px 0;
+    gap: 20px;
     padding: 0 0 40px;
     align-items: center;
     font-family: 'Pretendard', sans-serif;
@@ -1686,7 +1686,7 @@
 .view-box .title h4 {
     height: auto;
     color: var(--text-color);
-    font-size: 24px;
+    font-size: 32px;
     font-weight: var(--font-600);
     overflow: hidden;
     word-wrap: break-word;
@@ -1712,7 +1712,7 @@
 }
 
 .view-box .title div * {
-    font-size: 16px;
+    font-size: 20px;
     font-weight: var(--font-500);
 }
 
@@ -1750,6 +1750,7 @@
 
 .view-box .view-content p {
     padding: 30px 0;
+    font-size: 22px;
 }
 
 .view-box dl {
@@ -1763,7 +1764,7 @@
 
 .view-box dl * {
     color: var(--body-color);
-    font-size: 16px;
+    font-size: 20px;
 }
 
 .view-box dl dt {
@@ -1988,7 +1989,7 @@
 }
 
 .search-box button {
-    padding: 12px 28px;
+    padding: 12px 30px;
     background-color: var(--primary-color);
     color: var(--white-color);
     border: 1px solid var(--primary-color);
@@ -2173,7 +2174,7 @@
     justify-content: center;
     align-items: center;
     gap: 8px;
-    margin-top: 40px;
+    margin-top: 50px;
 }
 
 .pagination-buttons {
@@ -2249,7 +2250,7 @@
 .qna-wrap {
     max-width: 1400px;
     margin: 0 auto;
-    padding: 60px 0px 0;
+    padding: 40px 0px 0;
     border-top: 1px solid var(--text-color);
 }
 
@@ -3976,11 +3977,23 @@ textarea {
     }
 
     .view-box .view-content p {
-        padding: 20px 0;
+        font-size: 20px;
+    }
+
+    .view-box .title h4 {
+        font-size: 25px;
+    }
+
+    .view-box .title div * {
+        font-size: 18px;
+    }
+
+    .view-box dl * {
+        font-size: 18px;
     }
 
     .qna-list {
-        margin-bottom: 30px;
+        margin-bottom: 40px;
     }
 
     .form-group .input-wrapper p.info {
@@ -4061,7 +4074,7 @@ textarea {
     }
 
     .file-item-name {
-        width: 100%;
+        width: 200px;
     }
 
     .file-input {
@@ -4635,7 +4648,7 @@ textarea {
     }
 
     .gallery-date {
-        font-size: 13px;
+        font-size: 14px;
     }
 
     .faq-question {
@@ -4651,7 +4664,7 @@ textarea {
     }
 
     .answer-content {
-        padding: 20px;
+        padding: 30px;
         font-size: 14px;
     }
 
@@ -4662,9 +4675,14 @@ textarea {
     .pagination {
         gap: 5px;
         flex-wrap: wrap;
+        margin-top: 40px;
     }
 
     .pagination button {
+        font-size: 13px;
+    }
+
+    .pagination .page-info {
         font-size: 13px;
     }
 
@@ -4678,10 +4696,6 @@ textarea {
 
     .result-info {
         margin-bottom: 30px;
-    }
-
-    .notice-wrap {
-        padding: 20px 0 0;
     }
 
     .notice-wrap .search-all {
@@ -4777,7 +4791,16 @@ textarea {
     }
 
     .view-box .title h4 {
-        font-size: 18px;
+        font-size: 20px;
+    }
+
+    .view-box .title div * {
+        font-size: 15px;
+    }
+
+    .view-box .view-content p {
+        font-size: 16px;
+        padding: 20px 0;
     }
 
     .view-box .title div {
@@ -4787,13 +4810,8 @@ textarea {
 
     }
 
-    .view-box .view-content {
-        width: 100%;
-        padding: 30px 0 0;
-    }
-
     .view-box .view-content-list {
-        padding: 0px;
+        padding: 30px;
     }
 
     .view-box dl {
@@ -5010,31 +5028,44 @@ textarea {
         font-size: 13px;
     }
 
+    .notice-wrap {
+        padding: 30px 0 0;
+    }
+
+    .view-box .view-content {
+        width: 100%;
+        padding: 30px 0 0;
+    }
+
+
     .view-box .title {
-        gap: 15px 0;
-        padding: 0px 10px 20px 10px;
+        gap: 10px;
         align-items: flex-start;
     }
 
     .view-box .title h4 {
-        /* font-size: 16px; */
+        font-size: 18px;
         text-align: left;
     }
 
-    .view-box .view-content {
-        padding: 20px 0 0;
+    .view-box .title div * {
+        font-size: 14px;
     }
 
-    .view-box .title div * {
-        font-size: 13px;
+    .view-box .view-content p {
+        font-size: 15px;
+    }
+
+    .view-box .view-content-list {
+        padding: 0 0 20px;
+    }
+
+    .view-box dl * {
+        font-size: 14px;
     }
 
     .view-box dl {
         height: 60px;
-    }
-
-    .view-box .view-content {
-        /* font-size: 15px; */
     }
 
     .gallery-wrap {
@@ -5114,14 +5145,14 @@ textarea {
 
 @media(max-width: 360px) {
     .file-box {
-        flex-direction: column;
+        /* flex-direction: column; */
     }
 
     .form-group label.file-btn {
-        width: 100%;
+        /* width: 100%; */
     }
 
     #file-name {
-        width: 100%;
+        /* width: 100%; */
     }
 }
