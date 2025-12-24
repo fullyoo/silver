@@ -68,29 +68,6 @@ a>img {
     display: none;
 }
 
-.cont-sec li a>img,
-.img_wrap .thum-img>img {
-    height: 100%;
-    object-fit: cover;
-    /* aspect-ratio: 3 / 4; */
-    transition: .5s;
-}
-
-.cont-sec a:hover>img,
-.cont-sec a:hover>.img_wrap .thum-img>img {
-    transform: scale(1.02);
-}
-
-.cont-sec a:hover .t-box .more {
-    color: var(--white-color);
-    background-color: var(--primary-color);
-    border-radius: 50px;
-    padding: 10px 30px;
-}
-
-.cont-sec a:hover .t-box .more img {
-    transform: rotate(90deg);
-}
 
 video {
     width: 100%;
@@ -98,188 +75,6 @@ video {
     object-fit: cover;
 }
 
-.inner-sec {
-    width: 100%;
-    max-width: 1620px;
-    margin: 0 auto;
-}
-
-.cont-sec {
-    padding: 100px 0;
-}
-
-.cta-btn {
-    font-weight: var(--font-700);
-    color: var(--primary-color);
-    background-color: var(--white-color);
-    border: 1px solid var(--primary-color);
-    border-radius: 50px;
-    padding: 15px 50px;
-    transition: .4s;
-    display: inline-block;
-}
-
-.cta-btn:hover {
-    color: var(--white-color);
-    background-color: var(--primary-color);
-}
-
-.title-wrap {
-    margin-bottom: 70px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.title {
-    font-size: 50px;
-    font-weight: var(--font-800);
-    /* line-height: 1.2; */
-    color: var(--text-color);
-    font-family: var(--key-font);
-    letter-spacing: -1.5px;
-}
-
-.title strong {
-    color: var(--primary-color);
-}
-
-.desc {
-    font-size: 24px;
-    font-weight: var(--font-500);
-}
-
-.t-box {
-    position: absolute;
-    z-index: 1;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    padding: 50px;
-    box-sizing: border-box;
-}
-
-.t-box .t1 {
-    font-size: 36px;
-    font-weight: var(--font-700);
-    color: var(--white-color);
-    margin-bottom: 20px;
-}
-
-.t-box .t2 {
-    font-size: 18px;
-    color: var(--white-color);
-    transition: all 0.5s;
-    height: 0px;
-    opacity: 0;
-    margin-bottom: 0px;
-}
-
-
-.cont-sec a:hover .t-box .t2 {
-    height: 80px;
-    opacity: 1;
-    margin-bottom: 50px;
-}
-
-.cont-sec li {
-    border-radius: 20px;
-    overflow: hidden;
-    position: relative;
-}
-
-.cont-sec li a {
-    position: relative;
-    display: block;
-    width: 100%;
-    height: 100%;
-}
-
-.cont-sec li a::before {
-    content: "";
-    z-index: 1;
-    position: absolute;
-    top: 0px;
-    left: 0px;
-    width: 100%;
-    height: 100%;
-    transform: scaleY(0);
-    -webkit-transform-origin-y: bottom;
-    -ms-transform-origin-y: bottom;
-    -o-transform-origin-y: bottom;
-    transition: 0.8s;
-    background-color: rgba(0, 0, 0, 0.2);
-}
-
-.cont-sec li a:hover::before {
-    transform: scaleY(1);
-}
-
-
-.more {
-    margin-top: 0px;
-    font-size: 16px;
-    font-weight: var(--font-700);
-    color: var(--white-color);
-    transition: .3s;
-    display: inline-block;
-}
-
-.more img {
-    width: auto;
-    vertical-align: middle;
-    margin-left: 10px;
-    margin-top: -3px;
-    transition: transform 0.5s ease-out;
-}
-
-.control {
-    display: flex;
-    align-items: center;
-    gap: 20px;
-}
-
-.control svg {
-    height: 28px;
-    color: var(--text-color);
-    fill: none;
-}
-
-.control .swiper-button-next:after,
-.team-sec .control .swiper-button-prev:after {
-    display: none;
-}
-
-.control .next,
-.control .prev {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    width: 60px;
-    height: 60px;
-    background: var(--white-color);
-    border: 1px solid var(--lightgray-color);
-    cursor: pointer;
-    transition: .4s;
-    border-radius: 10px;
-}
-
-.control .next:hover,
-.control .prev:hover {
-    background: var(--primary-color);
-    border: 1px solid var(--primary-color);
-}
-
-.control .next:hover svg,
-.control .prev:hover svg {
-    color: var(--white-color);
-}
-
-.control .swiper-button-next:after,
-.control .swiper-button-prev:after {
-    display: none;
-}
 
 .close-btn {
     float: right;
@@ -1636,11 +1431,6 @@ input[type="checkbox"]:focus {
 /* 반응형 모바일 */
 
 @media(max-width: 1600px) {
-    .inner-sec {
-        max-width: 100%;
-        width: calc(100% - 60px);
-    }
-
     .fullmenu-close {
         right: 30px;
     }
@@ -1655,13 +1445,6 @@ input[type="checkbox"]:focus {
 }
 
 @media(max-width: 1280px) {
-    .t-box {
-        padding: 40px;
-    }
-
-    .t-box .t1 {
-        font-size: 30px;
-    }
 
     .fullmenu-title {
         font-size: 24px;
@@ -1680,10 +1463,6 @@ input[type="checkbox"]:focus {
 }
 
 @media(max-width: 1024px) {
-    .t-box {
-        padding: 20px;
-    }
-
     #header {}
 
     /* 메뉴 닫힘 + 최상단 투명 + 흰색 로고/버튼/햄버거 */
@@ -2081,37 +1860,6 @@ input[type="checkbox"]:focus {
         display: block;
     }
 
-    .title {
-        font-size: 40px;
-    }
-
-    .title br {
-        /* display: none; */
-    }
-
-    .desc {
-        font-size: 18px;
-    }
-
-    .cta-btn {
-        padding: 12px 40px;
-    }
-
-    .t-box .t1 {
-        font-size: 33px;
-    }
-
-    .t-box .t2 {
-        /* display: none; */
-    }
-
-    .title-wrap {
-        flex-direction: column;
-        text-align: center;
-        gap: 60px;
-        margin-bottom: 40px;
-    }
-
     .footer {
         padding-top: 20px;
     }
@@ -2164,28 +1912,6 @@ input[type="checkbox"]:focus {
     }
 
     /* 모바일 호버 효과 제거 */
-    .cont-sec li a:hover::before {
-        transform: scaleY(0);
-    }
-
-    .cont-sec a:hover .t-box .more {
-        background-color: transparent;
-        padding: 0;
-    }
-
-    .cont-sec a:hover .t-box .t2 {
-        margin-bottom: 0px;
-    }
-
-    .cont-sec a:hover>img,
-    .cont-sec a:hover>.img_wrap .thum-img>img {
-        transform: scale(1);
-    }
-
-    .cont-sec a:hover .t-box .more img {
-        transform: rotate(0deg);
-    }
-
     .form-list input[type="text"],
     .form-list input[type="submit"],
     .form-list button[type="submit"] {
@@ -2193,16 +1919,10 @@ input[type="checkbox"]:focus {
         font-size: 15px;
     }
 
-
 }
 
 
 @media(max-width: 768px) {
-    .inner-sec {
-        max-width: 100%;
-        width: calc(100% - 40px);
-    }
-
     .fullmenu-container {
         padding: 70px 20px 30px;
     }
@@ -2229,50 +1949,8 @@ input[type="checkbox"]:focus {
         font-size: 24px;
     }
 
-    .t-box .t1 {
-        font-size: 22px;
-        line-height: 1.3;
-    }
-
-    .more {
-        font-size: 12px;
-    }
-
-    .more img {
-        width: 12px;
-        margin-top: -1px;
-    }
-
-    .cont-sec a:hover .t-box .more {
-        padding: 8px 20px;
-        padding: 0;
-    }
-
-    .control .next,
-    .control .prev {
-        width: 35px;
-        height: 35px;
-    }
-
-    .control svg {
-        height: 20px;
-    }
-
     .sub-menu a {
         font-size: 16px;
-    }
-
-    .title-wrap {
-        gap: 35px;
-        margin-bottom: 25px;
-    }
-
-    .cont-sec {
-        padding: 40px 0;
-    }
-
-    .title {
-        font-size: 30px;
     }
 
     .footer-nav {
@@ -2340,10 +2018,5 @@ input[type="checkbox"]:focus {
         flex-direction: column;
         gap: 5px;
     }
-
-    .title {
-        font-size: 24px;
-    }
-
 
 }

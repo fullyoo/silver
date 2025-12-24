@@ -274,7 +274,7 @@ $(function () {
     var imgSwiper1 = new Swiper(".team-slide .team-list", {
         speed: 700,
         slidesPerView: '1.5',
-        spaceBetween: 10,
+        spaceBetween: 20,
         autoHeight: true,
         loop: true,
         centeredSlides: true,
@@ -301,15 +301,21 @@ $(function () {
                 centeredSlides: false
             },
 
-            1024: {
+            1025: {
                 slidesPerView: '3.5',
-                spaceBetween: 40,
+                spaceBetween: 60,
                 centeredSlides: false
             },
 
-            768: {
+            769: {
                 slidesPerView: '2.5',
-                spaceBetween: 30,
+                spaceBetween: 40,
+                centeredSlides: true
+            },
+
+            640: {
+                slidesPerView: '2.5',
+                spaceBetween: 20,
                 centeredSlides: true
             },
 
