@@ -877,18 +877,18 @@ input[type="checkbox"]:focus {
     background-image: url(../images/main/icon_main-cont-r.svg);
     background-size: contain;
     background-repeat: no-repeat;
-    width: 25px;
-    height: 25px;
+    width: 20px;
+    height: 20px;
     position: absolute;
     opacity: 0;
     transition: .5s;
     transform: translate(-10px, -40px);
-
 }
 
 .fullmenu-item:hover::before {
     opacity: 1;
     transform: translate(-10px, -30px);
+    transform: translate(-10px, 10px);
 }
 
 .fullmenu-overlay.active .fullmenu-item {
@@ -925,11 +925,12 @@ input[type="checkbox"]:focus {
 }
 
 .fullmenu-title {
-    font-size: 30px;
+    font-size: 25px;
     font-weight: var(--font-700);
     color: var(--text-color);
+    font-family: var(--key-font);
     margin-bottom: 20px;
-    padding-bottom: 15px;
+    padding-bottom: 10px;
     border-bottom: 2px solid var(--primary-color);
     cursor: pointer;
     transition: all 0.3s;
@@ -938,13 +939,12 @@ input[type="checkbox"]:focus {
 }
 
 
-
 .fullmenu-list {
     list-style: none;
 }
 
 .fullmenu-list li {
-    margin-bottom: 12px;
+    margin-bottom: 15px;
 }
 
 .fullmenu-list a {
@@ -963,12 +963,14 @@ input[type="checkbox"]:focus {
     width: 0;
     height: 1px;
     background-color: var(--primary-color);
+    background-color: var(--text-color);
     transition: width 0.3s;
 }
 
 .fullmenu-list a:hover {
+    font-weight: var(--font-500);
     color: var(--primary-color);
-    font-weight: var(--font-500)
+    color: var(--text-color);
 }
 
 .fullmenu-list a:hover::before {
@@ -977,6 +979,7 @@ input[type="checkbox"]:focus {
 
 .fullmenu-item:hover .fullmenu-title {
     color: var(--primary-color);
+    padding-left: 20px;
 }
 
 .fullmenu-cont {
