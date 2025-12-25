@@ -1243,7 +1243,6 @@ input[type="checkbox"]:focus {
 .demo-content p {
     font-size: 18px;
     color: var(--body-color);
-    line-height: 1.8;
     max-width: 800px;
     margin: 0 auto 40px;
 }

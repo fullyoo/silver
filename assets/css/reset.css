@@ -260,7 +260,6 @@ textarea {
 	font-size: 16px;
 	color: #666;
 	font-weight: 400;
-	letter-spacing: -0.6px;
 	background-color: #fff;
 }
 
@@ -320,7 +319,6 @@ textarea {
 	height: 1px;
 	margin: 0;
 	font-size: 0;
-	line-height: 0;
 	overflow: hidden;
 }
 

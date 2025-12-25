@@ -104,10 +104,8 @@
 .title {
     font-size: 50px;
     font-weight: var(--font-800);
-    /* line-height: 1.2; */
     color: var(--text-color);
     font-family: var(--key-font);
-    letter-spacing: -1.5px;
 }
 
 .title strong {
@@ -260,7 +258,6 @@
 .kv-sec {
     overflow: hidden;
     position: relative;
-    letter-spacing: -.2px;
     width: 100%;
     height: 100vh;
     border-bottom-right-radius: 150px;
@@ -419,7 +416,6 @@
     /* transition: opacity 0.6s ease 0.6s; */
     color: var(--white-color);
     font-family: var(--key-font);
-    letter-spacing: -1.5px;
 }
 
 .kv-sec .swiper-slide-active .main_txt .txt {
@@ -945,10 +941,6 @@
     -webkit-line-clamp: 3;
 }
 
-.notice-list .t-box .t2 {
-    margin-bottom: 10px;
-}
-
 .notice-list .t-box .t2 b {
     font-size: 18px;
 }
@@ -1036,7 +1028,6 @@
 .intro-sec .title {
     color: var(--white-color);
     font-size: 55px;
-    line-height: 1.5;
 }
 
 .intro-wrap {
@@ -1073,7 +1064,7 @@
 }
 
 .intro-sec a:hover .t-box .t1 {
-    margin-top: -20px;
+    margin-top: -10px;
 }
 
 .intro-sec a:hover .t-box .t2 {
@@ -1382,19 +1373,6 @@
         display: none;
     }
 
-    .team-sec .t-box .t1 {
-        font-size: 28px;
-    }
-
-    .team-sec .t-box .t2 {
-        opacity: 1;
-        height: auto;
-        font-size: 16px;
-        height: 70px;
-    }
-
-    .team-sec .t-box {}
-
     .donate-link {
         flex-direction: column;
     }
@@ -1549,9 +1527,8 @@
     }
 
     .kv-sec .main_txt .txt {
-        font-size: 38px;
+        font-size: 40px;
         padding: 20px 0 40px;
-        letter-spacing: -1px;
     }
 
     .kv-sec .main_txt .desc {
@@ -1586,7 +1563,16 @@
         padding: 80px 0;
     }
 
-    .team-sec .cont-sec li {}
+    .team-sec .t-box .t1 {
+        font-size: 28px;
+    }
+
+    .team-sec .t-box .t2 {
+        opacity: 1;
+        height: auto;
+        height: 70px;
+        font-size: 16px;
+    }
 
     .team-slide {
         margin-top: 0;
@@ -1617,7 +1603,6 @@
 
     .intro-sec .title {
         font-size: 40px;
-        padding: 20px;
     }
 
     .intro-wrap .t-box {
@@ -1631,8 +1616,7 @@
     }
 
     .intro-sec .t-box .more {
-        padding: 8px 16px;
-        font-size: 13px;
+        font-size: 14px;
     }
 
     .intro-wrap .t-box .t2 {
@@ -1713,12 +1697,13 @@
     }
 
     .intro-sec a:hover .t-box .t2 {
-        margin-bottom: 15px;
+        margin-bottom: 30px;
+        height: auto;
     }
 
     .intro-sec .cont-sec a:hover .t-box .more {
-        padding: 8px 16px;
         border: 1px solid var(--white-color);
+        padding: 5px 15px;
     }
 
     .notice-sec .cont-sec li .t-box:after {
@@ -1769,7 +1754,6 @@
 
     .t-box .t1 {
         font-size: 22px;
-        line-height: 1.3;
     }
 
     .more {
@@ -1778,7 +1762,6 @@
 
     .more img {
         width: 12px;
-        margin-top: -1px;
     }
 
     .cont-sec a:hover .t-box .more {
@@ -1786,18 +1769,25 @@
         padding: 0;
     }
 
+    .gallery-sec .cont-sec a:hover .more {
+        color: var(--primary-color);
+        background-color: var(--white-color);
+        padding: 5px 40px 5px 15px;
+        margin-top: 20px;
+    }
+
     .control .next,
     .control .prev {
-        width: 35px;
-        height: 35px;
+        width: 40px;
+        height: 40px;
     }
 
     .control svg {
-        height: 20px;
+        height: 24px;
     }
 
     .title-wrap {
-        gap: 35px;
+        gap: 20px;
         margin-bottom: 30px;
     }
 
@@ -1825,6 +1815,22 @@
     .kv-sec .main_txt .desc {
         font-size: 16px;
     }
+
+    .kv-sec .pager span:after {
+        width: 8px;
+        height: 8px;
+    }
+
+    .kv-sec .pager span.on:before {
+        width: 30px;
+        height: 30px;
+    }
+
+    .kv-sec .pager span {
+        width: 30px;
+        height: 30px;
+    }
+
 
     .service-wrap {
         gap: 20px;
@@ -1862,18 +1868,11 @@
     }
 
     .gallery-list .t-box .t1 {
-        margin-bottom: 10px;
+        margin: 10px 0;
     }
 
     .gallery-list .t-box .t2 {
         font-size: 15px;
-        margin-bottom: 15px;
-        padding: 5px 0 0;
-    }
-
-    .gallery-sec .cont-sec a:hover .t-box .t2 {
-        margin-bottom: 15px;
-
     }
 
     .gallery-list .t-box .t2 b {
@@ -1881,36 +1880,35 @@
     }
 
     .gallery-list .thum-img {
-        height: 150px;
-        border-radius: 30px;
+        height: 200px;
     }
 
-    .kv-sec .pager span:after {
-        width: 8px;
-        height: 8px;
+    .gallery-list .thum-img>img {
+        object-position: center 20%;
     }
 
-    .kv-sec .pager span.on:before {
-        width: 30px;
-        height: 30px;
+    .gallery-list .t-box .more {
+        font-size: 14px;
+        padding: 5px 40px 5px 15px;
+        margin-top: 20px;
     }
 
-    .kv-sec .pager span {
-        width: 30px;
-        height: 30px;
+    .gallery-list .thum-img::after {
+        -webkit-mask-size: 35px;
     }
+
 
     .scroll-indicator {
         width: 26px;
         height: 45px;
     }
 
-    .team-sec .cont-sec li:hover {
-        border-radius: 30px 30px 30px 0;
+    .team-sec .cont-sec li {
+        height: 400px;
     }
 
     .team-slide ul li .img_wrap {
-        height: 320px;
+        height: 400px;
     }
 
     .team-sec .t-box {
@@ -1918,41 +1916,50 @@
     }
 
     .team-slide .pager_wrap {
-        padding-top: 25px;
-    }
-
-    .gallery-list .thum-img::after {
-        -webkit-mask-size: 35px;
+        padding-top: 30px;
     }
 
     .intro-sec {
         background-position: 60%;
     }
 
-    .intro-wrap {
-        flex-direction: column;
-    }
-
     .intro-sec .title {
-        font-size: 32px;
+        font-size: 30px;
     }
 
     .intro-sec .title-wrap {
-        padding: 40px 0;
+        padding: 100px 0;
     }
 
     .intro-wrap .t-box {
-        padding: 25px 0;
+        padding: 40px 0;
     }
 
     .intro-wrap .t-box .t2 {
         font-size: 15px;
-        margin-bottom: 15px;
+        margin-bottom: 20px;
+    }
+
+    .intro-sec a:hover .t-box .t2 {
+        margin-bottom: 20px;
+    }
+
+    .intro-sec .t-box .more {
+        padding: 5px 15px;
+        font-size: 13px;
     }
 
     .notice-list .t-box .t1 {
         font-size: 18px;
         min-height: 60px;
+    }
+
+    .notice-sec .cont-sec li a:hover .t1 {
+        min-height: 60px;
+    }
+
+    .notice-sec .cont-sec a:hover .t-box .t2 {
+        margin-bottom: 0px;
     }
 
     .notice-list .t-box .t3 {
@@ -1963,7 +1970,6 @@
 
     .notice-list .t-box {
         height: 200px;
-        padding: 20px;
     }
 
     .notice-sec .cont-sec li .t-box:after {}
@@ -2080,6 +2086,14 @@
     .kv-sec {
         border-bottom-right-radius: 80px;
     }
+
+    .intro-wrap {
+        flex-direction: column;
+    }
+
+    .intro-wrap .t-box {
+        padding: 25px 0;
+    }
 }
 
 
@@ -2101,12 +2115,11 @@
         font-size: 26px;
         padding: 15px 0 30px;
         white-space: normal;
-        line-height: 1.4;
     }
 
     .kv-sec .main_txt .desc {
         font-size: 15px;
-        padding: 12px 26px;
+        padding: 12px 25px;
         border-radius: 40px;
     }
 
@@ -2114,17 +2127,36 @@
         width: 100%;
     }
 
+    .service-wrap li a>img {
+        object-position: center 25% !important;
+    }
+
+    .service-wrap li a .t-box .t1 b {
+        font-size: 24px;
+    }
+
+    .service-wrap li a .t-box .t1 {
+        font-size: 25px;
+    }
+
     .cont-sec li a>img {
         aspect-ratio: 5/3;
         object-position: center top;
+    }
+
+    .intro-sec .title-wrap {
+        padding: 60px 0;
     }
 
     .intro-sec .title {
         font-size: 24px;
     }
 
-
+    .intro-sec .title b {
+        display: block;
+    }
 }
+
 
 @media(max-width:360px) {
     .donate-link {

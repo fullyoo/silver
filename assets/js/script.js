@@ -277,7 +277,7 @@ $(function () {
         spaceBetween: 20,
         autoHeight: true,
         loop: true,
-        centeredSlides: true,
+        centeredSlides: false,
 
         // autoplay: {
         //     delay: 5000,
@@ -296,7 +296,7 @@ $(function () {
 
         breakpoints: {
             1280: {
-                slidesPerView: '4.5',
+                slidesPerView: '4',
                 spaceBetween: 60,
                 centeredSlides: false
             },
@@ -308,15 +308,9 @@ $(function () {
             },
 
             769: {
-                slidesPerView: '2.5',
+                slidesPerView: '3.5',
                 spaceBetween: 40,
-                centeredSlides: true
-            },
-
-            640: {
-                slidesPerView: '2.5',
-                spaceBetween: 20,
-                centeredSlides: true
+                centeredSlides: false
             },
 
             480: {
@@ -408,12 +402,12 @@ $(function () {
 
             768: {
                 slidesPerView: '2.5',
-                spaceBetween: 30,
-                centeredSlides: true
+                spaceBetween: 20,
+                centeredSlides: false
             },
 
             480: {
-                slidesPerView: '1.5',
+                slidesPerView: '2',
                 spaceBetween: 20,
                 centeredSlides: false
             }
