@@ -279,10 +279,10 @@ $(function () {
         loop: true,
         centeredSlides: false,
 
-        // autoplay: {
-        //     delay: 5000,
-        //     disableOnInteraction: false
-        // },
+        autoplay: {
+            delay: 5000,
+            disableOnInteraction: false
+        },
 
         navigation: {
             nextEl: ".team-sec .swiper-button-next",
@@ -339,10 +339,10 @@ $(function () {
             crossFade: true          // ★ 페이드 겹침 문제 해결
         },
 
-        // autoplay: {
-        //     delay: 5000,
-        //     disableOnInteraction: false
-        // },
+        autoplay: {
+            delay: 5000,
+            disableOnInteraction: false
+        },
 
         navigation: {
             nextEl: ".gallery-sec .swiper-button-next",
@@ -372,10 +372,10 @@ $(function () {
 
         crossFade: true, //fade 이펙트 겹침 현상 시 해결
 
-        // autoplay: {
-        //     delay: 5000,
-        //     disableOnInteraction: false
-        // },
+        autoplay: {
+            delay: 5000,
+            disableOnInteraction: false
+        },
 
         navigation: {
             nextEl: ".notice-sec .swiper-button-next",

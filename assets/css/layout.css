@@ -3,7 +3,6 @@
 @import url("reset.css");
 @import url("font.css");
 
-/* 공통영역 */
 
 :root {
     --text-color: #191919;
@@ -76,9 +75,50 @@ video {
 }
 
 
-.close-btn {
-    float: right;
-    padding: 5px;
+/* ============ 레이어 팝업 ==========
+============= */
+.popup-wrap {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: rgba(0 0 0 / 80%);
+    /* backdrop-filter: blur(3px); */
+    z-index: 9999;
+}
+
+.popup {
+    max-width: 550px;
+    width: calc(100% - 40px);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: var(--white-color);
+    border: 3px solid var(--primary-color);
+    padding: 30px;
+    border-radius: 20px;
+}
+
+.popup p {
+    margin: 20px 0;
+}
+
+.popup h2 {
+    font-size: 28px;
+    font-weight: var(--font-700);
+    color: var(--text-color);
+    border-bottom: 2px solid var(--lightgray-color);
+    padding-bottom: 20px;
+    font-family: var(--key-font);
+    text-align: center;
+}
+
+.popup strong {
+    font-size: 18px;
+    margin-bottom: 5px;
+    display: block;
 }
 
 .popup-close {
@@ -121,6 +161,14 @@ video {
     background-color: var(--primary-color);
 }
 
+.close-btn {
+    float: right;
+    padding: 5px;
+}
+
+
+/* ============ 폼(form) 레이아웃 스타일 ==========
+============= */
 
 .form-list input[type="text"],
 .form-list input[type="password"],
@@ -205,7 +253,10 @@ textarea:focus {
 }
 
 
-/* 우측 탑버튼 */
+/* ============ 우측 탑버튼 ==========
+============= */
+
+.form-list input[type="text"],
 #btnTop {
     opacity: 0;
     /* 기본 숨김 */
@@ -284,9 +335,6 @@ textarea:focus {
         box-shadow: 0 0 0 15px rgba(27, 70, 235, 0);
     }
 }
-
-
-/* //공통영역 */
 
 
 
@@ -437,7 +485,7 @@ body.menu-open {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.85);
+    background-color: rgba(0, 0, 0, 0.8);
     /* backdrop-filter: blur(5px); */
     z-index: 10000;
     display: flex;
@@ -455,7 +503,7 @@ body.menu-open {
 
 .login-popup {
     background-color: var(--white-color);
-    border-radius: 16px;
+    border-radius: 20px;
     padding: 30px;
     max-width: 450px;
     width: calc(100% - 40px);
@@ -512,9 +560,9 @@ body.menu-open {
 
 .login-popup-title {
     font-size: 28px;
+    margin-bottom: 10px;
     font-weight: var(--font-700);
     color: var(--text-color);
-    margin-bottom: 30px;
     text-align: center;
     font-family: var(--key-font);
 }
@@ -528,22 +576,20 @@ body.menu-open {
 .login-input-group {
     display: flex;
     flex-direction: column;
-    gap: 8px;
+    gap: 6px;
 }
 
 .login-input-group label {
     font-size: 15px;
-    font-weight: var(--font-600);
-    color: var(--body-color);
+    font-weight: var(--font-700);
+    color: var(--text-color);
 }
 
 .login-input-group input {
-    padding: 14px 16px;
-    border: 2px solid var(--lightgray-color);
-    border-radius: 8px;
-    font-size: 15px;
-    transition: border-color 0.3s;
-    font-family: 'pretendard', sans-serif;
+    padding: 10px;
+    border-radius: 10px;
+    border: 1px solid var(--border-color);
+    font-size: 14px;
 }
 
 .login-input-group input:focus {
@@ -601,7 +647,7 @@ input[type="checkbox"]::after {
     position: absolute;
     top: 2px;
     left: 6px;
-    width: 8px;
+    width: 6px;
     height: 12px;
     border: solid var(--body2-color);
     border-width: 0 2px 2px 0;
@@ -637,16 +683,14 @@ input[type="checkbox"]:focus {
 }
 
 .login-submit-btn {
-    padding: 16px;
+    padding: 10px;
     background-color: var(--primary-color);
     color: var(--white-color);
     border: none;
-    border-radius: 8px;
-    font-size: 16px;
+    border-radius: 10px;
     font-weight: var(--font-600);
     cursor: pointer;
     transition: all 0.3s;
-    font-family: 'pretendard', sans-serif;
 }
 
 .login-submit-btn:hover {
@@ -679,23 +723,22 @@ input[type="checkbox"]:focus {
 
 .social-login {
     display: flex;
-    flex-direction: column;
-    gap: 12px;
+    gap: 6px;
 }
 
 .social-btn {
-    padding: 14px;
-    border: 2px solid var(--lightgray-color);
-    border-radius: 8px;
+    padding: 10px 0;
+    border: 1px solid var(--lightgray-color);
+    border-radius: 10px;
     background-color: var(--white-color);
     cursor: pointer;
-    font-size: 15px;
+    font-size: 14px;
     font-weight: var(--font-600);
     transition: all 0.3s;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-family: 'pretendard', sans-serif;
+    width: 100%;
 }
 
 .social-btn:hover {
@@ -722,20 +765,19 @@ input[type="checkbox"]:focus {
     height: 15px;
     background: url("../images/common/ico-login-kakao1.svg") no-repeat center;
     vertical-align: middle;
-    margin: 0 7px 2px 0;
+    margin-right: 5px;
     background-size: contain;
 }
 
 .social-btn.naver:before {
     content: "";
     display: inline-block;
-    width: 18px;
-    height: 18px;
+    width: 15px;
+    height: 14px;
     background: url("../images/common/ico-login-naver1.svg") no-repeat center;
     vertical-align: middle;
-    margin-right: 7px;
     background-size: contain;
-    margin-top: -3px;
+    margin-right: 5px;
 }
 
 .signup-link {
@@ -1319,6 +1361,8 @@ input[type="checkbox"]:focus {
     color: var(--primary-color);
     border: 2px solid var(--primary-color);
 }
+
+
 
 
 /* ============푸터 영역==========
@@ -1943,12 +1987,56 @@ input[type="checkbox"]:focus {
         font-size: 14px;
     }
 
+    .popup {
+        padding: 20px;
+
+    }
+
+    .popup-close {
+        width: 25px;
+        height: 25px;
+    }
+
+    .popup h2 {
+        font-size: 20px;
+        text-align: left;
+    }
+
+
     .login-popup {
-        padding: 30px 20px;
+        padding: 20px;
+        border-radius: 10px;
     }
 
     .login-popup-title {
         font-size: 24px;
+    }
+
+    .login-popup-close {
+        width: 25px;
+        height: 25px;
+    }
+
+    .login-form {
+        gap: 15px;
+    }
+
+    .login-divider {
+        margin: 10px 0;
+    }
+
+    .login-options {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .login-submit-btn {
+        font-size: 15px;
+        padding: 10px;
+    }
+
+    .social-btn {
+        font-size: 13px;
     }
 
     .sub-menu a {
@@ -2003,7 +2091,6 @@ input[type="checkbox"]:focus {
         width: 100%;
         font-size: 14px;
     }
-
 }
 
 
@@ -2016,9 +2103,10 @@ input[type="checkbox"]:focus {
         display: flex;
     }
 
-    .login-options {
-        flex-direction: column;
-        gap: 5px;
-    }
+}
 
+@media(max-width: 360px) {
+    .social-login {
+        flex-direction: column;
+    }
 }
