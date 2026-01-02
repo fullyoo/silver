@@ -256,7 +256,7 @@ textarea:focus {
 /* ============ 우측 탑버튼 ==========
 ============= */
 
-.form-list input[type="text"],
+
 #btnTop {
     opacity: 0;
     /* 기본 숨김 */
